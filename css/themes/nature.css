@@ -1,0 +1,48 @@
+/* ./css/themes/nature.css
+ * Nature theme for the Slow Build Check-In questionnaire.
+ * 
+ * Soft sage green with dusty rose warmth undertones.
+ * Feminine-first design: grounded, peaceful, and calming.
+ */
+
+[data-theme="nature"] {
+    --color-primary: #8AA898;
+    --color-primary-hover: #7A9888;
+    --color-primary-light: #A8C4B0;
+
+    --color-secondary: #D8E4DC;
+    --color-secondary-hover: #C8D4CC;
+
+    --color-accent: #C8B4B4;
+    --color-accent-hover: #B8A4A4;
+
+    --color-success: #94B89C;
+    --color-warning: #D4C8A4;
+    --color-error: #C8A4A4;
+
+    --color-bg: #F8FAF8;
+    --color-bg-elevated: #FCFDFB;
+    --color-bg-card: #FCFDFB;
+    --color-bg-input: #FFFFFF;
+    --color-bg-hover: rgba(138, 168, 152, 0.06);
+
+    --color-text: #3A4840;
+    --color-text-muted: #687870;
+    --color-text-light: #8A9890;
+    --color-text-inverse: #FCFDFB;
+
+    --color-border: #E0E8E4;
+    --color-border-focus: var(--color-primary);
+
+    --color-progress-bg: #E0E8E4;
+    --color-progress-fill: var(--color-primary);
+
+    --color-selection-bg: rgba(138, 168, 152, 0.15);
+    --color-focus-ring: rgba(138, 168, 152, 0.35);
+
+    --shadow-sm: 0 1px 3px rgba(58, 72, 64, 0.04);
+    --shadow-md: 0 4px 8px -1px rgba(58, 72, 64, 0.06), 0 2px 4px -1px rgba(58, 72, 64, 0.03);
+    --shadow-lg: 0 12px 20px -4px rgba(58, 72, 64, 0.08), 0 4px 8px -2px rgba(58, 72, 64, 0.04);
+    --shadow-xl: 0 24px 32px -6px rgba(58, 72, 64, 0.10), 0 12px 16px -6px rgba(58, 72, 64, 0.04);
+    --shadow-glow: 0 0 24px rgba(138, 168, 152, 0.12);
+}

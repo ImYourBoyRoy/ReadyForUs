@@ -1,0 +1,48 @@
+/* ./css/themes/light.css
+ * Light theme (default) for the Slow Build Check-In questionnaire.
+ * 
+ * Ultra-soft blush lavender with whisper pink accents.
+ * Feminine-first design: warm, inviting, and deeply calming.
+ */
+
+[data-theme="light"] {
+    --color-primary: #9B89A9;
+    --color-primary-hover: #8A7898;
+    --color-primary-light: #C4B8D0;
+
+    --color-secondary: #F2D7E4;
+    --color-secondary-hover: #E8C7D4;
+
+    --color-accent: #E8B4B8;
+    --color-accent-hover: #D8A4A8;
+
+    --color-success: #94B89A;
+    --color-warning: #E4C89C;
+    --color-error: #D48A8A;
+
+    --color-bg: #FDF8F6;
+    --color-bg-elevated: #FFFFFF;
+    --color-bg-card: #FFFCFA;
+    --color-bg-input: #FFFFFF;
+    --color-bg-hover: rgba(155, 137, 169, 0.06);
+
+    --color-text: #4A4248;
+    --color-text-muted: #7A7078;
+    --color-text-light: #A09498;
+    --color-text-inverse: #FFFFFF;
+
+    --color-border: #F0E4E8;
+    --color-border-focus: var(--color-primary);
+
+    --color-progress-bg: #F0E4E8;
+    --color-progress-fill: var(--color-primary);
+
+    --color-selection-bg: rgba(155, 137, 169, 0.15);
+    --color-focus-ring: rgba(155, 137, 169, 0.35);
+
+    --shadow-sm: 0 1px 3px rgba(155, 137, 169, 0.04);
+    --shadow-md: 0 4px 8px -1px rgba(155, 137, 169, 0.06), 0 2px 4px -1px rgba(155, 137, 169, 0.03);
+    --shadow-lg: 0 12px 20px -4px rgba(155, 137, 169, 0.08), 0 4px 8px -2px rgba(155, 137, 169, 0.04);
+    --shadow-xl: 0 24px 32px -6px rgba(155, 137, 169, 0.10), 0 12px 16px -6px rgba(155, 137, 169, 0.04);
+    --shadow-glow: 0 0 24px rgba(155, 137, 169, 0.12);
+}

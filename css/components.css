@@ -1,0 +1,547 @@
+/* ./css/components.css
+ * Reusable UI components for the Slow Build Check-In questionnaire.
+ * 
+ * Includes buttons, cards, inputs, checkboxes, radio buttons, progress bar,
+ * and other interactive elements. All styled with comfort and accessibility in mind.
+ * 
+ * Dependencies: variables.css and base.css must be loaded first.
+ */
+
+/* ========================================
+   Buttons
+   ======================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1;
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn:focus-visible {
+    box-shadow: var(--focus-ring);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Primary Button */
+.btn-primary {
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: var(--color-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background: var(--color-bg-elevated);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: var(--color-bg-hover);
+    transform: translateY(-1px);
+}
+
+/* Ghost Button */
+.btn-ghost {
+    background: transparent;
+    color: var(--color-text-muted);
+}
+
+.btn-ghost:hover:not(:disabled) {
+    background: var(--color-bg-hover);
+    color: var(--color-text);
+}
+
+/* Button Sizes */
+.btn-sm {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-sm);
+}
+
+.btn-lg {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--font-size-lg);
+}
+
+/* Icon Button */
+.btn-icon {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: var(--radius-full);
+}
+
+.btn-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ========================================
+   Cards
+   ======================================== */
+.card {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+    transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+    margin-bottom: var(--space-4);
+}
+
+.card-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-2);
+}
+
+.card-subtitle {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.card-body {
+    margin-bottom: var(--space-4);
+}
+
+.card-footer {
+    display: flex;
+    gap: var(--space-3);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+}
+
+/* ========================================
+   Form Inputs
+   ======================================== */
+.input-group {
+    margin-bottom: var(--space-5);
+}
+
+.input-label {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+}
+
+.input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--font-size-base);
+    background: var(--color-bg-input);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input:hover {
+    border-color: var(--color-primary-light);
+}
+
+.input:focus {
+    border-color: var(--color-primary);
+    box-shadow: var(--focus-ring);
+}
+
+.input::placeholder {
+    color: var(--color-text-light);
+}
+
+/* Textarea */
+.textarea {
+    min-height: 120px;
+    line-height: var(--line-height-normal);
+}
+
+/* ========================================
+   Custom Checkbox
+   ======================================== */
+.checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.checkbox-wrapper:hover {
+    background: var(--color-bg-hover);
+}
+
+.checkbox-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkbox-custom {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-input);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.checkbox-input:checked+.checkbox-custom {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.checkbox-input:checked+.checkbox-custom::after {
+    content: '';
+    width: 6px;
+    height: 12px;
+    border: solid var(--color-text-inverse);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-bottom: 2px;
+}
+
+.checkbox-input:focus-visible+.checkbox-custom {
+    box-shadow: var(--focus-ring);
+}
+
+.checkbox-label {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    padding-top: 2px;
+    color: var(--color-text);
+}
+
+/* ========================================
+   Custom Radio Button
+   ======================================== */
+.radio-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.radio-wrapper:hover {
+    background: var(--color-bg-hover);
+}
+
+.radio-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.radio-custom {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-full);
+    background: var(--color-bg-input);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.radio-input:checked+.radio-custom {
+    border-color: var(--color-primary);
+}
+
+.radio-input:checked+.radio-custom::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: var(--color-primary);
+    border-radius: var(--radius-full);
+}
+
+.radio-input:focus-visible+.radio-custom {
+    box-shadow: var(--focus-ring);
+}
+
+.radio-label {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    padding-top: 2px;
+    color: var(--color-text);
+}
+
+/* ========================================
+   Progress Bar
+   ======================================== */
+.progress-container {
+    margin-bottom: var(--space-6);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-2);
+}
+
+.progress-text {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.progress-bar {
+    height: 8px;
+    background: var(--color-progress-bg);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    border-radius: var(--radius-full);
+    transition: width var(--transition-slow);
+}
+
+/* ========================================
+   Badge
+   ======================================== */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--radius-full);
+    background: var(--color-secondary);
+    color: var(--color-text);
+}
+
+.badge-primary {
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+.badge-accent {
+    background: var(--color-accent);
+    color: var(--color-text);
+}
+
+/* ========================================
+   Tooltip
+   ======================================== */
+.tooltip-trigger {
+    position: relative;
+    cursor: help;
+}
+
+.tooltip-content {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-sm);
+    background: var(--color-text);
+    color: var(--color-text-inverse);
+    border-radius: var(--radius-md);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-fast), visibility var(--transition-fast);
+    z-index: var(--z-tooltip);
+}
+
+.tooltip-trigger:hover .tooltip-content,
+.tooltip-trigger:focus .tooltip-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ========================================
+   Divider
+   ======================================== */
+.divider {
+    height: 1px;
+    background: var(--color-border);
+    margin: var(--space-6) 0;
+}
+
+/* ========================================
+   Section Header
+   ======================================== */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.section-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-secondary);
+    border-radius: var(--radius-md);
+    color: var(--color-primary);
+}
+
+.section-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin: 0;
+}
+
+/* ========================================
+   Examples Block
+   ======================================== */
+.examples-block {
+    background: var(--color-bg-hover);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    margin-top: var(--space-4);
+}
+
+.examples-title {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2);
+}
+
+.examples-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.examples-list li {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    padding-left: var(--space-4);
+    position: relative;
+    margin-bottom: var(--space-1);
+}
+
+.examples-list li::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary-light);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* ========================================
+   Skip Button
+   ======================================== */
+.skip-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    background: transparent;
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-fast);
+}
+
+.skip-btn:hover {
+    border-color: var(--color-primary-light);
+    color: var(--color-primary);
+    background: var(--color-bg-hover);
+}
+
+/* ========================================
+   Mode Selector
+   ======================================== */
+.mode-selector {
+    display: flex;
+    gap: var(--space-4);
+    margin: var(--space-6) 0;
+}
+
+.mode-option {
+    flex: 1;
+    padding: var(--space-5);
+    background: var(--color-bg-card);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-align: center;
+}
+
+.mode-option:hover {
+    border-color: var(--color-primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.mode-option.selected {
+    border-color: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-bg-card) 0%, rgba(124, 107, 158, 0.05) 100%);
+}
+
+.mode-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-2);
+}
+
+.mode-count {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+.mode-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.mode-time {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    margin-top: var(--space-2);
+}

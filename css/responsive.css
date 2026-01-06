@@ -1,0 +1,316 @@
+/* ./css/responsive.css
+ * Responsive breakpoints and mobile layouts for the Slow Build Check-In questionnaire.
+ * 
+ * Mobile-first approach with breakpoints for tablet and desktop.
+ * Ensures comfortable reading and interaction on all device sizes.
+ * 
+ * Dependencies: All other CSS files should be loaded first.
+ */
+
+/* ========================================
+   Base: Mobile First (< 480px)
+   ======================================== */
+
+/* Container adjustments */
+.container {
+    padding: 0 var(--space-4);
+}
+
+/* Navigation */
+.nav {
+    padding: var(--space-3) 0;
+}
+
+.nav-content {
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+/* Header */
+.header-title {
+    font-size: var(--font-size-xl);
+    text-align: center;
+}
+
+.header-subtitle {
+    font-size: var(--font-size-sm);
+    text-align: center;
+}
+
+/* Mode Selector */
+.mode-selector {
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.mode-option {
+    padding: var(--space-4);
+}
+
+/* Question Card */
+.question-card {
+    padding: var(--space-4);
+}
+
+.question-number {
+    font-size: var(--font-size-xs);
+}
+
+.question-prompt {
+    font-size: var(--font-size-base);
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.nav-buttons .btn {
+    width: 100%;
+}
+
+/* Progress */
+.progress-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+}
+
+/* Review Grid */
+.review-grid {
+    grid-template-columns: 1fr;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    bottom: var(--space-4);
+    right: var(--space-4);
+    z-index: var(--z-sticky);
+}
+
+/* ========================================
+   Small Mobile (min 360px)
+   ======================================== */
+@media (min-width: 360px) {
+    .header-title {
+        font-size: var(--font-size-2xl);
+    }
+}
+
+/* ========================================
+   Tablet (min 481px)
+   ======================================== */
+@media (min-width: 481px) {
+    .container {
+        padding: 0 var(--space-6);
+    }
+
+    /* Navigation */
+    .nav-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Mode Selector */
+    .mode-selector {
+        flex-direction: row;
+    }
+
+    /* Navigation Buttons */
+    .nav-buttons {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav-buttons .btn {
+        width: auto;
+    }
+
+    /* Progress */
+    .progress-header {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    /* Question Card */
+    .question-card {
+        padding: var(--space-6);
+    }
+
+    /* Review Grid */
+    .review-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========================================
+   Desktop (min 769px)
+   ======================================== */
+@media (min-width: 769px) {
+
+    /* Typography scaling */
+    :root {
+        --font-size-base: 1.125rem;
+    }
+
+    .container {
+        max-width: var(--container-max);
+        padding: 0 var(--space-8);
+    }
+
+    /* Header */
+    .header {
+        padding: var(--space-10) 0;
+    }
+
+    .header-title {
+        font-size: var(--font-size-3xl);
+    }
+
+    /* Question Card */
+    .question-card {
+        padding: var(--space-8);
+    }
+
+    .question-prompt {
+        font-size: var(--font-size-lg);
+    }
+
+    /* Review Grid */
+    .review-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+    }
+
+    /* Theme Toggle position */
+    .theme-toggle {
+        position: static;
+    }
+}
+
+/* ========================================
+   Large Desktop (min 1024px)
+   ======================================== */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 800px;
+    }
+
+    /* Larger touch targets not needed */
+    .btn {
+        padding: var(--space-3) var(--space-5);
+    }
+
+    .btn-lg {
+        padding: var(--space-4) var(--space-6);
+    }
+}
+
+/* ========================================
+   Touch Device Optimizations
+   ======================================== */
+@media (hover: none) and (pointer: coarse) {
+
+    /* Larger touch targets */
+    .checkbox-wrapper,
+    .radio-wrapper {
+        padding: var(--space-4);
+        min-height: 48px;
+    }
+
+    .checkbox-custom,
+    .radio-custom {
+        width: 28px;
+        height: 28px;
+    }
+
+    .btn {
+        min-height: 48px;
+    }
+
+    /* Remove hover effects that don't work well on touch */
+    .card:hover {
+        transform: none;
+    }
+
+    .hover-lift:hover {
+        transform: none;
+        box-shadow: var(--shadow-md);
+    }
+}
+
+/* ========================================
+   Landscape Mobile
+   ======================================== */
+@media (max-height: 500px) and (orientation: landscape) {
+    .header {
+        padding: var(--space-4) 0;
+    }
+
+    .question-card {
+        padding: var(--space-4);
+    }
+
+    .mode-selector {
+        margin: var(--space-4) 0;
+    }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    .nav,
+    .theme-toggle,
+    .nav-buttons,
+    .skip-btn {
+        display: none !important;
+    }
+
+    .card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+    }
+
+    .question-card {
+        page-break-inside: avoid;
+    }
+
+    .review-grid {
+        display: block;
+    }
+
+    .review-item {
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+    }
+}
+
+/* ========================================
+   High Contrast Mode
+   ======================================== */
+@media (prefers-contrast: high) {
+    :root {
+        --color-border: #000;
+        --color-text: #000;
+        --color-bg: #fff;
+    }
+
+    .btn-primary {
+        border: 2px solid #000;
+    }
+
+    .checkbox-custom,
+    .radio-custom {
+        border-width: 3px;
+    }
+}

@@ -1,0 +1,48 @@
+/* ./css/themes/warm.css
+ * Warm theme for the Slow Build Check-In questionnaire.
+ * 
+ * Soft peachy blush palette with gentle coral accents.
+ * Feminine-first design: cozy, nurturing, and romantic.
+ */
+
+[data-theme="warm"] {
+    --color-primary: #D4A8A8;
+    --color-primary-hover: #C49898;
+    --color-primary-light: #E8C4C4;
+
+    --color-secondary: #F4DCD8;
+    --color-secondary-hover: #E8CCC8;
+
+    --color-accent: #E4B8A8;
+    --color-accent-hover: #D4A898;
+
+    --color-success: #A8C8A4;
+    --color-warning: #E8D4A8;
+    --color-error: #D89898;
+
+    --color-bg: #FEF8F6;
+    --color-bg-elevated: #FFFCFB;
+    --color-bg-card: #FFFCFB;
+    --color-bg-input: #FFFFFF;
+    --color-bg-hover: rgba(212, 168, 168, 0.06);
+
+    --color-text: #5A4844;
+    --color-text-muted: #8A7874;
+    --color-text-light: #A89894;
+    --color-text-inverse: #FFFCFB;
+
+    --color-border: #F4E4E0;
+    --color-border-focus: var(--color-primary);
+
+    --color-progress-bg: #F4E4E0;
+    --color-progress-fill: var(--color-primary);
+
+    --color-selection-bg: rgba(212, 168, 168, 0.15);
+    --color-focus-ring: rgba(212, 168, 168, 0.35);
+
+    --shadow-sm: 0 1px 3px rgba(90, 72, 68, 0.04);
+    --shadow-md: 0 4px 8px -1px rgba(90, 72, 68, 0.06), 0 2px 4px -1px rgba(90, 72, 68, 0.03);
+    --shadow-lg: 0 12px 20px -4px rgba(90, 72, 68, 0.08), 0 4px 8px -2px rgba(90, 72, 68, 0.04);
+    --shadow-xl: 0 24px 32px -6px rgba(90, 72, 68, 0.10), 0 12px 16px -6px rgba(90, 72, 68, 0.04);
+    --shadow-glow: 0 0 24px rgba(212, 168, 168, 0.12);
+}

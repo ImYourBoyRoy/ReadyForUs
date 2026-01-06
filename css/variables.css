@@ -1,0 +1,135 @@
+/* ./css/variables.css
+ * Design tokens for the Slow Build Check-In questionnaire.
+ * 
+ * Defines CSS custom properties for colors, typography, spacing, and animations.
+ * All themes override these variables to change the look and feel.
+ * 
+ * Usage: Import this file first, then base.css, then components.css.
+ */
+
+:root {
+  /* ========================================
+     Typography
+     ======================================== */
+  --font-primary: 'Lexend', 'Atkinson Hyperlegible', system-ui, -apple-system, sans-serif;
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1.125rem; /* 18px - larger for readability */
+  --font-size-lg: 1.25rem;    /* 20px */
+  --font-size-xl: 1.5rem;     /* 24px */
+  --font-size-2xl: 1.875rem;  /* 30px */
+  --font-size-3xl: 2.25rem;   /* 36px */
+  
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.75;
+  
+  --letter-spacing-tight: -0.01em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.02em;
+  
+  /* ========================================
+     Spacing (8px base grid)
+     ======================================== */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  
+  /* ========================================
+     Border Radius
+     ======================================== */
+  --radius-sm: 0.375rem;   /* 6px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;       /* 16px */
+  --radius-2xl: 1.5rem;    /* 24px */
+  --radius-full: 9999px;
+  
+  /* ========================================
+     Shadows
+     ======================================== */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+  --shadow-glow: 0 0 20px rgba(124, 107, 158, 0.15);
+  
+  /* ========================================
+     Transitions
+     ======================================== */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+  --transition-bounce: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* ========================================
+     Z-Index Scale
+     ======================================== */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  
+  /* ========================================
+     Container & Layout
+     ======================================== */
+  --container-max: 720px;
+  --container-padding: var(--space-6);
+  
+  /* ========================================
+     Default Theme: Light (Warm Lavendar)
+     ======================================== */
+  --color-primary: #7C6B9E;
+  --color-primary-hover: #6B5A8D;
+  --color-primary-light: #A99BC8;
+  
+  --color-secondary: #E8C4D8;
+  --color-secondary-hover: #DEB4C8;
+  
+  --color-accent: #D4A5A5;
+  --color-accent-hover: #C89595;
+  
+  --color-success: #6B9E7C;
+  --color-warning: #D4A564;
+  --color-error: #C85C5C;
+  
+  --color-bg: #FDF9F7;
+  --color-bg-elevated: #FFFFFF;
+  --color-bg-card: #FFFFFF;
+  --color-bg-input: #FFFFFF;
+  --color-bg-hover: rgba(124, 107, 158, 0.08);
+  
+  --color-text: #3D3D3D;
+  --color-text-muted: #6B6B6B;
+  --color-text-light: #8A8A8A;
+  --color-text-inverse: #FFFFFF;
+  
+  --color-border: #E8E0E0;
+  --color-border-focus: var(--color-primary);
+  
+  --color-progress-bg: #E8E0E0;
+  --color-progress-fill: var(--color-primary);
+  
+  /* ========================================
+     Selection & Focus
+     ======================================== */
+  --color-selection-bg: rgba(124, 107, 158, 0.2);
+  --color-focus-ring: rgba(124, 107, 158, 0.4);
+  --focus-ring: 0 0 0 3px var(--color-focus-ring);
+}

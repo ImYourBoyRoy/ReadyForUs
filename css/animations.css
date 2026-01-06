@@ -1,0 +1,484 @@
+/* ./css/animations.css
+ * Smooth animations and transitions for the Slow Build Check-In questionnaire.
+ * 
+ * Includes page transitions, hover effects, micro-animations, and loading states.
+ * Designed to feel gentle and calming, never jarring or overwhelming.
+ * 
+ * Dependencies: variables.css must be loaded first.
+ */
+
+/* ========================================
+   Keyframe Animations
+   ======================================== */
+
+/* Gentle fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fade in with slide up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade in with slide down */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade in with scale */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Gentle pulse */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Soft bounce */
+@keyframes softBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Heart beat */
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.1);
+    }
+}
+
+/* Shimmer loading effect */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Rotate */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Float */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Check mark draw */
+@keyframes checkDraw {
+    0% {
+        stroke-dashoffset: 24;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* ========================================
+   Animation Utility Classes
+   ======================================== */
+.animate-fadeIn {
+    animation: fadeIn var(--transition-normal) ease forwards;
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp var(--transition-slow) ease forwards;
+}
+
+.animate-fadeInDown {
+    animation: fadeInDown var(--transition-slow) ease forwards;
+}
+
+.animate-fadeInScale {
+    animation: fadeInScale var(--transition-slow) ease forwards;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-bounce {
+    animation: softBounce 2s ease-in-out infinite;
+}
+
+.animate-heartbeat {
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* ========================================
+   Page Transitions
+   ======================================== */
+.page {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity var(--transition-slow) ease,
+        transform var(--transition-slow) ease;
+}
+
+.page.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.page.exit {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* ========================================
+   Question Card Transitions
+   ======================================== */
+.question-card {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity var(--transition-slow) ease,
+        transform var(--transition-slow) ease;
+}
+
+.question-card.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.question-card.exit-left {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.question-card.exit-right {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+/* Staggered entrance for options - ensure visibility after animation */
+.question-options .checkbox-wrapper,
+.question-options .radio-wrapper {
+    animation: fadeInUp var(--transition-normal) ease both;
+}
+
+.question-options .checkbox-wrapper:nth-child(1),
+.question-options .radio-wrapper:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.question-options .checkbox-wrapper:nth-child(2),
+.question-options .radio-wrapper:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.question-options .checkbox-wrapper:nth-child(3),
+.question-options .radio-wrapper:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.question-options .checkbox-wrapper:nth-child(4),
+.question-options .radio-wrapper:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.question-options .checkbox-wrapper:nth-child(5),
+.question-options .radio-wrapper:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.question-options .checkbox-wrapper:nth-child(6),
+.question-options .radio-wrapper:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+.question-options .checkbox-wrapper:nth-child(7),
+.question-options .radio-wrapper:nth-child(7) {
+    animation-delay: 0.35s;
+}
+
+/* ========================================
+   Button Interactions
+   ======================================== */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ripple effect */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.btn:active::after {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+    transition: width 0.3s ease, height 0.3s ease, opacity 0.5s ease;
+}
+
+/* ========================================
+   Checkbox/Radio Animations
+   ======================================== */
+.checkbox-custom,
+.radio-custom {
+    transition: all var(--transition-fast);
+}
+
+.checkbox-input:checked+.checkbox-custom,
+.radio-input:checked+.radio-custom {
+    animation: fadeInScale var(--transition-fast) ease;
+}
+
+/* Selection pop */
+.checkbox-wrapper:active .checkbox-custom,
+.radio-wrapper:active .radio-custom {
+    transform: scale(0.9);
+}
+
+/* ========================================
+   Progress Bar Animation
+   ======================================== */
+.progress-fill {
+    transition: width var(--transition-slow) cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ========================================
+   Card Hover Effects
+   ======================================== */
+.card {
+    transition: transform var(--transition-normal) ease,
+        box-shadow var(--transition-normal) ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+/* ========================================
+   Loading States
+   ======================================== */
+.skeleton {
+    background: linear-gradient(90deg,
+            var(--color-bg-hover) 0%,
+            var(--color-bg-elevated) 50%,
+            var(--color-bg-hover) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+    border-radius: var(--radius-md);
+}
+
+.loading-spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--color-border);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+/* ========================================
+   Theme Transition
+   ======================================== */
+body,
+.card,
+.btn,
+.input,
+.progress-bar {
+    transition: background-color var(--transition-normal) ease,
+        border-color var(--transition-normal) ease,
+        color var(--transition-normal) ease;
+}
+
+/* Theme Switch Animation - Elegant Bloom Effect */
+@keyframes themeBloom {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    40% {
+        opacity: 0.92;
+        transform: scale(1.005);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes themeFadeShift {
+    0% {
+        filter: brightness(1) saturate(1);
+    }
+
+    30% {
+        filter: brightness(1.03) saturate(0.95);
+    }
+
+    100% {
+        filter: brightness(1) saturate(1);
+    }
+}
+
+/* Theme transitioning state */
+body.theme-transitioning {
+    animation: themeBloom 400ms ease-out, themeFadeShift 400ms ease-out;
+}
+
+body.theme-transitioning .card,
+body.theme-transitioning .btn,
+body.theme-transitioning .nav {
+    animation: themeBloom 400ms ease-out;
+}
+
+/* Subtle glow pulse on theme toggle button during switch */
+body.theme-transitioning .theme-toggle {
+    animation: pulse 300ms ease-in-out;
+}
+
+/* ========================================
+   Success Animation
+   ======================================== */
+.success-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--color-success);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInScale var(--transition-slow) ease;
+}
+
+.success-icon svg {
+    stroke: white;
+    stroke-width: 3;
+    stroke-dasharray: 24;
+    animation: checkDraw 0.4s ease 0.2s forwards;
+}
+
+/* ========================================
+   Hover Lift Effect
+   ======================================== */
+.hover-lift {
+    transition: transform var(--transition-normal) ease,
+        box-shadow var(--transition-normal) ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ========================================
+   Reduced Motion Support
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .page,
+    .question-card {
+        opacity: 1;
+        transform: none;
+    }
+}
