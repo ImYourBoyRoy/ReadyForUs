@@ -82,12 +82,10 @@
     grid-template-columns: 1fr;
 }
 
-/* Theme Toggle */
+/* Theme Toggle - Force to stay in nav bar on all screen sizes */
+/* Do NOT use fixed positioning - it overlays the Next button on mobile */
 .theme-toggle {
-    position: fixed;
-    bottom: var(--space-4);
-    right: var(--space-4);
-    z-index: var(--z-sticky);
+    position: static !important;
 }
 
 /* ========================================
@@ -185,10 +183,6 @@
         gap: var(--space-4);
     }
 
-    /* Theme Toggle position */
-    .theme-toggle {
-        position: static;
-    }
 }
 
 /* ========================================

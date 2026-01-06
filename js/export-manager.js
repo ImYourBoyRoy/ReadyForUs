@@ -432,6 +432,234 @@ const ExportManager = {
             console.error('Failed to copy couple prompt to clipboard:', err);
             return false;
         }
+    },
+
+    /**
+     * Show raw text in a modal for manual copy (mobile fallback).
+     * @param {string} title - Modal title.
+     * @param {string} content - Text content to display.
+     */
+    showRawView(title, content) {
+        // Create or get existing modal
+        let modal = document.getElementById('raw-view-modal');
+
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'raw-view-modal';
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `
+                <div class="modal">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="raw-view-title"></h2>
+                        <button class="modal-close" aria-label="Close" onclick="ExportManager.hideRawView()">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="raw-text-hint">
+                            <span class="icon">📋</span>
+                            <span>Tap the text below, then <strong>Select All</strong> and <strong>Copy</strong></span>
+                        </p>
+                        <textarea class="raw-text-view" id="raw-view-content" readonly></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-ghost" onclick="ExportManager.hideRawView()">Close</button>
+                        <button class="btn btn-secondary" onclick="ExportManager.selectAllInModal()">Select All</button>
+                        <button class="btn btn-primary" onclick="ExportManager.copyFromModal()">Copy</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+
+            // Close on overlay click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    this.hideRawView();
+                }
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    this.hideRawView();
+                }
+            });
+        }
+
+        // Update content and show
+        document.getElementById('raw-view-title').textContent = title;
+        document.getElementById('raw-view-content').value = content;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
+
+        // Focus the textarea for easy selection
+        setTimeout(() => {
+            document.getElementById('raw-view-content').focus();
+        }, 100);
+    },
+
+    /**
+     * Hide the raw view modal.
+     */
+    hideRawView() {
+        const modal = document.getElementById('raw-view-modal');
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    },
+
+    /**
+     * Select all text in the modal textarea.
+     */
+    selectAllInModal() {
+        const textarea = document.getElementById('raw-view-content');
+        if (textarea) {
+            textarea.focus();
+            textarea.select();
+        }
+    },
+
+    /**
+     * Copy text from modal and provide feedback.
+     */
+    async copyFromModal() {
+        const textarea = document.getElementById('raw-view-content');
+        if (!textarea) return;
+
+        try {
+            textarea.select();
+            await navigator.clipboard.writeText(textarea.value);
+
+            // Visual feedback
+            const copyBtn = document.querySelector('#raw-view-modal .btn-primary');
+            if (copyBtn) {
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = '✓ Copied!';
+                copyBtn.classList.add('btn-success');
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                    copyBtn.classList.remove('btn-success');
+                }, 2000);
+            }
+        } catch (err) {
+            // Fallback: prompt user to use manual copy
+            alert('Please use Select All and copy manually (Ctrl+C or Cmd+C)');
+        }
+    },
+
+    /**
+     * Show individual AI prompt in raw view.
+     * @param {Object} options - Export options.
+     */
+    showIndividualPromptRaw(options = {}) {
+        const { participantName = 'Participant' } = options;
+        const prompt = DataLoader.getPrompt('individual_reflection');
+        if (!prompt) return;
+
+        let text = this.buildAIPromptText(prompt, participantName);
+        this.showRawView('Individual AI Prompt', text);
+    },
+
+    /**
+     * Show results in raw view for sharing.
+     * @param {Object} options - Export options.
+     */
+    showResultsRaw(options = {}) {
+        const { participantName = 'Participant' } = options;
+
+        let text = `=== ${participantName.toUpperCase()}'S RESPONSES ===\n\n`;
+
+        QuestionnaireEngine.questions.forEach(question => {
+            const response = QuestionnaireEngine.responses[question.id];
+            const status = QuestionnaireEngine.getQuestionStatus(question.id);
+
+            text += `**Q${question.order}: ${question.title}**\n`;
+            text += `${question.prompt}\n`;
+
+            if (status === 'answered' && response) {
+                text += `Answer: ${this.formatResponseForText(question, response)}\n\n`;
+            } else if (status === 'skipped') {
+                text += `Answer: [Skipped]\n\n`;
+            } else {
+                text += `Answer: [Not answered]\n\n`;
+            }
+        });
+
+        text += `=== END OF ${participantName.toUpperCase()}'S RESPONSES ===\n`;
+
+        this.showRawView(`${participantName}'s Results`, text);
+    },
+
+    /**
+     * Show couple's prompt in raw view.
+     */
+    showCouplePromptRaw() {
+        const prompt = DataLoader.getPrompt('couple_reflection');
+        if (!prompt) return;
+
+        let text = '';
+        text += '=== SYSTEM ROLE ===\n';
+        text += prompt.role + '\n\n';
+        text += '=== CONTEXT ===\n';
+        prompt.context.forEach(c => text += `• ${c}\n`);
+        text += '\n';
+        text += '=== INSTRUCTIONS ===\n';
+        text += 'Paste BOTH partners\' responses below.\n\n';
+        text += '=== PARTICIPANT A RESPONSES ===\n';
+        text += '[Paste Participant A\'s results here]\n\n';
+        text += '=== PARTICIPANT B RESPONSES ===\n';
+        text += '[Paste Participant B\'s results here]\n\n';
+        text += '=== REQUESTED OUTPUT FORMAT ===\n';
+        prompt.output_format.forEach(section => {
+            text += `\n### ${section.section}\n`;
+            section.requirements.forEach(req => text += `• ${req}\n`);
+        });
+        text += '\n=== CONSTRAINTS ===\n';
+        prompt.constraints.forEach(c => text += `• ${c}\n`);
+
+        this.showRawView("Couple's AI Prompt", text);
+    },
+
+    /**
+     * Build AI prompt text (helper).
+     * @param {Object} prompt - Prompt template.
+     * @param {string} participantName - Participant name.
+     * @returns {string} Formatted prompt text.
+     */
+    buildAIPromptText(prompt, participantName) {
+        let text = '';
+        text += '=== SYSTEM ROLE ===\n';
+        text += prompt.role + '\n\n';
+        text += '=== CONTEXT ===\n';
+        prompt.context.forEach(c => text += `• ${c}\n`);
+        text += '\n';
+        text += `=== PARTICIPANT: ${participantName} ===\n\n`;
+        text += '=== RESPONSES ===\n\n';
+
+        QuestionnaireEngine.questions.forEach(question => {
+            const response = QuestionnaireEngine.responses[question.id];
+            const status = QuestionnaireEngine.getQuestionStatus(question.id);
+
+            text += `**Q${question.order}: ${question.title}**\n`;
+            text += `${question.prompt}\n`;
+
+            if (status === 'answered' && response) {
+                text += `Answer: ${this.formatResponseForText(question, response)}\n\n`;
+            } else if (status === 'skipped') {
+                text += `Answer: [Skipped]\n\n`;
+            } else {
+                text += `Answer: [Not answered]\n\n`;
+            }
+        });
+
+        text += '=== REQUESTED OUTPUT FORMAT ===\n';
+        prompt.output_format.forEach(section => {
+            text += `\n### ${section.section}\n`;
+            section.requirements.forEach(req => text += `• ${req}\n`);
+        });
+        text += '\n=== CONSTRAINTS ===\n';
+        prompt.constraints.forEach(c => text += `• ${c}\n`);
+
+        return text;
     }
 };
 

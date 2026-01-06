@@ -101,6 +101,17 @@ const App = {
         document.getElementById('btn-copy-results')?.addEventListener('click', () => this.copyResultsForCouple());
         document.getElementById('btn-copy-couple-prompt')?.addEventListener('click', () => this.copyCouplePrompt());
 
+        // View Raw buttons (mobile fallback)
+        document.getElementById('btn-view-ai-prompt')?.addEventListener('click', () => {
+            ExportManager.showIndividualPromptRaw({ participantName: this.getParticipantName() });
+        });
+        document.getElementById('btn-view-results')?.addEventListener('click', () => {
+            ExportManager.showResultsRaw({ participantName: this.getParticipantName() });
+        });
+        document.getElementById('btn-view-couple-prompt')?.addEventListener('click', () => {
+            ExportManager.showCouplePromptRaw();
+        });
+
         // Restart buttons (both nav and complete view)
         document.getElementById('btn-restart')?.addEventListener('click', () => this.restart());
         document.getElementById('btn-nav-restart')?.addEventListener('click', () => this.restart());
