@@ -202,7 +202,7 @@ const ImportManager = {
 
             parts.forEach(part => {
                 const colonIdx = part.indexOf(':');
-                if (colonIdx > 0 && colonIdx < 60) { // Key shouldn't be too long
+                if (colonIdx > 0 && colonIdx < 100) { // Key can be up to 100 chars for long labels
                     const key = part.substring(0, colonIdx).trim()
                         .toLowerCase()
                         .replace(/[^\w\s]/g, '')
@@ -227,12 +227,56 @@ const ImportManager = {
             }
         }
 
+        // Check for (Other: ...) pattern and extract it before splitting
+        // Use balanced parentheses matching to handle nested parens like "(Other: change(s)...)"
+        let otherText = '';
+        let cleanedText = answerText;
+        const otherStart = answerText.search(/\(Other:\s*/i);
+        if (otherStart !== -1) {
+            // Find the matching closing paren using balanced counting
+            let parenDepth = 0;
+            let startContent = -1;
+            let endParen = -1;
+            for (let i = otherStart; i < answerText.length; i++) {
+                if (answerText[i] === '(') {
+                    if (startContent === -1 && parenDepth === 0) {
+                        // Find the content start after "Other:"
+                        const colonMatch = answerText.slice(i).match(/^\(Other:\s*/i);
+                        if (colonMatch) {
+                            startContent = i + colonMatch[0].length;
+                        }
+                    }
+                    parenDepth++;
+                } else if (answerText[i] === ')') {
+                    parenDepth--;
+                    if (parenDepth === 0) {
+                        endParen = i;
+                        break;
+                    }
+                }
+            }
+            if (endParen !== -1 && startContent !== -1) {
+                otherText = answerText.slice(startContent, endParen).trim();
+                // Remove the entire (Other: ...) part from the text
+                cleanedText = (answerText.slice(0, otherStart) + answerText.slice(endParen + 1)).trim();
+                cleanedText = cleanedText.replace(/,\s*$/, '').replace(/,\s*,/g, ',').trim();
+            }
+        }
+
         // Use smart comma split that preserves content inside parentheses
-        const items = this.smartCommaSplit(answerText);
+        const items = this.smartCommaSplit(cleanedText);
 
         // Check if this looks like free-form text (contains sentences/punctuation)
         const hasSentences = (answerText.match(/\.\s+[A-Z]/g) || []).length > 0;
         const hasDetailedProse = answerText.length > 150;
+
+        // Keep raw items for label matching (findMatchingOption will match by label)
+        // Also create normalized versions and deduplicate
+        const rawItems = items.filter(v => v.trim());
+        const selectedValues = [...new Set(
+            items.map(v => v.toLowerCase().replace(/\s+/g, '_').replace(/[^\w_]/g, ''))
+                .filter(v => v) // Only remove empty strings, not valid values
+        )];
 
         // Build response with ALL formats for maximum compatibility
         const response = {
@@ -240,7 +284,9 @@ const ImportManager = {
             selected_value: items.length === 1
                 ? items[0].toLowerCase().replace(/\s+/g, '_').replace(/[^\w_]/g, '')
                 : answerText.toLowerCase().replace(/\s+/g, '_').substring(0, 100),
-            selected_values: items.map(v => v.toLowerCase().replace(/\s+/g, '_').replace(/[^\w_]/g, ''))
+            selected_values: selectedValues,
+            raw_items: rawItems, // Keep raw labels for matching in mapResponseToQuestion
+            other_text: otherText
         };
 
         return response;
@@ -502,9 +548,10 @@ const ImportManager = {
     validateAndMapResponses(responses, questions) {
         const mappedResponses = {};
         const needsReview = [];
+        const fieldWarnings = {}; // Track per-field warnings for each question
 
         if (!questions || !responses) {
-            return { mappedResponses: responses || {}, needsReview: [] };
+            return { mappedResponses: responses || {}, needsReview: [], fieldWarnings: {} };
         }
 
         Object.entries(responses).forEach(([qId, response]) => {
@@ -512,18 +559,23 @@ const ImportManager = {
             if (!question) {
                 // Question doesn't exist in current schema
                 needsReview.push(qId);
+                fieldWarnings[qId] = ['Question not found in current questionnaire'];
                 return;
             }
 
-            const mappedResponse = this.mapResponseToQuestion(response, question);
-            mappedResponses[qId] = mappedResponse.response;
+            const mappedResult = this.mapResponseToQuestion(response, question);
+            mappedResponses[qId] = mappedResult.response;
 
-            if (!mappedResponse.fullyMapped) {
+            if (mappedResult.warnings && mappedResult.warnings.length > 0) {
+                fieldWarnings[qId] = mappedResult.warnings;
+            }
+
+            if (!mappedResult.fullyMapped) {
                 needsReview.push(qId);
             }
         });
 
-        return { mappedResponses, needsReview };
+        return { mappedResponses, needsReview, fieldWarnings };
     },
 
     /**
@@ -534,17 +586,19 @@ const ImportManager = {
      */
     mapResponseToQuestion(response, question) {
         if (!response || !question) {
-            return { response: response || {}, fullyMapped: false };
+            return { response: response || {}, fullyMapped: false, warnings: ['Invalid response or question'] };
         }
 
         const type = question.type;
         let mappedResponse = { ...response };
         let fullyMapped = true;
+        const warnings = []; // Track specific field-level issues
 
         switch (type) {
             case 'multi_select': {
                 const options = question.options || [];
-                const importedValues = response.selected_values || [];
+                // Use raw_items (original labels) for matching if available, else fall back to selected_values
+                const importedValues = response.raw_items || response.selected_values || [];
                 const mappedValues = [];
 
                 importedValues.forEach(imported => {
@@ -556,9 +610,19 @@ const ImportManager = {
                     }
                 });
 
+                // Only include other_text if 'other' is in selected values
+                // Also check for (Other: ...) pattern in the raw text
+                let otherText = response.other_text || '';
+                if (!otherText && response.text) {
+                    const otherMatch = response.text.match(/\(Other:\s*([^)]+)\)/i);
+                    if (otherMatch) {
+                        otherText = otherMatch[1].trim();
+                    }
+                }
+
                 mappedResponse = {
                     selected_values: mappedValues,
-                    other_text: response.other_text || response.text || ''
+                    other_text: mappedValues.includes('other') ? otherText : ''
                 };
 
                 // If nothing matched but we had values, mark for review
@@ -601,16 +665,78 @@ const ImportManager = {
                 const fields = question.fields || [];
                 mappedResponse = {};
 
+                // Helper to normalize strings for matching
+                const normalize = (str) => str.toLowerCase()
+                    .replace(/[^\w\s]/g, '')
+                    .replace(/\s+/g, '_')
+                    .trim();
+
                 fields.forEach(field => {
                     const key = field.key;
+                    const label = field.label || '';
+                    const normalizedLabel = normalize(label);
+
                     let value = response[key];
 
-                    // Try to find value in various keys
-                    if (!value) {
-                        // Look for similar keys (fuzzy match)
+                    // Try to find value by matching response keys against this field's label
+                    if (value === undefined) {
+                        // TXT parser creates keys from labels, so look for keys that match the label
+                        const responseKeys = Object.keys(response);
+
+                        for (const rKey of responseKeys) {
+                            const normalizedRKey = normalize(rKey);
+
+                            // Try various matching strategies
+                            if (normalizedRKey === normalizedLabel ||
+                                normalizedLabel.includes(normalizedRKey) ||
+                                normalizedRKey.includes(normalizedLabel) ||
+                                normalizedRKey.startsWith(normalize(label.split(' ').slice(0, 3).join(' ')))) {
+                                value = response[rKey];
+                                break;
+                            }
+
+                            // Special mappings for common field patterns
+                            if (field.type === 'number' &&
+                                (normalizedRKey.includes('number') || normalizedRKey.includes('how_many'))) {
+                                value = response[rKey];
+                                break;
+                            }
+                            if (key === 'milestone_text' && normalizedRKey.includes('milestone')) {
+                                value = response[rKey];
+                                break;
+                            }
+                            if (key === 'natural_sign_text' && normalizedRKey.includes('sign')) {
+                                value = response[rKey];
+                                break;
+                            }
+                            // Q6 specific mappings
+                            if (key === 'trigger_rule' &&
+                                (normalizedRKey.includes('feels_off') ||
+                                    normalizedRKey.includes('something_feels') ||
+                                    normalizedRKey.includes('when_do_we_talk'))) {
+                                value = response[rKey];
+                                break;
+                            }
+                            if (key === 'frequency' &&
+                                (normalizedRKey.includes('how_often') || normalizedRKey === 'frequency')) {
+                                value = response[rKey];
+                                break;
+                            }
+                            if (key === 'format' &&
+                                (normalizedRKey.includes('preferred_format') ||
+                                    normalizedRKey.includes('format_choose'))) {
+                                value = response[rKey];
+                                break;
+                            }
+                        }
+                    }
+
+                    // Also try fuzzy key match (but exclude generic 'text' key to avoid false matches)
+                    if (value === undefined) {
                         const possibleKeys = Object.keys(response).filter(k =>
-                            k.toLowerCase().includes(key.toLowerCase()) ||
-                            key.toLowerCase().includes(k.toLowerCase())
+                            k !== 'text' && // Exclude generic text key
+                            (k.toLowerCase().includes(key.toLowerCase()) ||
+                                key.toLowerCase().includes(k.toLowerCase()))
                         );
                         if (possibleKeys.length > 0) {
                             value = response[possibleKeys[0]];
@@ -618,7 +744,17 @@ const ImportManager = {
                     }
 
                     if (field.type === 'multi_select' && field.options) {
-                        const values = Array.isArray(value) ? value : (value ? [value] : []);
+                        // If value is a string, split it into individual items
+                        let values;
+                        if (Array.isArray(value)) {
+                            values = value;
+                        } else if (typeof value === 'string' && value.includes(',')) {
+                            // It's a comma-separated string, split it preserving parentheses
+                            values = this.smartCommaSplit(value);
+                        } else {
+                            values = value ? [value] : [];
+                        }
+
                         const mappedValues = [];
 
                         values.forEach(v => {
@@ -630,14 +766,23 @@ const ImportManager = {
 
                         mappedResponse[key] = mappedValues;
                         if (values.length > 0 && mappedValues.length === 0) {
+                            warnings.push(`Field "${field.label || key}": no options matched`);
+                            fullyMapped = false;
+                        } else if (values.length > mappedValues.length) {
+                            warnings.push(`Field "${field.label || key}": ${values.length - mappedValues.length} option(s) not matched`);
                             fullyMapped = false;
                         }
                     } else if (field.type === 'single_select' && field.options) {
                         const match = this.findMatchingOption(value || '', field.options);
                         mappedResponse[key] = match ? match.value : '';
                         if (value && !match) {
+                            warnings.push(`Field "${field.label || key}": "${value}" not matched`);
                             fullyMapped = false;
                         }
+                    } else if (field.type === 'number') {
+                        // Parse number from value
+                        const numVal = parseInt(value, 10);
+                        mappedResponse[key] = isNaN(numVal) ? null : numVal;
                     } else {
                         mappedResponse[key] = value || '';
                     }
@@ -652,10 +797,11 @@ const ImportManager = {
 
             default:
                 // Unknown type, keep as-is
+                warnings.push(`Unknown question type: ${type}`);
                 fullyMapped = false;
         }
 
-        return { response: mappedResponse, fullyMapped };
+        return { response: mappedResponse, fullyMapped, warnings };
     },
 
     /**

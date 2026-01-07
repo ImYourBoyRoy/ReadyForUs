@@ -343,30 +343,45 @@ const QuestionRenderer = {
 
   /**
    * Render a mini review card for the review page.
+   * @param {Object} question - Question object.
+   * @param {Object} response - Response object.
+   * @param {string} status - Answer status ('answered', 'skipped', 'unanswered').
+   * @param {Object} options - Additional options like needsReview.
    */
-  renderReviewCard(question, response, status = 'unanswered') {
-    const statusIcons = {
-      answered: '✓',
-      skipped: '⏭',
-      unanswered: '○'
-    };
+  renderReviewCard(question, response, status = 'unanswered', options = {}) {
+    const needsReview = options.needsReview || false;
 
-    const statusClasses = {
-      answered: 'review-card--answered',
-      skipped: 'review-card--skipped',
-      unanswered: 'review-card--unanswered'
-    };
+    // Override icon and class if question needs import review
+    let statusIcon, statusClass;
+    if (needsReview && status === 'answered') {
+      statusIcon = '⚠️';
+      statusClass = 'review-card--warning';
+    } else {
+      const statusIcons = {
+        answered: '✓',
+        skipped: '⏭',
+        unanswered: '○'
+      };
+      const statusClasses = {
+        answered: 'review-card--answered',
+        skipped: 'review-card--skipped',
+        unanswered: 'review-card--unanswered'
+      };
+      statusIcon = statusIcons[status];
+      statusClass = statusClasses[status];
+    }
 
     return `
-      <div class="review-card ${statusClasses[status]}" data-question-id="${question.id}">
+      <div class="review-card ${statusClass}" data-question-id="${question.id}">
         <div class="review-card-header">
           <span class="review-card-number">Q${question.order}</span>
-          <span class="review-card-status" aria-label="${status}">${statusIcons[status]}</span>
+          <span class="review-card-status" aria-label="${needsReview ? 'needs review' : status}">${statusIcon}</span>
         </div>
         <div class="review-card-title">${question.title}</div>
         ${status === 'answered' ? `
           <div class="review-card-answer">${this.formatAnswer(question, response)}</div>
         ` : ''}
+        ${needsReview ? '<div class="review-card-warning">Import may need verification</div>' : ''}
       </div>
     `;
   },

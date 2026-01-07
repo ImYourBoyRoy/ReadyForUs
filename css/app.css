@@ -461,6 +461,24 @@
     border-left: 4px solid var(--color-border);
 }
 
+.review-card--warning {
+    border-left: 4px solid #f59e0b;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), var(--color-bg-card));
+}
+
+.review-card--warning .review-card-status {
+    color: #f59e0b;
+}
+
+.review-card-warning {
+    font-size: var(--font-size-xs);
+    color: #f59e0b;
+    margin-top: var(--space-2);
+    padding: var(--space-1) var(--space-2);
+    background: rgba(245, 158, 11, 0.1);
+    border-radius: var(--radius-sm);
+}
+
 .review-card-header {
     display: flex;
     justify-content: space-between;

@@ -435,6 +435,9 @@ const App = {
      * Go to next question.
      */
     nextQuestion() {
+        // Clear warning for current question (user has viewed it)
+        this.clearImportWarning(QuestionnaireEngine.getCurrentQuestion()?.id);
+
         const isLast = QuestionnaireEngine.currentIndex === QuestionnaireEngine.getTotalQuestions() - 1;
 
         if (isLast) {
@@ -450,6 +453,9 @@ const App = {
      * Go to previous question.
      */
     previousQuestion() {
+        // Clear warning for current question (user has viewed it)
+        this.clearImportWarning(QuestionnaireEngine.getCurrentQuestion()?.id);
+
         if (QuestionnaireEngine.previous()) {
             this.renderCurrentQuestion();
             this.updateProgress();
@@ -538,7 +544,8 @@ const App = {
         grid.innerHTML = questions.map(question => {
             const status = QuestionnaireEngine.getQuestionStatus(question.id);
             const response = QuestionnaireEngine.getResponse(question.id);
-            return QuestionRenderer.renderReviewCard(question, response, status);
+            const needsReview = this.importNeedsReview?.includes(question.id) || false;
+            return QuestionRenderer.renderReviewCard(question, response, status, { needsReview });
         }).join('');
 
         // Update stats
@@ -895,6 +902,23 @@ const App = {
         if (errorEl) {
             errorEl.textContent = message;
             errorEl.style.display = 'block';
+        }
+    },
+
+    /**
+     * Clear import warning for a question (user has reviewed it).
+     * @param {string} questionId - Question ID to clear.
+     */
+    clearImportWarning(questionId) {
+        if (!questionId || !this.importNeedsReview) return;
+
+        const idx = this.importNeedsReview.indexOf(questionId);
+        if (idx > -1) {
+            this.importNeedsReview.splice(idx, 1);
+            // Also clear from warnings object
+            if (this.importWarnings) {
+                delete this.importWarnings[questionId];
+            }
         }
     },
 
@@ -1318,22 +1342,38 @@ const App = {
             // Initialize questionnaire with proper mode
             await QuestionnaireEngine.init(mode);
 
-            // Load responses from the imported file
-            if (file.responses) {
+            // Prepare responses for validation
+            let responsesToValidate = {};
+
+            if (file.format === 'json') {
+                // JSON format has { response: {...}, status: 'answered' }
                 Object.entries(file.responses).forEach(([qId, data]) => {
-                    // JSON format has { response: {...}, status: 'answered' }
-                    // TXT format has the response directly
-                    if (file.format === 'json' && data.response) {
-                        QuestionnaireEngine.responses[qId] = data.response;
-                        if (data.status === 'skipped') {
-                            QuestionnaireEngine.skipped.add(qId);
-                        }
-                    } else if (file.format === 'txt') {
-                        // TXT parsed responses are direct
-                        QuestionnaireEngine.responses[qId] = data;
+                    if (data.response) {
+                        responsesToValidate[qId] = data.response;
+                    }
+                    if (data.status === 'skipped') {
+                        QuestionnaireEngine.skipped.add(qId);
                     }
                 });
+            } else if (file.format === 'txt') {
+                // TXT parsed responses are direct
+                responsesToValidate = { ...file.responses };
             }
+
+            // Validate and map responses against question definitions
+            // DataLoader.data.questions is an object keyed by question ID
+            const questions = DataLoader.data?.questions || {};
+            const { mappedResponses, needsReview, fieldWarnings } = ImportManager.validateAndMapResponses(
+                responsesToValidate,
+                questions
+            );
+
+            // Load the mapped responses
+            QuestionnaireEngine.responses = mappedResponses;
+
+            // Store questions needing review and field warnings for debug overlay
+            this.importNeedsReview = needsReview;
+            this.importWarnings = fieldWarnings;
 
             // Update mode switcher
             const modeSwitcher = document.getElementById('mode-switcher');
@@ -1352,8 +1392,10 @@ const App = {
             this.renderCurrentQuestion();
             this.updateProgress();
 
-            // Show success message briefly
-            console.log(`Imported ${file.name}'s responses (${mode} mode)`);
+            // Log import summary (no intrusive alert)
+            const totalImported = Object.keys(mappedResponses).length;
+            const reviewCount = needsReview.length;
+            console.log(`Imported ${file.name}'s responses (${mode} mode). ${reviewCount} questions may need review.`);
 
         } catch (error) {
             this.showImportValidation(`Error loading file: ${error.message}`, 'error');
