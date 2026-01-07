@@ -157,11 +157,14 @@ const DataLoader = {
 
   /**
    * Get AI prompt templates.
-   * @param {string} type - 'individual_reflection' or 'couple_reflection'
+   * @param {string} type - 'individual' or 'couple'
+   * @param {string} mode - 'lite' or 'full'
    * @returns {Object|null} Prompt template or null.
    */
-  getPrompt(type) {
-    return this.prompts?.prompts?.[type] || null;
+  getPrompt(type, mode = 'lite') {
+    // Construct the prompt key based on type and mode
+    const promptKey = `${type}_reflection_${mode}`;
+    return this.prompts?.prompts?.[promptKey] || null;
   }
 };
 

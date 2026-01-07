@@ -125,8 +125,8 @@ const ExportManager = {
      * @param {Object} options - Export options.
      */
     exportForAI(type = 'individual', options = {}) {
-        const promptType = type === 'couple' ? 'couple_reflection' : 'individual_reflection';
-        const prompt = DataLoader.getPrompt(promptType);
+        const mode = QuestionnaireEngine.mode || 'lite';
+        const prompt = DataLoader.getPrompt(type, mode);
 
         if (!prompt) {
             console.error('Prompt template not found');
@@ -280,8 +280,8 @@ const ExportManager = {
      */
     async copyAIPrompt(type = 'individual', options = {}) {
         const { participantName = 'Participant' } = options;
-        const promptType = type === 'couple' ? 'couple_reflection' : 'individual_reflection';
-        const prompt = DataLoader.getPrompt(promptType);
+        const mode = QuestionnaireEngine.mode || 'lite';
+        const prompt = DataLoader.getPrompt(type, mode);
 
         if (!prompt) {
             console.error('Prompt template not found');
@@ -384,7 +384,8 @@ const ExportManager = {
      * @returns {Promise<boolean>} True if successful.
      */
     async copyCouplePrompt() {
-        const prompt = DataLoader.getPrompt('couple_reflection');
+        const mode = QuestionnaireEngine.mode || 'lite';
+        const prompt = DataLoader.getPrompt('couple', mode);
 
         if (!prompt) {
             console.error('Couple prompt template not found');
@@ -552,7 +553,8 @@ const ExportManager = {
      */
     showIndividualPromptRaw(options = {}) {
         const { participantName = 'Participant' } = options;
-        const prompt = DataLoader.getPrompt('individual_reflection');
+        const mode = QuestionnaireEngine.mode || 'lite';
+        const prompt = DataLoader.getPrompt('individual', mode);
         if (!prompt) return;
 
         let text = this.buildAIPromptText(prompt, participantName);
@@ -593,7 +595,8 @@ const ExportManager = {
      * Show couple's prompt in raw view.
      */
     showCouplePromptRaw() {
-        const prompt = DataLoader.getPrompt('couple_reflection');
+        const mode = QuestionnaireEngine.mode || 'lite';
+        const prompt = DataLoader.getPrompt('couple', mode);
         if (!prompt) return;
 
         let text = '';
