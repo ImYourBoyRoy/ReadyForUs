@@ -385,8 +385,36 @@ const App = {
         }
 
         QuestionnaireEngine.saveResponse(questionId, response);
+
+        // Update conditional field visibility for compound questions
+        if (question.type === 'compound' && (target.type === 'radio' || target.type === 'checkbox')) {
+            this.updateConditionalFields(questionId, question, response);
+        }
+
         this.updateNavigationButtons();
         this.updateProgress();
+    },
+
+    /**
+     * Update visibility of conditional fields within a compound question.
+     * @param {string} questionId - Question ID.
+     * @param {Object} question - Question definition.
+     * @param {Object} response - Current response object.
+     */
+    updateConditionalFields(questionId, question, response) {
+        if (!question.fields) return;
+
+        const container = document.getElementById('question-container');
+
+        question.fields.forEach(field => {
+            if (!field.showWhen) return;
+
+            const fieldEl = container.querySelector(`[data-field-key="${field.key}"]`);
+            if (!fieldEl) return;
+
+            const isVisible = QuestionRenderer.evaluateShowWhen(field, response);
+            fieldEl.classList.toggle('hidden', !isVisible);
+        });
     },
 
     /**

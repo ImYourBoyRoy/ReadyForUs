@@ -140,6 +140,22 @@
 }
 
 /* ========================================
+   Compound Field Visibility
+   ======================================== */
+.compound-field {
+    transition: opacity var(--transition-normal), max-height var(--transition-normal), margin var(--transition-normal);
+    overflow: hidden;
+}
+
+.compound-field.hidden {
+    display: none;
+    opacity: 0;
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* ========================================
    Form Inputs
    ======================================== */
 .input-group {

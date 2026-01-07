@@ -344,19 +344,36 @@
         },
         {
           "key": "number_value",
-          "label": "Number (if applicable)",
+          "label": "How many?",
           "type": "number",
-          "min": 0
+          "min": 1,
+          "showWhen": {
+            "field": "review_type",
+            "in": [
+              "after_more_dates",
+              "after_weeks"
+            ]
+          }
         },
         {
           "key": "milestone_text",
-          "label": "Milestone (if applicable)",
-          "type": "short_text"
+          "label": "What milestone?",
+          "type": "short_text",
+          "placeholder": "e.g., first trip together, meeting family",
+          "showWhen": {
+            "field": "review_type",
+            "equals": "after_milestone"
+          }
         },
         {
           "key": "natural_sign_text",
-          "label": "Sign I would notice (if applicable)",
-          "type": "short_text"
+          "label": "What sign would you notice?",
+          "type": "short_text",
+          "placeholder": "e.g., feeling ready to be more public, wanting more time together",
+          "showWhen": {
+            "field": "review_type",
+            "equals": "when_natural_sign"
+          }
         }
       ],
       "answer_schema": {
@@ -891,8 +908,13 @@
         },
         {
           "key": "other_signs_text",
-          "label": "Other signs (if applicable)",
-          "type": "short_text"
+          "label": "Describe your other signs",
+          "type": "short_text",
+          "placeholder": "e.g., I tend to fidget or change the subject",
+          "showWhen": {
+            "field": "signs",
+            "includes": "other"
+          }
         },
         {
           "key": "best_response_text",
@@ -1725,33 +1747,81 @@
       "order": 31,
       "title": "Ideal cadence for seeing each other (right now)",
       "prompt": "Right now, a healthy cadence for seeing each other would be:",
-      "type": "single_select",
-      "options": [
+      "type": "compound",
+      "fields": [
         {
-          "value": "1x_week",
-          "label": "About 1x/week"
+          "key": "selected_value",
+          "label": "Choose one",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "1x_week",
+              "label": "About 1x/week"
+            },
+            {
+              "value": "2x_week",
+              "label": "About 2x/week"
+            },
+            {
+              "value": "3x_week",
+              "label": "About 3x/week"
+            },
+            {
+              "value": "varies",
+              "label": "Varies week to week (schedule-based)"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
         },
         {
-          "value": "2x_week",
-          "label": "About 2x/week"
+          "key": "varies_text",
+          "label": "Describe your schedule",
+          "type": "short_text",
+          "placeholder": "e.g., depends on my work schedule, we plan ahead",
+          "showWhen": {
+            "field": "selected_value",
+            "equals": "varies"
+          }
         },
         {
-          "value": "3x_week",
-          "label": "About 3x/week"
-        },
-        {
-          "value": "varies",
-          "label": "Varies week to week (schedule-based)"
-        },
-        {
-          "value": "other",
-          "label": "Other (write in)"
+          "key": "other_text",
+          "label": "Please describe",
+          "type": "short_text",
+          "placeholder": "Describe your ideal cadence",
+          "showWhen": {
+            "field": "selected_value",
+            "equals": "other"
+          }
         }
       ],
       "answer_schema": {
         "selected_value": "",
+        "varies_text": "",
         "other_text": "",
         "notes": ""
+      },
+      "validation": {
+        "required_if": [
+          {
+            "when": {
+              "selected_value": "varies"
+            },
+            "then_require": [
+              "varies_text"
+            ]
+          },
+          {
+            "when": {
+              "selected_value": "other"
+            },
+            "then_require": [
+              "other_text"
+            ]
+          }
+        ]
       },
       "examples": [
         "2x/week feels steady without intensity.",
@@ -1769,38 +1839,125 @@
       "order": 32,
       "title": "Communication channel preferences",
       "prompt": "At this stage, I prefer communication to be mostly:",
-      "type": "single_select",
-      "options": [
+      "type": "compound",
+      "fields": [
         {
-          "value": "text_light",
-          "label": "Texting (light and warm)"
+          "key": "selected_value",
+          "label": "Choose one",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "text_light",
+              "label": "Texting (light and warm)"
+            },
+            {
+              "value": "calls",
+              "label": "Calls/voice notes"
+            },
+            {
+              "value": "in_person_best",
+              "label": "Mostly in-person; minimal phone"
+            },
+            {
+              "value": "mix",
+              "label": "A mix"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
         },
         {
-          "value": "calls",
-          "label": "Calls/voice notes"
+          "key": "mix_template",
+          "label": "Pick a starting template (optional)",
+          "type": "single_select",
+          "showWhen": {
+            "field": "selected_value",
+            "equals": "mix"
+          },
+          "options": [
+            {
+              "value": "texts_plus_call_before_date",
+              "label": "Light texts + one call before dates"
+            },
+            {
+              "value": "texts_daily_calls_weekly",
+              "label": "Texts most days + one call weekly"
+            },
+            {
+              "value": "texts_only_between_dates",
+              "label": "Mostly in-person; texts only to coordinate"
+            },
+            {
+              "value": "voice_notes_over_calls",
+              "label": "Voice notes > calls"
+            },
+            {
+              "value": "varies",
+              "label": "Varies week to week"
+            }
+          ]
         },
         {
-          "value": "in_person_best",
-          "label": "Mostly in-person; minimal phone"
+          "key": "mix_details",
+          "label": "What does your mix look like? (1–2 sentences)",
+          "type": "short_text",
+          "placeholder": "e.g., quick texts most days, short call the day before we meet",
+          "showWhen": {
+            "field": "selected_value",
+            "equals": "mix"
+          }
         },
         {
-          "value": "mix",
-          "label": "A mix (explain)"
+          "key": "other_text",
+          "label": "Please describe",
+          "type": "short_text",
+          "placeholder": "Describe your preferred communication style",
+          "showWhen": {
+            "field": "selected_value",
+            "equals": "other"
+          }
         },
         {
-          "value": "other",
-          "label": "Other (write in)"
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
         }
       ],
       "answer_schema": {
         "selected_value": "",
+        "mix_template": "",
+        "mix_details": "",
         "other_text": "",
         "notes": ""
       },
       "examples": [
-        "Mostly in-person; minimal phone.",
-        "A mix: light texts + one call before dates."
+        "Selected: mix. Template: light texts + one call before dates. Details: quick texts most days, short call the day before we meet.",
+        "Selected: in_person_best. Notes: texting only for logistics."
       ],
+      "validation": {
+        "required_if": [
+          {
+            "if": {
+              "field": "selected_value",
+              "equals": "mix"
+            },
+            "then_require": [
+              "mix_details"
+            ]
+          },
+          {
+            "if": {
+              "field": "selected_value",
+              "equals": "other"
+            },
+            "then_require": [
+              "other_text"
+            ]
+          }
+        ]
+      },
       "tags": {
         "included_in_manifests": [
           "full"
@@ -1813,33 +1970,81 @@
       "order": 33,
       "title": "Privacy and sharing boundaries",
       "prompt": "Regarding sharing our relationship with friends/social media, I prefer:",
-      "type": "single_select",
-      "options": [
+      "type": "compound",
+      "fields": [
         {
-          "value": "private",
-          "label": "Keep it private for now"
+          "key": "selected_value",
+          "label": "Choose one",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "private",
+              "label": "Keep it private for now"
+            },
+            {
+              "value": "friends_only",
+              "label": "Friends-only, low-key"
+            },
+            {
+              "value": "open",
+              "label": "Open and normal (no secrecy)"
+            },
+            {
+              "value": "depends",
+              "label": "Depends on context"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
         },
         {
-          "value": "friends_only",
-          "label": "Friends-only, low-key"
+          "key": "depends_text",
+          "label": "Explain the context",
+          "type": "short_text",
+          "placeholder": "e.g., private at work, open with close friends",
+          "showWhen": {
+            "field": "selected_value",
+            "equals": "depends"
+          }
         },
         {
-          "value": "open",
-          "label": "Open and normal (no secrecy)"
-        },
-        {
-          "value": "depends",
-          "label": "Depends on context (explain)"
-        },
-        {
-          "value": "other",
-          "label": "Other (write in)"
+          "key": "other_text",
+          "label": "Please describe",
+          "type": "short_text",
+          "placeholder": "Describe your preference",
+          "showWhen": {
+            "field": "selected_value",
+            "equals": "other"
+          }
         }
       ],
       "answer_schema": {
         "selected_value": "",
+        "depends_text": "",
         "other_text": "",
         "notes": ""
+      },
+      "validation": {
+        "required_if": [
+          {
+            "when": {
+              "selected_value": "depends"
+            },
+            "then_require": [
+              "depends_text"
+            ]
+          },
+          {
+            "when": {
+              "selected_value": "other"
+            },
+            "then_require": [
+              "other_text"
+            ]
+          }
+        ]
       },
       "examples": [
         "Friends-only, low-key.",

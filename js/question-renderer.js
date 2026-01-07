@@ -190,10 +190,14 @@ const QuestionRenderer = {
   renderCompoundField(field, questionId, response) {
     const value = response[field.key] || '';
 
+    // Check showWhen conditions for conditional field visibility
+    const isVisible = this.evaluateShowWhen(field, response);
+    const hiddenClass = isVisible ? '' : 'hidden';
+
     switch (field.type) {
       case 'single_select':
         return `
-          <div class="compound-field">
+          <div class="compound-field ${hiddenClass}" data-field-key="${field.key}">
             <label class="input-label">${field.label}</label>
             <div class="question-options compact">
               ${field.options.map(option => `
@@ -218,7 +222,7 @@ const QuestionRenderer = {
       case 'multi_select':
         const selectedValues = Array.isArray(value) ? value : [];
         return `
-          <div class="compound-field">
+          <div class="compound-field ${hiddenClass}" data-field-key="${field.key}">
             <label class="input-label">${field.label}</label>
             <div class="question-options compact">
               ${field.options.map(option => `
@@ -242,7 +246,7 @@ const QuestionRenderer = {
 
       case 'number':
         return `
-          <div class="compound-field">
+          <div class="compound-field ${hiddenClass}" data-field-key="${field.key}">
             <label class="input-label">${field.label}</label>
             <input 
               type="number" 
@@ -250,6 +254,7 @@ const QuestionRenderer = {
               value="${value || ''}"
               min="${field.min || 0}"
               ${field.max ? `max="${field.max}"` : ''}
+              placeholder="${field.placeholder || ''}"
               data-question-id="${questionId}"
               data-field="${field.key}"
             >
@@ -258,13 +263,13 @@ const QuestionRenderer = {
 
       case 'short_text':
         return `
-          <div class="compound-field">
+          <div class="compound-field ${hiddenClass}" data-field-key="${field.key}">
             <label class="input-label">${field.label}</label>
             <input 
               type="text" 
               class="input" 
               value="${value}"
-              placeholder="Type here..."
+              placeholder="${field.placeholder || 'Type here...'}"
               data-question-id="${questionId}"
               data-field="${field.key}"
             >
@@ -273,11 +278,11 @@ const QuestionRenderer = {
 
       case 'free_text':
         return `
-          <div class="compound-field">
+          <div class="compound-field ${hiddenClass}" data-field-key="${field.key}">
             <label class="input-label">${field.label}</label>
             <textarea 
               class="input textarea" 
-              placeholder="Share your thoughts..."
+              placeholder="${field.placeholder || 'Share your thoughts...'}"
               data-question-id="${questionId}"
               data-field="${field.key}"
               rows="3"
@@ -288,6 +293,38 @@ const QuestionRenderer = {
       default:
         return '';
     }
+  },
+
+  /**
+   * Evaluate showWhen condition for a field.
+   * @param {Object} field - Field definition with optional showWhen property.
+   * @param {Object} response - Current response object.
+   * @returns {boolean} True if field should be visible.
+   */
+  evaluateShowWhen(field, response) {
+    // If no showWhen condition, always visible
+    if (!field.showWhen) return true;
+
+    const condition = field.showWhen;
+    const targetFieldValue = response[condition.field];
+
+    // Handle "equals" condition (single value match)
+    if (condition.equals !== undefined) {
+      return targetFieldValue === condition.equals;
+    }
+
+    // Handle "in" condition (match any in array)
+    if (condition.in !== undefined && Array.isArray(condition.in)) {
+      return condition.in.includes(targetFieldValue);
+    }
+
+    // Handle "includes" condition (for multi-select, check if array includes value)
+    if (condition.includes !== undefined && Array.isArray(targetFieldValue)) {
+      return targetFieldValue.includes(condition.includes);
+    }
+
+    // Default to visible if condition format is unknown
+    return true;
   },
 
   /**
