@@ -78,6 +78,16 @@ Click the theme icon in the nav to cycle through themes with a smooth bloom tran
 |------------|--------------|
 | ![Warm](assets/images/theme_warm.png) | ![Nature](assets/images/theme_nature.png) |
 
+**Questionnaire View:**
+
+| Light Theme | Dark Theme |
+|-------------|------------|
+| ![Questionnaire Light](assets/images/questionnaire_light.png) | ![Questionnaire Dark](assets/images/questionnaire_dark.png) |
+
+**Theme Transition Animation:**
+
+![Theme Demo](assets/images/theme_demo.webp)
+
 </details>
 
 ---
@@ -110,11 +120,16 @@ Click the theme icon in the nav to cycle through themes with a smooth bloom tran
 - **Persists for weeks** until you click "Start Over" or clear browser data
 - Works across Chrome, Firefox, Safari, Edge
 
-### 📥 Import Previous Responses
+### 📂 Advanced Import System
 
-- Import from previously exported JSON or TXT files
-- Merges with existing answers (imported wins conflicts)
-- Great for continuing on a different device
+Two import modes (click **📥 Import** in nav or welcome screen):
+
+- **Continue Questionnaire**: Resume from saved JSON file
+- **Generate AI Prompt**: Create reflection prompts from any saved results
+  - Upload one file for individual reflection
+  - Upload two files for couple's joint prompt
+- Smart parsing handles both JSON and TXT export formats
+- Questions are flagged for review after import
 
 ### 📤 Export Options
 
@@ -125,8 +140,32 @@ Click the theme icon in the nav to cycle through themes with a smooth bloom tran
 
 ### 🤖 AI Reflection Prompts
 
-- **Individual**: Copy your responses + a reflection prompt
-- **Couple's**: Share results, then combine for joint AI reflection
+**Four specialized prompt types:**
+
+| Type | Description |
+|------|-------------|
+| Individual Lite | Personal insights from 18 core questions |
+| Individual Full | Comprehensive relational blueprint from all 38 questions |
+| Couple's Lite | How to show up for each other (both completed Lite) |
+| Couple's Full | Complete relationship blueprint with conflict protocols |
+
+**Two workflows:**
+
+1. **During Questionnaire**: Copy prompts from the Complete view
+2. **From Saved Files**: Import any exported results via the Import modal
+
+### 💑 Couple's Reflection Workflow
+
+1. Each partner completes the questionnaire separately
+2. **Copy My Results**: Each person copies their formatted responses
+3. **Copy Couple's Prompt**: Get the AI template that accepts both responses
+4. Paste both sets of results into the prompt for joint AI reflection
+
+### 🚀 Upgrade to Full Mode
+
+- Shown after completing Lite mode
+- Click **📈 Continue to Full Mode** to add 20 more questions
+- All existing answers are preserved
 
 ### 🔄 Start Over
 
@@ -274,7 +313,9 @@ dating_questionnaire/
 │   ├── theme-manager.js        # Theme switching + transitions
 │   ├── question-renderer.js    # Question type rendering
 │   ├── questionnaire-engine.js # Navigation, state machine
-│   └── export-manager.js       # Export functionality
+│   ├── export-manager.js       # Export functionality
+│   ├── import-manager.js       # File import and parsing
+│   └── debug-overlay.js        # Debug mode (?debug=true)
 │
 └── assets/
     └── images/                 # Screenshots and demos
@@ -290,6 +331,37 @@ dating_questionnaire/
 | `←` | Previous question |
 | `S` | Skip current question |
 | `R` | Open review mode |
+
+---
+
+## 🐛 Debug Mode
+
+For developers and troubleshooting. Append `?debug=true` to the URL to enable debug mode.
+
+**How to use:**
+
+1. Navigate to `http://localhost:8080/?debug=true` (or add `?debug=true` to any URL)
+2. A **🐛 bug button** appears in the **bottom-right corner** of the screen
+3. Click the button or press `Ctrl+D` to show/hide the debug overlay
+
+**Debug overlay features:**
+
+| Feature | Description |
+|---------|-------------|
+| **Question Info** | Shows current question ID, type, and title |
+| **Raw Response JSON** | Displays the exact data structure being saved |
+| **Field Status** | For compound questions, shows ✓/✗ for each field |
+| **Import Warnings** | Highlights questions that need review after import |
+| **Copy Button** | 📋 Copies response JSON to clipboard |
+
+**Keyboard shortcut:** `Ctrl+D` toggles the overlay visibility at any time (when debug mode is enabled).
+
+<details>
+<summary>📸 Debug Overlay Screenshot</summary>
+
+![Debug Overlay](assets/images/debug_overlay.png)
+
+</details>
 
 ---
 
