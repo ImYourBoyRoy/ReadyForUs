@@ -78,6 +78,43 @@
     box-shadow: var(--focus-ring);
 }
 
+/* Mode Toggle - Pills Style */
+.mode-toggle {
+    display: flex;
+    background: var(--color-bg-hover);
+    border-radius: var(--radius-full);
+    padding: 3px;
+    gap: 2px;
+}
+
+.mode-toggle-btn {
+    padding: var(--space-1) var(--space-3);
+    border: none;
+    border-radius: var(--radius-full);
+    background: transparent;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+}
+
+.mode-toggle-btn:hover {
+    color: var(--color-text);
+}
+
+.mode-toggle-btn.active {
+    background: var(--color-primary);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.mode-toggle-btn:focus {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
 /* ========================================
    Views
    ======================================== */

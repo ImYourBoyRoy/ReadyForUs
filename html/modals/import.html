@@ -1,0 +1,114 @@
+<!-- ./html/modals/import.html -->
+<!-- Import modal: File upload for continuing questionnaire or generating AI prompts -->
+
+<div id="import-modal" class="modal-overlay">
+    <div class="modal import-modal">
+        <div class="modal-header">
+            <h2 class="modal-title">📥 Import Results for AI Prompt</h2>
+            <button class="modal-close" id="import-modal-close" aria-label="Close">×</button>
+        </div>
+        <div class="modal-body">
+            <!-- Import Mode Selection -->
+            <div class="import-mode-selector">
+                <div class="import-mode-option selected" data-import-mode="continue" role="button" tabindex="0">
+                    <span class="import-mode-icon">📂</span>
+                    <span class="import-mode-label">Continue Questionnaire</span>
+                    <span class="import-mode-desc">Resume from a saved JSON file</span>
+                </div>
+                <div class="import-mode-option" data-import-mode="ai-prompt" role="button" tabindex="0">
+                    <span class="import-mode-icon">🤖</span>
+                    <span class="import-mode-label">Generate AI Prompt</span>
+                    <span class="import-mode-desc">Create reflection prompt from results</span>
+                </div>
+            </div>
+
+            <!-- Continue Mode: Single file upload -->
+            <div id="import-continue-section" class="import-section">
+                <p class="import-intro">Upload your saved results file to continue where you left off.
+                    <em>Please review your answers after importing to ensure everything looks correct.</em>
+                </p>
+                <div class="upload-zone" id="upload-zone-continue" tabindex="0">
+                    <div class="upload-zone-content">
+                        <span class="upload-icon">📄</span>
+                        <span class="upload-label">Your Saved Results</span>
+                        <span class="upload-hint">Drop JSON or TXT file, or click to browse</span>
+                        <input type="file" id="import-file-continue" accept=".json,.txt" class="upload-input">
+                    </div>
+                    <div class="upload-zone-info" id="upload-info-continue" style="display: none;">
+                        <span class="upload-name"></span>
+                        <span class="upload-details"></span>
+                        <button class="upload-remove" aria-label="Remove file">×</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Prompt Mode: Two file uploads -->
+            <div id="import-ai-section" class="import-section" style="display: none;">
+                <p class="import-intro">Upload saved results to generate an AI reflection prompt. Upload one
+                    file for individual reflection, or two files for a couple's prompt.</p>
+
+                <div class="upload-zones">
+                    <div class="upload-zone" id="upload-zone-a" tabindex="0">
+                        <div class="upload-zone-content">
+                            <span class="upload-icon">📄</span>
+                            <span class="upload-label">Person A</span>
+                            <span class="upload-hint">Drop file or click to browse</span>
+                            <input type="file" id="import-file-a" accept=".json,.txt" class="upload-input">
+                        </div>
+                        <div class="upload-zone-info" id="upload-info-a" style="display: none;">
+                            <span class="upload-name"></span>
+                            <span class="upload-details"></span>
+                            <button class="upload-remove" aria-label="Remove file">×</button>
+                        </div>
+                    </div>
+                    <div class="upload-zone" id="upload-zone-b" tabindex="0">
+                        <div class="upload-zone-content">
+                            <span class="upload-icon">📄</span>
+                            <span class="upload-label">Person B (optional)</span>
+                            <span class="upload-hint">Drop file or click to browse</span>
+                            <input type="file" id="import-file-b" accept=".json,.txt" class="upload-input">
+                        </div>
+                        <div class="upload-zone-info" id="upload-info-b" style="display: none;">
+                            <span class="upload-name"></span>
+                            <span class="upload-details"></span>
+                            <button class="upload-remove" aria-label="Remove file">×</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Validation Message -->
+            <div id="import-validation" class="import-validation" style="display: none;"></div>
+
+            <!-- Prompt Type Selection -->
+            <div class="import-type-selector" id="import-type-selector" style="display: none;">
+                <label class="radio-label">
+                    <input type="radio" name="import-type" value="individual" checked>
+                    <span>Individual Prompt</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="import-type" value="couple">
+                    <span>Couple's Prompt</span>
+                </label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="import-cancel" class="btn btn-ghost">Cancel</button>
+            <button id="import-continue-btn" class="btn btn-primary" disabled>Continue Questionnaire</button>
+            <button id="import-generate" class="btn btn-primary" style="display: none;" disabled>Generate AI
+                Prompt</button>
+        </div>
+
+        <!-- Generated Prompt Output -->
+        <div id="import-output" class="import-output" style="display: none;">
+            <div class="import-output-header">
+                <h3>Generated AI Prompt</h3>
+                <button id="import-copy" class="btn btn-primary btn-sm">📋 Copy to Clipboard</button>
+            </div>
+            <textarea id="import-prompt-text" class="import-prompt-textarea" readonly></textarea>
+            <div class="import-output-actions">
+                <button id="import-back" class="btn btn-ghost">← Upload Different Files</button>
+            </div>
+        </div>
+    </div>
+</div>

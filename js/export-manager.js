@@ -88,7 +88,7 @@ const ExportManager = {
      * @param {Object} options - Export options.
      */
     exportAsJSON(options = {}) {
-        const { participantName = 'Participant' } = options;
+        const { participantName = 'Participant', filename = null } = options;
 
         const exportData = {
             meta: {
@@ -116,7 +116,9 @@ const ExportManager = {
         });
 
         const json = JSON.stringify(exportData, null, 2);
-        this.downloadFile(json, `slow-build-checkin-${participantName.toLowerCase().replace(/\s+/g, '-')}.json`, 'application/json');
+        const safeName = participantName.toLowerCase().replace(/\s+/g, '-');
+        const baseFilename = filename || `slow-build-checkin-${safeName}`;
+        this.downloadFile(json, `${baseFilename}.json`, 'application/json');
     },
 
     /**

@@ -2,10 +2,10 @@
 
 > *A beautiful, intentional check-in tool for early-stage relationships. Designed to feel warm, inviting, and never overwhelming.*
 
-![Slow Build Check-In Welcome](assets/images/welcome_light.png)
+![Dashboard](assets/images/dashboard_light.png)
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Phase-1.5-9B89A9?style=for-the-badge" alt="Phase 1.5">
+  <img src="https://img.shields.io/badge/Phases-2-9B89A9?style=for-the-badge" alt="2 Phases">
   <img src="https://img.shields.io/badge/Stack-HTML%2FCSS%2FJS-F2D7E4?style=for-the-badge" alt="HTML/CSS/JS">
   <img src="https://img.shields.io/badge/Themes-4-E8B4B8?style=for-the-badge" alt="4 Themes">
   <img src="https://img.shields.io/badge/Questions-18%20Lite%20%7C%2038%20Full-C9B8D4?style=for-the-badge" alt="Questions">
@@ -15,10 +15,25 @@
 
 ## 🌸 What Is This?
 
-This tool helps couples in the **intentional early dating phase** (3+ dates, mutual interest, slow build) navigate gentle check-ins around:
+This tool helps individuals and couples navigate intentional check-ins through two distinct phases:
+
+### 🧭 Phase 0: Pre-Dating Readiness Audit
+
+For assessing emotional readiness **before** starting to date.
 
 | Topic | What It Covers |
-|-------|----------------|
+| ------- | ---------------- |
+| **Readiness** | Emotional state, healing from past relationships |
+| **Values** | What matters most in a future partner |
+| **Patterns** | Recognizing healthy vs. unhealthy dynamics |
+| **Goals** | What you're looking for in dating |
+
+### 💜 Phase 1.5: Intentional Early Dating
+
+For couples in the **slow-build phase** (3+ dates, mutual interest):
+
+| Topic | What It Covers |
+| ------- | ---------------- |
 | **Pacing** | What feels too slow? Too fast? When to revisit clarity? |
 | **Communication** | How we stay connected, overwhelm patterns, safety |
 | **Affection** | What feels best, approach consent, overwhelm signs |
@@ -56,37 +71,40 @@ npx serve . -l 8080
 
 ---
 
+## 🎛️ Dashboard (Landing Page)
+
+The application opens to a **dashboard view** — your home base for all questionnaires:
+
+| Light Theme | Dark Theme |
+|-------------|------------|
+| ![Dashboard Light](assets/images/dashboard_light.png) | ![Dashboard Dark](assets/images/dashboard_dark.png) |
+
+| Feature | Description |
+| ------- | ----------- |
+| **Phase Cards** | See all questionnaire phases with question counts |
+| **Resume Banner** | Quickly continue where you left off |
+| **Mode Buttons** | Start Lite or Full mode directly from dashboard |
+| **Instructions** | Built-in guidance on how the tool works |
+
+---
+
 ## 🎨 Four Beautiful Themes
 
 Click the theme icon in the nav to cycle through themes with a smooth bloom transition effect.
 
 | Theme | Icon | Vibe | Default |
-|-------|------|------|---------|
+| ------- | ------ | ------ | --------- |
 | **Light** | ☀️ | Soft blush-lavender, warm and inviting | ✓ |
 | **Dark** | 🌙 | Midnight rose, cozy nighttime comfort | |
 | **Warm** | 🌅 | Peachy blush, romantic and nurturing | |
 | **Nature** | 🌿 | Soft sage, grounded and peaceful | |
 
 <details>
-<summary>📸 Theme Screenshots</summary>
+<summary>📸 Theme Showcase</summary>
 
-| Light Theme | Dark Theme |
-|-------------|------------|
-| ![Light](assets/images/welcome_light.png) | ![Dark](assets/images/theme_dark.png) |
+See all 4 themes in action in the animated demo at the top of this README. The application smoothly transitions between Light, Dark, Warm, and Nature themes with a beautiful bloom effect.
 
-| Warm Theme | Nature Theme |
-|------------|--------------|
-| ![Warm](assets/images/theme_warm.png) | ![Nature](assets/images/theme_nature.png) |
-
-**Questionnaire View:**
-
-| Light Theme | Dark Theme |
-|-------------|------------|
-| ![Questionnaire Light](assets/images/questionnaire_light.png) | ![Questionnaire Dark](assets/images/questionnaire_dark.png) |
-
-**Theme Transition Animation:**
-
-![Theme Demo](assets/images/theme_demo.webp)
+Each theme applies cohesive styling across all views: dashboard, welcome screen, questionnaire, and review mode.
 
 </details>
 
@@ -94,11 +112,24 @@ Click the theme icon in the nav to cycle through themes with a smooth bloom tran
 
 ## ✨ Features
 
-### 📋 Two Modes
+### 🎛️ Phase Selection
 
-- **Lite Mode**: 18 core questions (~45 minutes)
-- **Full Mode**: 38 questions across 10 sections
+- **Phase 0**: Pre-Dating Readiness (36 Lite / 82 Full questions)
+- **Phase 1.5**: Intentional Early Dating (18 Lite / 38 Full questions)
+- Separate progress saved per phase
+- Switch phases anytime from the dashboard
+
+### 📋 Two Modes Per Phase
+
+- **Lite Mode**: Core questions (~45 minutes)
+- **Full Mode**: All questions across all sections
 - **Switch anytime**: Dropdown in nav bar to switch Lite ↔ Full (preserves all answers)
+
+### 🔗 URL-Based Navigation
+
+- **Persistent URLs**: Refresh the page without losing your position
+- **Hash Routing**: URLs like `#/phase_1.5/q05` track your location
+- **Back/Forward**: Browser navigation buttons work as expected
 
 ### ⏭ Skip & Return
 
@@ -143,9 +174,9 @@ Two import modes (click **📥 Import** in nav or welcome screen):
 **Four specialized prompt types:**
 
 | Type | Description |
-|------|-------------|
-| Individual Lite | Personal insights from 18 core questions |
-| Individual Full | Comprehensive relational blueprint from all 38 questions |
+| ------ | ------------- |
+| Individual Lite | Personal insights from core questions |
+| Individual Full | Comprehensive relational blueprint from all questions |
 | Couple's Lite | How to show up for each other (both completed Lite) |
 | Couple's Full | Complete relationship blueprint with conflict protocols |
 
@@ -164,7 +195,7 @@ Two import modes (click **📥 Import** in nav or welcome screen):
 ### 🚀 Upgrade to Full Mode
 
 - Shown after completing Lite mode
-- Click **📈 Continue to Full Mode** to add 20 more questions
+- Click **📈 Continue to Full Mode** to add more questions
 - All existing answers are preserved
 
 ### 🔄 Start Over
@@ -174,7 +205,21 @@ Two import modes (click **📥 Import** in nav or welcome screen):
 
 ---
 
-## 📝 The Questions
+## 📸 Screenshots
+
+### Welcome Screen
+
+![Welcome Screen](assets/images/welcome_light.png)
+
+### Questionnaire View
+
+| Light Theme | Dark Theme |
+|-------------|------------|
+| ![Questionnaire Light](assets/images/questionnaire_light.png) | ![Questionnaire Dark](assets/images/questionnaire_dark.png) |
+
+---
+
+## 📝 The Questions (Phase 1.5)
 
 ### Lite Mode (18 Core Questions)
 
@@ -284,14 +329,22 @@ Two import modes (click **📥 Import** in nav or welcome screen):
 
 ## 📁 Project Structure
 
-```
+```text
 dating_questionnaire/
 ├── index.html                  # Main entry point
 ├── README.md                   # This file
 │
 ├── data/
-│   ├── questions.json          # All 38 questions with schema
-│   └── prompts.json            # AI reflection prompts
+│   ├── phases.json             # Phase definitions
+│   ├── SCHEMA.md               # Schema documentation
+│   ├── TEMPLATE_questions.json # Template for new phases
+│   ├── TEMPLATE_prompts.json   # Template for new prompts
+│   ├── phase_0/
+│   │   ├── questions.json      # Phase 0 questions
+│   │   └── prompts.json        # Phase 0 AI prompts
+│   └── phase_1.5/
+│       ├── questions.json      # Phase 1.5 questions
+│       └── prompts.json        # Phase 1.5 AI prompts
 │
 ├── css/
 │   ├── variables.css           # Design tokens
@@ -300,6 +353,9 @@ dating_questionnaire/
 │   ├── animations.css          # Transitions, micro-animations
 │   ├── responsive.css          # Mobile/tablet/desktop
 │   ├── app.css                 # Application layouts
+│   ├── dashboard.css           # Dashboard styles
+│   ├── toast.css               # Toast notifications
+│   ├── comparison.css          # Comparison view styles
 │   └── themes/
 │       ├── light.css           # Soft blush-lavender (default)
 │       ├── dark.css            # Midnight rose
@@ -308,6 +364,7 @@ dating_questionnaire/
 │
 ├── js/
 │   ├── app.js                  # Main entry, initialization
+│   ├── html-loader.js          # Dynamic HTML loading
 │   ├── data-loader.js          # JSON loading
 │   ├── storage-manager.js      # LocalStorage persistence
 │   ├── theme-manager.js        # Theme switching + transitions
@@ -315,10 +372,30 @@ dating_questionnaire/
 │   ├── questionnaire-engine.js # Navigation, state machine
 │   ├── export-manager.js       # Export functionality
 │   ├── import-manager.js       # File import and parsing
+│   ├── url-router.js           # Hash-based URL routing
 │   └── debug-overlay.js        # Debug mode (?debug=true)
 │
-└── assets/
-    └── images/                 # Screenshots and demos
+├── html/
+│   ├── components/
+│   │   ├── footer.html         # Footer with credits
+│   │   ├── loader.html         # Loading spinner
+│   │   ├── navigation.html     # Top navigation bar
+│   │   └── toasts.html         # Toast notifications
+│   ├── modals/
+│   │   ├── import.html         # Import dialog
+│   │   └── save.html           # Save progress dialog
+│   └── views/
+│       ├── dashboard.html      # Phase selection dashboard
+│       ├── welcome.html        # Instructions and mode selection
+│       ├── questionnaire.html  # Question display
+│       ├── review.html         # Answer review grid
+│       ├── complete.html       # Completion and export
+│       └── comparison.html     # Side-by-side comparison
+│
+├── assets/
+│   └── images/                 # Screenshots and demos
+│
+└── Results_Examples/           # Sample completed questionnaires
 ```
 
 ---
@@ -326,11 +403,12 @@ dating_questionnaire/
 ## ⌨️ Keyboard Shortcuts
 
 | Key | Action |
-|-----|--------|
+| ----- | -------- |
 | `→` or `Enter` | Next question |
 | `←` | Previous question |
 | `S` | Skip current question |
 | `R` | Open review mode |
+| `Ctrl+D` | Toggle debug overlay (when `?debug=true`) |
 
 ---
 
@@ -347,7 +425,7 @@ For developers and troubleshooting. Append `?debug=true` to the URL to enable de
 **Debug overlay features:**
 
 | Feature | Description |
-|---------|-------------|
+| --------- | ------------- |
 | **Question Info** | Shows current question ID, type, and title |
 | **Raw Response JSON** | Displays the exact data structure being saved |
 | **Field Status** | For compound questions, shows ✓/✗ for each field |
@@ -369,7 +447,7 @@ For developers and troubleshooting. Append `?debug=true` to the URL to enable de
 
 ### Adding Your Own Questions
 
-Edit `data/questions.json`. The system supports **4 question types**:
+Edit `data/phase_*/questions.json`. The system supports **4 question types**:
 
 <details>
 <summary><strong>📌 Single Select (Radio Buttons)</strong></summary>
@@ -488,6 +566,14 @@ Edit `data/questions.json`. The system supports **4 question types**:
 
 </details>
 
+### Creating a New Phase
+
+1. Create a new folder in `data/` (e.g., `data/phase_2/`)
+2. Copy `TEMPLATE_questions.json` and `TEMPLATE_prompts.json` into it
+3. Rename them to `questions.json` and `prompts.json`
+4. Edit the content following the schema in `data/SCHEMA.md`
+5. Add the new phase to `data/phases.json`
+
 ### Adding to Lite vs Full Mode
 
 In `questions.json`, each question has a `tags.included_in_manifests` array:
@@ -502,7 +588,7 @@ Also update the `manifests.lite.question_ids` and `manifests.full.question_ids` 
 ## 📱 Browser Support
 
 | Browser | Version |
-|---------|---------|
+| --------- | --------- |
 | Chrome | 80+ ✅ |
 | Firefox | 75+ ✅ |
 | Safari | 13+ ✅ |

@@ -181,6 +181,18 @@ const QuestionnaireEngine = {
     },
 
     /**
+     * Mark the current question as skipped (without navigating).
+     * Used by the smart Next/Skip button.
+     */
+    markAsSkipped() {
+        const currentQ = this.getCurrentQuestion();
+        if (currentQ && !this.skipped.includes(currentQ.id)) {
+            this.skipped.push(currentQ.id);
+            StorageManager.saveSkipped(this.skipped);
+        }
+    },
+
+    /**
      * Get the count of skipped questions.
      * @returns {number} Number of skipped questions.
      */

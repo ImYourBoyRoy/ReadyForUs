@@ -419,7 +419,7 @@ body.theme-transitioning {
 }
 
 body.theme-transitioning .card,
-body.theme-transitioning .btn,
+body.theme-transitioning .btn:not(.nav-restart),
 body.theme-transitioning .nav {
     animation: themeBloom 400ms ease-out;
 }

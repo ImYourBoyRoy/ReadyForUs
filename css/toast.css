@@ -1,0 +1,193 @@
+/* ./css/toast.css */
+/**
+ * Toast Notification Styles
+ * 
+ * Provides visual feedback for skip notifications, success messages,
+ * and other transient user feedback. Includes slide-in animations
+ * and color-coded variants.
+ */
+
+/* ==================== Toast Container ==================== */
+.toast-container {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+/* ==================== Toast Base ==================== */
+.toast {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 0.875rem 1.25rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    pointer-events: auto;
+    animation: toastSlideIn 0.3s ease forwards;
+    max-width: 400px;
+}
+
+.toast.hiding {
+    animation: toastSlideOut 0.3s ease forwards;
+}
+
+.toast-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.toast-message {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    line-height: 1.4;
+}
+
+/* ==================== Toast Variants ==================== */
+
+/* Skip Toast - Yellow */
+.toast-skip {
+    border-color: var(--warning-border, #f0c14b);
+    background: linear-gradient(135deg, var(--warning-bg, #fffbeb), var(--color-bg-card));
+}
+
+.toast-skip .toast-icon {
+    color: var(--warning-text, #b7791f);
+}
+
+/* Success Toast - Green */
+.toast-success {
+    border-color: var(--success-border, #68d391);
+    background: linear-gradient(135deg, var(--success-bg, #f0fff4), var(--color-bg-card));
+}
+
+.toast-success .toast-icon {
+    color: var(--success-text, #2f855a);
+}
+
+/* Info Toast - Blue */
+.toast-info {
+    border-color: var(--info-border, #63b3ed);
+    background: linear-gradient(135deg, var(--info-bg, #ebf8ff), var(--color-bg-card));
+}
+
+.toast-info .toast-icon {
+    color: var(--info-text, #2b6cb0);
+}
+
+/* Error Toast - Red */
+.toast-error {
+    border-color: var(--error-border, #fc8181);
+    background: linear-gradient(135deg, var(--error-bg, #fff5f5), var(--color-bg-card));
+}
+
+.toast-error .toast-icon {
+    color: var(--error-text, #c53030);
+}
+
+/* ==================== Animations ==================== */
+@keyframes toastSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toastSlideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* Skip Badge Flash Animation */
+@keyframes skipBadgeFlash {
+    0% {
+        background-color: var(--badge-skip-bg, #fef3c7);
+        transform: scale(1);
+    }
+
+    50% {
+        background-color: var(--warning-border, #f0c14b);
+        transform: scale(1.15);
+    }
+
+    100% {
+        background-color: var(--badge-skip-bg, #fef3c7);
+        transform: scale(1);
+    }
+}
+
+.skip-badge.flash {
+    animation: skipBadgeFlash 0.4s ease;
+}
+
+/* ==================== Theme Variables ==================== */
+:root {
+    --warning-bg: #fffbeb;
+    --warning-border: #f0c14b;
+    --warning-text: #b7791f;
+
+    --success-bg: #f0fff4;
+    --success-border: #68d391;
+    --success-text: #2f855a;
+
+    --info-bg: #ebf8ff;
+    --info-border: #63b3ed;
+    --info-text: #2b6cb0;
+
+    --error-bg: #fff5f5;
+    --error-border: #fc8181;
+    --error-text: #c53030;
+}
+
+[data-theme="dark"] {
+    --warning-bg: rgba(240, 193, 75, 0.1);
+    --warning-border: #d69e2e;
+    --warning-text: #f0c14b;
+
+    --success-bg: rgba(104, 211, 145, 0.1);
+    --success-border: #48bb78;
+    --success-text: #68d391;
+
+    --info-bg: rgba(99, 179, 237, 0.1);
+    --info-border: #4299e1;
+    --info-text: #63b3ed;
+
+    --error-bg: rgba(252, 129, 129, 0.1);
+    --error-border: #f56565;
+    --error-text: #fc8181;
+}
+
+/* ==================== Responsive ==================== */
+@media (max-width: 480px) {
+    .toast-container {
+        bottom: 1rem;
+        left: 1rem;
+        right: 1rem;
+        transform: none;
+    }
+
+    .toast {
+        width: 100%;
+        max-width: none;
+    }
+}

@@ -1,48 +1,172 @@
 /* ./css/themes/dark.css
  * Dark theme for the Slow Build Check-In questionnaire.
  * 
- * Midnight rose palette with soft dusty rose-charcoal background.
- * Feminine-first design: warm and cozy for nighttime use.
+ * Refined midnight palette with improved contrast and readability.
+ * Professional, warm, and cozy for nighttime use.
  */
 
 [data-theme="dark"] {
-    --color-primary: #C9B8D4;
-    --color-primary-hover: #D9C8E4;
-    --color-primary-light: #DED0E8;
+    /* Primary - Soft lavender with better pop */
+    --color-primary: #D4C4E0;
+    --color-primary-hover: #E4D4F0;
+    --color-primary-light: #C9B8D4;
 
-    --color-secondary: #584858;
-    --color-secondary-hover: #685868;
+    /* Secondary - Refined rose-gray tones */
+    --color-secondary: #5C4D5C;
+    --color-secondary-hover: #6E5E6E;
 
-    --color-accent: #E8C4C8;
-    --color-accent-hover: #F0D4D8;
+    /* Accent - Warm blush pink */
+    --color-accent: #E8C8CC;
+    --color-accent-hover: #F2D8DC;
 
-    --color-success: #A4C8AA;
-    --color-warning: #E8D4A4;
-    --color-error: #E8A4A4;
+    /* Semantic colors - softer for dark mode */
+    --color-success: #98D4A0;
+    --color-warning: #E8D0A0;
+    --color-error: #E8A8A8;
 
-    --color-bg: #1E1A1D;
-    --color-bg-elevated: #2A2428;
-    --color-bg-card: #2A2428;
-    --color-bg-input: #242022;
-    --color-bg-hover: rgba(201, 184, 212, 0.08);
+    /* Backgrounds - Deep, warm charcoals */
+    --color-bg: #1A181B;
+    --color-bg-elevated: #272428;
+    --color-bg-card: #2E2A2F;
+    --color-bg-input: #201E21;
+    --color-bg-hover: rgba(212, 196, 224, 0.10);
 
-    --color-text: #F4EEF0;
-    --color-text-muted: #C4B8BC;
-    --color-text-light: #9A8E92;
-    --color-text-inverse: #1E1A1D;
+    /* Text - High contrast for readability */
+    --color-text: #F8F4F6;
+    --color-text-muted: #D4CCD0;
+    --color-text-light: #A8A0A4;
+    --color-text-inverse: #1A181B;
 
-    --color-border: #443840;
+    /* Borders - Visible but subtle */
+    --color-border: #4A424A;
     --color-border-focus: var(--color-primary);
 
-    --color-progress-bg: #443840;
-    --color-progress-fill: var(--color-primary);
+    /* Progress */
+    --color-progress-bg: #4A424A;
+    --color-progress-fill: linear-gradient(90deg, var(--color-primary), var(--color-accent));
 
-    --color-selection-bg: rgba(201, 184, 212, 0.25);
-    --color-focus-ring: rgba(201, 184, 212, 0.40);
+    /* Selection and focus */
+    --color-selection-bg: rgba(212, 196, 224, 0.25);
+    --color-focus-ring: rgba(212, 196, 224, 0.45);
 
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.20);
-    --shadow-md: 0 4px 8px -1px rgba(0, 0, 0, 0.28), 0 2px 4px -1px rgba(0, 0, 0, 0.18);
-    --shadow-lg: 0 12px 20px -4px rgba(0, 0, 0, 0.32), 0 4px 8px -2px rgba(0, 0, 0, 0.20);
-    --shadow-xl: 0 24px 32px -6px rgba(0, 0, 0, 0.36), 0 12px 16px -6px rgba(0, 0, 0, 0.20);
-    --shadow-glow: 0 0 24px rgba(201, 184, 212, 0.15);
+    /* Shadows - Deeper for dark mode */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
+    --shadow-md: 0 4px 12px -1px rgba(0, 0, 0, 0.35), 0 2px 6px -1px rgba(0, 0, 0, 0.25);
+    --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.40), 0 6px 10px -2px rgba(0, 0, 0, 0.25);
+    --shadow-xl: 0 24px 40px -6px rgba(0, 0, 0, 0.45), 0 12px 20px -6px rgba(0, 0, 0, 0.25);
+    --shadow-glow: 0 0 28px rgba(212, 196, 224, 0.18);
+}
+
+/* Dark mode specific refinements */
+[data-theme="dark"] .btn-primary {
+    color: #1A181B;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .btn-secondary {
+    border-color: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+[data-theme="dark"] .btn-ghost:hover {
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .progress-fill {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+}
+
+[data-theme="dark"] .question-card {
+    border: 1px solid var(--color-border);
+}
+
+[data-theme="dark"] .examples-block {
+    background: rgba(212, 196, 224, 0.06);
+    border: 1px solid var(--color-border);
+}
+
+[data-theme="dark"] .examples-list li::before {
+    color: var(--color-accent);
+}
+
+[data-theme="dark"] .mode-option.selected {
+    background: rgba(212, 196, 224, 0.08);
+    border-color: var(--color-primary);
+}
+
+[data-theme="dark"] .review-card {
+    border: 1px solid var(--color-border);
+}
+
+[data-theme="dark"] .review-card:hover {
+    border-color: var(--color-primary-light);
+    background: var(--color-bg-hover);
+}
+
+[data-theme="dark"] .checkbox-custom,
+[data-theme="dark"] .radio-custom {
+    background: var(--color-bg-input);
+    border-color: var(--color-border);
+}
+
+[data-theme="dark"] .input,
+[data-theme="dark"] .textarea {
+    color: var(--color-text);
+    background: var(--color-bg-input);
+    border-color: var(--color-border);
+}
+
+[data-theme="dark"] .input::placeholder,
+[data-theme="dark"] .textarea::placeholder {
+    color: var(--color-text-light);
+}
+
+[data-theme="dark"] .input:focus,
+[data-theme="dark"] .textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+/* Modal refinements */
+[data-theme="dark"] .modal {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+}
+
+[data-theme="dark"] .modal-header,
+[data-theme="dark"] .modal-footer {
+    border-color: var(--color-border);
+}
+
+/* Toast refinement */
+[data-theme="dark"] .save-toast {
+    box-shadow: 0 8px 28px rgba(152, 212, 160, 0.35);
+}
+
+/* Hero section refinement */
+[data-theme="dark"] .hero h1,
+[data-theme="dark"] .welcome-title {
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .hero .subtitle,
+[data-theme="dark"] .welcome-subtitle {
+    color: var(--color-text-muted);
+}
+
+/* Badge refinements */
+[data-theme="dark"] .badge-accent {
+    background: var(--color-accent);
+    color: var(--color-text-inverse);
+}
+
+/* Skip button state */
+[data-theme="dark"] .btn-skip-state {
+    border-color: var(--color-border);
+    color: var(--color-text-muted);
+}
+
+[data-theme="dark"] .btn-skip-state:hover {
+    border-color: var(--color-primary-light);
+    color: var(--color-primary);
 }

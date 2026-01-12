@@ -85,6 +85,20 @@
     font-size: var(--font-size-lg);
 }
 
+/* Smart Next/Skip Button States */
+.btn-skip-state {
+    background: transparent;
+    color: var(--color-text-muted);
+    border: 2px dashed var(--color-border);
+}
+
+.btn-skip-state:hover:not(:disabled) {
+    background: var(--color-bg-hover);
+    border-color: var(--color-primary-light);
+    color: var(--color-primary);
+    transform: translateY(-1px);
+}
+
 /* Icon Button */
 .btn-icon {
     width: 44px;
@@ -983,5 +997,153 @@
         flex-direction: column;
         gap: var(--space-2);
         align-items: flex-start;
+    }
+}
+
+/* =============================================
+   Save Progress Modal Styles
+   ============================================= */
+
+.save-modal {
+    max-width: 520px;
+    min-height: auto;
+}
+
+.save-info {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+    padding: var(--space-4);
+    background: linear-gradient(135deg, rgba(124, 107, 158, 0.08) 0%, rgba(200, 180, 200, 0.05) 100%);
+    border-radius: var(--radius-lg);
+}
+
+.save-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.save-description {
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.save-description strong {
+    color: var(--color-primary);
+}
+
+.save-preview {
+    background: var(--color-bg-input);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    margin-bottom: var(--space-5);
+}
+
+.save-preview-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2);
+}
+
+.save-preview-filename {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: var(--font-size-sm);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-primary);
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.save-preview-stats {
+    margin-top: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    display: flex;
+    gap: var(--space-4);
+}
+
+.save-instructions {
+    background: var(--color-bg-hover);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+}
+
+.save-instructions h3 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    margin: 0 0 var(--space-3) 0;
+    color: var(--color-text);
+}
+
+.save-instructions ol {
+    margin: 0;
+    padding-left: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.save-instructions li {
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    color: var(--color-text-muted);
+}
+
+.save-instructions li strong {
+    color: var(--color-text);
+}
+
+/* Success Toast Notification */
+.save-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+    color: white;
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: var(--font-size-base);
+    box-shadow: 0 8px 24px rgba(76, 175, 80, 0.4);
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.save-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.save-toast-icon {
+    font-size: 1.25rem;
+}
+
+@media (max-width: 480px) {
+    .save-modal {
+        max-height: 90vh;
+    }
+
+    .save-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .save-preview-stats {
+        flex-direction: column;
+        gap: var(--space-1);
     }
 }

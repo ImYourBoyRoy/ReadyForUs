@@ -1,0 +1,47 @@
+<!-- ./html/modals/save.html -->
+<!-- Save progress modal: Confirmation and instructions for saving progress to file -->
+
+<div id="save-modal" class="modal-overlay">
+    <div class="modal save-modal">
+        <div class="modal-header">
+            <h2 class="modal-title">💾 Save Your Progress</h2>
+            <button class="modal-close" id="save-modal-close" aria-label="Close">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="save-info">
+                <div class="save-icon">📁</div>
+                <p class="save-description">
+                    Your answers will be saved to a file on your device.
+                    <strong>Keep this file safe!</strong> You can use it to continue later if you lose your
+                    progress.
+                </p>
+            </div>
+
+            <div class="save-preview">
+                <div class="save-preview-label">File to save:</div>
+                <div class="save-preview-filename" id="save-filename-preview">
+                    <!-- Filename preview inserted by JS -->
+                </div>
+                <div class="save-preview-stats" id="save-stats-preview">
+                    <!-- Stats preview inserted by JS -->
+                </div>
+            </div>
+
+            <div class="save-instructions">
+                <h3>📋 How to resume later:</h3>
+                <ol>
+                    <li>Click <strong>"Save File"</strong> below</li>
+                    <li>Choose where to save it (like your Desktop or Downloads folder)</li>
+                    <li>When you want to continue, click <strong>"📥 Import"</strong> at the top of this page</li>
+                    <li>Upload your saved file and pick up right where you left off!</li>
+                </ol>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="save-cancel" class="btn btn-ghost">Cancel</button>
+            <button id="save-confirm" class="btn btn-primary">
+                💾 Save File
+            </button>
+        </div>
+    </div>
+</div>

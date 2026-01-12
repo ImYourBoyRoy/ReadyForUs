@@ -4,6 +4,7 @@
  * 
  * Handles localStorage for saving/loading progress, theme preferences,
  * and participant information. Provides auto-save and resume functionality.
+ * Supports phase-scoped storage to prevent data conflicts between phases.
  * 
  * Usage: Import and use StorageManager methods to persist state.
  */
@@ -12,15 +13,60 @@ const StorageManager = {
     // Storage version for future migrations
     STORAGE_VERSION: 1,
 
-    KEYS: {
-        RESPONSES: 'slowbuild_responses',
-        PROGRESS: 'slowbuild_progress',
+    // Current phase ID for storage key prefixing
+    currentPhaseId: 'phase_1',
+
+    // Base key names (will be prefixed with phase ID)
+    KEY_NAMES: {
+        RESPONSES: 'responses',
+        PROGRESS: 'progress',
+        PARTICIPANT_NAME: 'participant_name',
+        MODE: 'mode',
+        SKIPPED: 'skipped',
+        COMPLETED_MODES: 'completed_modes',
+        BOOKMARKS: 'bookmarks'
+    },
+
+    // Global keys (not phase-scoped)
+    GLOBAL_KEYS: {
         THEME: 'slowbuild_theme',
         PARTICIPANTS: 'slowbuild_participants',
-        PARTICIPANT_NAME: 'slowbuild_participant_name',
-        MODE: 'slowbuild_mode',
-        SKIPPED: 'slowbuild_skipped',
-        COMPLETED_MODES: 'slowbuild_completed_modes'
+        LAST_PHASE: 'slowbuild_last_phase'
+    },
+
+    /**
+     * Set the current phase ID for storage key scoping.
+     * @param {string} phaseId - Phase ID (e.g., 'phase_1').
+     */
+    setPhase(phaseId) {
+        this.currentPhaseId = phaseId;
+        // Save the last used phase globally
+        try {
+            localStorage.setItem(this.GLOBAL_KEYS.LAST_PHASE, phaseId);
+        } catch (e) {
+            console.error('Failed to save last phase:', e);
+        }
+    },
+
+    /**
+     * Get the last used phase ID.
+     * @returns {string|null} Last phase ID or null.
+     */
+    getLastPhase() {
+        try {
+            return localStorage.getItem(this.GLOBAL_KEYS.LAST_PHASE);
+        } catch (e) {
+            return null;
+        }
+    },
+
+    /**
+     * Get a phase-scoped storage key.
+     * @param {string} keyName - Base key name from KEY_NAMES.
+     * @returns {string} Full scoped key.
+     */
+    getKey(keyName) {
+        return `slowbuild_${this.currentPhaseId}_${keyName}`;
     },
 
     /**
@@ -29,7 +75,7 @@ const StorageManager = {
      */
     saveResponses(responses) {
         try {
-            localStorage.setItem(this.KEYS.RESPONSES, JSON.stringify(responses));
+            localStorage.setItem(this.getKey(this.KEY_NAMES.RESPONSES), JSON.stringify(responses));
         } catch (e) {
             console.error('Failed to save responses:', e);
         }
@@ -41,7 +87,7 @@ const StorageManager = {
      */
     loadResponses() {
         try {
-            const saved = localStorage.getItem(this.KEYS.RESPONSES);
+            const saved = localStorage.getItem(this.getKey(this.KEY_NAMES.RESPONSES));
             return saved ? JSON.parse(saved) : {};
         } catch (e) {
             console.error('Failed to load responses:', e);
@@ -55,7 +101,7 @@ const StorageManager = {
      */
     saveProgress(index) {
         try {
-            localStorage.setItem(this.KEYS.PROGRESS, JSON.stringify({ index, timestamp: Date.now() }));
+            localStorage.setItem(this.getKey(this.KEY_NAMES.PROGRESS), JSON.stringify({ index, timestamp: Date.now() }));
         } catch (e) {
             console.error('Failed to save progress:', e);
         }
@@ -67,7 +113,7 @@ const StorageManager = {
      */
     loadProgress() {
         try {
-            const saved = localStorage.getItem(this.KEYS.PROGRESS);
+            const saved = localStorage.getItem(this.getKey(this.KEY_NAMES.PROGRESS));
             return saved ? JSON.parse(saved) : null;
         } catch (e) {
             console.error('Failed to load progress:', e);
@@ -81,7 +127,7 @@ const StorageManager = {
      */
     saveSkipped(skipped) {
         try {
-            localStorage.setItem(this.KEYS.SKIPPED, JSON.stringify(skipped));
+            localStorage.setItem(this.getKey(this.KEY_NAMES.SKIPPED), JSON.stringify(skipped));
         } catch (e) {
             console.error('Failed to save skipped:', e);
         }
@@ -93,7 +139,7 @@ const StorageManager = {
      */
     loadSkipped() {
         try {
-            const saved = localStorage.getItem(this.KEYS.SKIPPED);
+            const saved = localStorage.getItem(this.getKey(this.KEY_NAMES.SKIPPED));
             return saved ? JSON.parse(saved) : [];
         } catch (e) {
             console.error('Failed to load skipped:', e);
@@ -102,12 +148,12 @@ const StorageManager = {
     },
 
     /**
-     * Save theme preference.
+     * Save theme preference (global, not phase-scoped).
      * @param {string} theme - Theme name.
      */
     saveTheme(theme) {
         try {
-            localStorage.setItem(this.KEYS.THEME, theme);
+            localStorage.setItem(this.GLOBAL_KEYS.THEME, theme);
         } catch (e) {
             console.error('Failed to save theme:', e);
         }
@@ -119,7 +165,7 @@ const StorageManager = {
      */
     loadTheme() {
         try {
-            return localStorage.getItem(this.KEYS.THEME);
+            return localStorage.getItem(this.GLOBAL_KEYS.THEME);
         } catch (e) {
             console.error('Failed to load theme:', e);
             return null;
@@ -127,12 +173,12 @@ const StorageManager = {
     },
 
     /**
-     * Save participant information.
+     * Save participant information (global).
      * @param {Array<Object>} participants - Array of participant objects.
      */
     saveParticipants(participants) {
         try {
-            localStorage.setItem(this.KEYS.PARTICIPANTS, JSON.stringify(participants));
+            localStorage.setItem(this.GLOBAL_KEYS.PARTICIPANTS, JSON.stringify(participants));
         } catch (e) {
             console.error('Failed to save participants:', e);
         }
@@ -144,7 +190,7 @@ const StorageManager = {
      */
     loadParticipants() {
         try {
-            const saved = localStorage.getItem(this.KEYS.PARTICIPANTS);
+            const saved = localStorage.getItem(this.GLOBAL_KEYS.PARTICIPANTS);
             return saved ? JSON.parse(saved) : [];
         } catch (e) {
             console.error('Failed to load participants:', e);
@@ -158,7 +204,7 @@ const StorageManager = {
      */
     saveMode(mode) {
         try {
-            localStorage.setItem(this.KEYS.MODE, mode);
+            localStorage.setItem(this.getKey(this.KEY_NAMES.MODE), mode);
         } catch (e) {
             console.error('Failed to save mode:', e);
         }
@@ -170,7 +216,7 @@ const StorageManager = {
      */
     loadMode() {
         try {
-            return localStorage.getItem(this.KEYS.MODE) || 'lite';
+            return localStorage.getItem(this.getKey(this.KEY_NAMES.MODE)) || 'lite';
         } catch (e) {
             console.error('Failed to load mode:', e);
             return 'lite';
@@ -183,7 +229,7 @@ const StorageManager = {
      */
     saveParticipantName(name) {
         try {
-            localStorage.setItem(this.KEYS.PARTICIPANT_NAME, name);
+            localStorage.setItem(this.getKey(this.KEY_NAMES.PARTICIPANT_NAME), name);
         } catch (e) {
             console.error('Failed to save participant name:', e);
         }
@@ -195,7 +241,7 @@ const StorageManager = {
      */
     loadParticipantName() {
         try {
-            return localStorage.getItem(this.KEYS.PARTICIPANT_NAME) || 'Participant';
+            return localStorage.getItem(this.getKey(this.KEY_NAMES.PARTICIPANT_NAME)) || 'Participant';
         } catch (e) {
             console.error('Failed to load participant name:', e);
             return 'Participant';
@@ -212,12 +258,12 @@ const StorageManager = {
     },
 
     /**
-     * Clear all saved data.
+     * Clear all saved data for the current phase.
      */
     clearAll() {
         try {
-            Object.values(this.KEYS).forEach(key => {
-                localStorage.removeItem(key);
+            Object.values(this.KEY_NAMES).forEach(keyName => {
+                localStorage.removeItem(this.getKey(keyName));
             });
         } catch (e) {
             console.error('Failed to clear storage:', e);
@@ -231,6 +277,7 @@ const StorageManager = {
     exportAll() {
         return {
             version: this.STORAGE_VERSION,
+            phaseId: this.currentPhaseId,
             responses: this.loadResponses(),
             progress: this.loadProgress(),
             skipped: this.loadSkipped(),
@@ -390,7 +437,7 @@ const StorageManager = {
      */
     loadCompletedModes() {
         try {
-            const saved = localStorage.getItem(this.KEYS.COMPLETED_MODES);
+            const saved = localStorage.getItem(this.getKey(this.KEY_NAMES.COMPLETED_MODES));
             return saved ? JSON.parse(saved) : [];
         } catch (e) {
             return [];
@@ -403,9 +450,37 @@ const StorageManager = {
      */
     saveCompletedModes(modes) {
         try {
-            localStorage.setItem(this.KEYS.COMPLETED_MODES, JSON.stringify(modes));
+            localStorage.setItem(this.getKey(this.KEY_NAMES.COMPLETED_MODES), JSON.stringify(modes));
         } catch (e) {
             console.error('Failed to save completed modes:', e);
+        }
+    },
+
+    // ==================== BOOKMARKS ====================
+
+    /**
+     * Get bookmarked question IDs.
+     * @returns {Array<string>} Array of bookmarked question IDs.
+     */
+    getBookmarks() {
+        try {
+            const saved = localStorage.getItem(this.getKey(this.KEY_NAMES.BOOKMARKS));
+            return saved ? JSON.parse(saved) : [];
+        } catch (e) {
+            console.error('Failed to load bookmarks:', e);
+            return [];
+        }
+    },
+
+    /**
+     * Save bookmarked question IDs.
+     * @param {Array<string>} bookmarks - Array of question IDs to bookmark.
+     */
+    setBookmarks(bookmarks) {
+        try {
+            localStorage.setItem(this.getKey(this.KEY_NAMES.BOOKMARKS), JSON.stringify(bookmarks));
+        } catch (e) {
+            console.error('Failed to save bookmarks:', e);
         }
     }
 };

@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <link rel="stylesheet" href="css/comparison.css">
 
     <!-- Theme stylesheets -->
     <link rel="stylesheet" href="css/themes/light.css">
@@ -31,415 +34,53 @@
 
 <body>
 
-    <!-- Loading State -->
-    <div id="loader">
-        <div class="loader-content">
-            <div class="loader-icon">💜</div>
-            <div class="loader-text">Preparing your check-in...</div>
+    <!-- ==================== LOADER CONTAINER ==================== -->
+    <!-- Initial loading state - shown immediately, replaced by html-loader.js -->
+    <div id="loader-container">
+        <div id="loader">
+            <div class="loader-content">
+                <div class="loader-icon">💜</div>
+                <div class="loader-text">Preparing your check-in...</div>
+            </div>
         </div>
     </div>
 
-    <!-- Main App -->
+    <!-- ==================== MAIN APPLICATION ==================== -->
     <div class="app">
-        <!-- Navigation -->
-        <nav class="nav">
-            <div class="container nav-content">
-                <div class="nav-brand">
-                    <span class="nav-logo">💜</span>
-                    <span class="nav-title">Slow Build Check-In</span>
-                </div>
-                <div class="nav-actions">
-                    <button id="btn-import-nav" class="btn btn-ghost btn-sm" title="Import Results">
-                        📥 Import
-                    </button>
-                    <select id="mode-switcher" class="mode-switcher" title="Switch Mode">
-                        <option value="lite">Lite</option>
-                        <option value="full">Full</option>
-                    </select>
-                    <button id="btn-nav-restart" class="btn btn-ghost btn-sm nav-restart" type="button"
-                        title="Start Over">
-                        🔄 Start Over
-                    </button>
-                    <button id="theme-toggle" class="btn btn-icon theme-toggle" type="button" aria-label="Change theme">
-                        <span class="theme-icon">☀️</span>
-                    </button>
-                </div>
-            </div>
-        </nav>
+        <!-- Navigation Container -->
+        <div id="nav-container"></div>
 
         <!-- Main Content -->
         <main id="main-content">
+            <!-- Screen Reader Announcements -->
+            <div id="sr-announcements" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
             <!-- Error Message -->
             <div id="error-message" class="container" role="alert"></div>
 
-            <!-- ==================== WELCOME VIEW ==================== -->
-            <section id="view-welcome" class="view container" aria-labelledby="welcome-title" tabindex="-1">
-                <header class="welcome-header">
-                    <div class="welcome-icon">💜</div>
-                    <h1 id="welcome-title" class="welcome-title">Slow Build Check-In</h1>
-                    <p class="welcome-subtitle">A gentle space to share what feels true for you right now.</p>
-                </header>
-
-                <!-- Resume Prompt -->
-                <div id="resume-prompt" class="resume-prompt">
-                    <p>📝 You have saved progress. Would you like to continue where you left off?</p>
-                    <div class="resume-buttons">
-                        <button id="btn-resume" class="btn btn-primary">Continue</button>
-                        <button id="btn-start-fresh" class="btn btn-ghost">Start Fresh</button>
-                    </div>
-                </div>
-
-                <!-- Introduction -->
-                <div class="intro-card">
-                    <div class="intro-section">
-                        <h2 class="intro-title">📋 Instructions</h2>
-                        <ul class="intro-list">
-                            <li>This is not a test, not a contract, and not a "define us" talk.</li>
-                            <li>Answer what feels true right now, not what you think "should" be true.</li>
-                            <li>It's okay to choose multiple options, rank them, or say "it depends."</li>
-                            <li>It's okay to skip any question and come back later.</li>
-                            <li>If you feel flooded or tense, pause immediately and do something grounding.</li>
-                        </ul>
-                    </div>
-
-                    <div class="intro-section">
-                        <h2 class="intro-title">💡 Keep in Mind</h2>
-                        <ul class="intro-list">
-                            <li>The goal is less mind-reading and more kindness.</li>
-                            <li>Clarity should feel calming, not pressuring.</li>
-                            <li>Going slow can be wisdom, not low interest.</li>
-                            <li>Answers can change. Nothing here is permanent.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Mode Selection -->
-                <h2 class="text-center mb-4">Choose Your Format</h2>
-                <div class="mode-selector">
-                    <div class="mode-option selected" data-mode="lite" tabindex="0" role="button" aria-pressed="true">
-                        <div class="mode-title">Lite</div>
-                        <div class="mode-count" id="lite-count">18</div>
-                        <div class="mode-label">Core Questions</div>
-                        <div class="mode-time" id="lite-time">~45 minutes</div>
-                    </div>
-                    <div class="mode-option" data-mode="full" tabindex="0" role="button" aria-pressed="false">
-                        <div class="mode-title">Full</div>
-                        <div class="mode-count" id="full-count">18</div>
-                        <div class="mode-label">All Questions</div>
-                        <div class="mode-time">Take your time</div>
-                    </div>
-                </div>
-
-                <!-- Participant Name -->
-                <div class="participant-section">
-                    <label for="participant-name" class="participant-label">Your name (optional, for your
-                        export)</label>
-                    <input type="text" id="participant-name" class="input" placeholder="Enter your name..."
-                        autocomplete="given-name">
-                </div>
-
-                <!-- Start Button -->
-                <div class="start-section">
-                    <button id="btn-start" class="btn btn-primary btn-lg">
-                        Begin Check-In
-                        <span aria-hidden="true">→</span>
-                    </button>
-                    <div style="margin-top: var(--space-4);">
-                        <button id="btn-import-welcome" class="btn btn-ghost">
-                            📥 Have saved results? Import for AI Prompt
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ==================== QUESTIONNAIRE VIEW ==================== -->
-            <section id="view-questionnaire" class="view container" aria-labelledby="questionnaire-title" tabindex="-1">
-                <h1 id="questionnaire-title" class="sr-only">Questionnaire</h1>
-
-                <!-- Progress -->
-                <div class="progress-container">
-                    <div class="progress-header">
-                        <div class="progress-info">
-                            <span id="progress-text" class="progress-text">0 of 18 answered</span>
-                            <span id="skipped-badge" class="badge badge-accent">0 skipped</span>
-                        </div>
-                        <button id="btn-review" class="btn btn-ghost btn-sm">
-                            📋 Review All
-                        </button>
-                    </div>
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                        aria-valuemax="100">
-                        <div id="progress-fill-skipped" class="progress-fill progress-fill-skipped" style="width: 0%">
-                        </div>
-                        <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-
-                <!-- Question Container -->
-                <div id="question-container" role="form" aria-live="polite">
-                    <!-- Questions rendered dynamically -->
-                </div>
-
-                <!-- Navigation -->
-                <div class="nav-buttons">
-                    <div class="nav-buttons-left">
-                        <button id="btn-prev" class="btn btn-ghost">
-                            <span aria-hidden="true">←</span>
-                            Previous
-                        </button>
-                    </div>
-                    <div class="nav-buttons-right">
-                        <button id="btn-skip" class="skip-btn">
-                            Skip for now
-                            <span aria-hidden="true">⏭</span>
-                        </button>
-                        <button id="btn-next" class="btn btn-secondary">
-                            Next
-                            <span aria-hidden="true">→</span>
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ==================== REVIEW VIEW ==================== -->
-            <section id="view-review" class="view container" aria-labelledby="review-title" tabindex="-1">
-                <div class="review-header">
-                    <h1 id="review-title" class="review-title">Review Your Answers</h1>
-                    <div id="review-stats" aria-live="polite"></div>
-                </div>
-
-                <p class="text-muted mb-6">Click any question to jump back and edit your answer.</p>
-
-                <!-- Review Grid -->
-                <div id="review-grid" class="review-grid" role="list">
-                    <!-- Review cards rendered dynamically -->
-                </div>
-
-                <!-- Actions -->
-                <div class="complete-actions">
-                    <button id="btn-back-to-questions" class="btn btn-primary">
-                        <span aria-hidden="true">←</span>
-                        Back to Questions
-                    </button>
-                    <button id="btn-go-to-skipped" class="btn btn-secondary">
-                        Go to Skipped
-                    </button>
-                </div>
-            </section>
-
-            <!-- ==================== COMPLETE VIEW ==================== -->
-            <section id="view-complete" class="view container" aria-labelledby="complete-title" tabindex="-1">
-                <div class="complete-content">
-                    <div class="complete-icon" aria-hidden="true">💜</div>
-                    <h1 id="complete-title" class="complete-title">Beautiful Work!</h1>
-                    <p class="complete-subtitle">
-                        You've taken a meaningful step toward clarity and kindness.
-                        Your answers are yours to keep, share, or reflect on.
-                    </p>
-
-                    <!-- Stats -->
-                    <div id="complete-stats" aria-live="polite">
-                        <!-- Stats rendered dynamically -->
-                    </div>
-
-                    <!-- Export Section -->
-                    <div class="export-section">
-                        <h2 class="export-title">Save Your Responses</h2>
-                        <div class="export-buttons">
-                            <button id="btn-export-text" class="btn btn-primary">
-                                📄 Download as Text
-                            </button>
-                            <button id="btn-export-json" class="btn btn-secondary">
-                                📁 Download as JSON
-                            </button>
-                            <button id="btn-copy" class="btn btn-ghost">
-                                📋 Copy to Clipboard
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Individual Reflection -->
-                    <div class="export-section">
-                        <h2 class="export-title">✨ Individual AI Reflection</h2>
-                        <p class="export-hint">For solo reflection - copies prompt + your responses</p>
-                        <div class="export-buttons">
-                            <button id="btn-copy-ai-prompt" class="btn btn-primary">
-                                🤖 Copy Individual Prompt
-                            </button>
-                            <button id="btn-view-ai-prompt" class="btn btn-ghost">
-                                👁 View Raw
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Couple's Reflection -->
-                    <div class="export-section">
-                        <h2 class="export-title">💑 Couple's AI Reflection</h2>
-                        <p class="export-hint">For couples - share your results, then combine for joint reflection</p>
-                        <div class="export-buttons">
-                            <button id="btn-copy-results" class="btn btn-secondary">
-                                📤 Copy My Results
-                            </button>
-                            <button id="btn-view-results" class="btn btn-ghost">
-                                👁 View
-                            </button>
-                        </div>
-                        <div class="export-buttons" style="margin-top: var(--space-2);">
-                            <button id="btn-copy-couple-prompt" class="btn btn-primary">
-                                💕 Copy Couple's Prompt
-                            </button>
-                            <button id="btn-view-couple-prompt" class="btn btn-ghost">
-                                👁 View Raw
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Continue to Full Mode (shown for Lite completions) -->
-                    <div id="upgrade-section" class="export-section" style="display: none;">
-                        <h2 class="export-title">🚀 Ready for More?</h2>
-                        <p class="export-hint">You've completed the Lite version. Continue with <span
-                                id="additional-count">20</span> more questions for deeper insights.</p>
-                        <div class="export-buttons">
-                            <button id="btn-upgrade-full" class="btn btn-primary">
-                                📈 Continue to Full Mode
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Actions -->
-                    <div class="complete-actions">
-                        <button id="btn-restart" class="btn btn-ghost">
-                            Start Over
-                        </button>
-                    </div>
-                </div>
-            </section>
+            <!-- Views are injected here by html-loader.js:
+                 - view-dashboard
+                 - view-welcome
+                 - view-questionnaire
+                 - view-review
+                 - view-complete
+                 - view-comparison
+            -->
         </main>
 
-        <!-- Footer -->
-        <footer class="app-footer">
-            <p>
-                Made for Clara with 💜 by <a href="https://github.com/imyourboyroy" target="_blank" rel="noopener">Roy
-                    Dawson IV</a><br>
-                <small>Take your time. Trust the process.</small>
-            </p>
-        </footer>
+        <!-- Footer Container -->
+        <div id="footer-container"></div>
 
-        <!-- Import Modal -->
-        <div id="import-modal" class="modal-overlay">
-            <div class="modal import-modal">
-                <div class="modal-header">
-                    <h2 class="modal-title">📥 Import Results for AI Prompt</h2>
-                    <button class="modal-close" id="import-modal-close" aria-label="Close">×</button>
-                </div>
-                <div class="modal-body">
-                    <!-- Import Mode Selection -->
-                    <div class="import-mode-selector">
-                        <label class="import-mode-option selected" data-import-mode="continue">
-                            <span class="import-mode-icon">📂</span>
-                            <span class="import-mode-label">Continue Questionnaire</span>
-                            <span class="import-mode-desc">Resume from a saved JSON file</span>
-                        </label>
-                        <label class="import-mode-option" data-import-mode="ai-prompt">
-                            <span class="import-mode-icon">🤖</span>
-                            <span class="import-mode-label">Generate AI Prompt</span>
-                            <span class="import-mode-desc">Create reflection prompt from results</span>
-                        </label>
-                    </div>
-
-                    <!-- Continue Mode: Single file upload -->
-                    <div id="import-continue-section" class="import-section">
-                        <p class="import-intro">Upload your saved results file to continue where you left off.
-                            <em>Please review your answers after importing to ensure everything looks correct.</em>
-                        </p>
-                        <div class="upload-zone" id="upload-zone-continue" tabindex="0">
-                            <div class="upload-zone-content">
-                                <span class="upload-icon">📄</span>
-                                <span class="upload-label">Your Saved Results</span>
-                                <span class="upload-hint">Drop JSON or TXT file, or click to browse</span>
-                                <input type="file" id="import-file-continue" accept=".json,.txt" class="upload-input">
-                            </div>
-                            <div class="upload-zone-info" id="upload-info-continue" style="display: none;">
-                                <span class="upload-name"></span>
-                                <span class="upload-details"></span>
-                                <button class="upload-remove" aria-label="Remove file">×</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- AI Prompt Mode: Two file uploads -->
-                    <div id="import-ai-section" class="import-section" style="display: none;">
-                        <p class="import-intro">Upload saved results to generate an AI reflection prompt. Upload one
-                            file for individual reflection, or two files for a couple's prompt.</p>
-
-                        <div class="upload-zones">
-                            <div class="upload-zone" id="upload-zone-a" tabindex="0">
-                                <div class="upload-zone-content">
-                                    <span class="upload-icon">📄</span>
-                                    <span class="upload-label">Person A</span>
-                                    <span class="upload-hint">Drop file or click to browse</span>
-                                    <input type="file" id="import-file-a" accept=".json,.txt" class="upload-input">
-                                </div>
-                                <div class="upload-zone-info" id="upload-info-a" style="display: none;">
-                                    <span class="upload-name"></span>
-                                    <span class="upload-details"></span>
-                                    <button class="upload-remove" aria-label="Remove file">×</button>
-                                </div>
-                            </div>
-                            <div class="upload-zone" id="upload-zone-b" tabindex="0">
-                                <div class="upload-zone-content">
-                                    <span class="upload-icon">📄</span>
-                                    <span class="upload-label">Person B (optional)</span>
-                                    <span class="upload-hint">Drop file or click to browse</span>
-                                    <input type="file" id="import-file-b" accept=".json,.txt" class="upload-input">
-                                </div>
-                                <div class="upload-zone-info" id="upload-info-b" style="display: none;">
-                                    <span class="upload-name"></span>
-                                    <span class="upload-details"></span>
-                                    <button class="upload-remove" aria-label="Remove file">×</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Validation Message -->
-                    <div id="import-validation" class="import-validation" style="display: none;"></div>
-
-                    <!-- Prompt Type Selection -->
-                    <div class="import-type-selector" id="import-type-selector" style="display: none;">
-                        <label class="radio-label">
-                            <input type="radio" name="import-type" value="individual" checked>
-                            <span>Individual Prompt</span>
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="import-type" value="couple">
-                            <span>Couple's Prompt</span>
-                        </label>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button id="import-cancel" class="btn btn-ghost">Cancel</button>
-                    <button id="import-continue-btn" class="btn btn-primary" disabled>Continue Questionnaire</button>
-                    <button id="import-generate" class="btn btn-primary" style="display: none;" disabled>Generate AI
-                        Prompt</button>
-                </div>
-
-                <!-- Generated Prompt Output -->
-                <div id="import-output" class="import-output" style="display: none;">
-                    <div class="import-output-header">
-                        <h3>Generated AI Prompt</h3>
-                        <button id="import-copy" class="btn btn-primary btn-sm">📋 Copy to Clipboard</button>
-                    </div>
-                    <textarea id="import-prompt-text" class="import-prompt-textarea" readonly></textarea>
-                    <div class="import-output-actions">
-                        <button id="import-back" class="btn btn-ghost">← Upload Different Files</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Modals Container - Injected by html-loader.js -->
+        <div id="modals-container"></div>
     </div>
 
+    <!-- Toast Container Wrapper -->
+    <div id="toast-wrapper"></div>
+
     <!-- JavaScript Modules -->
+    <!-- HTML Loader must be first -->
+    <script src="js/html-loader.js"></script>
     <script src="js/storage-manager.js"></script>
     <script src="js/data-loader.js"></script>
     <script src="js/theme-manager.js"></script>
@@ -447,8 +88,10 @@
     <script src="js/questionnaire-engine.js"></script>
     <script src="js/export-manager.js"></script>
     <script src="js/import-manager.js"></script>
+    <script src="js/url-router.js"></script>
     <script src="js/app.js"></script>
     <script src="js/debug-overlay.js"></script>
+
 </body>
 
 </html>

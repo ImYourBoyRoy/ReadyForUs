@@ -1,0 +1,401 @@
+/* ./css/dashboard.css */
+/**
+ * Dashboard Landing Page Styles
+ * 
+ * Styles for the questionnaire selection dashboard that displays
+ * available phases with their metadata, question counts, and visual
+ * instructions for user-friendly questionnaire selection.
+ */
+
+/* ==================== Dashboard Container ==================== */
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.dashboard-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: pulse-soft 3s ease-in-out infinite;
+}
+
+.dashboard-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==================== Questionnaire Cards Grid ==================== */
+.questionnaire-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.questionnaire-card {
+    background: var(--color-bg-card);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    /* Flexbox for consistent alignment */
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+}
+
+.questionnaire-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.questionnaire-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.questionnaire-card:hover::before {
+    opacity: 1;
+}
+
+.questionnaire-card:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Card Header */
+.card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.card-titles {
+    flex: 1;
+}
+
+.card-phase-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+}
+
+.card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.card-subtitle {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Question Stats */
+.card-stats {
+    display: flex;
+    gap: 1rem;
+    margin: 1.25rem 0;
+    padding: 1rem;
+    background: var(--color-bg-elevated);
+    border-radius: var(--radius-md);
+}
+
+.stat-item {
+    flex: 1;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.stat-divider {
+    width: 1px;
+    background: var(--color-border);
+}
+
+/* Eligibility/Purpose List */
+.card-details {
+    margin-top: 1rem;
+}
+
+.card-details-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.5rem;
+}
+
+.card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-list li {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    padding: 0.35rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.card-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-size: 0.75rem;
+}
+
+/* Start Buttons */
+.card-action {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    display: flex;
+    gap: 0.75rem;
+}
+
+.card-action .btn {
+    flex: 1;
+    justify-content: center;
+}
+
+/* ==================== Instructions Section ==================== */
+.dashboard-instructions {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.instructions-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.instructions-icon {
+    font-size: 1.5rem;
+}
+
+.instructions-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.instructions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.instruction-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.instruction-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.instruction-text {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+.instruction-text strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+/* ==================== Quick Tips ==================== */
+.dashboard-tips {
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, var(--color-bg-elevated), var(--color-bg-card));
+    border-radius: var(--radius-lg);
+    border: 1px dashed var(--color-border);
+}
+
+.tips-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+}
+
+.tips-content {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+}
+
+.tips-content em {
+    color: var(--color-primary);
+    font-style: normal;
+    font-weight: 500;
+}
+
+/* ==================== Resume Banner ==================== */
+.resume-banner {
+    background: linear-gradient(135deg, var(--color-primary-light), var(--color-secondary));
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.resume-banner-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.resume-banner-icon {
+    font-size: 1.5rem;
+}
+
+.resume-banner-text {
+    font-size: 0.95rem;
+    color: var(--color-text);
+}
+
+.resume-banner-text strong {
+    font-weight: 600;
+}
+
+.resume-banner-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+/* ==================== Animations ==================== */
+@keyframes pulse-soft {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.questionnaire-card {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+    /* Use calc with CSS custom property set by JS for staggered animation */
+    animation-delay: calc(var(--card-index, 0) * 0.1s);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== Responsive ==================== */
+@media (max-width: 768px) {
+    .dashboard {
+        padding: 1.5rem 1rem;
+    }
+
+    .dashboard-title {
+        font-size: 2rem;
+    }
+
+    .questionnaire-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-stats {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .stat-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .resume-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .instructions-grid {
+        grid-template-columns: 1fr;
+    }
+}

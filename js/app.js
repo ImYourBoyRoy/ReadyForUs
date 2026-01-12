@@ -11,13 +11,21 @@
 const App = {
     // Views
     views: {
+        dashboard: null,
         welcome: null,
         questionnaire: null,
         review: null,
-        complete: null
+        complete: null,
+        comparison: null
     },
-    currentView: 'welcome',
+    currentView: 'dashboard',
     participantName: '',
+
+    // Bookmarks (question IDs)
+    bookmarkedQuestions: [],
+
+    // Import review tracking
+    importNeedsReview: [],
 
     /**
      * Initialize the application.
@@ -27,8 +35,26 @@ const App = {
             // Show loading state
             this.showLoading(true);
 
-            // Load data
+            // Load phases manifest first
+            await DataLoader.loadPhases();
+
+            // Determine which phase to use (URL param > last used > default)
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlPhase = urlParams.get('phase');
+            const lastPhase = StorageManager.getLastPhase();
+            const defaultPhase = DataLoader.getDefaultPhaseId();
+            const phaseId = urlPhase || lastPhase || defaultPhase;
+
+            // Set up phase for both DataLoader and StorageManager
+            DataLoader.setCurrentPhase(phaseId);
+            StorageManager.setPhase(phaseId);
+
+            // Load phase data (questions and prompts)
             await DataLoader.load();
+
+            // Update page title/branding from phase
+            this.updatePhaseDisplay();
+
 
             // Initialize theme
             ThemeManager.init();
@@ -50,14 +76,22 @@ const App = {
             // Hide loading
             this.showLoading(false);
 
-            // Show welcome
-            this.showView('welcome');
-
-            // Initialize mode switcher to saved mode
+            // Initialize mode toggle to saved mode
             const savedMode = StorageManager.loadMode();
-            const modeSwitcher = document.getElementById('mode-switcher');
-            if (modeSwitcher) {
-                modeSwitcher.value = savedMode;
+            this.updateModeToggle(savedMode);
+
+            // Check for URL hash and restore state, or show dashboard as default
+            if (typeof URLRouter !== 'undefined' && window.location.hash && window.location.hash !== '#' && window.location.hash !== '#/') {
+                // URL has a hash - let router handle navigation
+                URLRouter.init();
+            } else {
+                // No hash - show dashboard as default landing
+                this.showView('dashboard');
+                this.renderDashboard();
+                // Initialize router for future navigation
+                if (typeof URLRouter !== 'undefined') {
+                    URLRouter.init();
+                }
             }
 
         } catch (error) {
@@ -70,10 +104,15 @@ const App = {
      * Cache DOM references for views.
      */
     cacheViews() {
+        this.views.dashboard = document.getElementById('view-dashboard');
         this.views.welcome = document.getElementById('view-welcome');
         this.views.questionnaire = document.getElementById('view-questionnaire');
         this.views.review = document.getElementById('view-review');
         this.views.complete = document.getElementById('view-complete');
+        this.views.comparison = document.getElementById('view-comparison');
+
+        // Load bookmarks from storage
+        this.bookmarkedQuestions = StorageManager.getBookmarks() || [];
     },
 
     /**
@@ -88,10 +127,10 @@ const App = {
         // Start button
         document.getElementById('btn-start')?.addEventListener('click', () => this.startQuestionnaire());
 
-        // Navigation buttons
+        // Navigation buttons (smart button handles both next and skip)
         document.getElementById('btn-prev')?.addEventListener('click', () => this.previousQuestion());
         document.getElementById('btn-next')?.addEventListener('click', () => this.nextQuestion());
-        document.getElementById('btn-skip')?.addEventListener('click', () => this.skipQuestion());
+
 
         // Review button
         document.getElementById('btn-review')?.addEventListener('click', () => this.showView('review'));
@@ -122,6 +161,17 @@ const App = {
         // Restart buttons (both nav and complete view)
         document.getElementById('btn-restart')?.addEventListener('click', () => this.restart());
         document.getElementById('btn-nav-restart')?.addEventListener('click', () => this.restart());
+
+        // Review Answers button (on complete view)
+        document.getElementById('btn-review-answers')?.addEventListener('click', () => this.showView('review'));
+
+        // Save Progress button (on questionnaire view) - shows modal first
+        document.getElementById('btn-save-progress')?.addEventListener('click', () => this.showSaveModal());
+
+        // Save modal controls
+        document.getElementById('save-modal-close')?.addEventListener('click', () => this.hideSaveModal());
+        document.getElementById('save-cancel')?.addEventListener('click', () => this.hideSaveModal());
+        document.getElementById('save-confirm')?.addEventListener('click', () => this.confirmSaveProgress());
 
         // Resume buttons
         document.getElementById('btn-resume')?.addEventListener('click', () => this.resumeProgress());
@@ -175,9 +225,15 @@ const App = {
         // Keyboard navigation
         document.addEventListener('keydown', (e) => this.handleKeyboard(e));
 
-        // Mode switcher in nav
-        document.getElementById('mode-switcher')?.addEventListener('change', (e) => {
-            this.switchMode(e.target.value);
+        // Mode toggle buttons in nav
+        document.querySelectorAll('.mode-toggle-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const mode = e.currentTarget.dataset.mode;
+                if (mode) {
+                    this.switchMode(mode);
+                    this.updateModeToggle(mode);
+                }
+            });
         });
     },
 
@@ -197,6 +253,135 @@ const App = {
         if (liteCountEl) liteCountEl.textContent = liteCount;
         if (liteTimeEl && manifest.timebox_minutes) {
             liteTimeEl.textContent = `~${manifest.timebox_minutes} minutes`;
+        }
+    },
+
+    /**
+     * Update page display elements from current phase/artifact metadata.
+     */
+    updatePhaseDisplay() {
+        const phase = DataLoader.getCurrentPhase();
+        const artifact = DataLoader.getArtifact();
+
+        // Update page title
+        if (artifact.title) {
+            document.title = `${artifact.title} | ${phase?.short_title || 'Questionnaire'}`;
+        }
+
+        // Update nav branding
+        const navTitle = document.querySelector('.nav-title');
+        if (navTitle && artifact.title) {
+            navTitle.textContent = artifact.title;
+        }
+
+        // Update nav icon
+        const navLogo = document.querySelector('.nav-logo');
+        if (navLogo && phase?.icon) {
+            navLogo.textContent = phase.icon;
+        }
+
+        // Update welcome header
+        const welcomeTitle = document.getElementById('welcome-title');
+        if (welcomeTitle && artifact.title) {
+            welcomeTitle.textContent = artifact.title;
+        }
+
+        const welcomeIcon = document.querySelector('.welcome-icon');
+        if (welcomeIcon && phase?.icon) {
+            welcomeIcon.textContent = phase.icon;
+        }
+
+        const welcomeSubtitle = document.querySelector('.welcome-subtitle');
+        if (welcomeSubtitle && artifact.subtitle) {
+            welcomeSubtitle.textContent = artifact.subtitle;
+        }
+    },
+
+    /**
+     * Populate the phase switcher dropdown with available phases.
+     */
+    populatePhaseSwitcher() {
+        const phaseSwitcher = document.getElementById('phase-switcher');
+        if (!phaseSwitcher) return;
+
+        const phases = DataLoader.getPhases();
+        const currentPhase = DataLoader.getCurrentPhase();
+
+        // Format phase ID for display (e.g., "phase_0" -> "Phase 0", "phase_1.5" -> "Phase 1.5")
+        const formatPhaseNumber = (id) => {
+            const match = id.match(/phase_([\d.]+)/);
+            return match ? `Phase ${match[1]}` : '';
+        };
+
+        phaseSwitcher.innerHTML = phases.map(phase => {
+            const phaseNum = formatPhaseNumber(phase.id);
+            const label = phaseNum ? `${phase.icon} ${phaseNum}: ${phase.short_title}` : `${phase.icon} ${phase.short_title}`;
+            return `<option value="${phase.id}" ${phase.id === currentPhase?.id ? 'selected' : ''}>${label}</option>`;
+        }).join('');
+
+        // Add change event listener
+        phaseSwitcher.addEventListener('change', (e) => this.changePhase(e.target.value));
+    },
+
+    /**
+     * Switch to a different phase.
+     * Progress is stored per-phase, so switching phases preserves each phase's progress separately.
+     * @param {string} phaseId - The phase ID to switch to.
+     */
+    async changePhase(phaseId) {
+        const currentPhase = DataLoader.getCurrentPhase();
+        if (currentPhase?.id === phaseId) return;
+
+        // Confirm if user has progress in current phase
+        const hasProgress = QuestionnaireEngine.getStats?.().answered > 0;
+        if (hasProgress) {
+            const confirmed = confirm(
+                `Switch to a different phase?\n\n` +
+                `Your progress in "${currentPhase?.short_title || 'current phase'}" is saved automatically.\n` +
+                `You can return anytime without losing your work.`
+            );
+            if (!confirmed) {
+                // Reset the dropdown to current phase
+                const phaseSwitcher = document.getElementById('phase-switcher');
+                if (phaseSwitcher) phaseSwitcher.value = currentPhase.id;
+                return;
+            }
+        }
+
+        // Show loading
+        this.showLoading(true);
+
+        try {
+            // Switch to new phase
+            DataLoader.setCurrentPhase(phaseId);
+            StorageManager.setPhase(phaseId);
+
+            // Load new phase data
+            await DataLoader.load();
+
+            // Update display
+            this.updatePhaseDisplay();
+            this.updateModeOptions();
+
+            // Reset the questionnaire engine for new phase  
+            const savedMode = StorageManager.loadMode();
+            QuestionnaireEngine.init(savedMode);
+
+            // Check for resumable progress in this phase
+            if (StorageManager.hasResumableProgress()) {
+                this.showResumePrompt();
+            } else {
+                document.getElementById('resume-prompt').style.display = 'none';
+            }
+
+            // Go to welcome screen
+            this.showView('welcome');
+
+        } catch (error) {
+            console.error('Failed to change phase:', error);
+            this.showError('Failed to load phase data. Please refresh the page.');
+        } finally {
+            this.showLoading(false);
         }
     },
 
@@ -261,34 +446,57 @@ const App = {
 
         // Update navigation buttons
         this.updateNavigationButtons();
+
+        // Update URL hash with current question ID
+        if (typeof URLRouter !== 'undefined') {
+            URLRouter.updateHash('questionnaire', question.id);
+        }
     },
 
     /**
      * Update navigation button states.
+     * Smart button: shows "Next" when answered, "Skip" when blank, "Finish" when last.
      */
     updateNavigationButtons() {
         const prevBtn = document.getElementById('btn-prev');
         const nextBtn = document.getElementById('btn-next');
-        const skipBtn = document.getElementById('btn-skip');
+        const nextText = nextBtn?.querySelector('.btn-next-text');
+        const nextIcon = nextBtn?.querySelector('.btn-next-icon');
 
         const isFirst = QuestionnaireEngine.currentIndex === 0;
         const isLast = QuestionnaireEngine.currentIndex === QuestionnaireEngine.getTotalQuestions() - 1;
         const isAnswered = QuestionnaireEngine.isCurrentAnswered();
-        const isSkipped = QuestionnaireEngine.isCurrentSkipped();
 
+        // Previous button
         if (prevBtn) {
             prevBtn.disabled = isFirst;
             prevBtn.style.visibility = isFirst ? 'hidden' : 'visible';
         }
 
-        if (nextBtn) {
-            nextBtn.textContent = isLast ? 'Finish' : 'Next';
-            nextBtn.classList.toggle('btn-primary', isAnswered);
-            nextBtn.classList.toggle('btn-secondary', !isAnswered);
-        }
-
-        if (skipBtn) {
-            skipBtn.style.display = isAnswered || isSkipped ? 'none' : 'inline-flex';
+        // Smart next/skip button
+        if (nextBtn && nextText) {
+            if (isLast) {
+                // Last question
+                nextText.textContent = 'Finish';
+                nextIcon.textContent = '✓';
+                nextBtn.dataset.state = 'finish';
+                nextBtn.classList.remove('btn-skip-state');
+                nextBtn.classList.add('btn-primary');
+            } else if (isAnswered) {
+                // Answered - show Next
+                nextText.textContent = 'Next';
+                nextIcon.textContent = '→';
+                nextBtn.dataset.state = 'next';
+                nextBtn.classList.remove('btn-skip-state');
+                nextBtn.classList.add('btn-primary');
+            } else {
+                // Not answered - show Skip
+                nextText.textContent = 'Skip';
+                nextIcon.textContent = '→';
+                nextBtn.dataset.state = 'skip';
+                nextBtn.classList.add('btn-skip-state');
+                nextBtn.classList.remove('btn-primary');
+            }
         }
     },
 
@@ -432,13 +640,21 @@ const App = {
     },
 
     /**
-     * Go to next question.
+     * Go to next question (or skip if unanswered).
+     * Smart behavior: if user hasn't answered, this acts as skip.
      */
     nextQuestion() {
         // Clear warning for current question (user has viewed it)
         this.clearImportWarning(QuestionnaireEngine.getCurrentQuestion()?.id);
 
+        const nextBtn = document.getElementById('btn-next');
+        const isSkipState = nextBtn?.dataset.state === 'skip';
         const isLast = QuestionnaireEngine.currentIndex === QuestionnaireEngine.getTotalQuestions() - 1;
+
+        // If button is in skip state (not answered), mark as skipped
+        if (isSkipState && !QuestionnaireEngine.isCurrentAnswered()) {
+            QuestionnaireEngine.markAsSkipped();
+        }
 
         if (isLast) {
             this.showView('complete');
@@ -511,16 +727,24 @@ const App = {
 
         this.currentView = viewName;
 
-        // Show/hide nav elements (hide on welcome view)
+        // Show/hide nav elements based on view
         const navRestart = document.getElementById('btn-nav-restart');
-        const modeSwitcher = document.getElementById('mode-switcher');
-        const showNavControls = viewName !== 'welcome';
+        const modeToggle = document.querySelector('.mode-toggle');
+        const dashboardBtn = document.getElementById('btn-dashboard');
+
+        // Dashboard/welcome hide most nav controls
+        const showNavControls = !['dashboard', 'welcome'].includes(viewName);
+        const showDashboardBtn = viewName !== 'dashboard';
 
         if (navRestart) {
+            // Use .visible class since CSS uses opacity for this button
             navRestart.classList.toggle('visible', showNavControls);
         }
-        if (modeSwitcher) {
-            modeSwitcher.style.display = showNavControls ? 'block' : 'none';
+        if (modeToggle) {
+            modeToggle.style.display = showNavControls ? 'flex' : 'none';
+        }
+        if (dashboardBtn) {
+            dashboardBtn.style.display = showDashboardBtn ? 'inline-flex' : 'none';
         }
 
         // Special handling for review view
@@ -530,6 +754,21 @@ const App = {
 
         // Scroll to top
         window.scrollTo(0, 0);
+
+        // Reset page title and nav branding for dashboard
+        if (viewName === 'dashboard') {
+            document.title = 'Slow Build Check-In | Relationship Tools';
+            const navTitle = document.querySelector('.nav-title');
+            const navLogo = document.querySelector('.nav-logo');
+            if (navTitle) navTitle.textContent = 'Slow Build Check-In';
+            if (navLogo) navLogo.textContent = '💜';
+        }
+
+        // Update URL hash for navigation state
+        if (typeof URLRouter !== 'undefined') {
+            const questionId = viewName === 'questionnaire' ? QuestionnaireEngine.getCurrentQuestion()?.id : null;
+            URLRouter.updateHash(viewName, questionId);
+        }
     },
 
     /**
@@ -612,6 +851,105 @@ const App = {
      */
     exportJSON() {
         ExportManager.exportAsJSON({ participantName: this.participantName });
+    },
+
+    /**
+     * Generate a user-friendly filename for save progress.
+     * Format: phase-version_answered-of-total_date.json
+     */
+    generateSaveFilename() {
+        const stats = QuestionnaireEngine.getStats();
+        const mode = QuestionnaireEngine.mode || 'lite';
+        const artifact = DataLoader.getArtifact();
+        const phaseName = artifact?.stage?.code || 'checkin';
+
+        // Get current date in simple format (Jan-08)
+        const date = new Date();
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const dateStr = `${months[date.getMonth()]}-${String(date.getDate()).padStart(2, '0')}`;
+
+        // Build filename: phase1_5-lite_5-of-18_Jan-08.json
+        return `${phaseName}-${mode}_${stats.answered}-of-${stats.total}_${dateStr}.json`;
+    },
+
+    /**
+     * Show the save progress modal with preview info.
+     */
+    showSaveModal() {
+        const modal = document.getElementById('save-modal');
+        const filenameEl = document.getElementById('save-filename-preview');
+        const statsEl = document.getElementById('save-stats-preview');
+
+        // Generate and show filename
+        const filename = this.generateSaveFilename();
+        if (filenameEl) {
+            filenameEl.textContent = filename;
+        }
+
+        // Show stats
+        const stats = QuestionnaireEngine.getStats();
+        if (statsEl) {
+            statsEl.innerHTML = `
+                <span>✓ ${stats.answered} answered</span>
+                <span>⏭ ${stats.skipped} skipped</span>
+                <span>○ ${stats.unanswered} remaining</span>
+            `;
+        }
+
+        // Show modal
+        if (modal) {
+            modal.classList.add('active');
+        }
+    },
+
+    /**
+     * Hide the save progress modal.
+     */
+    hideSaveModal() {
+        const modal = document.getElementById('save-modal');
+        if (modal) {
+            modal.classList.remove('active');
+        }
+    },
+
+    /**
+     * Confirm and execute the save operation.
+     */
+    confirmSaveProgress() {
+        const filename = this.generateSaveFilename();
+
+        try {
+            // Export using the generated filename (without .json, it gets added automatically)
+            ExportManager.exportAsJSON({
+                participantName: this.getParticipantName(),
+                filename: filename.replace('.json', '')
+            });
+
+            // Hide modal
+            this.hideSaveModal();
+
+            // Show success toast
+            this.showSaveToast();
+
+        } catch (error) {
+            console.error('Failed to save progress:', error);
+            // Could add error handling UI here
+        }
+    },
+
+    /**
+     * Show a friendly success toast notification.
+     */
+    showSaveToast() {
+        const toast = document.getElementById('save-toast');
+        if (toast) {
+            toast.classList.add('show');
+
+            // Auto-hide after 4 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
     },
 
     /**
@@ -748,10 +1086,19 @@ const App = {
      * Update the mode display in the UI.
      */
     updateModeDisplay() {
-        const modeSwitcher = document.getElementById('mode-switcher');
-        if (modeSwitcher) {
-            modeSwitcher.value = QuestionnaireEngine.mode;
-        }
+        this.updateModeToggle(QuestionnaireEngine.mode);
+    },
+
+    /**
+     * Update the mode toggle buttons state.
+     * @param {string} mode - 'lite' or 'full'
+     */
+    updateModeToggle(mode) {
+        document.querySelectorAll('.mode-toggle-btn').forEach(btn => {
+            const isActive = btn.dataset.mode === mode;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-checked', isActive);
+        });
     },
 
     /**
@@ -1395,13 +1742,428 @@ const App = {
             // Log import summary (no intrusive alert)
             const totalImported = Object.keys(mappedResponses).length;
             const reviewCount = needsReview.length;
-            console.log(`Imported ${file.name}'s responses (${mode} mode). ${reviewCount} questions may need review.`);
-
         } catch (error) {
             this.showImportValidation(`Error loading file: ${error.message}`, 'error');
+        }
+    },
+
+    // ==================== DASHBOARD METHODS ====================
+
+    /**
+     * Render the dashboard with questionnaire cards.
+     */
+    async renderDashboard() {
+        const grid = document.getElementById('questionnaire-grid');
+        if (!grid) return;
+
+        const phases = DataLoader.getPhases();
+
+        // Build cards for each phase
+        const cards = await Promise.all(phases.map(async (phase) => {
+            // Load phase metadata to get question counts
+            const metadata = await this.getPhaseMetadata(phase);
+
+            return this.renderQuestionnaireCard(phase, metadata);
+        }));
+
+        grid.innerHTML = cards.join('');
+
+        // Set staggered animation delay for each card (supports any number of phases)
+        grid.querySelectorAll('.questionnaire-card').forEach((card, index) => {
+            card.style.setProperty('--card-index', index + 1);
+        });
+
+        // Add click handlers to cards
+        grid.addEventListener('click', (e) => {
+            const card = e.target.closest('.questionnaire-card');
+            const btn = e.target.closest('.btn');
+
+            if (btn && card) {
+                const phaseId = card.dataset.phaseId;
+                const mode = btn.dataset.mode;
+                if (phaseId) {
+                    this.selectQuestionnaire(phaseId, mode);
+                }
+            } else if (card) {
+                // Click on card itself - select with default mode
+                const phaseId = card.dataset.phaseId;
+                if (phaseId) {
+                    this.selectQuestionnaire(phaseId, 'lite');
+                }
+            }
+        });
+
+        // Check for resume banner
+        this.updateDashboardResumeBanner();
+
+        // Setup dashboard button in nav
+        document.getElementById('btn-dashboard')?.addEventListener('click', () => {
+            this.showView('dashboard');
+            this.renderDashboard();
+        });
+
+        // Setup dashboard resume/fresh buttons
+        document.getElementById('btn-dashboard-resume')?.addEventListener('click', () => {
+            const lastPhase = StorageManager.getLastPhase();
+            if (lastPhase) {
+                this.selectQuestionnaire(lastPhase, null, true);
+            }
+        });
+
+        document.getElementById('btn-dashboard-fresh')?.addEventListener('click', () => {
+            const lastPhase = StorageManager.getLastPhase() || DataLoader.getDefaultPhaseId();
+            this.selectQuestionnaire(lastPhase, 'lite', false);
+        });
+    },
+
+    /**
+     * Get metadata for a phase including question counts.
+     * @param {Object} phase - Phase object from phases.json
+     * @returns {Object} Metadata including counts
+     */
+    async getPhaseMetadata(phase) {
+        try {
+            // Fetch questions.json for this phase to get counts and artifact info
+            const response = await fetch(`${phase.data_path}/questions.json`);
+            if (!response.ok) throw new Error('Failed to load');
+
+            const data = await response.json();
+
+            // Count questions by mode
+            let liteCount = 0;
+            let fullCount = 0;
+
+            if (data.questions) {
+                Object.values(data.questions).forEach(q => {
+                    const tags = q.tags?.included_in_manifests || [];
+                    if (tags.includes('lite')) liteCount++;
+                    if (tags.includes('full')) fullCount++;
+                });
+            }
+
+            return {
+                artifact: data.artifact || {},
+                intro: data.intro || {},
+                sections: data.sections || [],
+                liteCount,
+                fullCount
+            };
+        } catch (error) {
+            console.warn(`Could not load metadata for ${phase.id}:`, error);
+            return {
+                artifact: {},
+                intro: {},
+                sections: [],
+                liteCount: 0,
+                fullCount: 0
+            };
+        }
+    },
+
+    /**
+     * Render a questionnaire card for the dashboard.
+     * @param {Object} phase - Phase object
+     * @param {Object} metadata - Phase metadata
+     * @returns {string} HTML for the card
+     */
+    renderQuestionnaireCard(phase, metadata) {
+        const artifact = metadata.artifact || {};
+
+        // Format phase number
+        const phaseMatch = phase.id.match(/phase_([\d.]+)/);
+        const phaseLabel = phaseMatch ? `Phase ${phaseMatch[1]}` : '';
+
+        // Get purpose/eligibility
+        const purpose = artifact.purpose || phase.description ? [phase.description] : [];
+        const eligibility = artifact.stage?.eligibility || [];
+
+        return `
+            <div class="questionnaire-card" data-phase-id="${phase.id}" role="listitem" tabindex="0">
+                <div class="card-header">
+                    <span class="card-icon">${phase.icon || '📋'}</span>
+                    <div class="card-titles">
+                        ${phaseLabel ? `<div class="card-phase-label">${phaseLabel}</div>` : ''}
+                        <h3 class="card-title">${artifact.title || phase.title}</h3>
+                    </div>
+                </div>
+                
+                <p class="card-subtitle">${artifact.subtitle || phase.description || ''}</p>
+                
+                <div class="card-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">${metadata.liteCount}</span>
+                        <span class="stat-label">Lite Questions</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-value">${metadata.fullCount}</span>
+                        <span class="stat-label">Full Questions</span>
+                    </div>
+                </div>
+                
+                ${purpose.length > 0 ? `
+                    <div class="card-details">
+                        <div class="card-details-title">Purpose</div>
+                        <ul class="card-list">
+                            ${purpose.slice(0, 3).map(p => `<li>${p}</li>`).join('')}
+                        </ul>
+                    </div>
+                ` : ''}
+                
+                <div class="card-action">
+                    <button class="btn btn-primary" data-mode="lite">
+                        ✨ Lite (${metadata.liteCount})
+                    </button>
+                    <button class="btn btn-secondary" data-mode="full">
+                        📋 Full (${metadata.fullCount})
+                    </button>
+                </div>
+            </div>
+        `;
+    },
+
+    /**
+     * Update the resume banner on dashboard.
+     */
+    updateDashboardResumeBanner() {
+        const banner = document.getElementById('dashboard-resume-banner');
+        if (!banner) return;
+
+        // Check all phases for saved progress
+        const phases = DataLoader.getPhases();
+        let hasProgress = false;
+        let progressPhase = null;
+
+        for (const phase of phases) {
+            // Temporarily switch to each phase to check progress
+            const originalPhase = StorageManager.currentPhaseId;
+            StorageManager.currentPhaseId = phase.id;
+
+            if (StorageManager.hasResumableProgress()) {
+                hasProgress = true;
+                progressPhase = phase;
+            }
+
+            StorageManager.currentPhaseId = originalPhase;
+
+            if (hasProgress) break;
+        }
+
+        if (hasProgress && progressPhase) {
+            banner.style.display = 'flex';
+            const nameEl = document.getElementById('resume-phase-name');
+            if (nameEl) {
+                nameEl.textContent = `progress in ${progressPhase.short_title}`;
+            }
+        } else {
+            banner.style.display = 'none';
+        }
+    },
+
+    /**
+     * Select a questionnaire from the dashboard.
+     * @param {string} phaseId - Phase ID to start
+     * @param {string|null} mode - Mode (lite/full) or null to use saved
+     * @param {boolean} resume - Whether to resume existing progress
+     */
+    async selectQuestionnaire(phaseId, mode = 'lite', resume = false) {
+        try {
+            this.showLoading(true);
+
+            // Set phase
+            DataLoader.setCurrentPhase(phaseId);
+            StorageManager.setPhase(phaseId);
+
+            // Load phase data
+            await DataLoader.load();
+
+            // Update display
+            this.updatePhaseDisplay();
+            this.updateModeOptions();
+            this.populatePhaseSwitcher();
+
+            // If resuming, check for existing progress
+            if (resume && StorageManager.hasResumableProgress()) {
+                // Load saved progress
+                const savedMode = StorageManager.loadMode();
+                await QuestionnaireEngine.init(savedMode);
+
+                const progress = StorageManager.loadProgress();
+                if (progress) {
+                    QuestionnaireEngine.responses = progress.responses || {};
+                    QuestionnaireEngine.currentIndex = progress.currentIndex || 0;
+                    QuestionnaireEngine.skipped = new Set(StorageManager.loadSkipped() || []);
+                }
+
+                // Update mode switcher
+                const modeSwitcher = document.getElementById('mode-switcher');
+                if (modeSwitcher) modeSwitcher.value = savedMode;
+
+                this.showView('questionnaire');
+                this.renderCurrentQuestion();
+                this.updateProgress();
+
+                this.showToast('Welcome back! Continuing where you left off.', 'success');
+            } else {
+                // Fresh start - go to welcome view
+                if (mode) {
+                    StorageManager.saveMode(mode);
+
+                    // Update mode selection UI
+                    document.querySelectorAll('.mode-option').forEach(opt => {
+                        opt.classList.toggle('selected', opt.dataset.mode === mode);
+                    });
+
+                    const modeSwitcher = document.getElementById('mode-switcher');
+                    if (modeSwitcher) modeSwitcher.value = mode;
+                }
+
+                this.showView('welcome');
+
+                // Check for resume prompt
+                if (StorageManager.hasResumableProgress()) {
+                    this.showResumePrompt();
+                }
+            }
+
+            this.showLoading(false);
+
+            // Announce for screen readers
+            const phase = DataLoader.getCurrentPhase();
+            this.announce(`Selected ${phase?.title || 'questionnaire'}`);
+
+        } catch (error) {
+            console.error('Failed to select questionnaire:', error);
+            this.showError('Failed to load questionnaire. Please try again.');
+            this.showLoading(false);
+        }
+    },
+
+    // ==================== TOAST NOTIFICATIONS ====================
+
+    /**
+     * Show a toast notification.
+     * @param {string} message - Message to display
+     * @param {string} type - Type: 'info', 'success', 'skip', 'error'
+     * @param {number} duration - Duration in ms (default 3000)
+     */
+    showToast(message, type = 'info', duration = 3000) {
+        const container = document.getElementById('toast-container');
+        if (!container) return;
+
+        const icons = {
+            info: 'ℹ️',
+            success: '✓',
+            skip: '⏭',
+            error: '⚠️'
+        };
+
+        const toast = document.createElement('div');
+        toast.className = `toast toast-${type}`;
+        toast.innerHTML = `
+            <span class="toast-icon">${icons[type] || icons.info}</span>
+            <span class="toast-message">${message}</span>
+        `;
+
+        container.appendChild(toast);
+
+        // Auto-remove after duration
+        setTimeout(() => {
+            toast.classList.add('hiding');
+            setTimeout(() => toast.remove(), 300);
+        }, duration);
+    },
+
+    // ==================== BOOKMARKS ====================
+
+    /**
+     * Toggle bookmark for a question.
+     * @param {string} questionId - Question ID to bookmark/unbookmark
+     */
+    toggleBookmark(questionId) {
+        const index = this.bookmarkedQuestions.indexOf(questionId);
+
+        if (index > -1) {
+            this.bookmarkedQuestions.splice(index, 1);
+            this.showToast('Bookmark removed', 'info', 2000);
+        } else {
+            this.bookmarkedQuestions.push(questionId);
+            this.showToast('Question bookmarked for later', 'success', 2000);
+        }
+
+        // Save to storage
+        StorageManager.setBookmarks(this.bookmarkedQuestions);
+
+        // Update bookmark button in current view
+        this.updateBookmarkUI(questionId);
+        this.updateBookmarkCount();
+    },
+
+    /**
+     * Check if a question is bookmarked.
+     * @param {string} questionId - Question ID
+     * @returns {boolean}
+     */
+    isBookmarked(questionId) {
+        return this.bookmarkedQuestions.includes(questionId);
+    },
+
+    /**
+     * Update bookmark UI for a specific question.
+     * @param {string} questionId - Question ID
+     */
+    updateBookmarkUI(questionId) {
+        const btn = document.querySelector(`[data-bookmark-id="${questionId}"]`);
+        if (btn) {
+            const isBookmarked = this.isBookmarked(questionId);
+            btn.classList.toggle('bookmarked', isBookmarked);
+            btn.setAttribute('aria-pressed', isBookmarked);
+            btn.innerHTML = isBookmarked ? '⭐' : '☆';
+        }
+    },
+
+    /**
+     * Update the bookmark count display.
+     */
+    updateBookmarkCount() {
+        const countEl = document.getElementById('bookmarked-count');
+        const btn = document.getElementById('btn-show-bookmarked');
+
+        if (countEl) {
+            countEl.textContent = this.bookmarkedQuestions.length;
+        }
+
+        if (btn) {
+            btn.style.display = this.bookmarkedQuestions.length > 0 ? 'inline-flex' : 'none';
+        }
+    },
+
+    // ==================== ACCESSIBILITY ====================
+
+    /**
+     * Announce a message for screen readers.
+     * @param {string} message - Message to announce
+     */
+    announce(message) {
+        const region = document.getElementById('sr-announcements');
+        if (region) {
+            region.textContent = message;
+            // Clear after announcement is read
+            setTimeout(() => {
+                region.textContent = '';
+            }, 1000);
         }
     }
 };
 
-// Initialize on DOM ready
-document.addEventListener('DOMContentLoaded', () => App.init());
+// Initialize on DOM ready - wait for HTML components to load first
+document.addEventListener('DOMContentLoaded', () => {
+    // HTMLLoader injects all HTML partials from ./html/ folder
+    // before initializing the app to ensure DOM elements exist
+    if (typeof HTMLLoader !== 'undefined') {
+        HTMLLoader.init(() => App.init());
+    } else {
+        // Fallback for static HTML (all elements already in page)
+        App.init();
+    }
+});

@@ -1,0 +1,92 @@
+<!-- ./html/views/complete.html -->
+<!-- Complete view: Completion stats, export options, and AI prompt generation -->
+
+<section id="view-complete" class="view container" aria-labelledby="complete-title" tabindex="-1">
+    <div class="complete-content">
+        <div class="complete-icon" aria-hidden="true">💜</div>
+        <h1 id="complete-title" class="complete-title">Beautiful Work!</h1>
+        <p class="complete-subtitle">
+            You've taken a meaningful step toward clarity and kindness.
+            Your answers are yours to keep, share, or reflect on.
+        </p>
+
+        <!-- Stats -->
+        <div id="complete-stats" aria-live="polite">
+            <!-- Stats rendered dynamically -->
+        </div>
+
+        <!-- Export Section -->
+        <div class="export-section">
+            <h2 class="export-title">Save Your Responses</h2>
+            <div class="export-buttons">
+                <button id="btn-export-text" class="btn btn-primary">
+                    📄 Download as Text
+                </button>
+                <button id="btn-export-json" class="btn btn-secondary">
+                    📁 Download as JSON
+                </button>
+                <button id="btn-copy" class="btn btn-ghost">
+                    📋 Copy to Clipboard
+                </button>
+            </div>
+        </div>
+
+        <!-- Individual Reflection -->
+        <div class="export-section">
+            <h2 class="export-title">✨ Individual AI Reflection</h2>
+            <p class="export-hint">For solo reflection - copies prompt + your responses</p>
+            <div class="export-buttons">
+                <button id="btn-copy-ai-prompt" class="btn btn-primary">
+                    🤖 Copy Individual Prompt
+                </button>
+                <button id="btn-view-ai-prompt" class="btn btn-ghost">
+                    👁 View Raw
+                </button>
+            </div>
+        </div>
+
+        <!-- Couple's Reflection -->
+        <div class="export-section">
+            <h2 class="export-title">💑 Couple's AI Reflection</h2>
+            <p class="export-hint">For couples - share your results, then combine for joint reflection</p>
+            <div class="export-buttons">
+                <button id="btn-copy-results" class="btn btn-secondary">
+                    📤 Copy My Results
+                </button>
+                <button id="btn-view-results" class="btn btn-ghost">
+                    👁 View
+                </button>
+            </div>
+            <div class="export-buttons" style="margin-top: var(--space-2);">
+                <button id="btn-copy-couple-prompt" class="btn btn-primary">
+                    💕 Copy Couple's Prompt
+                </button>
+                <button id="btn-view-couple-prompt" class="btn btn-ghost">
+                    👁 View Raw
+                </button>
+            </div>
+        </div>
+
+        <!-- Continue to Full Mode (shown for Lite completions) -->
+        <div id="upgrade-section" class="export-section" style="display: none;">
+            <h2 class="export-title">🚀 Ready for More?</h2>
+            <p class="export-hint">You've completed the Lite version. Continue with <span
+                    id="additional-count">--</span> more questions for deeper insights.</p>
+            <div class="export-buttons">
+                <button id="btn-upgrade-full" class="btn btn-primary">
+                    📈 Continue to Full Mode
+                </button>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="complete-actions">
+            <button id="btn-review-answers" class="btn btn-secondary">
+                📋 Review Answers
+            </button>
+            <button id="btn-restart" class="btn btn-ghost">
+                Start Over
+            </button>
+        </div>
+    </div>
+</section>

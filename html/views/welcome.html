@@ -1,0 +1,81 @@
+<!-- ./html/views/welcome.html -->
+<!-- Welcome view: Instructions, mode selection, and participant name entry -->
+
+<section id="view-welcome" class="view container" aria-labelledby="welcome-title" tabindex="-1">
+    <header class="welcome-header">
+        <div class="welcome-icon">💜</div>
+        <h1 id="welcome-title" class="welcome-title">Slow Build Check-In</h1>
+        <p class="welcome-subtitle">A gentle space to share what feels true for you right now.</p>
+    </header>
+
+    <!-- Resume Prompt -->
+    <div id="resume-prompt" class="resume-prompt">
+        <p>📝 You have saved progress. Would you like to continue where you left off?</p>
+        <div class="resume-buttons">
+            <button id="btn-resume" class="btn btn-primary">Continue</button>
+            <button id="btn-start-fresh" class="btn btn-ghost">Start Fresh</button>
+        </div>
+    </div>
+
+    <!-- Introduction -->
+    <div class="intro-card">
+        <div class="intro-section">
+            <h2 class="intro-title">📋 Instructions</h2>
+            <ul class="intro-list">
+                <li>This is not a test, not a contract, and not a "define us" talk.</li>
+                <li>Answer what feels true right now, not what you think "should" be true.</li>
+                <li>It's okay to choose multiple options, rank them, or say "it depends."</li>
+                <li>It's okay to skip any question and come back later.</li>
+                <li>If you feel flooded or tense, pause immediately and do something grounding.</li>
+            </ul>
+        </div>
+
+        <div class="intro-section">
+            <h2 class="intro-title">💡 Keep in Mind</h2>
+            <ul class="intro-list">
+                <li>The goal is less mind-reading and more kindness.</li>
+                <li>Clarity should feel calming, not pressuring.</li>
+                <li>Going slow can be wisdom, not low interest.</li>
+                <li>Answers can change. Nothing here is permanent.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Mode Selection -->
+    <h2 class="text-center mb-4">Choose Your Format</h2>
+    <div class="mode-selector">
+        <div class="mode-option selected" data-mode="lite" tabindex="0" role="button" aria-pressed="true">
+            <div class="mode-title">Lite</div>
+            <div class="mode-count" id="lite-count">--</div>
+            <div class="mode-label">Core Questions</div>
+            <div class="mode-time" id="lite-time">--</div>
+        </div>
+        <div class="mode-option" data-mode="full" tabindex="0" role="button" aria-pressed="false">
+            <div class="mode-title">Full</div>
+            <div class="mode-count" id="full-count">--</div>
+            <div class="mode-label">All Questions</div>
+            <div class="mode-time">Take your time</div>
+        </div>
+    </div>
+
+    <!-- Participant Name -->
+    <div class="participant-section">
+        <label for="participant-name" class="participant-label">Your name (optional, for your
+            export)</label>
+        <input type="text" id="participant-name" class="input" placeholder="Enter your name..."
+            autocomplete="given-name">
+    </div>
+
+    <!-- Start Button -->
+    <div class="start-section">
+        <button id="btn-start" class="btn btn-primary btn-lg">
+            Begin Check-In
+            <span aria-hidden="true">→</span>
+        </button>
+        <div style="margin-top: var(--space-4);">
+            <button id="btn-import-welcome" class="btn btn-ghost">
+                📥 Have saved results? Import for AI Prompt
+            </button>
+        </div>
+    </div>
+</section>

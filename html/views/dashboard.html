@@ -1,0 +1,70 @@
+<!-- ./html/views/dashboard.html -->
+<!-- Dashboard view: Questionnaire selection and progress overview -->
+
+<section id="view-dashboard" class="view" aria-labelledby="dashboard-title" tabindex="-1">
+    <div class="dashboard">
+        <header class="dashboard-header">
+            <div class="dashboard-icon">💜</div>
+            <h1 id="dashboard-title" class="dashboard-title">Relationship Check-In Tools</h1>
+            <p class="dashboard-subtitle">Choose a questionnaire to begin your intentional journey toward
+                clarity and connection.</p>
+        </header>
+
+        <!-- Resume Banner (shown if any phase has saved progress) -->
+        <div id="dashboard-resume-banner" class="resume-banner" style="display: none;">
+            <div class="resume-banner-content">
+                <span class="resume-banner-icon">📝</span>
+                <span class="resume-banner-text">You have <strong id="resume-phase-name">saved
+                        progress</strong> to continue.</span>
+            </div>
+            <div class="resume-banner-actions">
+                <button id="btn-dashboard-resume" class="btn btn-primary btn-sm">Continue</button>
+                <button id="btn-dashboard-fresh" class="btn btn-ghost btn-sm">Start Fresh</button>
+            </div>
+        </div>
+
+        <!-- Questionnaire Cards Grid -->
+        <div id="questionnaire-grid" class="questionnaire-grid" role="list">
+            <!-- Cards populated dynamically by JavaScript -->
+        </div>
+
+        <!-- Instructions Section -->
+        <div class="dashboard-instructions">
+            <div class="instructions-header">
+                <span class="instructions-icon">📋</span>
+                <h2 class="instructions-title">How These Work</h2>
+            </div>
+            <div class="instructions-grid">
+                <div class="instruction-item">
+                    <span class="instruction-icon">⏱️</span>
+                    <span class="instruction-text"><strong>Take your time.</strong> Skip any question and
+                        come back later.</span>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-icon">💾</span>
+                    <span class="instruction-text"><strong>Auto-saved.</strong> Your progress is saved
+                        automatically in your browser.</span>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-icon">📤</span>
+                    <span class="instruction-text"><strong>Export anytime.</strong> Download your answers as
+                        text or JSON.</span>
+                </div>
+                <div class="instruction-item">
+                    <span class="instruction-icon">🤖</span>
+                    <span class="instruction-text"><strong>AI prompts.</strong> Generate reflection prompts
+                        for yourself or as a couple.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Tips -->
+        <div class="dashboard-tips">
+            <div class="tips-title">💡 Tip</div>
+            <div class="tips-content">
+                Start with <em>Lite mode</em> for a focused check-in, or choose <em>Full mode</em> for
+                deeper exploration.
+            </div>
+        </div>
+    </div>
+</section>

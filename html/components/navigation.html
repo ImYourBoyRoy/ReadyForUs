@@ -1,0 +1,34 @@
+<!-- ./html/components/navigation.html -->
+<!-- Top navigation bar with all controls and actions -->
+
+<nav class="nav">
+    <div class="container nav-content">
+        <div class="nav-brand">
+            <span class="nav-logo">💜</span>
+            <span class="nav-title">Slow Build Check-In</span>
+        </div>
+        <div class="nav-actions">
+            <button id="btn-dashboard" class="btn btn-ghost btn-sm" title="Back to Dashboard">
+                🏠 Dashboard
+            </button>
+            <button id="btn-import-nav" class="btn btn-ghost btn-sm" title="Import Results">
+                📥 Import
+            </button>
+            <!-- Mode Toggle: Lite/Full -->
+            <div class="mode-toggle" role="radiogroup" aria-label="Questionnaire mode">
+                <button id="mode-lite" class="mode-toggle-btn active" data-mode="lite" role="radio" aria-checked="true">
+                    Lite
+                </button>
+                <button id="mode-full" class="mode-toggle-btn" data-mode="full" role="radio" aria-checked="false">
+                    Full
+                </button>
+            </div>
+            <button id="btn-nav-restart" class="btn btn-ghost btn-sm nav-restart" type="button" title="Start Over">
+                🔄 Start Over
+            </button>
+            <button id="theme-toggle" class="btn btn-icon theme-toggle" type="button" aria-label="Change theme">
+                <span class="theme-icon">☀️</span>
+            </button>
+        </div>
+    </div>
+</nav>

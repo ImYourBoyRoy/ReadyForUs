@@ -1,0 +1,52 @@
+<!-- ./html/views/questionnaire.html -->
+<!-- Questionnaire view: Question display, progress tracking, and navigation -->
+
+<section id="view-questionnaire" class="view container" aria-labelledby="questionnaire-title" tabindex="-1">
+    <h1 id="questionnaire-title" class="sr-only">Questionnaire</h1>
+
+    <!-- Progress -->
+    <div class="progress-container">
+        <div class="progress-header">
+            <div class="progress-info">
+                <span id="progress-text" class="progress-text">0 of 18 answered</span>
+                <button id="btn-show-bookmarked" class="btn btn-ghost btn-xs" title="Show bookmarked questions"
+                    style="display: none;">
+                    ⭐ <span id="bookmarked-count">0</span>
+                </button>
+                <span id="skipped-badge" class="badge badge-accent">0 skipped</span>
+            </div>
+            <button id="btn-review" class="btn btn-ghost btn-sm">
+                📋 Review All
+            </button>
+        </div>
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            <div id="progress-fill-skipped" class="progress-fill progress-fill-skipped" style="width: 0%">
+            </div>
+            <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+        </div>
+    </div>
+
+    <!-- Question Container -->
+    <div id="question-container" role="form" aria-live="polite">
+        <!-- Questions rendered dynamically -->
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-buttons">
+        <div class="nav-buttons-left">
+            <button id="btn-prev" class="btn btn-ghost">
+                <span aria-hidden="true">←</span>
+                Previous
+            </button>
+        </div>
+        <div class="nav-buttons-right">
+            <button id="btn-save-progress" class="btn btn-ghost btn-sm" title="Save your progress to a file">
+                💾 Save
+            </button>
+            <button id="btn-next" class="btn btn-primary" data-state="skip">
+                <span class="btn-next-text">Skip</span>
+                <span class="btn-next-icon" aria-hidden="true">→</span>
+            </button>
+        </div>
+    </div>
+</section>

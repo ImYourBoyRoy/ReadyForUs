@@ -1,0 +1,363 @@
+/* ./css/comparison.css */
+/**
+ * Partner Comparison View Styles
+ * 
+ * Side-by-side layout for comparing two partner's questionnaire
+ * responses with visual indicators for alignment and differences.
+ */
+
+/* ==================== Comparison Container ==================== */
+.comparison-view {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+.comparison-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.comparison-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+}
+
+.comparison-subtitle {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+}
+
+/* Partner Names */
+.comparison-partners {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.partner-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--color-bg-card);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+}
+
+.partner-badge.partner-a {
+    border-color: var(--partner-a-color, #9B89A9);
+}
+
+.partner-badge.partner-b {
+    border-color: var(--partner-b-color, #E8B4B8);
+}
+
+.partner-icon {
+    font-size: 1.25rem;
+}
+
+/* ==================== Summary Stats ==================== */
+.comparison-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.summary-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.summary-card.aligned {
+    border-color: var(--success-border);
+    background: linear-gradient(135deg, var(--success-bg), var(--color-bg-card));
+}
+
+.summary-card.different {
+    border-color: var(--warning-border);
+    background: linear-gradient(135deg, var(--warning-bg), var(--color-bg-card));
+}
+
+.summary-card.unique {
+    border-color: var(--info-border);
+    background: linear-gradient(135deg, var(--info-bg), var(--color-bg-card));
+}
+
+.summary-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.summary-card.aligned .summary-value {
+    color: var(--success-text);
+}
+
+.summary-card.different .summary-value {
+    color: var(--warning-text);
+}
+
+.summary-card.unique .summary-value {
+    color: var(--info-text);
+}
+
+.summary-label {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* ==================== Filter Tabs ==================== */
+.comparison-filters {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.filter-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+/* ==================== Question Comparison Cards ==================== */
+.comparison-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.comparison-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.comparison-card.aligned {
+    border-left: 4px solid var(--success-border);
+}
+
+.comparison-card.different {
+    border-left: 4px solid var(--warning-border);
+}
+
+/* Question Header */
+.comparison-question-header {
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-elevated);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.question-info {
+    flex: 1;
+}
+
+.question-number {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.question-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-top: 0.25rem;
+}
+
+.alignment-badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.alignment-badge.aligned {
+    background: var(--success-bg);
+    color: var(--success-text);
+    border: 1px solid var(--success-border);
+}
+
+.alignment-badge.different {
+    background: var(--warning-bg);
+    color: var(--warning-text);
+    border: 1px solid var(--warning-border);
+}
+
+/* Response Columns */
+.comparison-responses {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.response-column {
+    padding: 1.25rem;
+}
+
+.response-column:first-child {
+    border-right: 1px solid var(--color-border);
+    background: linear-gradient(135deg, rgba(155, 137, 169, 0.05), transparent);
+}
+
+.response-column:last-child {
+    background: linear-gradient(135deg, rgba(232, 180, 184, 0.05), transparent);
+}
+
+.response-partner {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.response-partner::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.response-column:first-child .response-partner::before {
+    background: var(--partner-a-color, #9B89A9);
+}
+
+.response-column:last-child .response-partner::before {
+    background: var(--partner-b-color, #E8B4B8);
+}
+
+.response-content {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+.response-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.response-content li {
+    padding: 0.35rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.response-content li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+}
+
+/* Highlighted matches/differences */
+.response-match {
+    background: rgba(104, 211, 145, 0.2);
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+}
+
+.response-diff {
+    background: rgba(240, 193, 75, 0.2);
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+}
+
+/* Empty state */
+.response-empty {
+    color: var(--color-text-light);
+    font-style: italic;
+}
+
+/* ==================== Comparison Actions ==================== */
+.comparison-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--color-bg-elevated);
+    border-radius: var(--radius-lg);
+}
+
+/* ==================== Theme Variables ==================== */
+:root {
+    --partner-a-color: #9B89A9;
+    --partner-b-color: #E8B4B8;
+}
+
+/* ==================== Responsive ==================== */
+@media (max-width: 768px) {
+    .comparison-view {
+        padding: 1.5rem 1rem;
+    }
+
+    .comparison-partners {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .comparison-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-responses {
+        grid-template-columns: 1fr;
+    }
+
+    .response-column:first-child {
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .comparison-actions {
+        flex-direction: column;
+    }
+
+    .comparison-actions .btn {
+        width: 100%;
+    }
+}

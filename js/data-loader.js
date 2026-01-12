@@ -4,23 +4,91 @@
  * 
  * Fetches and parses questionnaire JSON files, providing dynamic question counts
  * and structured access to questions, sections, and manifests.
+ * Supports multi-phase architecture with dynamic data paths.
  * 
- * Usage: Import and call DataLoader.load() to initialize.
+ * Usage: Import and call DataLoader.loadPhases() then DataLoader.load() to initialize.
  */
 
 const DataLoader = {
   data: null,
   prompts: null,
+  phases: null,
+  currentPhase: null,
 
   /**
-   * Load all questionnaire data from JSON files.
+   * Load the phases manifest.
+   * @returns {Promise<Object>} The phases manifest.
+   */
+  async loadPhases() {
+    try {
+      const res = await fetch('./data/phases.json');
+      if (!res.ok) {
+        throw new Error('Failed to load phases manifest');
+      }
+      this.phases = await res.json();
+      return this.phases;
+    } catch (error) {
+      console.error('DataLoader phases error:', error);
+      throw error;
+    }
+  },
+
+  /**
+   * Get available phases.
+   * @returns {Array} Array of phase objects.
+   */
+  getPhases() {
+    return this.phases?.phases || [];
+  },
+
+  /**
+   * Get the default phase ID.
+   * @returns {string} Default phase ID.
+   */
+  getDefaultPhaseId() {
+    return this.phases?.default_phase || 'phase_1';
+  },
+
+  /**
+   * Set the current phase by ID.
+   * @param {string} phaseId - Phase ID to set as current.
+   */
+  setCurrentPhase(phaseId) {
+    const phase = this.phases?.phases?.find(p => p.id === phaseId);
+    if (phase) {
+      this.currentPhase = phase;
+    } else {
+      console.warn(`Phase ${phaseId} not found, using default`);
+      this.currentPhase = this.phases?.phases?.[0] || null;
+    }
+  },
+
+  /**
+   * Get the current phase.
+   * @returns {Object|null} Current phase object.
+   */
+  getCurrentPhase() {
+    return this.currentPhase;
+  },
+
+  /**
+   * Get the current phase ID.
+   * @returns {string|null} Current phase ID string.
+   */
+  getCurrentPhaseId() {
+    return this.currentPhase?.id || null;
+  },
+
+  /**
+   * Load all questionnaire data from JSON files for current phase.
    * @returns {Promise<Object>} The loaded questionnaire data.
    */
   async load() {
     try {
+      const basePath = this.currentPhase?.data_path || 'data';
       const [questionsRes, promptsRes] = await Promise.all([
-        fetch('./data/questions.json'),
-        fetch('./data/prompts.json')
+        fetch(`./${basePath}/questions.json`),
+        fetch(`./${basePath}/prompts.json`)
       ]);
 
       if (!questionsRes.ok || !promptsRes.ok) {

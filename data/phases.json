@@ -1,0 +1,22 @@
+{
+    "schema_version": "1.0.0",
+    "default_phase": "phase_1.5",
+    "phases": [
+        {
+            "id": "phase_0",
+            "title": "Phase 0: Readiness Audit",
+            "short_title": "Pre-Dating",
+            "description": "For assessing emotional readiness before starting to date.",
+            "icon": "🧭",
+            "data_path": "data/phase_0"
+        },
+        {
+            "id": "phase_1.5",
+            "title": "Phase 1.5: Intentional Early Dating",
+            "short_title": "Early Dating",
+            "description": "For the slow-build phase: mutual interest, intentional pacing.",
+            "icon": "💜",
+            "data_path": "data/phase_1.5"
+        }
+    ]
+}

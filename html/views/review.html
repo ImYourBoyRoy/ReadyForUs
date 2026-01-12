@@ -1,0 +1,27 @@
+<!-- ./html/views/review.html -->
+<!-- Review view: Answer summary grid with edit capability -->
+
+<section id="view-review" class="view container" aria-labelledby="review-title" tabindex="-1">
+    <div class="review-header">
+        <h1 id="review-title" class="review-title">Review Your Answers</h1>
+        <div id="review-stats" aria-live="polite"></div>
+    </div>
+
+    <p class="text-muted mb-6">Click any question to jump back and edit your answer.</p>
+
+    <!-- Review Grid -->
+    <div id="review-grid" class="review-grid" role="list">
+        <!-- Review cards rendered dynamically -->
+    </div>
+
+    <!-- Actions -->
+    <div class="complete-actions">
+        <button id="btn-back-to-questions" class="btn btn-primary">
+            <span aria-hidden="true">←</span>
+            Back to Questions
+        </button>
+        <button id="btn-go-to-skipped" class="btn btn-secondary">
+            Go to Skipped
+        </button>
+    </div>
+</section>

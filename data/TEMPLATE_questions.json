@@ -1,0 +1,281 @@
+{
+    "schema_version": "1.3.0",
+    "artifact": {
+        "id": "REPLACE_phase_id",
+        "title": "REPLACE_Title",
+        "subtitle": "REPLACE_Subtitle shown on welcome",
+        "language": "en-US",
+        "stage": {
+            "code": "REPLACE_phase_code",
+            "label": "REPLACE_Stage Label",
+            "eligibility": [
+                "REPLACE: Who should use this phase",
+                "REPLACE: Another eligibility criterion"
+            ]
+        },
+        "purpose": [
+            "REPLACE: Goal 1",
+            "REPLACE: Goal 2"
+        ]
+    },
+    "intro": {
+        "instructions": {
+            "title": "Instructions",
+            "items": [
+                "This is not a test, not a contract.",
+                "Answer what feels true right now.",
+                "It is okay to skip any question.",
+                "If you feel flooded or tense, pause and do something grounding."
+            ]
+        },
+        "keep_in_mind": {
+            "title": "Keep in Mind",
+            "items": [
+                "The goal is clarity and kindness.",
+                "Answers can change. Nothing here is permanent."
+            ]
+        }
+    },
+    "sections": [
+        {
+            "id": "s1",
+            "title": "REPLACE_Section 1 Title",
+            "question_ids": [
+                "q01",
+                "q02",
+                "q03"
+            ]
+        },
+        {
+            "id": "s2",
+            "title": "REPLACE_Section 2 Title",
+            "question_ids": [
+                "q04",
+                "q05"
+            ]
+        }
+    ],
+    "questions": {
+        "q01": {
+            "id": "q01",
+            "section_id": "s1",
+            "order": 1,
+            "title": "REPLACE_Question Title",
+            "prompt": "REPLACE_Question prompt shown to user",
+            "type": "free_text",
+            "answer_schema": {
+                "text": ""
+            },
+            "examples": [
+                "REPLACE: Example answer 1",
+                "REPLACE: Example answer 2"
+            ],
+            "tags": {
+                "included_in_manifests": [
+                    "lite",
+                    "full"
+                ]
+            }
+        },
+        "q02": {
+            "id": "q02",
+            "section_id": "s1",
+            "order": 2,
+            "title": "REPLACE_Single Select Question",
+            "prompt": "REPLACE_Choose one option",
+            "type": "single_select",
+            "options": [
+                {
+                    "value": "option_a",
+                    "label": "Option A"
+                },
+                {
+                    "value": "option_b",
+                    "label": "Option B"
+                },
+                {
+                    "value": "option_c",
+                    "label": "Option C"
+                },
+                {
+                    "value": "other",
+                    "label": "Other (write in)"
+                }
+            ],
+            "answer_schema": {
+                "selected_value": "",
+                "other_text": "",
+                "notes": ""
+            },
+            "examples": [
+                "Option A"
+            ],
+            "tags": {
+                "included_in_manifests": [
+                    "lite",
+                    "full"
+                ]
+            }
+        },
+        "q03": {
+            "id": "q03",
+            "section_id": "s1",
+            "order": 3,
+            "title": "REPLACE_Multi Select Question",
+            "prompt": "REPLACE_Select all that apply",
+            "type": "multi_select",
+            "options": [
+                {
+                    "value": "opt_1",
+                    "label": "Choice 1"
+                },
+                {
+                    "value": "opt_2",
+                    "label": "Choice 2"
+                },
+                {
+                    "value": "opt_3",
+                    "label": "Choice 3"
+                },
+                {
+                    "value": "other",
+                    "label": "Other (write in)"
+                }
+            ],
+            "answer_schema": {
+                "selected_values": [],
+                "other_text": "",
+                "notes": ""
+            },
+            "examples": [
+                "Choice 1 + Choice 2"
+            ],
+            "tags": {
+                "included_in_manifests": [
+                    "lite",
+                    "full"
+                ]
+            }
+        },
+        "q04": {
+            "id": "q04",
+            "section_id": "s2",
+            "order": 4,
+            "title": "REPLACE_Compound Question",
+            "prompt": "REPLACE_Question with multiple parts",
+            "type": "compound",
+            "fields": [
+                {
+                    "key": "main_choice",
+                    "label": "Choose one",
+                    "type": "single_select",
+                    "options": [
+                        {
+                            "value": "choice_a",
+                            "label": "Choice A"
+                        },
+                        {
+                            "value": "choice_b",
+                            "label": "Choice B"
+                        },
+                        {
+                            "value": "other",
+                            "label": "Other"
+                        }
+                    ]
+                },
+                {
+                    "key": "explanation",
+                    "label": "Explain (1-2 sentences)",
+                    "type": "short_text"
+                },
+                {
+                    "key": "other_text",
+                    "label": "If other, describe",
+                    "type": "short_text",
+                    "showWhen": {
+                        "field": "main_choice",
+                        "equals": "other"
+                    }
+                }
+            ],
+            "answer_schema": {
+                "main_choice": "",
+                "explanation": "",
+                "other_text": ""
+            },
+            "examples": [
+                "Choice A with explanation"
+            ],
+            "tags": {
+                "included_in_manifests": [
+                    "lite",
+                    "full"
+                ]
+            }
+        },
+        "q05": {
+            "id": "q05",
+            "section_id": "s2",
+            "order": 5,
+            "title": "REPLACE_Full Mode Only Question",
+            "prompt": "REPLACE_This question only appears in full mode",
+            "type": "free_text",
+            "answer_schema": {
+                "text": ""
+            },
+            "examples": [
+                "Example answer"
+            ],
+            "tags": {
+                "included_in_manifests": [
+                    "full"
+                ]
+            }
+        }
+    },
+    "ui_hints": {
+        "controls": {
+            "mode_switcher": {
+                "default": "lite",
+                "options": [
+                    {
+                        "id": "lite",
+                        "label": "Lite (3)"
+                    },
+                    {
+                        "id": "full",
+                        "label": "Full (5)"
+                    }
+                ]
+            }
+        }
+    },
+    "manifests": {
+        "lite": {
+            "id": "lite",
+            "title": "Lite",
+            "question_ids": [
+                "q01",
+                "q02",
+                "q03"
+            ],
+            "timebox_minutes": 30,
+            "post_timebox_activity": "Take a break and do something enjoyable."
+        },
+        "full": {
+            "id": "full",
+            "title": "Full",
+            "question_ids": [
+                "q01",
+                "q02",
+                "q03",
+                "q04",
+                "q05"
+            ],
+            "timebox_minutes": 60,
+            "post_timebox_activity": "Rest and reconnect before continuing."
+        }
+    },
+    "primary_manifest_id": "lite"
+}

@@ -1,0 +1,57 @@
+<!-- ./html/views/comparison.html -->
+<!-- Comparison view: Partner response comparison with alignment indicators -->
+
+<section id="view-comparison" class="view" aria-labelledby="comparison-title" tabindex="-1" style="display: none;">
+    <div class="comparison-view">
+        <header class="comparison-header">
+            <h1 id="comparison-title" class="comparison-title">💜 Partner Comparison</h1>
+            <p class="comparison-subtitle">See where you align and where you differ</p>
+        </header>
+
+        <!-- Partner Names -->
+        <div class="comparison-partners">
+            <div class="partner-badge partner-a">
+                <span class="partner-icon">💜</span>
+                <span id="partner-a-name">Partner A</span>
+            </div>
+            <div class="partner-badge partner-b">
+                <span class="partner-icon">💗</span>
+                <span id="partner-b-name">Partner B</span>
+            </div>
+        </div>
+
+        <!-- Summary Stats -->
+        <div class="comparison-summary">
+            <div class="summary-card aligned">
+                <div class="summary-value" id="aligned-count">0</div>
+                <div class="summary-label">Aligned</div>
+            </div>
+            <div class="summary-card different">
+                <div class="summary-value" id="different-count">0</div>
+                <div class="summary-label">Different</div>
+            </div>
+            <div class="summary-card unique">
+                <div class="summary-value" id="unique-count">0</div>
+                <div class="summary-label">Unique Answers</div>
+            </div>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="comparison-filters">
+            <button class="filter-btn active" data-filter="all">All Questions</button>
+            <button class="filter-btn" data-filter="aligned">✓ Aligned</button>
+            <button class="filter-btn" data-filter="different">⚡ Different</button>
+        </div>
+
+        <!-- Comparison List -->
+        <div id="comparison-list" class="comparison-list" role="list">
+            <!-- Comparison cards populated by JavaScript -->
+        </div>
+
+        <!-- Actions -->
+        <div class="comparison-actions">
+            <button id="btn-comparison-copy" class="btn btn-primary">📋 Copy Comparison Summary</button>
+            <button id="btn-comparison-close" class="btn btn-secondary">← Back to Import</button>
+        </div>
+    </div>
+</section>

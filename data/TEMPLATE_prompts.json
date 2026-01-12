@@ -1,0 +1,328 @@
+{
+    "schema_version": "1.2.0",
+    "artifact": {
+        "id": "REPLACE_prompts_id",
+        "title": "REPLACE_Prompts Title",
+        "language": "en-US",
+        "applies_to": "REPLACE_matching_questions_artifact_id"
+    },
+    "privacy_preface": {
+        "title": "Optional Privacy Preface",
+        "text": "If we use a model to reflect on our answers, we only paste what we both agree is okay to share. We can remove details. We can keep it fully local. We can also skip AI entirely. The goal is insight and kindness, not analysis for its own sake."
+    },
+    "prompts": {
+        "individual_reflection_lite": {
+            "id": "p_individual_lite_v1",
+            "title": "Personal Insight Report (Lite)",
+            "description": "REPLACE: For users who completed the X-question Lite version",
+            "role": "REPLACE: You are a supportive coach. Describe the AI persona, values, and approach.",
+            "inputs": [
+                {
+                    "key": "respondent_display_name",
+                    "label": "Your name",
+                    "placeholder": "Your name"
+                },
+                {
+                    "key": "responses",
+                    "label": "Your questionnaire responses",
+                    "placeholder": "Paste your completed responses here."
+                }
+            ],
+            "context": [
+                "REPLACE: Context about this phase and what stage users are in.",
+                "REPLACE: What topics the X questions covered.",
+                "REPLACE: The AI's job (insight, not summary)."
+            ],
+            "output_format": [
+                {
+                    "section": "REPLACE_Section 1 Title",
+                    "requirements": [
+                        "REPLACE: What to include in this section",
+                        "REPLACE: Another requirement"
+                    ]
+                },
+                {
+                    "section": "REPLACE_Section 2 Title",
+                    "requirements": [
+                        "REPLACE: What to include",
+                        "REPLACE: Another requirement"
+                    ]
+                },
+                {
+                    "section": "Practical Next Steps",
+                    "requirements": [
+                        "2 specific micro-behaviors to practice this week.",
+                        "1 phrase they could say to themselves or their person."
+                    ]
+                }
+            ],
+            "constraints": [
+                "Never restate their answers—reveal patterns and implications.",
+                "Keep language warm, practical, and non-clinical.",
+                "Treat answers as a current snapshot, not permanent identity."
+            ]
+        },
+        "individual_reflection_full": {
+            "id": "p_individual_full_v1",
+            "title": "Comprehensive Personal Insight Report (Full)",
+            "description": "REPLACE: For users who completed all X questions",
+            "role": "REPLACE: You are a supportive coach with deep insight. Describe the AI persona.",
+            "inputs": [
+                {
+                    "key": "respondent_display_name",
+                    "label": "Your name",
+                    "placeholder": "Your name"
+                },
+                {
+                    "key": "responses",
+                    "label": "Your questionnaire responses",
+                    "placeholder": "Paste your completed responses here."
+                }
+            ],
+            "context": [
+                "REPLACE: Context about this phase.",
+                "REPLACE: The user answered all X questions covering: topic 1, topic 2, topic 3.",
+                "REPLACE: Your job is deep insight and pattern recognition."
+            ],
+            "output_format": [
+                {
+                    "section": "Your Overall Blueprint",
+                    "requirements": [
+                        "A 2-3 sentence synthesis of who they are in this context.",
+                        "What are the 2-3 core patterns that show up across answers?"
+                    ]
+                },
+                {
+                    "section": "REPLACE_Additional Section",
+                    "requirements": [
+                        "REPLACE: Section-specific requirements"
+                    ]
+                },
+                {
+                    "section": "Growth Edges",
+                    "requirements": [
+                        "2-3 areas where their patterns might create challenges.",
+                        "For each: what's the underlying need, and what would growth look like?"
+                    ]
+                },
+                {
+                    "section": "This Week's Practice",
+                    "requirements": [
+                        "2 specific micro-behaviors to practice.",
+                        "1 internal script for moments of doubt.",
+                        "1 phrase to share that honors their needs."
+                    ]
+                }
+            ],
+            "constraints": [
+                "Never restate answers—synthesize to reveal patterns.",
+                "Focus on growth edges without making them feel broken.",
+                "Keep language warm, insightful, and actionable.",
+                "Treat answers as a current snapshot that can evolve."
+            ]
+        },
+        "couple_reflection_lite": {
+            "id": "p_couple_lite_v1",
+            "title": "How to Show Up for Each Other (Lite)",
+            "description": "REPLACE: For pairs who both completed the X-question Lite version",
+            "role": "REPLACE: You are a supportive coach helping two people. Your job is to help each person show up well for the other, not determine compatibility.",
+            "inputs": [
+                {
+                    "key": "participant_a_name",
+                    "label": "Person A name",
+                    "placeholder": "Person A"
+                },
+                {
+                    "key": "participant_a_responses",
+                    "label": "Person A responses",
+                    "placeholder": "Paste Person A's responses here."
+                },
+                {
+                    "key": "participant_b_name",
+                    "label": "Person B name",
+                    "placeholder": "Person B"
+                },
+                {
+                    "key": "participant_b_responses",
+                    "label": "Person B responses",
+                    "placeholder": "Paste Person B's responses here."
+                }
+            ],
+            "context": [
+                "REPLACE: Context about this phase.",
+                "REPLACE: Both partners answered X questions about topic 1, topic 2.",
+                "This is NOT a compatibility test. Your job is to help each person meet the other where they are."
+            ],
+            "output_format": [
+                {
+                    "section": "What's Already Working",
+                    "requirements": [
+                        "4-6 areas where their needs align.",
+                        "Explain why each alignment matters."
+                    ]
+                },
+                {
+                    "section": "Understanding [Person A]",
+                    "requirements": [
+                        "What does A need most?",
+                        "What's A's challenge pattern?",
+                        "What's A's growth edge?"
+                    ]
+                },
+                {
+                    "section": "How [Person B] Can Show Up for [Person A]",
+                    "requirements": [
+                        "4-6 specific behaviors B can offer.",
+                        "2 phrases B can use.",
+                        "1 thing B should avoid."
+                    ]
+                },
+                {
+                    "section": "Understanding [Person B]",
+                    "requirements": [
+                        "What does B need most?",
+                        "What's B's challenge pattern?",
+                        "What's B's growth edge?"
+                    ]
+                },
+                {
+                    "section": "How [Person A] Can Show Up for [Person B]",
+                    "requirements": [
+                        "4-6 specific behaviors A can offer.",
+                        "2 phrases A can use.",
+                        "1 thing A should avoid."
+                    ]
+                },
+                {
+                    "section": "Potential Friction Points",
+                    "requirements": [
+                        "3-4 areas where they differ.",
+                        "For each: what's the misread, how to turn toward each other?"
+                    ]
+                },
+                {
+                    "section": "First Check-In Agenda",
+                    "requirements": [
+                        "3 open-ended questions to discuss together."
+                    ]
+                }
+            ],
+            "constraints": [
+                "This is not a compatibility assessment—never say 'you may not be compatible.'",
+                "If one person needs more care, frame it as 'this is how to love them well.'",
+                "Focus on building safety and turning toward each other."
+            ]
+        },
+        "couple_reflection_full": {
+            "id": "p_couple_full_v1",
+            "title": "Comprehensive Relationship Blueprint (Full)",
+            "description": "REPLACE: For pairs who both completed all X questions",
+            "role": "REPLACE: You are a supportive coach with deep insight into both partners. Your job is to help them build intentionally.",
+            "inputs": [
+                {
+                    "key": "participant_a_name",
+                    "label": "Person A name",
+                    "placeholder": "Person A"
+                },
+                {
+                    "key": "participant_a_responses",
+                    "label": "Person A responses",
+                    "placeholder": "Paste Person A's responses here."
+                },
+                {
+                    "key": "participant_b_name",
+                    "label": "Person B name",
+                    "placeholder": "Person B"
+                },
+                {
+                    "key": "participant_b_responses",
+                    "label": "Person B responses",
+                    "placeholder": "Paste Person B's responses here."
+                }
+            ],
+            "context": [
+                "REPLACE: Context about this phase.",
+                "Both partners answered all X questions covering: topic 1, topic 2, topic 3.",
+                "This is NOT a compatibility test. Differences are information about how to love each other well."
+            ],
+            "output_format": [
+                {
+                    "section": "Relationship Snapshot",
+                    "requirements": [
+                        "3-4 sentence synthesis of this pairing's core dynamic.",
+                        "Foundational strength to build on.",
+                        "Primary tension to navigate."
+                    ]
+                },
+                {
+                    "section": "Shared Anchors",
+                    "requirements": [
+                        "5-7 values or needs they share.",
+                        "Why each alignment matters."
+                    ]
+                },
+                {
+                    "section": "[Person A]'s Blueprint",
+                    "requirements": [
+                        "Core needs.",
+                        "Communication style.",
+                        "What triggers challenges and what repairs them.",
+                        "Growth edge."
+                    ]
+                },
+                {
+                    "section": "How [Person B] Can Love [Person A] Well",
+                    "requirements": [
+                        "5-7 specific behaviors.",
+                        "3 phrases that land well.",
+                        "2 things to avoid."
+                    ]
+                },
+                {
+                    "section": "[Person B]'s Blueprint",
+                    "requirements": [
+                        "Core needs.",
+                        "Communication style.",
+                        "What triggers challenges and what repairs them.",
+                        "Growth edge."
+                    ]
+                },
+                {
+                    "section": "How [Person A] Can Love [Person B] Well",
+                    "requirements": [
+                        "5-7 specific behaviors.",
+                        "3 phrases that land well.",
+                        "2 things to avoid."
+                    ]
+                },
+                {
+                    "section": "Challenges to Turn Into Strengths",
+                    "requirements": [
+                        "4-5 areas where they differ.",
+                        "For each: the potential misunderstanding, the opportunity, how to support each other."
+                    ]
+                },
+                {
+                    "section": "When Things Get Hard",
+                    "requirements": [
+                        "What repair moves work for each.",
+                        "Suggested timeout and re-approach.",
+                        "One shared phrase for 'I'm struggling but still here.'"
+                    ]
+                },
+                {
+                    "section": "Questions for Your Next Check-In",
+                    "requirements": [
+                        "5 open-ended questions to discuss together."
+                    ]
+                }
+            ],
+            "constraints": [
+                "Never frame differences as incompatibility—they're navigation opportunities.",
+                "If one partner needs more accommodation, frame it as a gift to give.",
+                "Focus on turning toward each other and growing together.",
+                "Keep it practical, warm, and immediately usable."
+            ]
+        }
+    }
+}
