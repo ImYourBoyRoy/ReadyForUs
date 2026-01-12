@@ -225,21 +225,29 @@
       "section_id": "s1",
       "order": 2,
       "title": "Why now?",
-      "prompt": "What is pulling you toward dating right now?",
+      "prompt": "What is pulling you toward dating right now? Select all that apply, then drag to rank by priority (top = your main driver today).",
       "type": "compound",
       "fields": [
         {
-          "key": "primary_reason",
-          "label": "Primary reason",
-          "type": "single_select",
+          "key": "reasons_ranked",
+          "label": "Select and rank your reasons",
+          "type": "ranked_select",
           "options": [
             {
               "value": "desire_marriage_family",
-              "label": "I desire marriage/family and feel time matters"
+              "label": "I desire marriage/family and feel timing matters"
             },
             {
               "value": "desire_companionship",
               "label": "I want companionship and partnership"
+            },
+            {
+              "value": "values_alignment",
+              "label": "I want to build a values-based relationship intentionally"
+            },
+            {
+              "value": "readiness_growth",
+              "label": "I feel emotionally ready and want to grow through real connection"
             },
             {
               "value": "healing_move_forward",
@@ -250,26 +258,45 @@
               "label": "I feel lonely and want relief"
             },
             {
+              "value": "touch_affection",
+              "label": "I miss physical affection and closeness"
+            },
+            {
+              "value": "life_stage_shift",
+              "label": "A life change made dating feel relevant again (move, new job, kids, etc.)"
+            },
+            {
               "value": "social_pressure",
-              "label": "Social/family/church pressure"
+              "label": "Social/family/church/community pressure"
             },
             {
               "value": "bored",
-              "label": "Boredom/novelty"
+              "label": "Boredom/novelty/curiosity"
             },
             {
-              "value": "revenge_validation",
-              "label": "Validation / proving something (to self or an ex)"
+              "value": "validation_proving",
+              "label": "Validation or proving something (to self or someone else)"
+            },
+            {
+              "value": "avoid_pain",
+              "label": "I want distraction from pain/stress/grief"
             },
             {
               "value": "other",
-              "label": "Other"
+              "label": "Other (write in)"
             }
           ]
         },
         {
+          "key": "urgency_level",
+          "label": "How urgent does dating feel right now? (0-10)",
+          "type": "number",
+          "min": 0,
+          "max": 10
+        },
+        {
           "key": "confidence_level",
-          "label": "How confident are you in that reason? (0-10)",
+          "label": "How confident are you that this is a healthy time to date? (0-10)",
           "type": "number",
           "min": 0,
           "max": 10
@@ -278,13 +305,37 @@
           "key": "notes",
           "label": "Anything else to add (1-3 sentences)",
           "type": "free_text",
-          "placeholder": "Optional context."
+          "placeholder": "Optional context. What changed recently, if anything?"
+        },
+        {
+          "key": "other_text",
+          "label": "If 'Other', describe",
+          "type": "short_text",
+          "showWhen": {
+            "field": "reasons_ranked",
+            "includes": "other"
+          }
         }
       ],
+      "validation": {
+        "required_if": [
+          {
+            "if": {
+              "field": "reasons_ranked",
+              "includes": "other"
+            },
+            "then_require": [
+              "other_text"
+            ]
+          }
+        ]
+      },
       "answer_schema": {
-        "primary_reason": "",
+        "reasons_ranked": [],
+        "urgency_level": 0,
         "confidence_level": 0,
-        "notes": ""
+        "notes": "",
+        "other_text": ""
       },
       "examples": [],
       "tags": {

@@ -1147,3 +1147,155 @@
         gap: var(--space-1);
     }
 }
+
+/* ========================================
+   Ranked Select (Unified Draggable Cards)
+   ======================================== */
+.ranked-instructions {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+    line-height: 1.5;
+}
+
+.ranked-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.ranked-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-bg-input);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-fast);
+    user-select: none;
+    min-height: 56px;
+    /* Touch-friendly */
+    cursor: pointer;
+    /* Click anywhere to select */
+}
+
+.ranked-card:hover {
+    border-color: var(--color-primary-light);
+    background: var(--color-bg-hover);
+}
+
+.ranked-card--selected {
+    background: linear-gradient(135deg, var(--color-bg-card) 0%, rgba(124, 107, 158, 0.08) 100%);
+    border-color: var(--color-primary);
+    cursor: grab;
+}
+
+.ranked-card--selected:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.ranked-card.dragging {
+    opacity: 0.85;
+    transform: scale(1.03) rotate(1deg);
+    box-shadow: 0 12px 40px rgba(124, 107, 158, 0.35);
+    border-color: var(--color-accent);
+    cursor: grabbing;
+    z-index: 100;
+    background: var(--color-bg-card);
+}
+
+.ranked-card.drag-over {
+    border-color: var(--color-accent);
+    background: var(--color-bg-hover);
+    transform: translateY(2px);
+}
+
+/* Drop placeholder indicator between cards */
+.ranked-drop-placeholder {
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    border-radius: 2px;
+    margin: var(--space-1) 0;
+    animation: pulse-glow 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+    from {
+        box-shadow: 0 0 8px rgba(124, 107, 158, 0.5);
+    }
+
+    to {
+        box-shadow: 0 0 16px rgba(124, 107, 158, 0.8);
+    }
+}
+
+.ranked-card-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.ranked-card-rank {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+}
+
+.ranked-card-label {
+    flex: 1;
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    line-height: 1.4;
+}
+
+.ranked-card-handle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    cursor: grab;
+    padding: var(--space-2);
+    flex-shrink: 0;
+    opacity: 0.6;
+    transition: opacity var(--transition-fast);
+}
+
+.ranked-card--selected:hover .ranked-card-handle {
+    opacity: 1;
+}
+
+.ranked-card:active .ranked-card-handle {
+    cursor: grabbing;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+    .ranked-card {
+        padding: var(--space-3);
+        gap: var(--space-2);
+        min-height: 52px;
+    }
+
+    .ranked-card-label {
+        font-size: var(--font-size-sm);
+    }
+
+    .ranked-card-rank {
+        width: 24px;
+        height: 24px;
+        font-size: 0.75rem;
+    }
+
+    .ranked-card-handle {
+        font-size: 1rem;
+        padding: var(--space-1);
+    }
+}

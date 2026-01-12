@@ -227,9 +227,37 @@ Multiple fields in one question (most complex type).
 | ------ | ----------- | ------------------ |
 | `single_select` | Radio buttons | `options` array |
 | `multi_select` | Checkboxes | `options` array |
+| `ranked_select` | Select + drag-to-rank | `options` array, `validation` |
 | `short_text` | One-line input | `placeholder` |
 | `free_text` | Multi-line textarea | `placeholder` |
 | `number` | Numeric input | `min`, `max` |
+
+### ranked_select (Select and Rank)
+
+Allows users to select multiple options and drag-to-reorder by priority. Output is an ordered array where index 0 = highest priority.
+
+```json
+{
+  "key": "reasons_ranked",
+  "label": "Select and rank your reasons (top = most important)",
+  "type": "ranked_select",
+  "options": [
+    { "value": "reason_a", "label": "Reason A" },
+    { "value": "reason_b", "label": "Reason B" },
+    { "value": "reason_c", "label": "Reason C" },
+    { "value": "other", "label": "Other (write in)" }
+  ]
+}
+```
+
+**Output format**: `["reason_b", "reason_a"]` (ordered array, first = #1 priority)
+
+**UI behavior**:
+
+1. Left panel shows checkboxes to select applicable options
+2. Right panel shows selected items with drag handles for reordering
+3. Items can be removed via × button (also unchecks the checkbox)
+4. Top item is considered the "primary" choice
 
 ### showWhen Conditions
 

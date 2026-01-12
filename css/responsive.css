@@ -11,9 +11,9 @@
    Base: Mobile First (< 480px)
    ======================================== */
 
-/* Container adjustments */
+/* Container adjustments - Generous mobile padding for edge breathing room */
 .container {
-    padding: 0 var(--space-4);
+    padding: 0 var(--space-5);
 }
 
 /* Navigation */

@@ -290,6 +290,50 @@ const QuestionRenderer = {
           </div>
         `;
 
+      case 'ranked_select':
+        // Unified draggable card list: each option is a card with checkbox + rank badge
+        const rankedValues = Array.isArray(value) ? value : [];
+
+        // Sort options: selected items first (in rank order), then unselected
+        const selectedOptions = rankedValues
+          .map(val => field.options.find(opt => opt.value === val))
+          .filter(Boolean);
+        const unselectedOptions = field.options.filter(opt => !rankedValues.includes(opt.value));
+        const sortedOptions = [...selectedOptions, ...unselectedOptions];
+
+        return `
+          <div class="compound-field ${hiddenClass}" data-field-key="${field.key}">
+            <label class="input-label">${field.label}</label>
+            <p class="ranked-instructions">Check to select, then drag to reorder your priorities. Top = most important.</p>
+            <div class="ranked-cards-list" data-question-id="${questionId}" data-field="${field.key}">
+              ${sortedOptions.map(option => {
+          const isSelected = rankedValues.includes(option.value);
+          const rank = isSelected ? rankedValues.indexOf(option.value) + 1 : null;
+          return `
+                  <div class="ranked-card ${isSelected ? 'ranked-card--selected' : ''}" 
+                       data-value="${option.value}" 
+                       draggable="${isSelected}">
+                    <label class="ranked-card-checkbox">
+                      <input 
+                        type="checkbox" 
+                        class="checkbox-input ranked-checkbox" 
+                        value="${option.value}"
+                        ${isSelected ? 'checked' : ''}
+                        data-question-id="${questionId}"
+                        data-field="${field.key}"
+                      >
+                      <span class="checkbox-custom"></span>
+                    </label>
+                    ${isSelected ? `<span class="ranked-card-rank">${rank}</span>` : ''}
+                    <span class="ranked-card-label">${option.label}</span>
+                    ${isSelected ? `<span class="ranked-card-handle" title="Drag to reorder">⠿</span>` : ''}
+                  </div>
+                `;
+        }).join('')}
+            </div>
+          </div>
+        `;
+
       default:
         return '';
     }

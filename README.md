@@ -1,8 +1,8 @@
-# 💜 Slow Build Check-In
+# 💜 HeartReady Toolkit
 
-> *A beautiful, intentional check-in tool for early-stage relationships. Designed to feel warm, inviting, and never overwhelming.*
+> *A warm toolkit for healthy relationship building — from pre-dating preparation through intentional partnership.*
 
-![Dashboard](assets/images/dashboard_light.png)
+![HeartReady Demo](assets/screenshots/demo.webp)
 
 <p align="center">
   <img src="https://img.shields.io/badge/Phases-2-9B89A9?style=for-the-badge" alt="2 Phases">
@@ -15,7 +15,7 @@
 
 ## 🌸 What Is This?
 
-This tool helps individuals and couples navigate intentional check-ins through two distinct phases:
+HeartReady is a relationship building toolkit that helps individuals and couples navigate intentional check-ins through multiple phases — with ready-to-use AI reflection prompts:
 
 ### 🧭 Phase 0: Pre-Dating Readiness Audit
 
@@ -44,6 +44,7 @@ For couples in the **slow-build phase** (3+ dates, mutual interest):
 - **Warm & Intentional** — Soft colors, gentle language, no clinical terminology
 - **Exciting yet Soft** — Blush-lavender palette that energizes and calms
 - **Never Overwhelming** — One question at a time, skip freely, smooth transitions
+- **AI-Ready** — Generate reflection prompts for yourself or as a couple
 - **Accessible** — Dyslexia-friendly Lexend font, 18px base, WCAG AA contrast
 
 ---
@@ -77,7 +78,7 @@ The application opens to a **dashboard view** — your home base for all questio
 
 | Light Theme | Dark Theme |
 |-------------|------------|
-| ![Dashboard Light](assets/images/dashboard_light.png) | ![Dashboard Dark](assets/images/dashboard_dark.png) |
+| ![Dashboard Light](assets/screenshots/dashboard_light.webp) | ![Dashboard Dark](assets/screenshots/dashboard_dark.webp) |
 
 | Feature | Description |
 | ------- | ----------- |
@@ -209,13 +210,13 @@ Two import modes (click **📥 Import** in nav or welcome screen):
 
 ### Welcome Screen
 
-![Welcome Screen](assets/images/welcome_light.png)
+![Welcome Screen](assets/screenshots/welcome_light.webp)
 
 ### Questionnaire View
 
 | Light Theme | Dark Theme |
 |-------------|------------|
-| ![Questionnaire Light](assets/images/questionnaire_light.png) | ![Questionnaire Dark](assets/images/questionnaire_dark.png) |
+| ![Questionnaire Light](assets/screenshots/questionnaire_light.webp) | ![Questionnaire Dark](assets/screenshots/questionnaire_dark.webp) |
 
 ---
 
@@ -437,7 +438,7 @@ For developers and troubleshooting. Append `?debug=true` to the URL to enable de
 <details>
 <summary>📸 Debug Overlay Screenshot</summary>
 
-![Debug Overlay](assets/images/debug_overlay.png)
+![Debug Overlay](assets/screenshots/debug_overlay.webp)
 
 </details>
 

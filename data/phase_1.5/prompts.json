@@ -2,7 +2,7 @@
   "schema_version": "1.2.0",
   "artifact": {
     "id": "phase1_5_prompts",
-    "title": "Slow Build Prompts",
+    "title": "HeartReady Prompts",
     "language": "en-US",
     "applies_to": "phase1_5_intentional_early_dating"
   },

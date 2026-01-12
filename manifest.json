@@ -1,0 +1,33 @@
+{
+    "name": "HeartReady",
+    "short_name": "HeartReady",
+    "description": "A warm toolkit for healthy relationship building — from pre-dating preparation through intentional partnership.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#F8F4FB",
+    "theme_color": "#7C6B9E",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "assets/icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "assets/icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "assets/icons/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ],
+    "categories": [
+        "lifestyle",
+        "health"
+    ]
+}

@@ -1,6 +1,6 @@
 // ./js/export-manager.js
 /**
- * Export manager module for the Slow Build Check-In questionnaire.
+ * Export manager module for the HeartReady Toolkit.
  * 
  * Handles exporting questionnaire responses as formatted text or JSON files.
  * Supports individual and couple reflection exports.
@@ -29,7 +29,7 @@ const ExportManager = {
 
         // Header
         text += '═'.repeat(60) + '\n';
-        text += `  ${artifact.title || 'Slow Build Check-In'}\n`;
+        text += `  ${artifact.title || 'HeartReady Check-In'}\n`;
         text += `  ${artifact.subtitle || ''}\n`;
         text += '═'.repeat(60) + '\n\n';
 
@@ -75,12 +75,12 @@ const ExportManager = {
 
         // Footer
         text += '\n' + '═'.repeat(60) + '\n';
-        text += '  Slow Build Check-In\n';
+        text += '  HeartReady Toolkit\n';
         text += '  Made for Clara with ❤️ by Roy Dawson IV\n';
         text += '═'.repeat(60) + '\n';
 
         // Download
-        this.downloadFile(text, `slow-build-checkin-${participantName.toLowerCase().replace(/\s+/g, '-')}.txt`, 'text/plain');
+        this.downloadFile(text, `heartready-${participantName.toLowerCase().replace(/\s+/g, '-')}.txt`, 'text/plain');
     },
 
     /**
@@ -117,7 +117,7 @@ const ExportManager = {
 
         const json = JSON.stringify(exportData, null, 2);
         const safeName = participantName.toLowerCase().replace(/\s+/g, '-');
-        const baseFilename = filename || `slow-build-checkin-${safeName}`;
+        const baseFilename = filename || `heartready-${safeName}`;
         this.downloadFile(json, `${baseFilename}.json`, 'application/json');
     },
 

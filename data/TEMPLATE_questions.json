@@ -232,6 +232,65 @@
                     "full"
                 ]
             }
+        },
+        "q06": {
+            "id": "q06",
+            "section_id": "s2",
+            "order": 6,
+            "title": "REPLACE_Ranked Selection Question",
+            "prompt": "REPLACE_Select and rank your priorities (top = most important)",
+            "type": "compound",
+            "fields": [
+                {
+                    "key": "priorities_ranked",
+                    "label": "Select and rank your priorities",
+                    "type": "ranked_select",
+                    "options": [
+                        {
+                            "value": "priority_a",
+                            "label": "Priority A"
+                        },
+                        {
+                            "value": "priority_b",
+                            "label": "Priority B"
+                        },
+                        {
+                            "value": "priority_c",
+                            "label": "Priority C"
+                        },
+                        {
+                            "value": "other",
+                            "label": "Other (write in)"
+                        }
+                    ]
+                },
+                {
+                    "key": "other_text",
+                    "label": "If 'Other', describe",
+                    "type": "short_text",
+                    "showWhen": {
+                        "field": "priorities_ranked",
+                        "includes": "other"
+                    }
+                },
+                {
+                    "key": "notes",
+                    "label": "Any additional context",
+                    "type": "free_text",
+                    "placeholder": "Optional notes..."
+                }
+            ],
+            "answer_schema": {
+                "priorities_ranked": [],
+                "other_text": "",
+                "notes": ""
+            },
+            "examples": [],
+            "tags": {
+                "included_in_manifests": [
+                    "full"
+                ]
+            }
         }
     },
     "ui_hints": {
@@ -245,7 +304,7 @@
                     },
                     {
                         "id": "full",
-                        "label": "Full (5)"
+                        "label": "Full (6)"
                     }
                 ]
             }
@@ -271,7 +330,8 @@
                 "q02",
                 "q03",
                 "q04",
-                "q05"
+                "q05",
+                "q06"
             ],
             "timebox_minutes": 60,
             "post_timebox_activity": "Rest and reconnect before continuing."
