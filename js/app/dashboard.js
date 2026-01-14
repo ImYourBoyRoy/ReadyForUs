@@ -17,6 +17,11 @@ const AppDashboard = {
         const grid = document.getElementById('questionnaire-grid');
         if (!grid) return;
 
+        // Render dynamic header, instructions, and tips from config
+        this.renderDashboardHeader();
+        this.renderDashboardInstructions();
+        this.renderDashboardTips();
+
         const phases = DataLoader.getPhases();
 
         // Build cards for each phase
@@ -67,6 +72,83 @@ const AppDashboard = {
             const lastPhase = StorageManager.getLastPhase() || DataLoader.getDefaultPhaseId();
             this.selectQuestionnaire(lastPhase, 'lite', false);
         });
+    },
+
+    /**
+     * Render dashboard header from config.
+     */
+    renderDashboardHeader() {
+        const config = DataLoader.getDashboardConfig();
+
+        const iconEl = document.querySelector('.dashboard-icon');
+        const titleEl = document.getElementById('dashboard-title');
+        const subtitleEl = document.querySelector('.dashboard-subtitle');
+
+        if (iconEl && config.icon) {
+            iconEl.textContent = config.icon;
+        }
+        if (titleEl && config.title) {
+            titleEl.textContent = config.title;
+        }
+        if (subtitleEl && config.subtitle) {
+            subtitleEl.textContent = config.subtitle;
+        }
+    },
+
+    /**
+     * Render dashboard instructions from config.
+     */
+    renderDashboardInstructions() {
+        const container = document.getElementById('dashboard-instructions');
+        if (!container) return;
+
+        const config = DataLoader.getDashboardConfig();
+        const instructions = config.instructions;
+
+        if (!instructions || !instructions.items?.length) {
+            container.innerHTML = '';
+            return;
+        }
+
+        const itemsHTML = instructions.items.map(item => `
+            <div class="instruction-item">
+                <span class="instruction-icon">${item.icon || '•'}</span>
+                <span class="instruction-text"><strong>${item.title}</strong> ${item.text}</span>
+            </div>
+        `).join('');
+
+        container.innerHTML = `
+            <div class="instructions-header">
+                <span class="instructions-icon">${instructions.icon || '📋'}</span>
+                <h2 class="instructions-title">${instructions.title || 'How These Work'}</h2>
+            </div>
+            <div class="instructions-grid">
+                ${itemsHTML}
+            </div>
+        `;
+    },
+
+    /**
+     * Render dashboard tips from config.
+     */
+    renderDashboardTips() {
+        const container = document.getElementById('dashboard-tips');
+        if (!container) return;
+
+        const config = DataLoader.getDashboardConfig();
+        const tips = config.tips;
+
+        if (!tips || !tips.length) {
+            container.innerHTML = '';
+            return;
+        }
+
+        // Render the first tip (or could rotate through tips)
+        const tip = tips[0];
+        container.innerHTML = `
+            <div class="tips-title">${tip.icon || '💡'} ${tip.title || 'Tip'}</div>
+            <div class="tips-content">${tip.text}</div>
+        `;
     },
 
     /**

@@ -1,0 +1,52 @@
+{
+    "schema_version": "1.0.0",
+    "site": {
+        "name": "HeartReady Toolkit",
+        "tagline": "A warm toolkit for healthy relationship building",
+        "description": "From pre-dating preparation through intentional partnership.",
+        "icon": "💜",
+        "theme_color": "#7C6B9E"
+    },
+    "dashboard": {
+        "title": "HeartReady Toolkit",
+        "subtitle": "A warm toolkit for healthy relationship building — from pre-dating preparation through intentional partnership.",
+        "icon": "💜",
+        "instructions": {
+            "title": "How These Work",
+            "icon": "📋",
+            "items": [
+                {
+                    "icon": "⏱️",
+                    "title": "Take your time.",
+                    "text": "Skip any question and come back later."
+                },
+                {
+                    "icon": "💾",
+                    "title": "Auto-saved.",
+                    "text": "Your progress is saved automatically in your browser."
+                },
+                {
+                    "icon": "📤",
+                    "title": "Export anytime.",
+                    "text": "Download your answers as text or JSON."
+                },
+                {
+                    "icon": "🤖",
+                    "title": "AI prompts.",
+                    "text": "Generate reflection prompts for yourself or as a couple."
+                }
+            ]
+        },
+        "tips": [
+            {
+                "icon": "💡",
+                "title": "Tip",
+                "text": "Start with <em>Lite mode</em> for a focused check-in, or choose <em>Full mode</em> for deeper exploration."
+            }
+        ]
+    },
+    "navigation": {
+        "title": "HeartReady Toolkit",
+        "logo": "💜"
+    }
+}

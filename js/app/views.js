@@ -27,6 +27,26 @@ const AppViews = {
 
         // Load bookmarks from storage
         this.bookmarkedQuestions = StorageManager.getBookmarks() || [];
+
+        // Update navigation branding from config
+        this.updateNavigationBranding();
+    },
+
+    /**
+     * Update navigation bar branding from config.json.
+     */
+    updateNavigationBranding() {
+        const config = DataLoader.getNavigationConfig();
+
+        const logoEl = document.querySelector('.nav-logo');
+        const titleEl = document.querySelector('.nav-title');
+
+        if (logoEl && config.logo) {
+            logoEl.textContent = config.logo;
+        }
+        if (titleEl && config.title) {
+            titleEl.textContent = config.title;
+        }
     },
 
     /**

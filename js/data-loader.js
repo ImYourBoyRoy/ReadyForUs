@@ -10,11 +10,61 @@
  */
 
 const DataLoader = {
+  config: null,
   data: null,
   manifest: null,
   prompts: null,
   phases: null,
   currentPhase: null,
+
+  /**
+   * Load site-wide configuration.
+   * @returns {Promise<Object>} The site configuration.
+   */
+  async loadConfig() {
+    try {
+      const res = await fetch('./data/config.json');
+      if (!res.ok) {
+        throw new Error('Failed to load site configuration');
+      }
+      this.config = await res.json();
+      return this.config;
+    } catch (error) {
+      console.error('DataLoader config error:', error);
+      // Use fallback defaults if config fails to load
+      this.config = {
+        site: { name: 'HeartReady Toolkit', icon: '💜' },
+        dashboard: { title: 'HeartReady Toolkit', icon: '💜' },
+        navigation: { title: 'HeartReady Toolkit', logo: '💜' }
+      };
+      return this.config;
+    }
+  },
+
+  /**
+   * Get site-wide configuration.
+   * @returns {Object} Site configuration object.
+   */
+  getConfig() {
+    return this.config || {};
+  },
+
+  /**
+   * Get dashboard-specific configuration.
+   * @returns {Object} Dashboard configuration.
+   */
+  getDashboardConfig() {
+    return this.config?.dashboard || {};
+  },
+
+  /**
+   * Get navigation configuration.
+   * @returns {Object} Navigation configuration.
+   */
+  getNavigationConfig() {
+    return this.config?.navigation || {};
+  },
+
 
   /**
    * Load the phases manifest.

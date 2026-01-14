@@ -24,7 +24,10 @@ const AppInit = {
             // Show loading state
             this.showLoading(true);
 
-            // Load phases manifest first
+            // Load site-wide configuration first
+            await DataLoader.loadConfig();
+
+            // Load phases manifest
             await DataLoader.loadPhases();
 
             // Determine which phase to use (URL param > last used > default)

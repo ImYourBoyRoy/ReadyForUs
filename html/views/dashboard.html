@@ -28,43 +28,14 @@
             <!-- Cards populated dynamically by JavaScript -->
         </div>
 
-        <!-- Instructions Section -->
-        <div class="dashboard-instructions">
-            <div class="instructions-header">
-                <span class="instructions-icon">📋</span>
-                <h2 class="instructions-title">How These Work</h2>
-            </div>
-            <div class="instructions-grid">
-                <div class="instruction-item">
-                    <span class="instruction-icon">⏱️</span>
-                    <span class="instruction-text"><strong>Take your time.</strong> Skip any question and
-                        come back later.</span>
-                </div>
-                <div class="instruction-item">
-                    <span class="instruction-icon">💾</span>
-                    <span class="instruction-text"><strong>Auto-saved.</strong> Your progress is saved
-                        automatically in your browser.</span>
-                </div>
-                <div class="instruction-item">
-                    <span class="instruction-icon">📤</span>
-                    <span class="instruction-text"><strong>Export anytime.</strong> Download your answers as
-                        text or JSON.</span>
-                </div>
-                <div class="instruction-item">
-                    <span class="instruction-icon">🤖</span>
-                    <span class="instruction-text"><strong>AI prompts.</strong> Generate reflection prompts
-                        for yourself or as a couple.</span>
-                </div>
-            </div>
+        <!-- Instructions Section - Populated dynamically from config.json -->
+        <div id="dashboard-instructions" class="dashboard-instructions">
+            <!-- Content rendered by App.renderDashboardInstructions() -->
         </div>
 
-        <!-- Quick Tips -->
-        <div class="dashboard-tips">
-            <div class="tips-title">💡 Tip</div>
-            <div class="tips-content">
-                Start with <em>Lite mode</em> for a focused check-in, or choose <em>Full mode</em> for
-                deeper exploration.
-            </div>
+        <!-- Quick Tips - Populated dynamically from config.json -->
+        <div id="dashboard-tips" class="dashboard-tips">
+            <!-- Content rendered by App.renderDashboardTips() -->
         </div>
     </div>
 </section>
