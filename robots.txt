@@ -1,5 +1,5 @@
 # ./robots.txt
-# HeartReady Toolkit - Robots Configuration
+# Ready for Us - Robots Configuration
 # Controls search engine crawler behavior
 
 # Allow all crawlers
@@ -11,4 +11,4 @@ Disallow: /scripts/
 Disallow: /.git/
 
 # Sitemap location
-Sitemap: https://imyourboyroy.github.io/Slow-Build-Check-In/sitemap.xml
+Sitemap: https://readyforus.app/sitemap.xml

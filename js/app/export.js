@@ -1,6 +1,6 @@
 // ./js/app/export.js
 /**
- * Export module for the HeartReady Toolkit.
+ * Export module for the Ready for Us.
  * 
  * Handles all export operations: text, JSON, clipboard, AI prompts.
  * Also manages save modal functionality.

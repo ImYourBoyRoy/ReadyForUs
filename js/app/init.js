@@ -1,6 +1,6 @@
 // ./js/app/init.js
 /**
- * Initialization module for the HeartReady Toolkit.
+ * Initialization module for the Ready for Us.
  * 
  * Contains the main init() function, event listener setup, and bootstrap logic.
  * This module MUST be loaded last, after all other js/app/ modules have extended App.

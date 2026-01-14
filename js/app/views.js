@@ -1,6 +1,6 @@
 // ./js/app/views.js
 /**
- * Views module for the HeartReady Toolkit.
+ * Views module for the Ready for Us.
  * 
  * Handles rendering of review and complete views.
  * Mixed into the main App object.

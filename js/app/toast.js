@@ -1,6 +1,6 @@
 // ./js/app/toast.js
 /**
- * Toast notification module for the HeartReady Toolkit.
+ * Toast notification module for the Ready for Us.
  * 
  * Displays temporary toast messages with icons for feedback.
  * Mixed into the main App object.

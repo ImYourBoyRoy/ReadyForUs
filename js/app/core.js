@@ -1,6 +1,6 @@
 // ./js/app/core.js
 /**
- * Core App object for the HeartReady Toolkit.
+ * Core App object for the Ready for Us.
  * 
  * Defines the base App object with all state properties.
  * This module MUST be loaded first, before any other js/app/ modules.

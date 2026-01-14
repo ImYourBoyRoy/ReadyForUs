@@ -1,6 +1,6 @@
 // ./js/app/bookmarks.js
 /**
- * Bookmarks module for the HeartReady Toolkit.
+ * Bookmarks module for the Ready for Us.
  * 
  * Manages bookmarking questions for later review.
  * Mixed into the main App object.

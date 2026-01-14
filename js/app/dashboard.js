@@ -1,6 +1,6 @@
 // ./js/app/dashboard.js
 /**
- * Dashboard module for the HeartReady Toolkit.
+ * Dashboard module for the Ready for Us.
  * 
  * Handles rendering and managing the main dashboard with questionnaire cards.
  * Manages phase metadata loading and card display.

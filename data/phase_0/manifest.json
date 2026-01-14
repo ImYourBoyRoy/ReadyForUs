@@ -2,40 +2,40 @@
     "schema_version": "1.3.0",
     "artifact": {
         "id": "phase_0_pre_dating_readiness",
-        "title": "Pre-Dating Readiness",
-        "subtitle": "Clarify your emotional, mental, and spiritual readiness before re-entering the dating pool.",
+        "title": "Heart Readiness Review",
+        "subtitle": "Take a moment to reflect on your emotional and mental space before starting a new chapter.",
         "language": "en-US",
         "stage": {
             "code": "phase_0",
-            "label": "Pre-Dating",
+            "label": "Self-Reflection",
             "eligibility": [
-                "You are considering starting (or restarting) dating.",
-                "You want an honest readiness check and a concrete self-work plan first."
+                "You are considering stepping back into the world of dating.",
+                "You want to ensure you're standing on a solid foundation before you start."
             ]
         },
         "purpose": [
-            "Identify readiness blockers (emotional closure, stability, integrity, life logistics).",
-            "Surface dating patterns and what to change before dating.",
-            "Translate insights into a practical preparation plan (skills, supports, boundaries)."
+            "Gently surface any lingering blocks (closure, stability, or logistics).",
+            "Identify your own patterns so you can choose a different path this time.",
+            "Create a practical, kind plan for your own personal growth."
         ]
     },
     "intro": {
         "instructions": {
-            "title": "Instructions",
+            "title": "A Few Gentle Guidelines",
             "items": [
-                "This is not a test and not a contract. It is a mirror.",
-                "Answer what feels true right now, not what you wish were true.",
-                "If a question feels too personal, choose 'Prefer not to say' or skip it.",
-                "If you feel flooded, pause and do something grounding (walk, breathe, pray, cold water, journaling).",
-                "If you are currently unsafe or in crisis, stop here and get support immediately (local emergency services or 988 in the U.S.)."
+                "Think of this as a mirror, not a test. It’s here to help you see clearly.",
+                "Be honest with yourself—there are no 'right' answers here.",
+                "It’s okay to skip questions or stay high-level if that feels safer.",
+                "If you feel overwhelmed, please stop and do something grounding.",
+                "Your safety is paramount. If you are in crisis, please reach out for real-world support."
             ]
         },
         "keep_in_mind": {
-            "title": "Keep in Mind",
+            "title": "Words of Encouragement",
             "items": [
-                "Readiness is not perfection. It is stability + integrity + capacity to be mutually responsible.",
-                "Faith/spirituality and psychology can support each other: clarity, accountability, repair, and forgiveness are strengths, not shame triggers.",
-                "Answers can change. You can retake this after a few weeks of deliberate work."
+                "Readiness isn't about being perfect; it's about being stable and honest.",
+                "Clarity and accountability are acts of self-love, not tools for shame.",
+                "Your heart is a work in progress. You can return to this anytime."
             ]
         }
     },

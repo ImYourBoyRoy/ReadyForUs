@@ -1,6 +1,6 @@
 // ./js/app/questionnaire.js
 /**
- * Questionnaire module for the HeartReady Toolkit.
+ * Questionnaire module for the Ready for Us.
  * 
  * Handles question rendering, input handling, and progress updates.
  * Core questionnaire flow functionality.

@@ -1,6 +1,6 @@
 // ./js/app/import-modal.js
 /**
- * Import Modal module for the HeartReady Toolkit.
+ * Import Modal module for the Ready for Us.
  * 
  * Manages the file import modal UI for loading saved questionnaire results.
  * Handles file parsing, validation, and loading responses.

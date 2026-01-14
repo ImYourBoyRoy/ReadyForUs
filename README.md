@@ -1,8 +1,8 @@
-# 💜 HeartReady Toolkit
+# 💜 Ready for Us
 
 > *A warm toolkit for healthy relationship building — from pre-dating preparation through intentional partnership.*
 
-![HeartReady Demo](assets/screenshots/demo.webp)
+![Ready for Us Demo](assets/screenshots/demo.webp)
 
 <p align="center">
   <img src="https://img.shields.io/badge/Phases-2-9B89A9?style=for-the-badge" alt="2 Phases">
@@ -15,7 +15,7 @@
 
 ## 🌸 What Is This?
 
-HeartReady is a relationship building toolkit that helps individuals and couples navigate intentional check-ins through multiple phases — with ready-to-use AI reflection prompts:
+Ready for Us is a relationship building toolkit that helps individuals and couples navigate intentional check-ins through multiple phases — with ready-to-use AI reflection prompts:
 
 ### 🧭 Phase 0: Pre-Dating Readiness Audit
 

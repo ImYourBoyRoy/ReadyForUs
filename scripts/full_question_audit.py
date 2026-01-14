@@ -1,6 +1,6 @@
 # ./scripts/full_question_audit.py
 """
-Comprehensive question audit script for HeartReady Toolkit.
+Comprehensive question audit script for Ready for Us.
 Analyzes all questions for structure optimization, examples, and AI-readability.
 """
 import json
@@ -128,7 +128,7 @@ def audit_phase(phase_path, phase_name):
 
 def main():
     print("\n" + "="*70)
-    print(" FULL QUESTION AUDIT - HeartReady Toolkit")
+    print(" FULL QUESTION AUDIT - Ready for Us")
     print("="*70)
     
     phase0_issues, phase0_stats = audit_phase('data/phase_0', 'PHASE 0: Pre-Dating Readiness')

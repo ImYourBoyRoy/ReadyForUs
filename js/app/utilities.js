@@ -1,6 +1,6 @@
 // ./js/app/utilities.js
 /**
- * Utilities module for the HeartReady Toolkit.
+ * Utilities module for the Ready for Us.
  * 
  * General utility functions: loading states, error handling, import warnings.
  * Mixed into the main App object.

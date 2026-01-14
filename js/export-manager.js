@@ -1,6 +1,6 @@
 // ./js/export-manager.js
 /**
- * Export manager module for the HeartReady Toolkit.
+ * Export manager module for the Ready for Us toolkit.
  * 
  * Handles exporting questionnaire responses as formatted text or JSON files.
  * Supports individual and couple reflection exports.
@@ -29,7 +29,7 @@ const ExportManager = {
 
         // Header
         text += '═'.repeat(60) + '\n';
-        text += `  ${artifact.title || 'HeartReady Check-In'}\n`;
+        text += `  ${artifact.title || 'Ready for Us Check-In'}\n`;
         text += `  ${artifact.subtitle || ''}\n`;
         text += '═'.repeat(60) + '\n\n';
 
@@ -75,12 +75,12 @@ const ExportManager = {
 
         // Footer
         text += '\n' + '═'.repeat(60) + '\n';
-        text += '  HeartReady Toolkit\n';
+        text += '  Ready for Us\n';
         text += '  Made for Clara with ❤️ by Roy Dawson IV\n';
         text += '═'.repeat(60) + '\n';
 
         // Download
-        this.downloadFile(text, `heartready-${participantName.toLowerCase().replace(/\s+/g, '-')}.txt`, 'text/plain');
+        this.downloadFile(text, `readyforus-${participantName.toLowerCase().replace(/\s+/g, '-')}.txt`, 'text/plain');
     },
 
     /**
@@ -117,7 +117,7 @@ const ExportManager = {
 
         const json = JSON.stringify(exportData, null, 2);
         const safeName = participantName.toLowerCase().replace(/\s+/g, '-');
-        const baseFilename = filename || `heartready-${safeName}`;
+        const baseFilename = filename || `readyforus-${safeName}`;
         this.downloadFile(json, `${baseFilename}.json`, 'application/json');
     },
 

@@ -1,6 +1,6 @@
 // ./js/app/ranked-select.js
 /**
- * Ranked Select module for the HeartReady Toolkit.
+ * Ranked Select module for the Ready for Us.
  * 
  * Manages drag-and-drop ranking functionality for ranked_select question types.
  * Handles checkbox selection, reordering, and visual feedback.

@@ -1,6 +1,6 @@
 // ./js/pwa-install.js
 /**
- * PWA Install Handler for HeartReady Toolkit.
+ * PWA Install Handler for Ready for Us.
  * 
  * Captures the beforeinstallprompt event and provides methods to 
  * check installability and trigger the native install prompt.

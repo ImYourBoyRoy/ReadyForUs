@@ -1,6 +1,6 @@
 // ./sw.js
 /**
- * Service Worker for HeartReady PWA
+ * Service Worker for Ready for Us PWA
  * 
  * Provides aggressive caching for all static assets to enable:
  * - Instant subsequent page loads (cache-first strategy)
@@ -12,7 +12,7 @@
  * - Network requests made in background to update cache
  */
 
-const CACHE_NAME = 'heartready-v1.3.0';
+const CACHE_NAME = 'readyforus-v2.0.0';
 
 // Assets to cache on install
 const STATIC_ASSETS = [

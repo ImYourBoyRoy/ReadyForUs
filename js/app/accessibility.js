@@ -1,6 +1,6 @@
 // ./js/app/accessibility.js
 /**
- * Accessibility module for the HeartReady Toolkit.
+ * Accessibility module for the Ready for Us.
  * 
  * Provides screen reader announcements via ARIA live regions.
  * Mixed into the main App object.

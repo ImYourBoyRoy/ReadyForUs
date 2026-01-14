@@ -1,6 +1,6 @@
 // ./js/app/phase.js
 /**
- * Phase module for the HeartReady Toolkit.
+ * Phase module for the Ready for Us.
  * 
  * Handles phase switching, mode updates, and phase-related display updates.
  * Mixed into the main App object.

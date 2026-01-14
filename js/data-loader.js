@@ -33,9 +33,9 @@ const DataLoader = {
       console.error('DataLoader config error:', error);
       // Use fallback defaults if config fails to load
       this.config = {
-        site: { name: 'HeartReady Toolkit', icon: '💜' },
-        dashboard: { title: 'HeartReady Toolkit', icon: '💜' },
-        navigation: { title: 'HeartReady Toolkit', logo: '💜' }
+        site: { name: 'Ready for Us', icon: '💜' },
+        dashboard: { title: 'Ready for Us', icon: '💜' },
+        navigation: { title: 'Ready for Us', logo: '💜' }
       };
       return this.config;
     }

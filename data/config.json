@@ -1,52 +1,52 @@
 {
     "schema_version": "1.0.0",
     "site": {
-        "name": "HeartReady Toolkit",
-        "tagline": "A warm toolkit for healthy relationship building",
-        "description": "From pre-dating preparation through intentional partnership.",
+        "name": "Ready for Us",
+        "tagline": "A warm toolkit for building healthy, intentional relationships",
+        "description": "A guided path from self-readiness through intentional partnership.",
         "icon": "💜",
         "theme_color": "#7C6B9E"
     },
     "dashboard": {
-        "title": "HeartReady Toolkit",
-        "subtitle": "A warm toolkit for healthy relationship building — from pre-dating preparation through intentional partnership.",
+        "title": "Ready for Us",
+        "subtitle": "A supportive system for healthy relationship building — from your own inner readiness to building a life together.",
         "icon": "💜",
         "instructions": {
-            "title": "How These Work",
+            "title": "How to Use This Toolkit",
             "icon": "📋",
             "items": [
                 {
                     "icon": "⏱️",
-                    "title": "Take your time.",
-                    "text": "Skip any question and come back later."
+                    "title": "Move at your own pace.",
+                    "text": "There’s no rush. Skip any question and come back when you feel ready."
                 },
                 {
                     "icon": "💾",
-                    "title": "Auto-saved.",
-                    "text": "Your progress is saved automatically in your browser."
+                    "title": "Always saved.",
+                    "text": "Your journey is private and saved automatically in your browser."
                 },
                 {
                     "icon": "📤",
-                    "title": "Export anytime.",
-                    "text": "Download your answers as text or JSON."
+                    "title": "Take it with you.",
+                    "text": "Export your reflections as text or JSON whenever you like."
                 },
                 {
                     "icon": "🤖",
-                    "title": "AI prompts.",
-                    "text": "Generate reflection prompts for yourself or as a couple."
+                    "title": "Gentle AI Guidance.",
+                    "text": "Use AI to help uncover patterns and start meaningful conversations."
                 }
             ]
         },
         "tips": [
             {
                 "icon": "💡",
-                "title": "Tip",
-                "text": "Start with <em>Lite mode</em> for a focused check-in, or choose <em>Full mode</em> for deeper exploration."
+                "title": "A Helpful Note",
+                "text": "Try <em>Lite mode</em> for a quick check-in, or <em>Full mode</em> for a deep, honest exploration."
             }
         ]
     },
     "navigation": {
-        "title": "HeartReady Toolkit",
+        "title": "Ready for Us",
         "logo": "💜"
     }
 }

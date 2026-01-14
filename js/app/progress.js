@@ -1,6 +1,6 @@
 // ./js/app/progress.js
 /**
- * Progress module for the HeartReady Toolkit.
+ * Progress module for the Ready for Us.
  * 
  * Handles resume/restart functionality, mode switching, and import operations.
  * Mixed into the main App object.

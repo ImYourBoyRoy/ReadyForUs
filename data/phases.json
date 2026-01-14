@@ -4,17 +4,17 @@
     "phases": [
         {
             "id": "phase_0",
-            "title": "Phase 0: Readiness Audit",
-            "short_title": "Pre-Dating",
-            "description": "For assessing emotional readiness before starting to date.",
+            "title": "Phase 0: Heart Readiness Check-in",
+            "short_title": "Self-Readiness",
+            "description": "A space to explore your own readiness before opening your heart to someone new.",
             "icon": "🧭",
             "data_path": "data/phase_0"
         },
         {
             "id": "phase_1.5",
-            "title": "Phase 1.5: Intentional Early Dating",
-            "short_title": "Early Dating",
-            "description": "For the slow-build phase: mutual interest, intentional pacing.",
+            "title": "Phase 1.5: Slow Build Connection",
+            "short_title": "Building Together",
+            "description": "For the early days: moving with intention, pacing, and mutual care.",
             "icon": "💜",
             "data_path": "data/phase_1.5"
         }

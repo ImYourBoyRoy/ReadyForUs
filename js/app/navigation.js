@@ -1,6 +1,6 @@
 // ./js/app/navigation.js
 /**
- * Navigation module for the HeartReady Toolkit.
+ * Navigation module for the Ready for Us toolkit.
  * 
  * Handles view transitions, URL routing, and keyboard navigation.
  * Mixed into the main App object.
@@ -132,10 +132,10 @@ const AppNavigation = {
 
         // Reset page title and nav branding for dashboard
         if (viewName === 'dashboard') {
-            document.title = 'HeartReady | Relationship Building Toolkit';
+            document.title = 'Ready for Us | Relationship Building Toolkit';
             const navTitle = document.querySelector('.nav-title');
             const navLogo = document.querySelector('.nav-logo');
-            if (navTitle) navTitle.textContent = 'HeartReady Toolkit';
+            if (navTitle) navTitle.textContent = 'Ready for Us';
             if (navLogo) navLogo.textContent = '💜';
         }
 
