@@ -65,12 +65,35 @@ const AppDashboard = {
 
         // Setup install button
         document.getElementById('btn-install-app')?.addEventListener('click', async () => {
-            if (typeof PWAInstall !== 'undefined' && PWAInstall.canInstall()) {
-                const result = await PWAInstall.triggerInstall();
-                if (result.outcome === 'accepted') {
-                    this.showToast('App installed successfully! 🎉', 'success');
+            if (typeof PWAInstall !== 'undefined') {
+                if (PWAInstall.canInstall()) {
+                    const result = await PWAInstall.triggerInstall();
+                    if (result.outcome === 'accepted') {
+                        this.showToast('App installed successfully! 🎉', 'success');
+                    }
+                    this.updateInstallBanner();
+                } else if (PWAInstall.state === 'ios-available') {
+                    // Show iOS instructions modal
+                    const modal = document.getElementById('ios-install-modal');
+                    if (modal) {
+                        modal.classList.remove('hidden');
+                        modal.setAttribute('aria-hidden', 'false');
+
+                        // Setup close handlers
+                        const closeBtn = document.getElementById('ios-install-close');
+                        const gotItBtn = document.getElementById('ios-install-got-it');
+                        const closeModal = () => {
+                            modal.classList.add('hidden');
+                            modal.setAttribute('aria-hidden', 'true');
+                        };
+
+                        closeBtn?.addEventListener('click', closeModal, { once: true });
+                        gotItBtn?.addEventListener('click', closeModal, { once: true });
+                        modal.addEventListener('click', (e) => {
+                            if (e.target === modal) closeModal();
+                        }, { once: true });
+                    }
                 }
-                this.updateInstallBanner();
             }
         });
 
@@ -291,8 +314,9 @@ const AppDashboard = {
         const banner = document.getElementById('dashboard-install-banner');
         if (!banner) return;
 
-        // Check if PWA install is available
-        if (typeof PWAInstall !== 'undefined' && PWAInstall.canInstall()) {
+        // Check if PWA install is available (Android/Desktop) OR iOS
+        if (typeof PWAInstall !== 'undefined' &&
+            (PWAInstall.canInstall() || PWAInstall.state === 'ios-available')) {
             banner.classList.remove('hidden');
         } else {
             banner.classList.add('hidden');

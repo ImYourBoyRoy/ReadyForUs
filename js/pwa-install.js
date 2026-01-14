@@ -56,6 +56,16 @@ const PWAInstall = {
             window.navigator.standalone === true) {
             this.setState('installed');
             console.log('[PWA] App already installed (running in standalone mode)');
+            return;
+        }
+
+        // iOS Detection
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+        // Check if valid context (https/localhost) to avoid false positives
+        if (isIOS) {
+            this.setState('ios-available');
+            console.log('[PWA] iOS detected, install manual instructions available');
         }
     },
 

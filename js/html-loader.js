@@ -42,7 +42,8 @@ const HTMLLoader = {
 
     modals: {
         'import': ['modals/import.html', '#modals-container'],
-        'save': ['modals/save.html', '#modals-container']
+        'save': ['modals/save.html', '#modals-container'],
+        'ios-install': ['modals/ios-install.html', '#modals-container']
     },
 
     /**

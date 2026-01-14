@@ -10,6 +10,52 @@
 
 const AppNavigation = {
     /**
+     * Return to the previous view found in history.
+     */
+    returnToPrevious() {
+        console.log('Returning to previous. History:', URLRouter.previousRoute);
+        if (typeof URLRouter !== 'undefined' && URLRouter.previousRoute) {
+            const prev = URLRouter.previousRoute;
+
+            // Check if we need to switch phases back
+            if (prev.phase && prev.phase !== DataLoader.getCurrentPhaseId()) {
+                DataLoader.setCurrentPhase(prev.phase);
+                StorageManager.setPhase(prev.phase);
+                // We'd need to await load here if we weren't sure, 
+                // but usually switching phases requires a full reload/render.
+                // For simplicity, we'll rely on the view renderers to handle data needs
+                // or just just reload the phase data if needed.
+                DataLoader.load().then(() => {
+                    this.restoreView(prev);
+                });
+            } else {
+                this.restoreView(prev);
+            }
+        } else {
+            // Default to dashboard
+            this.showView('dashboard');
+            this.renderDashboard();
+        }
+    },
+
+    /**
+     * Helper to restore a specific view state.
+     * @param {Object} route Route object {view, questionId}
+     */
+    restoreView(route) {
+        if (route.view === 'questionnaire' && route.questionId) {
+            QuestionnaireEngine.jumpTo(route.questionId);
+            this.showView('questionnaire');
+            this.renderCurrentQuestion();
+        } else if (route.view === 'dashboard') {
+            this.showView('dashboard');
+            this.renderDashboard();
+        } else {
+            this.showView(route.view);
+        }
+    },
+
+    /**
      * Go to next question (or skip if unanswered).
      * Smart behavior: if user hasn't answered, this acts as skip.
      */
@@ -125,6 +171,11 @@ const AppNavigation = {
         // Special handling for welcome view - render dynamic intro
         if (viewName === 'welcome') {
             this.renderWelcomeIntro();
+        }
+
+        // Special handling for about view - update back button text
+        if (viewName === 'about') {
+            this.renderAbout();
         }
 
         // Scroll to top

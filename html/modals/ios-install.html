@@ -1,0 +1,120 @@
+<!-- ./html/modals/ios-install.html -->
+<div id="ios-install-modal" class="modal-backdrop hidden" aria-hidden="true">
+    <div class="modal-content ios-install-content" role="dialog" aria-modal="true" aria-labelledby="ios-install-title">
+        <button id="ios-install-close" class="modal-close" aria-label="Close modal">×</button>
+
+        <header class="modal-header">
+            <div class="modal-icon">📲</div>
+            <h2 id="ios-install-title" class="modal-title">Install Ready for Us</h2>
+        </header>
+
+        <div class="modal-body">
+            <p class="ios-instruction-lead">
+                To install this app on your iPhone or iPad for the best experience:
+            </p>
+
+            <ol class="ios-steps-list">
+                <li class="ios-step">
+                    <span class="step-number">1</span>
+                    <span class="step-text">Tap the <strong>Share</strong> button in your browser menu bar.</span>
+                    <div class="step-icon-container">
+                        <!-- iOS Share Icon (SVG) -->
+                        <svg class="ios-share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                            <polyline points="16 6 12 2 8 6"></polyline>
+                            <line x1="12" y1="2" x2="12" y2="15"></line>
+                        </svg>
+                    </div>
+                </li>
+                <li class="ios-step">
+                    <span class="step-number">2</span>
+                    <span class="step-text">Scroll and select <strong>Page</strong> actions, or swipe up.</span>
+                </li>
+                <li class="ios-step">
+                    <span class="step-number">3</span>
+                    <span class="step-text">Tap <strong>Add to Home Screen</strong>.</span>
+                    <div class="step-icon-container">
+                        <span class="ios-add-icon">⊞</span>
+                    </div>
+                </li>
+            </ol>
+        </div>
+
+        <div class="modal-actions">
+            <button id="ios-install-got-it" class="btn btn-primary btn-full-width">Got it</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .ios-install-content {
+        max-width: 400px;
+    }
+
+    .ios-instruction-lead {
+        margin-bottom: 1.5rem;
+        text-align: center;
+        color: var(--text-secondary);
+    }
+
+    .ios-steps-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1.5rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .ios-step {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: var(--surface-bg);
+        padding: 1rem;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--border-color);
+    }
+
+    .step-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+
+    .step-text {
+        flex: 1;
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    .step-icon-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: var(--surface-card);
+        border-radius: var(--radius-sm);
+        color: var(--primary-color);
+    }
+
+    .ios-share-icon {
+        color: #007AFF;
+        /* iOS Blue */
+    }
+
+    .ios-add-icon {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--text-primary);
+    }
+</style>

@@ -22,6 +22,9 @@ const URLRouter = {
     currentView: null,
     currentQuestionId: null,
 
+    // Navigation history
+    previousRoute: null,
+
     // Known view names (non-question routes)
     viewNames: ['welcome', 'review', 'complete', 'comparison', 'dashboard', 'about'],
 
@@ -83,6 +86,11 @@ const URLRouter = {
      * @returns {string} Hash string without #
      */
     buildHash(phase, view, questionId = null) {
+        // Special case for standalone views
+        if (this.standaloneViews.includes(view)) {
+            return `/${view}`;
+        }
+
         if (!phase) return '';
 
         // Dashboard = no hash (just clear it)
@@ -105,8 +113,19 @@ const URLRouter = {
      * @param {string|null} questionId - Optional question ID
      */
     updateHash(view, questionId = null) {
+        // Track history before updating, unless it's a self-update or minor change
+        // We only want to track "major" view changes to return to
+        if (this.currentView && this.currentView !== view && view === 'about') {
+            this.previousRoute = {
+                phase: this.currentPhase,
+                view: this.currentView,
+                questionId: this.currentQuestionId
+            };
+        }
+
         const phase = DataLoader.getCurrentPhaseId();
-        if (!phase) return;
+        // Standalone views don't need phase, but others do
+        if (!phase && !this.standaloneViews.includes(view)) return;
 
         const newHash = this.buildHash(phase, view, questionId);
         const currentHash = window.location.hash.slice(1);

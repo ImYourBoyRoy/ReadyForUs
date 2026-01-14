@@ -218,9 +218,11 @@ const AppInit = {
         });
 
         // About page - Back to Dashboard
-        document.getElementById('btn-about-dashboard')?.addEventListener('click', () => {
-            this.showView('dashboard');
-            this.renderDashboard();
+        // About page - Back to Dashboard (Delegated)
+        document.addEventListener('click', (e) => {
+            if (e.target.id === 'btn-about-dashboard') {
+                this.returnToPrevious();
+            }
         });
 
         // About page - Copy email

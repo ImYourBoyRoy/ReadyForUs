@@ -179,6 +179,38 @@ const AppViews = {
         if (welcomeSubtitle && artifact?.subtitle) {
             welcomeSubtitle.textContent = artifact.subtitle;
         }
+    },
+    /**
+     * Render about view (update back button text).
+     */
+    renderAbout() {
+        const btn = document.getElementById('btn-about-dashboard');
+        if (!btn) return;
+
+        // Default text
+        let text = '🏠 Back to Dashboard';
+
+        if (typeof URLRouter !== 'undefined' && URLRouter.previousRoute) {
+            const prev = URLRouter.previousRoute;
+
+            if (prev.view === 'dashboard') {
+                text = '🏠 Back to Dashboard';
+            } else if (prev.view === 'questionnaire') {
+                if (prev.questionId) {
+                    text = `↩️ Return to Question`;
+                } else {
+                    text = '↩️ Return to Questions';
+                }
+            } else if (prev.view === 'review') {
+                text = '📋 Return to Review';
+            } else if (prev.view === 'complete') {
+                text = '🎉 Return to Summary';
+            } else if (prev.view === 'welcome') {
+                text = '👋 Return to Welcome';
+            }
+        }
+
+        btn.textContent = text;
     }
 };
 

@@ -1,0 +1,149 @@
+/* About Page Styles */
+.about-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.about-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.about-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.about-intro {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-card {
+    background: var(--surface-card);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.about-profile {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.about-portrait {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color-alpha);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease;
+}
+
+.about-portrait:hover {
+    transform: scale(1.05);
+}
+
+.about-lead {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.about-section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.about-list li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    line-height: 1.5;
+}
+
+.about-list.negative li::before {
+    content: "❌";
+    position: absolute;
+    left: 0;
+}
+
+.about-list.positive li::before {
+    content: "✅";
+    position: absolute;
+    left: 0;
+}
+
+.about-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.about-quote {
+    background: var(--surface-bg);
+    padding: 1rem;
+    border-left: 4px solid var(--primary-color);
+    margin: 1rem 0;
+    font-style: italic;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.about-actions {
+    margin-top: 3rem;
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+/* Contact Styles */
+.contact-email {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background: var(--surface-bg);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    margin-top: 1rem;
+}
+
+.email-link {
+    font-family: monospace;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.email-link:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    .about-lead {
+        font-size: 1.2rem;
+    }
+}
