@@ -1,7 +1,7 @@
 # Ready For Us - Security Contact Information
 # https://securitytxt.org/
 
-Contact: mailto:Roy.Dawson.IV@gmail.com
+Contact: mailto:roy@readyforus.app
 Contact: https://github.com/imyourboyroy/ReadyForUs/issues
 
 Preferred-Languages: en

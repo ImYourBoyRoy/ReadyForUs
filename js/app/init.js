@@ -225,7 +225,7 @@ const AppInit = {
 
         // About page - Copy email
         document.getElementById('btn-copy-email')?.addEventListener('click', (e) => {
-            const email = e.currentTarget.dataset.email || 'Roy.Dawson.IV@gmail.com';
+            const email = e.currentTarget.dataset.email || 'roy@readyforus.app';
             navigator.clipboard.writeText(email).then(() => {
                 this.showToast('Email copied to clipboard!', 'success');
                 e.currentTarget.textContent = '✓ Copied!';
