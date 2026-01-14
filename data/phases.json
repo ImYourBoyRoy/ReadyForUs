@@ -11,6 +11,14 @@
             "data_path": "data/phase_0"
         },
         {
+            "id": "phase_1",
+            "title": "Phase 1: Early Connection Check-In",
+            "short_title": "Are We Aligned?",
+            "description": "For exploring if you're on the same page before you commit to committing.",
+            "icon": "🌱",
+            "data_path": "data/phase_1"
+        },
+        {
             "id": "phase_1.5",
             "title": "Phase 1.5: Slow Build Connection",
             "short_title": "Building Together",

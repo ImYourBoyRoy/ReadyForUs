@@ -70,6 +70,7 @@ const STATIC_ASSETS = [
     './html/views/review.html',
     './html/views/complete.html',
     './html/views/comparison.html',
+    './html/views/about.html',
     './html/modals/import.html',
     './html/modals/save.html',
     // Data files

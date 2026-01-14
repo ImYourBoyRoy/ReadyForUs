@@ -1,0 +1,3161 @@
+{
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Starting Point",
+      "question_ids": [
+        "q01",
+        "q02",
+        "q03",
+        "q04"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Why This Person, Why Now",
+      "question_ids": [
+        "q06",
+        "q07",
+        "q08",
+        "q09"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Hard Truths & Dealbreakers",
+      "question_ids": [
+        "q11",
+        "q12",
+        "q13",
+        "q14",
+        "q15"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "How I Show Up When It's Hard",
+      "question_ids": [
+        "q17",
+        "q18",
+        "q19",
+        "q20"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Attachment & Emotional Needs",
+      "question_ids": [
+        "q22",
+        "q23",
+        "q24"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Communication & Conflict",
+      "question_ids": [
+        "q26",
+        "q27",
+        "q28"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Values & Faith Alignment",
+      "question_ids": [
+        "q30",
+        "q31",
+        "q32",
+        "q33"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Expectations & Pacing",
+      "question_ids": [
+        "q35",
+        "q36",
+        "q37"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Life Logistics Reality",
+      "question_ids": [
+        "q39",
+        "q40",
+        "q41"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Growth & Self-Awareness",
+      "question_ids": [
+        "q43",
+        "q44"
+      ]
+    },
+    {
+      "id": "s11",
+      "title": "Where We Stand",
+      "question_ids": [
+        "q46",
+        "q47",
+        "q48"
+      ]
+    }
+  ],
+  "questions": {
+    "q01": {
+      "id": "q01",
+      "section_id": "s1",
+      "order": 1,
+      "title": "Current Relationship Status",
+      "prompt": "To be fully honest right here: Are you completely single right now\u2014legally, emotionally, and in your heart?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Yes\u2014divorced 2 years ago, no lingering entanglement.",
+        "Separated, divorce will be finalized in 2 months.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "yes_completely",
+          "label": "Yes\u2014no marriage, separation, or complicated situation"
+        },
+        {
+          "value": "separated_not_final",
+          "label": "Separated but not legally finalized"
+        },
+        {
+          "value": "complicated",
+          "label": "It's complicated (there's overlap I should explain)"
+        },
+        {
+          "value": "widowed_recent",
+          "label": "Widowed (still processing loss)"
+        },
+        {
+          "value": "prefer_not",
+          "label": "Prefer not to say"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ]
+    },
+    "q02": {
+      "id": "q02",
+      "section_id": "s1",
+      "order": 2,
+      "title": "Time Since Last Major Relationship",
+      "prompt": "Give me a quick snapshot of your relationship history\u2014this helps us understand where you're coming from.",
+      "type": "compound",
+      "answer_schema": {
+        "months_since_end": 0,
+        "what_defines_major": "",
+        "how_it_ended": "",
+        "notes": ""
+      },
+      "examples": [
+        "8 months since last major. Major = emotional investment + exclusivity. It ended mutually.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "months_since_end",
+          "label": "Months since your last major relationship ended",
+          "type": "number",
+          "min": 0,
+          "max": 600
+        },
+        {
+          "key": "what_defines_major",
+          "label": "What makes a relationship 'major' to you? (1 sentence)",
+          "type": "short_text"
+        },
+        {
+          "key": "how_it_ended",
+          "label": "How It Ended",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "mutual_healthy",
+              "label": "Mutual and healthy"
+            },
+            {
+              "value": "painful_but_clean",
+              "label": "Painful but clean break"
+            },
+            {
+              "value": "messy_unresolved",
+              "label": "Messy or unresolved"
+            },
+            {
+              "value": "abandoned",
+              "label": "I was left unexpectedly"
+            },
+            {
+              "value": "widowed",
+              "label": "Widow/er"
+            },
+            {
+              "value": "other",
+              "label": "Other"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Anything that affects how you're entering this?",
+          "type": "free_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q03": {
+      "id": "q03",
+      "section_id": "s1",
+      "order": 3,
+      "title": "Ex Entanglement Check",
+      "prompt": "If you're being completely honest with yourself: Is there any ongoing connection with an ex (or someone else) that could affect your availability to show up fully in this?",
+      "type": "compound",
+      "answer_schema": {
+        "entanglement_level": "",
+        "would_partner_worry": "",
+        "notes": ""
+      },
+      "examples": [
+        "Occasional friendly contact. Partner would have no reason to worry\u2014we're firmly in friend zone.",
+        "Still processing emotionally. They'd probably need context and reassurance.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "entanglement_level",
+          "label": "Entanglement Level",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "none",
+              "label": "No\u2014total clean break"
+            },
+            {
+              "value": "logistical_only",
+              "label": "Logistical only (co-parenting, shared finances)"
+            },
+            {
+              "value": "occasional_friendly",
+              "label": "Occasional friendly contact (healthy)"
+            },
+            {
+              "value": "still_processing",
+              "label": "Still emotionally processing them"
+            },
+            {
+              "value": "ongoing_contact",
+              "label": "Ongoing emotional/physical contact"
+            },
+            {
+              "value": "unsure",
+              "label": "Unsure"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "would_partner_worry",
+          "label": "Would Partner Worry",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "no",
+              "label": "No\u2014they'd have no reason to"
+            },
+            {
+              "value": "maybe_need_context",
+              "label": "Maybe\u2014but I can explain"
+            },
+            {
+              "value": "yes_honestly",
+              "label": "Yes\u2014this needs work"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Briefly explain if needed",
+          "type": "short_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q04": {
+      "id": "q04",
+      "section_id": "s1",
+      "order": 4,
+      "title": "Emotional Closure",
+      "prompt": "When you think about your most recent ex, what's the dominant feeling that comes up\u2014even if it's subtle?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Warm/grateful\u2014I learned a lot even though it ended.",
+        "Mixed\u2014some days fine, some days harder.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "neutral_at_peace",
+          "label": "Neutral / at peace"
+        },
+        {
+          "value": "warm_grateful",
+          "label": "Warm / grateful for what we had"
+        },
+        {
+          "value": "sad_grief",
+          "label": "Sad / grief (but processing)"
+        },
+        {
+          "value": "angry_resentful",
+          "label": "Angry / resentful"
+        },
+        {
+          "value": "longing_attachment",
+          "label": "Longing / attachment"
+        },
+        {
+          "value": "relief",
+          "label": "Relief (glad it's over)"
+        },
+        {
+          "value": "mixed",
+          "label": "Mixed feelings"
+        },
+        {
+          "value": "numb",
+          "label": "Numb / disconnected"
+        },
+        {
+          "value": "prefer_not",
+          "label": "Prefer not to say"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ]
+    },
+    "q05": {
+      "id": "q05",
+      "section_id": "s1",
+      "order": 5,
+      "title": "Relational Safety",
+      "prompt": "Right now, do you feel physically and emotionally safe from any current partner, ex, or person you're dating? (No harassment, threats, stalking, or control.)",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Yes\u2014completely safe.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes\u2014completely safe"
+        },
+        {
+          "value": "mostly",
+          "label": "Mostly\u2014some concerns but not afraid"
+        },
+        {
+          "value": "no",
+          "label": "No\u2014I feel unsafe, pressured, or threatened"
+        },
+        {
+          "value": "unsure",
+          "label": "Unsure"
+        },
+        {
+          "value": "prefer_not",
+          "label": "Prefer not to say"
+        }
+      ]
+    },
+    "q06": {
+      "id": "q06",
+      "section_id": "s2",
+      "order": 6,
+      "title": "What Drew You to Them",
+      "prompt": "What specifically drew you to this person? (Not just 'we matched' or 'they're attractive.' Be honest about both the surface-level and the deeper pull.)",
+      "type": "compound",
+      "answer_schema": {
+        "primary_pull": "",
+        "explanation": "",
+        "pattern_awareness": ""
+      },
+      "examples": [
+        "Primary: emotional safety. They follow through consistently. Pattern: No\u2014this feels different from my usual type.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "primary_pull",
+          "label": "The primary thing that drew you in",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "emotional_safety",
+              "label": "They feel emotionally safe / stable"
+            },
+            {
+              "value": "chemistry",
+              "label": "Strong chemistry / physical attraction"
+            },
+            {
+              "value": "shared_values",
+              "label": "Shared values or faith alignment"
+            },
+            {
+              "value": "familiarity_pattern",
+              "label": "Familiar pattern (reminds me of someone)"
+            },
+            {
+              "value": "timing_loneliness",
+              "label": "Good timing / I was ready / lonely"
+            },
+            {
+              "value": "curiosity_potential",
+              "label": "Genuine curiosity about who they are"
+            },
+            {
+              "value": "they_pursued_me",
+              "label": "They pursued me and it felt good"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "explanation",
+          "label": "Describe what drew you in\u2014both surface-level and deeper",
+          "type": "free_text"
+        },
+        {
+          "key": "pattern_awareness",
+          "label": "Does this attraction feel familiar in concerning ways?",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "no_feels_new",
+              "label": "No\u2014this feels different/healthy"
+            },
+            {
+              "value": "somewhat_watching",
+              "label": "Somewhat\u2014I'm watching it"
+            },
+            {
+              "value": "yes_aware",
+              "label": "Yes\u2014I see a pattern I'm trying not to repeat"
+            },
+            {
+              "value": "unsure",
+              "label": "Unsure"
+            }
+          ]
+        }
+      ]
+    },
+    "q07": {
+      "id": "q07",
+      "section_id": "s2",
+      "order": 7,
+      "title": "Honest Motivation Check",
+      "prompt": "What's really pulling you toward exploring this right now? Select and rank your top reasons\u2014be honest, even if some of them aren't 'noble.",
+      "type": "compound",
+      "answer_schema": {
+        "reasons_ranked": [],
+        "urgency_level": 0,
+        "confidence_healthy": 0,
+        "notes": ""
+      },
+      "examples": [
+        "Top: 1) Genuine connection, 2) Ready for partnership, 3) Physical attraction. Urgency: 6. Confidence: 7.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "reasons_ranked",
+          "label": "Reasons Ranked",
+          "type": "ranked_select",
+          "validation": {
+            "max_selected": 5
+          },
+          "options": [
+            {
+              "value": "genuine_connection",
+              "label": "Genuine connection and curiosity"
+            },
+            {
+              "value": "values_alignment",
+              "label": "We seem aligned on important things"
+            },
+            {
+              "value": "physical_attraction",
+              "label": "Physical attraction is strong"
+            },
+            {
+              "value": "loneliness_relief",
+              "label": "I'm lonely and want relief"
+            },
+            {
+              "value": "ready_for_partnership",
+              "label": "I feel ready for real partnership"
+            },
+            {
+              "value": "fear_running_out_time",
+              "label": "Fear of running out of time (age, kids, life stage)"
+            },
+            {
+              "value": "proving_something",
+              "label": "Proving something to myself or someone else"
+            },
+            {
+              "value": "distraction_from_pain",
+              "label": "Distraction from pain, grief, or boredom"
+            },
+            {
+              "value": "they_pursued_me",
+              "label": "They pursued me and it felt good"
+            },
+            {
+              "value": "dont_want_to_be_alone",
+              "label": "I just don't want to be alone"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "urgency_level",
+          "label": "How urgent does exploring this feel right now?",
+          "type": "number",
+          "min": 0,
+          "max": 10
+        },
+        {
+          "key": "confidence_healthy",
+          "label": "How confident are you that your motivation is healthy?",
+          "type": "number",
+          "min": 0,
+          "max": 10
+        },
+        {
+          "key": "notes",
+          "label": "Anything you want to acknowledge here?",
+          "type": "free_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q08": {
+      "id": "q08",
+      "section_id": "s2",
+      "order": 8,
+      "title": "If This Doesn't Work Out",
+      "prompt": "If this doesn't work out, what's your honest, likely reaction? (Not how you want to react\u2014how you probably would.)",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Disappointed but okay\u2014I've built enough resilience from past letdowns.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "move_on_gracefully",
+          "label": "I'd process it and move on gracefully"
+        },
+        {
+          "value": "disappointed_but_okay",
+          "label": "Disappointed but okay"
+        },
+        {
+          "value": "take_it_hard",
+          "label": "I'd take it pretty hard"
+        },
+        {
+          "value": "crushed_spiral",
+          "label": "I'd be crushed / might spiral a bit"
+        },
+        {
+          "value": "relieved",
+          "label": "Honestly, I might be relieved"
+        },
+        {
+          "value": "depends_on_how",
+          "label": "It depends entirely on how it ends"
+        },
+        {
+          "value": "unsure",
+          "label": "I'm not sure"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ]
+    },
+    "q09": {
+      "id": "q09",
+      "section_id": "s2",
+      "order": 9,
+      "title": "Early Momentum Check",
+      "prompt": "Right now, who seems more invested or leaning in? (This affects pacing and expectations\u2014be honest.)",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Me a bit more\u2014I'm initiating more, but they're responsive.",
+        "About equal\u2014we're both putting in similar effort.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "about_equal",
+          "label": "About equal"
+        },
+        {
+          "value": "me_bit_more",
+          "label": "Me a bit more"
+        },
+        {
+          "value": "them_bit_more",
+          "label": "Them a bit more"
+        },
+        {
+          "value": "me_significantly",
+          "label": "Me significantly more"
+        },
+        {
+          "value": "them_significantly",
+          "label": "Them significantly more"
+        },
+        {
+          "value": "hard_to_tell",
+          "label": "Hard to tell"
+        },
+        {
+          "value": "changes_daily",
+          "label": "It changes day to day"
+        }
+      ]
+    },
+    "q10": {
+      "id": "q10",
+      "section_id": "s2",
+      "order": 10,
+      "title": "Pattern Recognition",
+      "prompt": "What pattern from your past relationships might show up here? (The one you keep repeating even though you know better.)",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "examples": [
+        "I tend to over-give early, trying to earn their interest. Then I resent it later.",
+        "I go quiet when I'm hurt instead of speaking up\u2014and then it builds.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      }
+    },
+    "q11": {
+      "id": "q11",
+      "section_id": "s3",
+      "order": 11,
+      "title": "Dealbreakers You Need to Know",
+      "prompt": "What are your absolute non-negotiables\u2014things about them that would end this before it starts? Select and rank your top 5.",
+      "type": "compound",
+      "answer_schema": {
+        "dealbreakers_ranked": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Top 5: 1) Active addiction, 2) Dishonesty, 3) Still married, 4) No commitment desire, 5) Faith mismatch",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "dealbreakers_ranked",
+          "label": "Dealbreakers Ranked",
+          "type": "ranked_select",
+          "validation": {
+            "max_selected": 5
+          },
+          "options": [
+            {
+              "value": "active_addiction",
+              "label": "Active addiction (substances, porn, gambling)"
+            },
+            {
+              "value": "dishonesty",
+              "label": "Dishonesty / lying"
+            },
+            {
+              "value": "still_married",
+              "label": "Still legally married"
+            },
+            {
+              "value": "no_faith_alignment",
+              "label": "Faith/values misalignment"
+            },
+            {
+              "value": "no_emotional_availability",
+              "label": "Emotional unavailability"
+            },
+            {
+              "value": "abuse_history",
+              "label": "History of abuse (as perpetrator)"
+            },
+            {
+              "value": "financial_disaster",
+              "label": "Major financial irresponsibility"
+            },
+            {
+              "value": "kids_mismatch",
+              "label": "Kids situation doesn't match mine"
+            },
+            {
+              "value": "no_desire_commitment",
+              "label": "No desire for commitment"
+            },
+            {
+              "value": "poor_mental_health_untreated",
+              "label": "Untreated mental health issues"
+            },
+            {
+              "value": "distance",
+              "label": "Distance / unable to relocate"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "other_text",
+          "label": "Describe your 'other' dealbreaker",
+          "type": "short_text",
+          "showWhen": {
+            "field": "other",
+            "equals": "other"
+          }
+        },
+        {
+          "key": "notes",
+          "label": "Why are these your top concerns?",
+          "type": "free_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q12": {
+      "id": "q12",
+      "section_id": "s3",
+      "order": 12,
+      "title": "Things You Should Disclose",
+      "prompt": "Of the following, which apply to you right now? (This isn't about shame\u2014it's about giving someone the chance to accept the real you.)",
+      "type": "multi_select",
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Mental health (anxiety, managed with therapy). Trauma that affects intimacy.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "porn_struggle",
+          "label": "Current struggle with pornography"
+        },
+        {
+          "value": "significant_debt",
+          "label": "Significant debt"
+        },
+        {
+          "value": "mental_health_active",
+          "label": "Active mental health challenge (anxiety, depression, etc.)"
+        },
+        {
+          "value": "addiction_recovery",
+          "label": "In recovery from addiction"
+        },
+        {
+          "value": "past_infidelity",
+          "label": "History of infidelity"
+        },
+        {
+          "value": "std_disclosure",
+          "label": "STD/STI that requires disclosure"
+        },
+        {
+          "value": "kids_they_dont_know",
+          "label": "Children they may not know about"
+        },
+        {
+          "value": "legal_issues",
+          "label": "Ongoing legal or criminal issues"
+        },
+        {
+          "value": "chronic_illness",
+          "label": "Chronic health condition"
+        },
+        {
+          "value": "trauma_affects_intimacy",
+          "label": "Trauma that affects intimacy or trust"
+        },
+        {
+          "value": "none",
+          "label": "None of these apply"
+        },
+        {
+          "value": "prefer_not",
+          "label": "Prefer not to say"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ]
+    },
+    "q13": {
+      "id": "q13",
+      "section_id": "s3",
+      "order": 13,
+      "title": "Sexual Integrity Check",
+      "prompt": "Being honest with yourself: Are you currently living in alignment with your own values around sexual integrity?\" *(This adapts to your faith context\u2014we're not here to judge, just to help you be honest with yourself.)*",
+      "type": "compound",
+      "answer_schema": {
+        "faith_context": "",
+        "current_alignment": "",
+        "support_in_place": "",
+        "notes": ""
+      },
+      "examples": [
+        "LDS. Mostly aligned\u2014I struggle with pornography occasionally but have a therapist and accountability partner.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "faith_context",
+          "label": "Faith Context",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "lds",
+              "label": "Latter-day Saint (LDS)"
+            },
+            {
+              "value": "christian",
+              "label": "Christian (non-LDS)"
+            },
+            {
+              "value": "faith_based_values",
+              "label": "Faith-based values (other tradition)"
+            },
+            {
+              "value": "personal_values",
+              "label": "Personal values (not religious)"
+            },
+            {
+              "value": "no_strong_standard",
+              "label": "I don't have a strong standard on this"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "current_alignment",
+          "label": "Current Alignment",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "yes_aligned",
+              "label": "Yes\u2014I'm living in alignment"
+            },
+            {
+              "value": "mostly_struggling",
+              "label": "Mostly\u2014but I struggle sometimes"
+            },
+            {
+              "value": "no_working_on_it",
+              "label": "No\u2014but I'm actively working on it with support"
+            },
+            {
+              "value": "no_not_working",
+              "label": "No\u2014and I'm not actively addressing it"
+            },
+            {
+              "value": "unsure",
+              "label": "Unsure what my standard even is"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "support_in_place",
+          "label": "If you're working on this, what support do you have?",
+          "type": "short_text",
+          "placeholder": "Optional"
+        },
+        {
+          "key": "notes",
+          "label": "Anything you want to add (kept confidential)",
+          "type": "free_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q14": {
+      "id": "q14",
+      "section_id": "s3",
+      "order": 14,
+      "title": "Intimacy Timeline Expectations",
+      "prompt": "For physical intimacy, what's your honest expectation or boundary at this stage?",
+      "type": "compound",
+      "answer_schema": {
+        "physical_boundary": "",
+        "what_helps_me_feel_safe": "",
+        "notes": ""
+      },
+      "examples": [
+        "Waiting for serious commitment. Helps me feel safe: explicit conversation before any escalation.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "physical_boundary",
+          "label": "Physical Boundary",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "waiting_marriage",
+              "label": "Waiting for marriage"
+            },
+            {
+              "value": "waiting_commitment",
+              "label": "Waiting for serious commitment/exclusivity"
+            },
+            {
+              "value": "slow_gradual",
+              "label": "Slow and gradual as trust builds"
+            },
+            {
+              "value": "no_strong_timeline",
+              "label": "No strong timeline\u2014going with the flow"
+            },
+            {
+              "value": "open_to_sooner",
+              "label": "Open to sooner if it feels right"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "what_helps_me_feel_safe",
+          "label": "What would help you feel safe and respected in this area?",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Anything else to share?",
+          "type": "free_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q15": {
+      "id": "q15",
+      "section_id": "s3",
+      "order": 15,
+      "title": "Pornography & Compulsive Behavior",
+      "prompt": "Does pornography or compulsive sexual behavior currently affect your ability to date with integrity?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "no",
+          "label": "No\u2014this isn't an issue for me"
+        },
+        {
+          "value": "mild",
+          "label": "Mild impact (occasional struggle)"
+        },
+        {
+          "value": "moderate",
+          "label": "Moderate impact (recurring pattern)"
+        },
+        {
+          "value": "severe",
+          "label": "Severe impact (secretive, escalating, or compulsive)"
+        },
+        {
+          "value": "in_recovery",
+          "label": "In recovery with support systems"
+        },
+        {
+          "value": "prefer_not",
+          "label": "Prefer not to say"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ]
+    },
+    "q16": {
+      "id": "q16",
+      "section_id": "s3",
+      "order": 16,
+      "title": "What You're Hesitant to Share",
+      "prompt": "Is there anything you know you should probably share with this person at some point\u2014but you're hesitant to? (You don't have to share it here, just acknowledge it to yourself.)",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "examples": [
+        "My divorce involved infidelity on my part. I've done a lot of work, but they deserve to know eventually.",
+        "I have more debt than people might assume. It's manageable but should be disclosed.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      }
+    },
+    "q17": {
+      "id": "q17",
+      "section_id": "s4",
+      "order": 17,
+      "title": "When You Feel Rejected or Dismissed",
+      "prompt": "When you feel rejected, dismissed, or like you're not a priority\u2014what do you actually do? (Not what you wish you did.)",
+      "type": "compound",
+      "answer_schema": {
+        "reaction_pattern": [],
+        "recovery_time": "",
+        "what_would_help": ""
+      },
+      "examples": [
+        "I go quiet and act like I don't care. Takes me a day. Helps: gentle check-in without pressure.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "reaction_pattern",
+          "label": "Reaction Pattern",
+          "type": "multi_select",
+          "validation": {
+            "max_selected": 3
+          },
+          "options": [
+            {
+              "value": "withdraw_go_quiet",
+              "label": "Withdraw / go quiet"
+            },
+            {
+              "value": "seek_reassurance",
+              "label": "Seek reassurance (text more, ask questions)"
+            },
+            {
+              "value": "get_sharp_defensive",
+              "label": "Get sharp or defensive"
+            },
+            {
+              "value": "people_please",
+              "label": "People-please / try harder"
+            },
+            {
+              "value": "act_like_dont_care",
+              "label": "Act like I don't care (mask it)"
+            },
+            {
+              "value": "catastrophize",
+              "label": "Catastrophize / assume the worst"
+            },
+            {
+              "value": "test_them",
+              "label": "Test them to see if they'll pursue"
+            },
+            {
+              "value": "talk_it_out_directly",
+              "label": "Ask to talk about it directly"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "recovery_time",
+          "label": "Recovery Time",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "quickly",
+              "label": "Quickly (minutes to hours)"
+            },
+            {
+              "value": "moderate",
+              "label": "Takes a bit (up to a day)"
+            },
+            {
+              "value": "long",
+              "label": "Takes me a while (days)"
+            },
+            {
+              "value": "lingers",
+              "label": "It lingers and affects me for a while"
+            }
+          ]
+        },
+        {
+          "key": "what_would_help",
+          "label": "What response from them would actually help?",
+          "type": "short_text"
+        }
+      ]
+    },
+    "q18": {
+      "id": "q18",
+      "section_id": "s4",
+      "order": 18,
+      "title": "When You're Stressed",
+      "prompt": "When you're stressed (work, life, overwhelm), how do you treat the people closest to you? Be honest.",
+      "type": "compound",
+      "answer_schema": {
+        "stress_behavior": "",
+        "what_they_should_know": "",
+        "warning_signs": ""
+      },
+      "examples": [
+        "I get snappy and need space. Warning signs: I get short in my texts. What helps: give me an hour, then reconnect gently.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "stress_behavior",
+          "label": "Stress Behavior",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "withdraw_need_space",
+              "label": "Withdraw / need space"
+            },
+            {
+              "value": "get_snappy_irritable",
+              "label": "Get snappy or irritable"
+            },
+            {
+              "value": "lean_in_need_support",
+              "label": "Lean in / need more connection"
+            },
+            {
+              "value": "shut_down_numb",
+              "label": "Shut down / go numb"
+            },
+            {
+              "value": "stay_pretty_stable",
+              "label": "Stay pretty stable"
+            },
+            {
+              "value": "overfunction",
+              "label": "Overfunction / take over"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "what_they_should_know",
+          "label": "What should someone close to you know about stressed-you?",
+          "type": "short_text"
+        },
+        {
+          "key": "warning_signs",
+          "label": "Early warning signs that you're reaching capacity?",
+          "type": "short_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q19": {
+      "id": "q19",
+      "section_id": "s4",
+      "order": 19,
+      "title": "What Your Ex Would Say",
+      "prompt": "If I asked your ex (or someone who's been close to you) what was the hardest part about being with you\u2014what would they honestly say?",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "examples": [
+        "That I need a lot of reassurance and can come across as insecure.",
+        "That I shut down instead of talking about what's bothering me.",
+        "That I'm too focused on work and they felt like a lesser priority.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q20": {
+      "id": "q20",
+      "section_id": "s4",
+      "order": 20,
+      "title": "A Behavior You've Been Told Is Hurtful",
+      "prompt": "Is there a behavior you've been told hurts people\u2014but you struggle to change? (Not looking for perfection, just honesty.)",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "examples": [
+        "I interrupt when I'm excited. I know it makes people feel unheard.",
+        "I give unsolicited advice instead of just listening.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      }
+    },
+    "q21": {
+      "id": "q21",
+      "section_id": "s4",
+      "order": 21,
+      "title": "Disappointment Response",
+      "prompt": "When someone doesn't meet your expectations, how do you typically respond?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "communicate_directly",
+          "label": "I communicate directly and kindly"
+        },
+        {
+          "value": "hint_expect_them_to_notice",
+          "label": "I hint and expect them to notice"
+        },
+        {
+          "value": "hold_it_in_resent_later",
+          "label": "I hold it in and it turns to resentment"
+        },
+        {
+          "value": "lower_expectations_move_on",
+          "label": "I lower my expectations and move on"
+        },
+        {
+          "value": "get_critical_vocal",
+          "label": "I get critical or vocal about it"
+        },
+        {
+          "value": "withdraw_pull_back",
+          "label": "I withdraw / emotionally pull back"
+        },
+        {
+          "value": "depends_on_situation",
+          "label": "Depends on the situation"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ]
+    },
+    "q22": {
+      "id": "q22",
+      "section_id": "s5",
+      "order": 22,
+      "title": "Emotional Bonding Speed",
+      "prompt": "How quickly do you tend to bond emotionally? And what causes you to pull back?",
+      "type": "compound",
+      "answer_schema": {
+        "bonding_speed": "",
+        "what_causes_pullback": [],
+        "notes": ""
+      },
+      "examples": [
+        "I bond moderately\u2014a few weeks. I pull back if there's inconsistency or too much intensity.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "bonding_speed",
+          "label": "Bonding Speed",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "very_quickly",
+              "label": "Very quickly\u2014I attach fast"
+            },
+            {
+              "value": "moderately",
+              "label": "Moderately\u2014takes a few weeks/months"
+            },
+            {
+              "value": "slowly",
+              "label": "Slowly\u2014I take my time"
+            },
+            {
+              "value": "depends_on_person",
+              "label": "Depends on the person"
+            },
+            {
+              "value": "unsure",
+              "label": "I'm not sure"
+            }
+          ]
+        },
+        {
+          "key": "what_causes_pullback",
+          "label": "What Causes Pullback",
+          "type": "multi_select",
+          "validation": {
+            "max_selected": 3
+          },
+          "options": [
+            {
+              "value": "intensity_too_fast",
+              "label": "Too much intensity too fast"
+            },
+            {
+              "value": "inconsistency",
+              "label": "Inconsistency (mixed signals)"
+            },
+            {
+              "value": "fear_of_losing_self",
+              "label": "Fear of losing myself"
+            },
+            {
+              "value": "past_hurt_activates",
+              "label": "Past hurt getting activated"
+            },
+            {
+              "value": "they_pull_back_first",
+              "label": "They pull back first"
+            },
+            {
+              "value": "nothing_usually",
+              "label": "Nothing usually causes me to pull back"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Anything else to know about your bonding pattern?",
+          "type": "free_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q23": {
+      "id": "q23",
+      "section_id": "s5",
+      "order": 23,
+      "title": "Reassurance Needs",
+      "prompt": "What does reassurance look like for you? And how often do you need it to feel secure?",
+      "type": "compound",
+      "answer_schema": {
+        "reassurance_forms": [],
+        "frequency_needed": "",
+        "notes": ""
+      },
+      "examples": [
+        "Clear words + consistent contact. Moderate frequency. Doesn't work: vague reassurance without action.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "reassurance_forms",
+          "label": "Reassurance Forms",
+          "type": "multi_select",
+          "validation": {
+            "max_selected": 4
+          },
+          "options": [
+            {
+              "value": "clear_words",
+              "label": "Clear words ('I like you, I'm here')"
+            },
+            {
+              "value": "consistent_contact",
+              "label": "Consistent contact"
+            },
+            {
+              "value": "concrete_plans",
+              "label": "Making plans together"
+            },
+            {
+              "value": "physical_affection",
+              "label": "Physical affection"
+            },
+            {
+              "value": "transparency",
+              "label": "Transparency about what's going on"
+            },
+            {
+              "value": "quality_time",
+              "label": "Dedicated quality time"
+            },
+            {
+              "value": "acts_of_service",
+              "label": "Acts of service / thoughtfulness"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "frequency_needed",
+          "label": "Frequency Needed",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "minimal",
+              "label": "Minimal\u2014I'm fairly secure"
+            },
+            {
+              "value": "moderate",
+              "label": "Moderate\u2014check-ins help"
+            },
+            {
+              "value": "regular",
+              "label": "Regular\u2014I need it fairly often"
+            },
+            {
+              "value": "depends",
+              "label": "Depends on the stage / my stress level"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "What doesn't work for you?",
+          "type": "short_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q24": {
+      "id": "q24",
+      "section_id": "s5",
+      "order": 24,
+      "title": "When Someone Gets Close",
+      "prompt": "When someone starts getting closer emotionally, what's your most common response?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "lean_in_connect",
+          "label": "Lean in and connect"
+        },
+        {
+          "value": "slow_down_stay_engaged",
+          "label": "Slow down but stay engaged"
+        },
+        {
+          "value": "create_distance",
+          "label": "Create distance / need space"
+        },
+        {
+          "value": "test_them",
+          "label": "Test them to see if they're safe"
+        },
+        {
+          "value": "overgive_try_to_earn",
+          "label": "Overgive / try to earn their closeness"
+        },
+        {
+          "value": "feel_anxious",
+          "label": "Feel anxious but push through"
+        },
+        {
+          "value": "run",
+          "label": "Feel urge to run"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ]
+    },
+    "q25": {
+      "id": "q25",
+      "section_id": "s5",
+      "order": 25,
+      "title": "Biggest Fear If This Goes Well",
+      "prompt": "This might sound strange, but: What are you most afraid will happen if this actually goes well?",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "examples": [
+        "That I'll lose my independence. I've worked hard to be okay alone.",
+        "That they'll see the real me and be disappointed.",
+        "That I'll mess it up somehow like I always do.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      }
+    },
+    "q26": {
+      "id": "q26",
+      "section_id": "s6",
+      "order": 26,
+      "title": "Hard Conversation Preferences",
+      "prompt": "When we need to talk about something hard, what helps you engage rather than shut down?",
+      "type": "compound",
+      "answer_schema": {
+        "preferred_approach": "",
+        "timing_matters": "",
+        "notes": ""
+      },
+      "examples": [
+        "Gentle lead-in, then direct. Within 24 hours. Shuts me down: being cornered or accused.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "preferred_approach",
+          "label": "Preferred Approach",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "direct_in_person",
+              "label": "Direct and in-person"
+            },
+            {
+              "value": "gentle_lead_in",
+              "label": "Gentle lead-in first (heads up)"
+            },
+            {
+              "value": "write_first",
+              "label": "Write it out first, then talk"
+            },
+            {
+              "value": "walk_and_talk",
+              "label": "Walk and talk (side by side)"
+            },
+            {
+              "value": "time_to_process",
+              "label": "Give me time to process before responding"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "timing_matters",
+          "label": "Timing Matters",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "right_away",
+              "label": "Right away\u2014don't let it fester"
+            },
+            {
+              "value": "within_24h",
+              "label": "Within 24 hours"
+            },
+            {
+              "value": "when_calm",
+              "label": "When we're both calm and rested"
+            },
+            {
+              "value": "scheduled",
+              "label": "Scheduled / intentional time"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "What shuts you down?",
+          "type": "short_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q27": {
+      "id": "q27",
+      "section_id": "s6",
+      "order": 27,
+      "title": "After Conflict, How Quickly Can You Repair?",
+      "prompt": "After a conflict, how quickly can you usually reconnect and repair?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "same_day",
+          "label": "Same day"
+        },
+        {
+          "value": "1_2_days",
+          "label": "1-2 days"
+        },
+        {
+          "value": "within_week",
+          "label": "Within a week"
+        },
+        {
+          "value": "rarely_stay_stuck",
+          "label": "Rarely\u2014we stay stuck"
+        },
+        {
+          "value": "depends_other_person",
+          "label": "Depends heavily on the other person"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ]
+    },
+    "q28": {
+      "id": "q28",
+      "section_id": "s6",
+      "order": 28,
+      "title": "What Makes Feedback Hard to Receive",
+      "prompt": "What makes feedback hard for you to receive?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "timing_when_stressed",
+          "label": "Bad timing (when I'm already stressed)"
+        },
+        {
+          "value": "tone_harsh_critical",
+          "label": "Harsh or critical tone"
+        },
+        {
+          "value": "feels_like_attack",
+          "label": "Feels like an attack on my character"
+        },
+        {
+          "value": "in_public",
+          "label": "In front of others"
+        },
+        {
+          "value": "no_acknowledgment",
+          "label": "No acknowledgment of what I'm doing right"
+        },
+        {
+          "value": "piling_on",
+          "label": "Multiple things at once"
+        },
+        {
+          "value": "nothing_usually",
+          "label": "Nothing really\u2014I receive feedback well"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ]
+    },
+    "q29": {
+      "id": "q29",
+      "section_id": "s6",
+      "order": 29,
+      "title": "A Topic You Avoid",
+      "prompt": "Is there a topic you tend to avoid in relationships\u2014even when it needs to be discussed? Why?",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "examples": [
+        "Money. I grew up poor and feel ashamed talking about finances.",
+        "Sex. Past trauma makes it hard to initiate these conversations.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      }
+    },
+    "q30": {
+      "id": "q30",
+      "section_id": "s7",
+      "order": 30,
+      "title": "Faith / Spirituality Profile",
+      "prompt": "What role does faith or spirituality play in your life right now?",
+      "type": "compound",
+      "answer_schema": {
+        "importance": "",
+        "tradition": "",
+        "faith_alignment_importance": "",
+        "notes": ""
+      },
+      "examples": [],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "importance",
+          "label": "Importance",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "central",
+              "label": "Central\u2014it's my guiding anchor"
+            },
+            {
+              "value": "important",
+              "label": "Important\u2014influences my choices"
+            },
+            {
+              "value": "somewhat",
+              "label": "Somewhat important"
+            },
+            {
+              "value": "minimal",
+              "label": "Minimal right now"
+            },
+            {
+              "value": "none",
+              "label": "Not part of my life"
+            },
+            {
+              "value": "in_transition",
+              "label": "In transition / figuring it out"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "tradition",
+          "label": "Tradition",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "lds",
+              "label": "Latter-day Saint (LDS)"
+            },
+            {
+              "value": "christian",
+              "label": "Christian (non-LDS)"
+            },
+            {
+              "value": "spiritual_not_religious",
+              "label": "Spiritual but not religious"
+            },
+            {
+              "value": "none",
+              "label": "Not religious/spiritual"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "faith_alignment_importance",
+          "label": "Faith Alignment Importance",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "essential",
+              "label": "Essential\u2014we must align"
+            },
+            {
+              "value": "very_important",
+              "label": "Very important but some flexibility"
+            },
+            {
+              "value": "somewhat",
+              "label": "Somewhat important"
+            },
+            {
+              "value": "not_important",
+              "label": "Not important to me"
+            },
+            {
+              "value": "open",
+              "label": "Open to different perspectives"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Anything you want to add about your faith journey?",
+          "type": "free_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q31": {
+      "id": "q31",
+      "section_id": "s7",
+      "order": 31,
+      "title": "Non-Negotiable Values",
+      "prompt": "What are your non-negotiable values in a relationship? Select and rank your top 5.",
+      "type": "compound",
+      "answer_schema": {
+        "values_ranked": [],
+        "notes": ""
+      },
+      "examples": [],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "values_ranked",
+          "label": "Values Ranked",
+          "type": "ranked_select",
+          "validation": {
+            "max_selected": 5
+          },
+          "options": [
+            {
+              "value": "honesty",
+              "label": "Honesty / transparency"
+            },
+            {
+              "value": "faith",
+              "label": "Shared faith"
+            },
+            {
+              "value": "emotional_safety",
+              "label": "Emotional safety"
+            },
+            {
+              "value": "respect",
+              "label": "Respect"
+            },
+            {
+              "value": "family_priority",
+              "label": "Family as priority"
+            },
+            {
+              "value": "growth_mindset",
+              "label": "Growth mindset"
+            },
+            {
+              "value": "stability",
+              "label": "Stability / reliability"
+            },
+            {
+              "value": "adventure",
+              "label": "Adventure / spontaneity"
+            },
+            {
+              "value": "service_giving",
+              "label": "Service / giving back"
+            },
+            {
+              "value": "integrity",
+              "label": "Integrity"
+            },
+            {
+              "value": "humor",
+              "label": "Humor / fun"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Why are these most important right now?",
+          "type": "free_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q32": {
+      "id": "q32",
+      "section_id": "s7",
+      "order": 32,
+      "title": "One Value You'd Compromise vs. One You Wouldn't",
+      "prompt": "What's a value you could be flexible on\u2014and what's one you absolutely couldn't?",
+      "type": "compound",
+      "answer_schema": {
+        "flexible_on": "",
+        "non_negotiable": "",
+        "notes": ""
+      },
+      "examples": [],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "flexible_on",
+          "label": "I could be flexible on...",
+          "type": "short_text"
+        },
+        {
+          "key": "non_negotiable",
+          "label": "I absolutely couldn't compromise on...",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Why the distinction?",
+          "type": "free_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q33": {
+      "id": "q33",
+      "section_id": "s7",
+      "order": 33,
+      "title": "Faith-Specific Commitments (Conditional)",
+      "prompt": "If your faith includes specific commitments or standards that affect dating, how clear and steady are you with them?",
+      "type": "compound",
+      "answer_schema": {
+        "clarity": "",
+        "commitments": "",
+        "lds_temple": ""
+      },
+      "examples": [],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "clarity",
+          "label": "Clarity",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "clear_aligned",
+              "label": "Clear and aligned\u2014I can live what I believe"
+            },
+            {
+              "value": "clear_struggling",
+              "label": "Clear, but I sometimes struggle"
+            },
+            {
+              "value": "unclear",
+              "label": "Not clear yet\u2014still sorting it out"
+            },
+            {
+              "value": "not_applicable",
+              "label": "Not applicable to me"
+            }
+          ]
+        },
+        {
+          "key": "commitments",
+          "label": "Name 1-3 commitments you hope to keep (e.g., no sex, worship weekly)",
+          "type": "short_text",
+          "placeholder": "Optional"
+        },
+        {
+          "key": "lds_temple",
+          "label": "Lds Temple",
+          "type": "single_select",
+          "showWhen": {
+            "field": "tradition",
+            "equals": "tradition"
+          },
+          "options": [
+            {
+              "value": "current",
+              "label": "Current temple recommend"
+            },
+            {
+              "value": "expired",
+              "label": "Expired"
+            },
+            {
+              "value": "not_endowed",
+              "label": "Not endowed / not applicable"
+            },
+            {
+              "value": "working_toward",
+              "label": "Working toward it"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        }
+      ]
+    },
+    "q34": {
+      "id": "q34",
+      "section_id": "s7",
+      "order": 34,
+      "title": "Where Faith Gets Complicated",
+      "prompt": "Is there anything about your faith or beliefs that gets complicated in dating? (Doubt, changing beliefs, interfaith considerations, etc.)",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "examples": [
+        "I'm LDS but have questions about some doctrines. I'm still committed but need a partner who can hold space for questions.",
+        "I'm more devout than most people I meet. Finding someone who matches my practice level is hard.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      }
+    },
+    "q35": {
+      "id": "q35",
+      "section_id": "s8",
+      "order": 35,
+      "title": "What Are You Dating Toward?",
+      "prompt": "What are you dating toward right now?",
+      "type": "compound",
+      "answer_schema": {
+        "goal": "",
+        "timeline": "",
+        "notes": ""
+      },
+      "examples": [],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "goal",
+          "label": "Goal",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "marriage",
+              "label": "Marriage / lifelong partnership"
+            },
+            {
+              "value": "committed_relationship",
+              "label": "Committed relationship (not sure about marriage yet)"
+            },
+            {
+              "value": "exploring",
+              "label": "Exploring / learning (low pressure, intentional)"
+            },
+            {
+              "value": "companionship",
+              "label": "Companionship / social connection"
+            },
+            {
+              "value": "unsure",
+              "label": "Not sure yet"
+            }
+          ]
+        },
+        {
+          "key": "timeline",
+          "label": "Timeline",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "no_timeline",
+              "label": "No fixed timeline"
+            },
+            {
+              "value": "sooner",
+              "label": "Sooner than later (0-12 months to serious commitment)"
+            },
+            {
+              "value": "moderate",
+              "label": "Moderate (1-2 years)"
+            },
+            {
+              "value": "no_rush",
+              "label": "No rush (whenever it feels right)"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Anything else about your expectations?",
+          "type": "short_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q36": {
+      "id": "q36",
+      "section_id": "s8",
+      "order": 36,
+      "title": "Exclusivity & Labels",
+      "prompt": "At what point would you want exclusivity and labels?",
+      "type": "compound",
+      "answer_schema": {
+        "exclusivity_preference": "",
+        "multi_dating": "",
+        "notes": ""
+      },
+      "examples": [],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "exclusivity_preference",
+          "label": "Exclusivity Preference",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "quickly",
+              "label": "Quickly\u2014within a few weeks/dates"
+            },
+            {
+              "value": "moderate",
+              "label": "After we know there's something real (1-3 months)"
+            },
+            {
+              "value": "slowly",
+              "label": "Slowly\u2014I need time to be sure (3+ months)"
+            },
+            {
+              "value": "conversation_first",
+              "label": "When we've had a direct conversation about it"
+            },
+            {
+              "value": "no_preference",
+              "label": "No strong preference"
+            }
+          ]
+        },
+        {
+          "key": "multi_dating",
+          "label": "Multi Dating",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "fine_early_on",
+              "label": "Fine early on until we discuss exclusivity"
+            },
+            {
+              "value": "prefer_not",
+              "label": "I prefer we focus on each other from the start"
+            },
+            {
+              "value": "depends",
+              "label": "Depends on how quickly we click"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "What would you want to know from them about this?",
+          "type": "short_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q37": {
+      "id": "q37",
+      "section_id": "s8",
+      "order": 37,
+      "title": "Physical Pacing",
+      "prompt": "For physical intimacy, what pace feels right to you at this stage?",
+      "type": "compound",
+      "answer_schema": {
+        "comfort_level_now": [],
+        "approach_that_works": "",
+        "notes": ""
+      },
+      "examples": [],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "comfort_level_now",
+          "label": "Comfort Level Now",
+          "type": "multi_select",
+          "validation": {
+            "max_selected": 4
+          },
+          "options": [
+            {
+              "value": "hand_holding",
+              "label": "Hand holding"
+            },
+            {
+              "value": "hugging",
+              "label": "Hugging"
+            },
+            {
+              "value": "cuddling",
+              "label": "Cuddling"
+            },
+            {
+              "value": "kissing",
+              "label": "Kissing"
+            },
+            {
+              "value": "more_when_trust_builds",
+              "label": "More as trust builds"
+            },
+            {
+              "value": "waiting_for_commitment",
+              "label": "Waiting for significant commitment"
+            },
+            {
+              "value": "waiting_for_marriage",
+              "label": "Waiting for marriage"
+            }
+          ]
+        },
+        {
+          "key": "approach_that_works",
+          "label": "Approach That Works",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "ask_first",
+              "label": "Ask before initiating"
+            },
+            {
+              "value": "soft_checkin",
+              "label": "Soft check-in ('I'd like to...')"
+            },
+            {
+              "value": "read_the_moment",
+              "label": "Read the moment (nonverbal cues)"
+            },
+            {
+              "value": "take_it_very_slow",
+              "label": "Take it very slow by default"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "How do you want to handle if we're not aligned?",
+          "type": "short_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q38": {
+      "id": "q38",
+      "section_id": "s8",
+      "order": 38,
+      "title": "Introducing Family/Friends",
+      "prompt": "When would you want to start introducing each other to close friends or family?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "early",
+          "label": "Early\u2014I like getting input from people I trust"
+        },
+        {
+          "value": "after_exclusivity",
+          "label": "After we're exclusive"
+        },
+        {
+          "value": "few_months",
+          "label": "After a few months of dating"
+        },
+        {
+          "value": "when_serious",
+          "label": "When it's clearly heading toward serious"
+        },
+        {
+          "value": "no_rush",
+          "label": "No rush\u2014whenever it feels natural"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ]
+    },
+    "q39": {
+      "id": "q39",
+      "section_id": "s9",
+      "order": 39,
+      "title": "Kids Situation",
+      "prompt": "What's your situation with children?",
+      "type": "compound",
+      "answer_schema": {
+        "current_kids": "",
+        "want_more_kids": "",
+        "flexibility": "",
+        "notes": ""
+      },
+      "examples": [],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "current_kids",
+          "label": "Current Kids",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "no_kids",
+              "label": "No kids"
+            },
+            {
+              "value": "kids_full_custody",
+              "label": "Kids (full custody)"
+            },
+            {
+              "value": "kids_shared_custody",
+              "label": "Kids (shared custody)"
+            },
+            {
+              "value": "kids_occasional",
+              "label": "Kids (occasional visitation)"
+            },
+            {
+              "value": "adult_kids",
+              "label": "Adult children"
+            }
+          ]
+        },
+        {
+          "key": "want_more_kids",
+          "label": "Want More Kids",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "yes_definitely",
+              "label": "Yes, definitely want kids (or more kids)"
+            },
+            {
+              "value": "open",
+              "label": "Open to it"
+            },
+            {
+              "value": "no",
+              "label": "No\u2014I don't want kids"
+            },
+            {
+              "value": "done",
+              "label": "Done having kids"
+            },
+            {
+              "value": "unsure",
+              "label": "Unsure"
+            }
+          ]
+        },
+        {
+          "key": "flexibility",
+          "label": "Flexibility",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "non_negotiable",
+              "label": "This is non-negotiable for me"
+            },
+            {
+              "value": "somewhat_flexible",
+              "label": "Somewhat flexible"
+            },
+            {
+              "value": "very_flexible",
+              "label": "Very flexible"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "How does your kids situation affect dating?",
+          "type": "short_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q40": {
+      "id": "q40",
+      "section_id": "s9",
+      "order": 40,
+      "title": "Time Availability",
+      "prompt": "Realistically, how much time and energy do you have for a relationship right now?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "plenty",
+          "label": "Plenty\u2014this is a priority for me"
+        },
+        {
+          "value": "moderate",
+          "label": "Moderate\u2014I can make time but life is busy"
+        },
+        {
+          "value": "limited",
+          "label": "Limited\u2014I'm stretched thin right now"
+        },
+        {
+          "value": "variable",
+          "label": "It varies a lot week to week"
+        },
+        {
+          "value": "unsure",
+          "label": "Not sure\u2014I haven't tested it"
+        }
+      ]
+    },
+    "q41": {
+      "id": "q41",
+      "section_id": "s9",
+      "order": 41,
+      "title": "Financial Reality",
+      "prompt": "How would you describe your financial situation right now?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "stable_comfortable",
+          "label": "Stable and comfortable"
+        },
+        {
+          "value": "stable_but_careful",
+          "label": "Stable but I need to be careful"
+        },
+        {
+          "value": "rebuilding",
+          "label": "Rebuilding / recovering from setback"
+        },
+        {
+          "value": "stressed",
+          "label": "Stressed / dealing with significant challenges"
+        },
+        {
+          "value": "prefer_not",
+          "label": "Prefer not to say"
+        }
+      ]
+    },
+    "q42": {
+      "id": "q42",
+      "section_id": "s9",
+      "order": 42,
+      "title": "Other Major Constraints",
+      "prompt": "Are there any other major life constraints that would affect this relationship? (Health, caregiving, career demands, location, etc.)",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "examples": [
+        "I'm primary caregiver for an aging parent\u2014my time is limited.",
+        "My job might require relocation in the next year.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      }
+    },
+    "q43": {
+      "id": "q43",
+      "section_id": "s10",
+      "order": 43,
+      "title": "Top Growth Areas",
+      "prompt": "What are the top 3 things you're actively working to grow or improve in yourself right now?",
+      "type": "compound",
+      "answer_schema": {
+        "growth_areas_ranked": [],
+        "notes": ""
+      },
+      "examples": [],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "growth_areas_ranked",
+          "label": "Growth Areas Ranked",
+          "type": "ranked_select",
+          "validation": {
+            "max_selected": 3
+          },
+          "options": [
+            {
+              "value": "communication",
+              "label": "Communication skills"
+            },
+            {
+              "value": "emotional_regulation",
+              "label": "Emotional regulation"
+            },
+            {
+              "value": "boundaries",
+              "label": "Setting/holding boundaries"
+            },
+            {
+              "value": "vulnerability",
+              "label": "Being vulnerable"
+            },
+            {
+              "value": "patience",
+              "label": "Patience"
+            },
+            {
+              "value": "trust",
+              "label": "Trusting others"
+            },
+            {
+              "value": "self_worth",
+              "label": "Self-worth / confidence"
+            },
+            {
+              "value": "conflict_skills",
+              "label": "Conflict resolution"
+            },
+            {
+              "value": "attachment_healing",
+              "label": "Healing attachment patterns"
+            },
+            {
+              "value": "faith_practice",
+              "label": "Faith / spiritual practice"
+            },
+            {
+              "value": "health_wellness",
+              "label": "Physical health / wellness"
+            },
+            {
+              "value": "career_finances",
+              "label": "Career / finances"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "What does growth look like for you right now?",
+          "type": "free_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q44": {
+      "id": "q44",
+      "section_id": "s10",
+      "order": 44,
+      "title": "What They Need to Know to Love You Well",
+      "prompt": "What does this person need to know to love you well? Not what you want them to know\u2014what they actually need.",
+      "type": "compound",
+      "answer_schema": {
+        "primary_need": "",
+        "explanation": "",
+        "what_doesnt_work": ""
+      },
+      "examples": [
+        "Primary: consistency. I need follow-through. What doesn't work: last-minute cancellations without explanation.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "primary_need",
+          "label": "The most important thing they need to know",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "consistency",
+              "label": "I need consistency\u2014inconsistency triggers me"
+            },
+            {
+              "value": "direct_communication",
+              "label": "I need direct communication\u2014I don't pick up hints"
+            },
+            {
+              "value": "space_after_conflict",
+              "label": "I need space after conflict before I can repair"
+            },
+            {
+              "value": "reassurance",
+              "label": "I need reassurance\u2014I can get anxious easily"
+            },
+            {
+              "value": "independence",
+              "label": "I need independence\u2014too much togetherness overwhelms me"
+            },
+            {
+              "value": "quality_time",
+              "label": "I need quality time\u2014I feel loved through presence"
+            },
+            {
+              "value": "patience",
+              "label": "I need patience\u2014I process slowly"
+            },
+            {
+              "value": "gentleness",
+              "label": "I need gentleness\u2014harsh tones shut me down"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "explanation",
+          "label": "Describe what they need to know to love you well",
+          "type": "free_text"
+        },
+        {
+          "key": "what_doesnt_work",
+          "label": "What approach definitely doesn't work with you?",
+          "type": "short_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q45": {
+      "id": "q45",
+      "section_id": "s10",
+      "order": 45,
+      "title": "What Would Make You Walk Away",
+      "prompt": "What would make you call this off early\u2014even if you liked them?",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "examples": [
+        "If I sensed dishonesty about something important, even once.",
+        "If they were unkind to strangers or service workers.",
+        "If they pushed physical boundaries after I said no.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      }
+    },
+    "q46": {
+      "id": "q46",
+      "section_id": "s11",
+      "order": 46,
+      "title": "Readiness Self-Assessment",
+      "prompt": "On a scale of 1-10, how ready are you for a committed relationship right now?",
+      "type": "compound",
+      "answer_schema": {
+        "readiness_score": 0,
+        "why_that_score": "",
+        "state_or_typical": "",
+        "what_would_raise_it": ""
+      },
+      "examples": [
+        "7. I've done a lot of work but still have some fear about being hurt. This is typical. More time and seeing their consistency would help.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "readiness_score",
+          "label": "Your readiness score",
+          "type": "number",
+          "min": 1,
+          "max": 10
+        },
+        {
+          "key": "why_that_score",
+          "label": "Why that number?",
+          "type": "short_text"
+        },
+        {
+          "key": "state_or_typical",
+          "label": "Does this reflect how you are right now, or how you usually are?",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "right_now",
+              "label": "Right now (temporary state)"
+            },
+            {
+              "value": "usually",
+              "label": "Usually (this is typical for me)"
+            },
+            {
+              "value": "both",
+              "label": "Both\u2014this is consistent"
+            }
+          ]
+        },
+        {
+          "key": "what_would_raise_it",
+          "label": "What would raise your score?",
+          "type": "short_text",
+          "placeholder": "Optional"
+        }
+      ]
+    },
+    "q47": {
+      "id": "q47",
+      "section_id": "s11",
+      "order": 47,
+      "title": "What You're Hoping For",
+      "prompt": "In one honest sentence: What are you hoping for with this specific person?",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "examples": [
+        "That this is the person I don't have to pretend with.",
+        "That we can build something slow and steady together.",
+        "That they see me and choose me anyway.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q48": {
+      "id": "q48",
+      "section_id": "s11",
+      "order": 48,
+      "title": "If This Doesn't Work",
+      "prompt": "If this doesn't work out, what will you take away from it?",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "examples": [
+        "That I can show up authentically, even if it's scary.",
+        "Better clarity on what I actually need.",
+        "Practice at communicating my needs early.",
+        "--"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      }
+    }
+  },
+  "ui_hints": {
+    "rendering": {
+      "default_layout": "sections",
+      "question_numbering": "order",
+      "allow_skip": true,
+      "show_examples": true,
+      "allow_multi_select_ranking": true
+    },
+    "controls": {
+      "mode_switcher": {
+        "default": "lite",
+        "options": [
+          {
+            "id": "lite",
+            "label": "Lite (31)"
+          },
+          {
+            "id": "full",
+            "label": "Full (48)"
+          }
+        ]
+      }
+    }
+  },
+  "manifests": {
+    "lite": {
+      "id": "lite",
+      "title": "Lite",
+      "question_ids": [
+        "q01",
+        "q02",
+        "q03",
+        "q04",
+        "q06",
+        "q07",
+        "q08",
+        "q09",
+        "q11",
+        "q12",
+        "q13",
+        "q14",
+        "q17",
+        "q18",
+        "q19",
+        "q22",
+        "q23",
+        "q26",
+        "q27",
+        "q28",
+        "q30",
+        "q31",
+        "q32",
+        "q35",
+        "q36",
+        "q39",
+        "q40",
+        "q43",
+        "q44",
+        "q46",
+        "q47"
+      ],
+      "timebox_minutes": 60,
+      "post_timebox_activity": "Take a break before continuing or comparing with your partner."
+    },
+    "full": {
+      "id": "full",
+      "title": "Full",
+      "question_ids": [
+        "q01",
+        "q02",
+        "q03",
+        "q04",
+        "q05",
+        "q06",
+        "q07",
+        "q08",
+        "q09",
+        "q10",
+        "q11",
+        "q12",
+        "q13",
+        "q14",
+        "q15",
+        "q16",
+        "q17",
+        "q18",
+        "q19",
+        "q20",
+        "q21",
+        "q22",
+        "q23",
+        "q24",
+        "q25",
+        "q26",
+        "q27",
+        "q28",
+        "q29",
+        "q30",
+        "q31",
+        "q32",
+        "q33",
+        "q34",
+        "q35",
+        "q36",
+        "q37",
+        "q38",
+        "q39",
+        "q40",
+        "q41",
+        "q42",
+        "q43",
+        "q44",
+        "q45",
+        "q46",
+        "q47",
+        "q48"
+      ],
+      "timebox_minutes": 120,
+      "post_timebox_activity": "Take a longer break. This was deep work."
+    }
+  },
+  "primary_manifest_id": "lite"
+}

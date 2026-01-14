@@ -102,8 +102,8 @@ const AppNavigation = {
         const modeToggle = document.querySelector('.mode-toggle');
         const dashboardBtn = document.getElementById('btn-dashboard');
 
-        // Dashboard/welcome hide most nav controls
-        const showNavControls = !['dashboard', 'welcome'].includes(viewName);
+        // Dashboard/welcome/about hide most nav controls
+        const showNavControls = !['dashboard', 'welcome', 'about'].includes(viewName);
         const showDashboardBtn = viewName !== 'dashboard';
 
         if (navRestart) {

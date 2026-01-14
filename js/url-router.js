@@ -23,7 +23,10 @@ const URLRouter = {
     currentQuestionId: null,
 
     // Known view names (non-question routes)
-    viewNames: ['welcome', 'review', 'complete', 'comparison', 'dashboard'],
+    viewNames: ['welcome', 'review', 'complete', 'comparison', 'dashboard', 'about'],
+
+    // Standalone views that don't require a phase (global views)
+    standaloneViews: ['about'],
 
     /**
      * Initialize the router.
@@ -47,17 +50,26 @@ const URLRouter = {
             return { phase: null, view: 'dashboard', questionId: null };
         }
 
-        // Expected format: /phase_id/viewOrQuestionId
+        // Expected format: /phase_id/viewOrQuestionId OR /standalone_view
         const parts = hash.split('/').filter(p => p);
-        const phase = parts[0] || null;
-        const second = parts[1] || 'dashboard';
+        const first = parts[0] || null;
+        const second = parts[1] || null;
+
+        // Check if first part is a standalone view (e.g., #/about)
+        if (first && this.standaloneViews.includes(first)) {
+            return { phase: null, view: first, questionId: null };
+        }
+
+        // Otherwise, treat first as phase
+        const phase = first;
+        const viewOrQuestion = second || 'dashboard';
 
         // Determine if second part is a view name or question ID
-        if (this.viewNames.includes(second)) {
-            return { phase, view: second, questionId: null };
-        } else if (second.startsWith('q')) {
+        if (this.viewNames.includes(viewOrQuestion)) {
+            return { phase, view: viewOrQuestion, questionId: null };
+        } else if (viewOrQuestion.startsWith('q')) {
             // It's a question ID
-            return { phase, view: 'questionnaire', questionId: second };
+            return { phase, view: 'questionnaire', questionId: viewOrQuestion };
         } else {
             return { phase, view: 'dashboard', questionId: null };
         }
@@ -127,6 +139,12 @@ const URLRouter = {
     async handleHashChange(isInitial = false) {
         const route = this.parseHash();
 
+        // Handle standalone views (like About) that don't need a phase
+        if (!route.phase && this.standaloneViews.includes(route.view)) {
+            App.showView(route.view);
+            return;
+        }
+
         // If no phase or dashboard view, show dashboard
         if (!route.phase || route.view === 'dashboard') {
             if (!isInitial) {
@@ -178,6 +196,10 @@ const URLRouter = {
 
             case 'comparison':
                 App.showView('comparison');
+                break;
+
+            case 'about':
+                App.showView('about');
                 break;
 
             default:

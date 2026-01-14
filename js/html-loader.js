@@ -36,7 +36,8 @@ const HTMLLoader = {
         'questionnaire': ['views/questionnaire.html', '#main-content'],
         'review': ['views/review.html', '#main-content'],
         'complete': ['views/complete.html', '#main-content'],
-        'comparison': ['views/comparison.html', '#main-content']
+        'comparison': ['views/comparison.html', '#main-content'],
+        'about': ['views/about.html', '#main-content']
     },
 
     modals: {
@@ -106,7 +107,7 @@ const HTMLLoader = {
 
         // Load all views into main-content
         // They will be hidden by CSS/JS until needed
-        const viewOrder = ['dashboard', 'welcome', 'questionnaire', 'review', 'complete', 'comparison'];
+        const viewOrder = ['dashboard', 'welcome', 'questionnaire', 'review', 'complete', 'comparison', 'about'];
         for (const viewName of viewOrder) {
             const [path, container] = this.views[viewName];
             await this.loadPartial(path, container);

@@ -19,6 +19,7 @@ const AppViews = {
         this.views.review = document.getElementById('view-review');
         this.views.complete = document.getElementById('view-complete');
         this.views.comparison = document.getElementById('view-comparison');
+        this.views.about = document.getElementById('view-about');
 
         // Set initial inert state
         Object.values(this.views).forEach(view => {

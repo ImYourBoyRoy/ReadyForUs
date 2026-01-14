@@ -210,6 +210,32 @@ const AppInit = {
                 }
             });
         });
+
+        // Dashboard button
+        document.getElementById('btn-dashboard')?.addEventListener('click', () => {
+            this.showView('dashboard');
+            this.renderDashboard();
+        });
+
+        // About page - Back to Dashboard
+        document.getElementById('btn-about-dashboard')?.addEventListener('click', () => {
+            this.showView('dashboard');
+            this.renderDashboard();
+        });
+
+        // About page - Copy email
+        document.getElementById('btn-copy-email')?.addEventListener('click', (e) => {
+            const email = e.currentTarget.dataset.email || 'Roy.Dawson.IV@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                this.showToast('Email copied to clipboard!', 'success');
+                e.currentTarget.textContent = '✓ Copied!';
+                setTimeout(() => {
+                    e.currentTarget.textContent = '📋 Copy';
+                }, 2000);
+            }).catch(() => {
+                this.showToast('Failed to copy email', 'error');
+            });
+        });
     }
 };
 
