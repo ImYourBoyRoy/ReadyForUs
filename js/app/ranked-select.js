@@ -60,6 +60,7 @@ const AppRankedSelect = {
 
             // Set up drag handlers for selected cards
             this.setupRankedCardDragHandlers(cardsList, questionId, fieldKey, field);
+            this.setupRankedCardTouchHandlers(cardsList, questionId, fieldKey, field);
         });
     },
 
@@ -136,6 +137,7 @@ const AppRankedSelect = {
         });
 
         this.setupRankedCardDragHandlers(cardsList, questionId, fieldKey, field);
+        this.setupRankedCardTouchHandlers(cardsList, questionId, fieldKey, field);
     },
 
     /**
@@ -261,6 +263,145 @@ const AppRankedSelect = {
 
         cardsList.addEventListener('dragleave', () => {
             removePlaceholder();
+        });
+    },
+
+    /**
+     * Set up touch handlers for mobile drag causing scroll issues.
+     */
+    setupRankedCardTouchHandlers(cardsList, questionId, fieldKey, field) {
+        const cards = cardsList.querySelectorAll('.ranked-card--selected');
+        let draggedCard = null;
+        let placeholder = null;
+
+        // Helper to remove placeholder
+        const removePlaceholder = () => {
+            cardsList.querySelectorAll('.ranked-drop-placeholder').forEach(p => p.remove());
+            placeholder = null;
+        };
+
+        cards.forEach(card => {
+            // We attach touch events primarily to the handle to prevent interfering with
+            // normal scrolling if the user touches the card body.
+            // But if no handle exists (shouldn't happen for selected), fallback to card?
+            // The handle is rendered only for selected cards.
+            const handle = card.querySelector('.ranked-card-handle');
+            if (!handle) return;
+
+            // To ensure the card follows the finger or at least we can drag it, 
+            // we attach listeners to the handle.
+
+            handle.addEventListener('touchstart', (e) => {
+                // Prevent multi-touch confusion
+                if (e.touches.length > 1) return;
+
+                // Prevent default to stop scrolling
+                e.preventDefault();
+
+                draggedCard = card;
+                card.classList.add('dragging');
+                card.style.opacity = '0.5';
+
+                // We don't create a placeholder yet, only on move
+            }, { passive: false });
+
+            handle.addEventListener('touchmove', (e) => {
+                if (!draggedCard) return;
+                e.preventDefault(); // Stop scrolling
+
+                const touch = e.touches[0];
+
+                // Temporarily hide dragged card so elementFromPoint sees what's under it
+                // Actually, opacity 0.5 might still block. 
+                // We can use 'pointer-events: none' locally or just offset check.
+                // But elementFromPoint is easiest.
+
+                const oldDisplay = draggedCard.style.display;
+                draggedCard.style.display = 'none';
+                const target = document.elementFromPoint(touch.clientX, touch.clientY);
+                draggedCard.style.display = oldDisplay;
+
+                if (!target) return;
+
+                const targetCard = target.closest('.ranked-card');
+
+                // If hovering over another card in the same list
+                if (targetCard && targetCard !== draggedCard && cardsList.contains(targetCard)) {
+                    const rect = targetCard.getBoundingClientRect();
+                    const midpoint = rect.top + rect.height / 2;
+                    const insertBefore = touch.clientY < midpoint;
+
+                    // Remove current placeholder if any
+                    removePlaceholder();
+
+                    // Create new placeholder
+                    placeholder = document.createElement('div');
+                    placeholder.className = 'ranked-drop-placeholder';
+
+                    if (insertBefore) {
+                        targetCard.parentNode.insertBefore(placeholder, targetCard);
+                    } else {
+                        targetCard.parentNode.insertBefore(placeholder, targetCard.nextSibling);
+                    }
+
+                    // Store hint for drop
+                    placeholder.dataset.insertBefore = insertBefore;
+                    placeholder.dataset.targetValue = targetCard.dataset.value;
+                }
+            }, { passive: false });
+
+            handle.addEventListener('touchend', (e) => {
+                if (!draggedCard) return;
+
+                // If we have a placeholder, that's where we drop
+                if (placeholder && placeholder.dataset.targetValue) {
+                    const targetValue = placeholder.dataset.targetValue;
+                    const insertBefore = placeholder.dataset.insertBefore === 'true';
+
+                    // Get current response
+                    let response = QuestionnaireEngine.getResponse(questionId);
+                    const rankedValues = [...(response[fieldKey] || [])];
+
+                    const draggedValue = draggedCard.dataset.value;
+                    const draggedIdx = rankedValues.indexOf(draggedValue);
+
+                    // Remove dragged value
+                    rankedValues.splice(draggedIdx, 1);
+
+                    // Find index of target to insert near
+                    let targetIdx = rankedValues.indexOf(targetValue);
+
+                    // If targetIdx is -1 (shouldn't happen if logic is correct), append?
+                    if (targetIdx !== -1) {
+                        const insertIdx = insertBefore ? targetIdx : targetIdx + 1;
+                        rankedValues.splice(insertIdx, 0, draggedValue);
+
+                        response[fieldKey] = rankedValues;
+                        QuestionnaireEngine.saveResponse(questionId, response);
+
+                        // Rerender
+                        this.rerenderRankedCards(cardsList, field, response[fieldKey], questionId, fieldKey);
+                        this.updateNavigationButtons();
+                        this.updateProgress();
+                    }
+                }
+
+                // Cleanup
+                draggedCard.classList.remove('dragging');
+                draggedCard.style.opacity = '';
+                draggedCard = null;
+                removePlaceholder();
+            });
+
+            // Touch cancel cleanup
+            handle.addEventListener('touchcancel', () => {
+                if (draggedCard) {
+                    draggedCard.classList.remove('dragging');
+                    draggedCard.style.opacity = '';
+                    draggedCard = null;
+                    removePlaceholder();
+                }
+            });
         });
     }
 };
