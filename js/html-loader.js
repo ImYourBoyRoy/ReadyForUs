@@ -92,7 +92,11 @@ const HTMLLoader = {
 
     /**
      * Load all HTML components, views, and modals
-     * Loads in order: components (loader first), then views, then modals
+     * Uses parallel loading for performance:
+     * 1. Navigation loads first (required for UI)
+     * 2. Dashboard loads next (critical path for first paint)
+     * 3. Other views load in parallel
+     * 4. Modals and footer load in parallel at end
      * @returns {Promise<void>}
      */
     async load() {
@@ -102,25 +106,29 @@ const HTMLLoader = {
         // Note: Loader is inline in index.html for immediate display
         // No need to load components/loader.html
 
-        // Load navigation
+        // Phase 1: Load navigation (needed for UI structure)
         await this.loadPartial('components/navigation.html', '#nav-container');
 
-        // Load all views into main-content
-        // They will be hidden by CSS/JS until needed
-        const viewOrder = ['dashboard', 'welcome', 'questionnaire', 'review', 'complete', 'comparison', 'about'];
-        for (const viewName of viewOrder) {
-            const [path, container] = this.views[viewName];
-            await this.loadPartial(path, container);
-        }
+        // Phase 2: Load dashboard first (critical path - user sees this first)
+        await this.loadPartial('views/dashboard.html', '#main-content');
 
-        // Load footer
-        await this.loadPartial('components/footer.html', '#footer-container');
+        // Phase 3: Load remaining views in parallel (improves load time significantly)
+        const remainingViews = ['welcome', 'questionnaire', 'review', 'complete', 'comparison', 'about'];
+        await Promise.all(
+            remainingViews.map(viewName => {
+                const [path, container] = this.views[viewName];
+                return this.loadPartial(path, container);
+            })
+        );
 
-        // Load modals
-        await this.loadCategory(this.modals);
-
-        // Load toasts last
-        await this.loadPartial('components/toasts.html', '#toast-wrapper');
+        // Phase 4: Load footer, toasts, and modals in parallel
+        await Promise.all([
+            this.loadPartial('components/footer.html', '#footer-container'),
+            this.loadPartial('components/toasts.html', '#toast-wrapper'),
+            ...Object.values(this.modals).map(([path, container]) =>
+                this.loadPartial(path, container)
+            )
+        ]);
 
         const loadTime = (performance.now() - startTime).toFixed(0);
         console.log(`✅ All HTML components loaded in ${loadTime}ms`);

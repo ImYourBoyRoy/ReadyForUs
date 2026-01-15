@@ -181,32 +181,31 @@ const AppViews = {
         }
     },
     /**
-     * Render about view (update back button text).
+     * Render about view (update back button text and page title).
      */
     renderAbout() {
+        // Set page title
+        document.title = 'About | Ready for Us';
+
         const btn = document.getElementById('btn-about-dashboard');
         if (!btn) return;
 
-        // Default text
-        let text = '🏠 Back to Dashboard';
+        // Default text - clean, no emoji
+        let text = 'Back to Dashboard';
 
         if (typeof URLRouter !== 'undefined' && URLRouter.previousRoute) {
             const prev = URLRouter.previousRoute;
 
             if (prev.view === 'dashboard') {
-                text = '🏠 Back to Dashboard';
+                text = 'Back to Dashboard';
             } else if (prev.view === 'questionnaire') {
-                if (prev.questionId) {
-                    text = `↩️ Return to Question`;
-                } else {
-                    text = '↩️ Return to Questions';
-                }
+                text = prev.questionId ? 'Return to Question' : 'Return to Questions';
             } else if (prev.view === 'review') {
-                text = '📋 Return to Review';
+                text = 'Return to Review';
             } else if (prev.view === 'complete') {
-                text = '🎉 Return to Summary';
+                text = 'Return to Summary';
             } else if (prev.view === 'welcome') {
-                text = '👋 Return to Welcome';
+                text = 'Return to Welcome';
             }
         }
 

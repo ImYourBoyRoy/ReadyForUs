@@ -519,6 +519,41 @@
     font-weight: 600;
 }
 
+/* ==================== Skeleton Loading ==================== */
+.card-skeleton .skeleton-line {
+    height: 12px;
+    background: linear-gradient(90deg,
+            rgba(var(--color-primary-rgb, 168, 85, 247), 0.08) 0%,
+            rgba(var(--color-primary-rgb, 168, 85, 247), 0.15) 50%,
+            rgba(var(--color-primary-rgb, 168, 85, 247), 0.08) 100%);
+    background-size: 200% 100%;
+    border-radius: var(--radius-sm, 4px);
+    margin-bottom: 0.5rem;
+}
+
+.skeleton-pulse {
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Smooth transition when skeleton content is replaced */
+.count-number {
+    transition: opacity 0.3s ease;
+}
+
+.count-number.skeleton-pulse {
+    opacity: 0.5;
+}
+
 /* ==================== Animations ==================== */
 @keyframes pulse-soft {
 
@@ -539,17 +574,7 @@
     animation-delay: calc(var(--card-index, 0) * 0.1s);
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+/* fadeInUp animation is defined in animations.css */
 
 /* ==================== Responsive ==================== */
 @media (max-width: 768px) {

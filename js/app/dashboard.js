@@ -12,6 +12,8 @@
 const AppDashboard = {
     /**
      * Render the dashboard with questionnaire cards.
+     * Uses progressive loading: renders skeleton cards first, then populates
+     * with metadata as it loads for better perceived performance.
      */
     async renderDashboard() {
         const grid = document.getElementById('questionnaire-grid');
@@ -24,22 +26,16 @@ const AppDashboard = {
 
         const phases = DataLoader.getPhases();
 
-        // Build cards for each phase
-        const cards = await Promise.all(phases.map(async (phase) => {
-            // Load phase metadata to get question counts
-            const metadata = await this.getPhaseMetadata(phase);
+        // PHASE 1: Render skeleton cards immediately (no network wait)
+        const skeletonCards = phases.map((phase) => this.renderSkeletonCard(phase));
+        grid.innerHTML = skeletonCards.join('');
 
-            return this.renderQuestionnaireCard(phase, metadata);
-        }));
-
-        grid.innerHTML = cards.join('');
-
-        // Set staggered animation delay for each card (supports any number of phases)
+        // Set staggered animation delay for each card immediately
         grid.querySelectorAll('.questionnaire-card').forEach((card, index) => {
             card.style.setProperty('--card-index', index + 1);
         });
 
-        // Add click handlers to cards
+        // Add click handlers to cards (works even before metadata loads)
         grid.addEventListener('click', (e) => {
             const card = e.target.closest('.questionnaire-card');
             if (card) {
@@ -51,7 +47,7 @@ const AppDashboard = {
             }
         });
 
-        // Check for resume banner
+        // Check for resume banner (can show immediately from localStorage)
         this.updateDashboardResumeBanner();
 
         // Check for install banner (PWA)
@@ -86,6 +82,138 @@ const AppDashboard = {
             const lastPhase = StorageManager.getLastPhase() || DataLoader.getDefaultPhaseId();
             this.selectQuestionnaire(lastPhase, 'lite', false);
         });
+
+        // PHASE 2: Load metadata in parallel and update cards progressively
+        phases.forEach(async (phase) => {
+            try {
+                const metadata = await this.getPhaseMetadata(phase);
+                this.updateCardWithMetadata(phase.id, phase, metadata);
+            } catch (error) {
+                console.warn(`Failed to load metadata for ${phase.id}:`, error);
+            }
+        });
+    },
+
+    /**
+     * Render a skeleton card while metadata loads.
+     * @param {Object} phase - Phase object from phases.json
+     * @returns {string} HTML for skeleton card
+     */
+    renderSkeletonCard(phase) {
+        const phaseMatch = phase.id.match(/phase_([\d.]+)/);
+        const phaseLabel = phaseMatch ? `Phase ${phaseMatch[1]}` : '';
+
+        return `
+            <div class="questionnaire-card" data-phase-id="${phase.id}" role="listitem" tabindex="0">
+                <div class="card-header">
+                    <span class="card-icon">${phase.icon || '📋'}</span>
+                    <div class="card-titles">
+                        ${phaseLabel ? `<div class="card-phase-label">${phaseLabel}</div>` : ''}
+                        <h3 class="card-title">${phase.title}</h3>
+                    </div>
+                </div>
+                
+                <p class="card-subtitle">${phase.description || ''}</p>
+                
+                <div class="card-details card-skeleton">
+                    <div class="skeleton-line skeleton-pulse"></div>
+                    <div class="skeleton-line skeleton-pulse" style="width: 80%"></div>
+                    <div class="skeleton-line skeleton-pulse" style="width: 60%"></div>
+                </div>
+                
+                <div class="card-footer">
+                    <div class="card-question-counts">
+                        <div class="question-count-badge">
+                            <span class="count-number skeleton-pulse">--</span>
+                            <span class="count-label">Lite</span>
+                        </div>
+                        <div class="count-divider"></div>
+                        <div class="question-count-badge">
+                            <span class="count-number skeleton-pulse">--</span>
+                            <span class="count-label">Full</span>
+                        </div>
+                    </div>
+                    <div class="card-cta">
+                        <span class="cta-text">Tap to Begin</span>
+                        <span class="cta-arrow">→</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    },
+
+    /**
+     * Update a skeleton card with loaded metadata.
+     * @param {string} phaseId - Phase ID
+     * @param {Object} phase - Phase object
+     * @param {Object} metadata - Loaded metadata
+     */
+    updateCardWithMetadata(phaseId, phase, metadata) {
+        const card = document.querySelector(`.questionnaire-card[data-phase-id="${phaseId}"]`);
+        if (!card) return;
+
+        const artifact = metadata.artifact || {};
+        const stageLabel = artifact.stage?.label || '';
+        const eligibility = artifact.stage?.eligibility || [];
+        const purpose = artifact.purpose || [];
+
+        // Update phase label with stage
+        const phaseLabelEl = card.querySelector('.card-phase-label');
+        if (phaseLabelEl && stageLabel) {
+            const currentLabel = phaseLabelEl.textContent;
+            phaseLabelEl.textContent = `${currentLabel} · ${stageLabel}`;
+        }
+
+        // Update title if artifact has one
+        if (artifact.title) {
+            const titleEl = card.querySelector('.card-title');
+            if (titleEl) titleEl.textContent = artifact.title;
+        }
+
+        // Update subtitle if artifact has one
+        if (artifact.subtitle) {
+            const subtitleEl = card.querySelector('.card-subtitle');
+            if (subtitleEl) subtitleEl.textContent = artifact.subtitle;
+        }
+
+        // Replace skeleton details with real content
+        const detailsContainer = card.querySelector('.card-details');
+        if (detailsContainer) {
+            detailsContainer.classList.remove('card-skeleton');
+
+            let detailsHTML = '';
+
+            if (eligibility.length > 0) {
+                detailsHTML += `
+                    <div class="card-details-title">This is for you if...</div>
+                    <ul class="card-list">
+                        ${eligibility.map(e => `<li>${e}</li>`).join('')}
+                    </ul>
+                `;
+            } else if (purpose.length > 0) {
+                detailsHTML += `
+                    <div class="card-details-title">Purpose</div>
+                    <ul class="card-list">
+                        ${purpose.slice(0, 3).map(p => `<li>${p}</li>`).join('')}
+                    </ul>
+                `;
+            }
+
+            detailsContainer.innerHTML = detailsHTML || '';
+        }
+
+        // Update question counts with smooth transition
+        const liteCount = card.querySelector('.question-count-badge:first-child .count-number');
+        const fullCount = card.querySelector('.question-count-badge:last-child .count-number');
+
+        if (liteCount) {
+            liteCount.classList.remove('skeleton-pulse');
+            liteCount.textContent = metadata.liteCount || 0;
+        }
+        if (fullCount) {
+            fullCount.classList.remove('skeleton-pulse');
+            fullCount.textContent = metadata.fullCount || 0;
+        }
     },
 
     /**

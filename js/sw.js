@@ -1,4 +1,4 @@
-// ./sw.js
+// ./js/sw.js
 /**
  * Service Worker for Ready for Us PWA
  * 
@@ -12,81 +12,83 @@
  * - Network requests made in background to update cache
  */
 
-const CACHE_NAME = 'readyforus-v2.0.0';
+const CACHE_NAME = 'readyforus-v2.1.0';
 
-// Assets to cache on install
+// Assets to cache on install (paths relative to site root)
 const STATIC_ASSETS = [
-    './',
-    './index.html',
-    './manifest.json',
+    '../',
+    '../index.html',
+    '../manifest.json',
     // CSS
-    './css/variables.css',
-    './css/base.css',
-    './css/components.css',
-    './css/animations.css',
-    './css/responsive.css',
-    './css/app.css',
-    './css/dashboard.css',
-    './css/toast.css',
-    './css/comparison.css',
-    './css/themes/light.css',
-    './css/themes/dark.css',
-    './css/themes/warm.css',
-    './css/themes/nature.css',
+    '../css/variables.css',
+    '../css/base.css',
+    '../css/components.css',
+    '../css/animations.css',
+    '../css/responsive.css',
+    '../css/app.css',
+    '../css/dashboard.css',
+    '../css/toast.css',
+    '../css/comparison.css',
+    '../css/themes/light.css',
+    '../css/themes/dark.css',
+    '../css/themes/warm.css',
+    '../css/themes/nature.css',
     // JS - Core modules
-    './js/html-loader.js',
-    './js/storage-manager.js',
-    './js/data-loader.js',
-    './js/theme-manager.js',
-    './js/question-renderer.js',
-    './js/questionnaire-engine.js',
-    './js/export-manager.js',
-    './js/import-manager.js',
-    './js/url-router.js',
+    './html-loader.js',
+    './storage-manager.js',
+    './data-loader.js',
+    './theme-manager.js',
+    './question-renderer.js',
+    './questionnaire-engine.js',
+    './export-manager.js',
+    './import-manager.js',
+    './url-router.js',
+    './pwa-install.js',
+    './sw.js',
     // JS - App modules
-    './js/app/core.js',
-    './js/app/utilities.js',
-    './js/app/accessibility.js',
-    './js/app/toast.js',
-    './js/app/bookmarks.js',
-    './js/app/views.js',
-    './js/app/questionnaire.js',
-    './js/app/navigation.js',
-    './js/app/export.js',
-    './js/app/phase.js',
-    './js/app/progress.js',
-    './js/app/ranked-select.js',
-    './js/app/dashboard.js',
-    './js/app/import-modal.js',
-    './js/app/init.js',
-    './js/debug-overlay.js',
+    './app/core.js',
+    './app/utilities.js',
+    './app/accessibility.js',
+    './app/toast.js',
+    './app/bookmarks.js',
+    './app/views.js',
+    './app/questionnaire.js',
+    './app/navigation.js',
+    './app/export.js',
+    './app/phase.js',
+    './app/progress.js',
+    './app/ranked-select.js',
+    './app/dashboard.js',
+    './app/import-modal.js',
+    './app/init.js',
+    './debug-overlay.js',
     // HTML partials
-    './html/components/navigation.html',
-    './html/components/footer.html',
-    './html/components/toasts.html',
-    './html/views/dashboard.html',
-    './html/views/welcome.html',
-    './html/views/questionnaire.html',
-    './html/views/review.html',
-    './html/views/complete.html',
-    './html/views/comparison.html',
-    './html/views/about.html',
-    './html/modals/import.html',
-    './html/modals/save.html',
+    '../html/components/navigation.html',
+    '../html/components/footer.html',
+    '../html/components/toasts.html',
+    '../html/views/dashboard.html',
+    '../html/views/welcome.html',
+    '../html/views/questionnaire.html',
+    '../html/views/review.html',
+    '../html/views/complete.html',
+    '../html/views/comparison.html',
+    '../html/views/about.html',
+    '../html/modals/import.html',
+    '../html/modals/save.html',
     // Data files
-    './data/config.json',
-    './data/phases.json',
-    './data/phase_0/manifest.json',
-    './data/phase_0/questions.json',
-    './data/phase_0/prompts.json',
-    './data/phase_1.5/manifest.json',
-    './data/phase_1.5/questions.json',
-    './data/phase_1.5/prompts.json',
+    '../data/config.json',
+    '../data/phases.json',
+    '../data/phase_0/manifest.json',
+    '../data/phase_0/questions.json',
+    '../data/phase_0/prompts.json',
+    '../data/phase_1.5/manifest.json',
+    '../data/phase_1.5/questions.json',
+    '../data/phase_1.5/prompts.json',
     // Icons
-    './assets/icons/icon-192.png',
-    './assets/icons/icon-512.png',
-    './assets/icons/apple-touch-icon.png',
-    './assets/icons/favicon.ico'
+    '../assets/icons/icon-192.png',
+    '../assets/icons/icon-512.png',
+    '../assets/icons/apple-touch-icon.png',
+    '../assets/icons/favicon.ico'
 ];
 
 // Install event - cache static assets
@@ -158,7 +160,7 @@ self.addEventListener('fetch', (event) => {
             .catch(() => {
                 // Offline fallback - return cached index for navigation
                 if (event.request.mode === 'navigate') {
-                    return caches.match('./index.html');
+                    return caches.match('../index.html');
                 }
                 return new Response('Offline', { status: 503 });
             })

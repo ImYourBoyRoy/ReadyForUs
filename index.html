@@ -41,29 +41,29 @@
     <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js')
+            navigator.serviceWorker.register('./js/sw.js')
                 .then(() => console.log('[SW] Registered'))
                 .catch(err => console.warn('[SW] Registration failed:', err));
         }
     </script>
 
-    <!-- Stylesheets (v=1.3.0 for cache busting) -->
-    <link rel="stylesheet" href="css/variables.css?v=1.3.0">
-    <link rel="stylesheet" href="css/base.css?v=1.3.0">
-    <link rel="stylesheet" href="css/components.css?v=1.3.0">
-    <link rel="stylesheet" href="css/animations.css?v=1.3.0">
-    <link rel="stylesheet" href="css/responsive.css?v=1.3.0">
-    <link rel="stylesheet" href="css/app.css?v=1.3.0">
-    <link rel="stylesheet" href="css/dashboard.css?v=1.3.0">
-    <link rel="stylesheet" href="css/toast.css?v=1.3.0">
-    <link rel="stylesheet" href="css/comparison.css?v=1.3.0">
-    <link rel="stylesheet" href="css/about.css?v=1.3.0">
+    <!-- Stylesheets (v=1.4.0 for cache busting) -->
+    <link rel="stylesheet" href="css/variables.css?v=1.4.0">
+    <link rel="stylesheet" href="css/base.css?v=1.4.0">
+    <link rel="stylesheet" href="css/components.css?v=1.4.0">
+    <link rel="stylesheet" href="css/animations.css?v=1.4.0">
+    <link rel="stylesheet" href="css/responsive.css?v=1.4.0">
+    <link rel="stylesheet" href="css/app.css?v=1.4.0">
+    <link rel="stylesheet" href="css/dashboard.css?v=1.4.0">
+    <link rel="stylesheet" href="css/toast.css?v=1.4.0">
+    <link rel="stylesheet" href="css/comparison.css?v=1.4.0">
+    <link rel="stylesheet" href="css/about.css?v=1.4.0">
 
     <!-- Theme stylesheets -->
-    <link rel="stylesheet" href="css/themes/light.css?v=1.3.0">
-    <link rel="stylesheet" href="css/themes/dark.css?v=1.3.0">
-    <link rel="stylesheet" href="css/themes/warm.css?v=1.3.0">
-    <link rel="stylesheet" href="css/themes/nature.css?v=1.3.0">
+    <link rel="stylesheet" href="css/themes/light.css?v=1.4.0">
+    <link rel="stylesheet" href="css/themes/dark.css?v=1.4.0">
+    <link rel="stylesheet" href="css/themes/warm.css?v=1.4.0">
+    <link rel="stylesheet" href="css/themes/nature.css?v=1.4.0">
 
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
@@ -117,41 +117,42 @@
     <!-- Toast Container Wrapper -->
     <div id="toast-wrapper"></div>
 
-    <!-- JavaScript Modules (v=1.3.0 for cache busting) -->
-    <!-- HTML Loader must be first -->
-    <script src="js/html-loader.js?v=1.3.0"></script>
-    <script src="js/storage-manager.js?v=1.3.0"></script>
-    <script src="js/data-loader.js?v=1.3.0"></script>
-    <script src="js/theme-manager.js?v=1.3.0"></script>
-    <script src="js/question-renderer.js?v=1.3.0"></script>
-    <script src="js/questionnaire-engine.js?v=1.3.0"></script>
-    <script src="js/export-manager.js?v=1.3.0"></script>
-    <script src="js/import-manager.js?v=1.3.0"></script>
-    <script src="js/url-router.js?v=1.3.0"></script>
-    <script src="js/pwa-install.js?v=1.3.0"></script>
+    <!-- JavaScript Modules (v=1.4.0 for cache busting) -->
+    <!-- HTML Loader must load first (synchronous) - needed for DOM injection -->
+    <script src="js/html-loader.js?v=1.4.0"></script>
+    <!-- Core modules - defer to avoid blocking render -->
+    <script defer src="js/storage-manager.js?v=1.4.0"></script>
+    <script defer src="js/data-loader.js?v=1.4.0"></script>
+    <script defer src="js/theme-manager.js?v=1.4.0"></script>
+    <script defer src="js/question-renderer.js?v=1.4.0"></script>
+    <script defer src="js/questionnaire-engine.js?v=1.4.0"></script>
+    <script defer src="js/export-manager.js?v=1.4.0"></script>
+    <script defer src="js/import-manager.js?v=1.4.0"></script>
+    <script defer src="js/url-router.js?v=1.4.0"></script>
+    <script defer src="js/pwa-install.js?v=1.4.0"></script>
     <!-- App Core (defines App object) - MUST be first of app modules -->
-    <script src="js/app/core.js?v=1.3.0"></script>
+    <script defer src="js/app/core.js?v=1.4.0"></script>
     <!-- App Submodules (extend App object) -->
     <!-- Utility modules first -->
-    <script src="js/app/utilities.js?v=1.3.0"></script>
-    <script src="js/app/accessibility.js?v=1.3.0"></script>
-    <script src="js/app/toast.js?v=1.3.0"></script>
-    <script src="js/app/bookmarks.js?v=1.3.0"></script>
+    <script defer src="js/app/utilities.js?v=1.4.0"></script>
+    <script defer src="js/app/accessibility.js?v=1.4.0"></script>
+    <script defer src="js/app/toast.js?v=1.4.0"></script>
+    <script defer src="js/app/bookmarks.js?v=1.4.0"></script>
     <!-- Core flow modules -->
-    <script src="js/app/views.js?v=1.3.0"></script>
-    <script src="js/app/questionnaire.js?v=1.3.0"></script>
-    <script src="js/app/navigation.js?v=1.3.0"></script>
+    <script defer src="js/app/views.js?v=1.4.0"></script>
+    <script defer src="js/app/questionnaire.js?v=1.4.0"></script>
+    <script defer src="js/app/navigation.js?v=1.4.0"></script>
     <!-- Feature modules -->
-    <script src="js/app/export.js?v=1.3.0"></script>
-    <script src="js/app/phase.js?v=1.3.0"></script>
-    <script src="js/app/progress.js?v=1.3.0"></script>
+    <script defer src="js/app/export.js?v=1.4.0"></script>
+    <script defer src="js/app/phase.js?v=1.4.0"></script>
+    <script defer src="js/app/progress.js?v=1.4.0"></script>
     <!-- Complex UI modules -->
-    <script src="js/app/ranked-select.js?v=1.3.0"></script>
-    <script src="js/app/dashboard.js?v=1.3.0"></script>
-    <script src="js/app/import-modal.js?v=1.3.0"></script>
+    <script defer src="js/app/ranked-select.js?v=1.4.0"></script>
+    <script defer src="js/app/dashboard.js?v=1.4.0"></script>
+    <script defer src="js/app/import-modal.js?v=1.4.0"></script>
     <!-- App Init (bootstrap) - MUST be last of app modules -->
-    <script src="js/app/init.js?v=1.3.0"></script>
-    <script src="js/debug-overlay.js?v=1.3.0"></script>
+    <script defer src="js/app/init.js?v=1.4.0"></script>
+    <script defer src="js/debug-overlay.js?v=1.4.0"></script>
 
 </body>
 
