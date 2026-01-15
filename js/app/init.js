@@ -21,8 +21,7 @@ const AppInit = {
         this._initialized = true;
 
         try {
-            // Show loading state
-            this.showLoading(true);
+            // Loading handled by skeleton states in Dashboard
 
             // Load site-wide configuration first
             await DataLoader.loadConfig();

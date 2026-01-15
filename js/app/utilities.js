@@ -28,10 +28,11 @@ const AppUtilities = {
      */
     showError(message) {
         console.error(message);
-        const errorEl = document.getElementById('error-message');
-        if (errorEl) {
-            errorEl.textContent = message;
-            errorEl.style.display = 'block';
+        // Use toast if available, otherwise just console
+        if (typeof this.showToast === 'function') {
+            this.showToast(message, 'error');
+        } else {
+            alert(message); // Fallback for critical init errors
         }
     },
 
