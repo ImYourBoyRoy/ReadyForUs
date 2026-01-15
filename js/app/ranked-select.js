@@ -187,6 +187,17 @@ const AppRankedSelect = {
                 const midpoint = rect.top + rect.height / 2;
                 const insertBefore = e.clientY < midpoint;
 
+                // Optimization: Don't recreate placeholder if position hasn't changed
+                const currentPlaceholder = document.querySelector('.ranked-drop-placeholder');
+                if (currentPlaceholder) {
+                    const isBefore = currentPlaceholder.nextSibling === card;
+                    const isAfter = currentPlaceholder.previousSibling === card;
+
+                    if ((insertBefore && isBefore) || (!insertBefore && isAfter)) {
+                        return; // Already in correct position
+                    }
+                }
+
                 // Remove any existing placeholder
                 removePlaceholder();
 
@@ -268,11 +279,16 @@ const AppRankedSelect = {
 
     /**
      * Set up touch handlers for mobile drag causing scroll issues.
+     * Uses Long Press (500ms) to trigger drag mode.
      */
     setupRankedCardTouchHandlers(cardsList, questionId, fieldKey, field) {
         const cards = cardsList.querySelectorAll('.ranked-card--selected');
         let draggedCard = null;
         let placeholder = null;
+        let longPressTimer = null;
+        let startX = 0;
+        let startY = 0;
+        let isDragging = false;
 
         // Helper to remove placeholder
         const removePlaceholder = () => {
@@ -281,46 +297,57 @@ const AppRankedSelect = {
         };
 
         cards.forEach(card => {
-            // We attach touch events primarily to the handle to prevent interfering with
-            // normal scrolling if the user touches the card body.
-            // But if no handle exists (shouldn't happen for selected), fallback to card?
-            // The handle is rendered only for selected cards.
-            const handle = card.querySelector('.ranked-card-handle');
-            if (!handle) return;
-
-            // To ensure the card follows the finger or at least we can drag it, 
-            // we attach listeners to the handle.
-
-            handle.addEventListener('touchstart', (e) => {
-                // Prevent multi-touch confusion
+            card.addEventListener('touchstart', (e) => {
                 if (e.touches.length > 1) return;
 
-                // Prevent default to stop scrolling
-                e.preventDefault();
-
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
                 draggedCard = card;
-                card.classList.add('dragging');
-                card.style.opacity = '0.5';
 
-                // We don't create a placeholder yet, only on move
+                // Check if touching the handle specifically
+                // Note: The handle has class .ranked-card-handle
+                const isHandle = e.target.closest('.ranked-card-handle');
+
+                if (isHandle) {
+                    // Instant drag for handle
+                    e.preventDefault(); // Stop scroll immediately
+                    isDragging = true;
+                    if (navigator.vibrate) navigator.vibrate(50);
+                    card.classList.add('dragging');
+                    card.style.opacity = '0.5';
+                } else {
+                    // Long press for body (to allow scrolling)
+                    longPressTimer = setTimeout(() => {
+                        isDragging = true;
+                        if (navigator.vibrate) navigator.vibrate(50);
+                        card.classList.add('dragging');
+                        card.style.opacity = '0.5';
+                    }, 500); // 500ms hold
+                }
+
             }, { passive: false });
 
-            handle.addEventListener('touchmove', (e) => {
-                if (!draggedCard) return;
-                e.preventDefault(); // Stop scrolling
-
+            card.addEventListener('touchmove', (e) => {
                 const touch = e.touches[0];
 
-                // Temporarily hide dragged card so elementFromPoint sees what's under it
-                // Actually, opacity 0.5 might still block. 
-                // We can use 'pointer-events: none' locally or just offset check.
-                // But elementFromPoint is easiest.
+                if (!isDragging) {
+                    // Check if moved too much (cancel long press)
+                    const moveX = Math.abs(touch.clientX - startX);
+                    const moveY = Math.abs(touch.clientY - startY);
 
-                const oldDisplay = draggedCard.style.display;
-                draggedCard.style.display = 'none';
+                    if (moveX > 10 || moveY > 10) {
+                        clearTimeout(longPressTimer);
+                        longPressTimer = null;
+                    }
+                    return; // Allow scrolling
+                }
+
+                // If Dragging...
+                e.preventDefault(); // Stop scrolling
+                if (!draggedCard) return;
+
+                // Move logic
                 const target = document.elementFromPoint(touch.clientX, touch.clientY);
-                draggedCard.style.display = oldDisplay;
-
                 if (!target) return;
 
                 const targetCard = target.closest('.ranked-card');
@@ -330,6 +357,14 @@ const AppRankedSelect = {
                     const rect = targetCard.getBoundingClientRect();
                     const midpoint = rect.top + rect.height / 2;
                     const insertBefore = touch.clientY < midpoint;
+
+                    // Optimization: Don't recreate
+                    const currentPlaceholder = document.querySelector('.ranked-drop-placeholder');
+                    if (currentPlaceholder) {
+                        const isBefore = currentPlaceholder.nextSibling === targetCard;
+                        const isAfter = currentPlaceholder.previousSibling === targetCard;
+                        if ((insertBefore && isBefore) || (!insertBefore && isAfter)) return;
+                    }
 
                     // Remove current placeholder if any
                     removePlaceholder();
@@ -350,10 +385,18 @@ const AppRankedSelect = {
                 }
             }, { passive: false });
 
-            handle.addEventListener('touchend', (e) => {
-                if (!draggedCard) return;
+            card.addEventListener('touchend', (e) => {
+                clearTimeout(longPressTimer);
 
-                // If we have a placeholder, that's where we drop
+                if (!isDragging) {
+                    // Normal tap/click behavior handles the checkbox toggle via 'click' event
+                    // We don't need to do anything here.
+                    return;
+                }
+
+                // Handle Drop
+                e.preventDefault(); // Prevent phantom clicks
+
                 if (placeholder && placeholder.dataset.targetValue) {
                     const targetValue = placeholder.dataset.targetValue;
                     const insertBefore = placeholder.dataset.insertBefore === 'true';
@@ -371,7 +414,6 @@ const AppRankedSelect = {
                     // Find index of target to insert near
                     let targetIdx = rankedValues.indexOf(targetValue);
 
-                    // If targetIdx is -1 (shouldn't happen if logic is correct), append?
                     if (targetIdx !== -1) {
                         const insertIdx = insertBefore ? targetIdx : targetIdx + 1;
                         rankedValues.splice(insertIdx, 0, draggedValue);
@@ -387,20 +429,25 @@ const AppRankedSelect = {
                 }
 
                 // Cleanup
-                draggedCard.classList.remove('dragging');
-                draggedCard.style.opacity = '';
-                draggedCard = null;
+                if (draggedCard) {
+                    draggedCard.classList.remove('dragging');
+                    draggedCard.style.opacity = '';
+                    draggedCard = null;
+                }
                 removePlaceholder();
+                isDragging = false;
             });
 
             // Touch cancel cleanup
-            handle.addEventListener('touchcancel', () => {
+            card.addEventListener('touchcancel', () => {
+                clearTimeout(longPressTimer);
                 if (draggedCard) {
                     draggedCard.classList.remove('dragging');
                     draggedCard.style.opacity = '';
                     draggedCard = null;
                     removePlaceholder();
                 }
+                isDragging = false;
             });
         });
     }

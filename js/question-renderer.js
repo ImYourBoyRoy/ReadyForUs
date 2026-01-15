@@ -304,7 +304,7 @@ const QuestionRenderer = {
         return `
           <div class="compound-field ${hiddenClass}" data-field-key="${field.key}">
             <label class="input-label">${field.label}</label>
-            <p class="ranked-instructions">Check to select, then drag to reorder your priorities. Top = most important.</p>
+            <p class="ranked-instructions">Check to select, then drag (or long-press on mobile) to reorder your priorities. Top = most important.</p>
             <div class="ranked-cards-list" data-question-id="${questionId}" data-field="${field.key}">
               ${sortedOptions.map(option => {
           const isSelected = rankedValues.includes(option.value);

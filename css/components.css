@@ -1205,6 +1205,7 @@
     cursor: grabbing;
     z-index: 100;
     background: var(--color-bg-card);
+    pointer-events: none;
 }
 
 .ranked-card.drag-over {
