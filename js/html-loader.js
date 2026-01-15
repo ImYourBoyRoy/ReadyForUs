@@ -19,6 +19,9 @@ const HTMLLoader = {
     // Base path for HTML partials
     basePath: 'html/',
 
+    // Cache version for cache busting
+    CACHE_VERSION: '2.3.2',
+
     // Initialization guard
     _initialized: false,
 
@@ -54,7 +57,7 @@ const HTMLLoader = {
      */
     async loadPartial(path, containerSelector, append = true) {
         try {
-            const response = await fetch(this.basePath + path);
+            const response = await fetch(`${this.basePath}${path}?v=${this.CACHE_VERSION}`);
             if (!response.ok) {
                 throw new Error(`Failed to load ${path}: ${response.status}`);
             }

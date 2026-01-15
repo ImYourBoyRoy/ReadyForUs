@@ -17,13 +17,16 @@ const DataLoader = {
   phases: null,
   currentPhase: null,
 
+  // Cache version for cache busting
+  CACHE_VERSION: '2.3.2',
+
   /**
    * Load site-wide configuration.
    * @returns {Promise<Object>} The site configuration.
    */
   async loadConfig() {
     try {
-      const res = await fetch('./data/config.json');
+      const res = await fetch(`./data/config.json?v=${this.CACHE_VERSION}`);
       if (!res.ok) {
         throw new Error('Failed to load site configuration');
       }
@@ -72,7 +75,7 @@ const DataLoader = {
    */
   async loadPhases() {
     try {
-      const res = await fetch('./data/phases.json');
+      const res = await fetch(`./data/phases.json?v=${this.CACHE_VERSION}`);
       if (!res.ok) {
         throw new Error('Failed to load phases manifest');
       }
@@ -138,9 +141,9 @@ const DataLoader = {
     try {
       const basePath = this.currentPhase?.data_path || 'data';
       const [manifestRes, questionsRes, promptsRes] = await Promise.all([
-        fetch(`./${basePath}/manifest.json`),
-        fetch(`./${basePath}/questions.json`),
-        fetch(`./${basePath}/prompts.json`)
+        fetch(`./${basePath}/manifest.json?v=${this.CACHE_VERSION}`),
+        fetch(`./${basePath}/questions.json?v=${this.CACHE_VERSION}`),
+        fetch(`./${basePath}/prompts.json?v=${this.CACHE_VERSION}`)
       ]);
 
       if (!manifestRes.ok || !questionsRes.ok || !promptsRes.ok) {

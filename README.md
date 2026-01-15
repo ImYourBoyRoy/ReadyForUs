@@ -70,6 +70,19 @@ npx serve . -l 8080
 # Then visit http://localhost:8080
 ```
 
+# Then visit <http://localhost:8080>
+
+```
+
+### Deployment & Updates
+
+When deploying a new version, **always bump the version number** to ensure users get the latest updates (cache busting).
+
+```bash
+# Update version in all files (sw.js, index.html, loaders)
+python scripts/bump_version.py 2.4.0
+```
+
 ---
 
 ## 🎛️ Dashboard (Landing Page)

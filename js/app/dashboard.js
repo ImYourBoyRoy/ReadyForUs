@@ -301,9 +301,10 @@ const AppDashboard = {
     async getPhaseMetadata(phase) {
         try {
             // Fetch manifest.json and questions.json for this phase
+            const v = DataLoader.CACHE_VERSION || '2.3.1';
             const [manifestRes, questionsRes] = await Promise.all([
-                fetch(`${phase.data_path}/manifest.json`),
-                fetch(`${phase.data_path}/questions.json`)
+                fetch(`${phase.data_path}/manifest.json?v=${v}`),
+                fetch(`${phase.data_path}/questions.json?v=${v}`)
             ]);
 
             if (!manifestRes.ok || !questionsRes.ok) throw new Error('Failed to load');
