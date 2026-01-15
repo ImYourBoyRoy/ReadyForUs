@@ -67,13 +67,13 @@ const AppViews = {
 
         // Clear and rebuild grid
         grid.innerHTML = questions.map(({ question, status, response }) => {
-            return QuestionRenderer.renderReviewCard(question, status, response);
+            return QuestionRenderer.renderReviewCard(question, response, status);
         }).join('');
 
         // Add click handlers for editing
         grid.querySelectorAll('.review-card').forEach((card, idx) => {
             card.addEventListener('click', () => {
-                QuestionnaireEngine.goToQuestion(idx);
+                QuestionnaireEngine.jumpToIndex(idx);
                 this.showView('questionnaire');
                 this.renderCurrentQuestion();
             });

@@ -299,6 +299,18 @@ const QuestionnaireEngine = {
     },
 
     /**
+     * Get all questions with their current status and response.
+     * @returns {Array<{question: Object, status: string, response: Object}>}
+     */
+    getQuestionsWithStatus() {
+        return this.questions.map(question => ({
+            question,
+            status: this.getQuestionStatus(question.id),
+            response: this.getResponse(question.id)
+        }));
+    },
+
+    /**
      * Check if the questionnaire is complete.
      * @returns {boolean} True if all questions answered.
      */
