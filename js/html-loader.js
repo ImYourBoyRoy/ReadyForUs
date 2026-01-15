@@ -20,14 +20,13 @@ const HTMLLoader = {
     basePath: 'html/',
 
     // Cache version for cache busting
-    CACHE_VERSION: '2.3.2',
+    CACHE_VERSION: '2.3.3',
 
     // Initialization guard
     _initialized: false,
 
     // Component definitions: [filename, containerSelector]
     components: {
-        'loader': ['components/loader.html', '#loader-container'],
         'navigation': ['components/navigation.html', '#nav-container'],
         'footer': ['components/footer.html', '#footer-container'],
         'toasts': ['components/toasts.html', '#toast-wrapper']

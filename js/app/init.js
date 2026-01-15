@@ -89,7 +89,11 @@ const AppInit = {
 
         } catch (error) {
             console.error('Failed to initialize app:', error);
-            this.showError('Failed to load questionnaire. Please refresh the page.');
+            const msg = error.message || 'Unknown error';
+            this.showError(`Failed to load: ${msg}`);
+            if (typeof this.showResetOption === 'function') {
+                this.showResetOption();
+            }
         }
     },
 

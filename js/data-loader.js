@@ -18,7 +18,7 @@ const DataLoader = {
   currentPhase: null,
 
   // Cache version for cache busting
-  CACHE_VERSION: '2.3.2',
+  CACHE_VERSION: '2.3.3',
 
   /**
    * Load site-wide configuration.

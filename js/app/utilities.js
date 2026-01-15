@@ -55,6 +55,56 @@ const AppUtilities = {
         if (this.importWarnings) {
             delete this.importWarnings[questionId];
         }
+    },
+
+    /**
+     * Show a "Hard Reset" button for users stuck in a broken state.
+     */
+    showResetOption() {
+        const resetBtn = document.createElement('button');
+        resetBtn.textContent = '⚠️ Fix App (Hard Reset)';
+        resetBtn.className = 'btn-primary';
+        resetBtn.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #e74c3c; color: white; padding: 12px 24px; border-radius: 50px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: none; font-weight: bold; font-family: inherit;';
+        resetBtn.onclick = () => this.hardReset();
+        document.body.appendChild(resetBtn);
+    },
+
+    /**
+     * Nuke everything and reload.
+     * Unregisters SW, clears localStorage/sessionStorage.
+     */
+    async hardReset() {
+        if (!confirm('This will fix the app by clearing all local data. Your saved progress might be lost if not exported. Continue?')) {
+            return;
+        }
+
+        try {
+            // Unregister Service Workers
+            if ('serviceWorker' in navigator) {
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                for (const registration of registrations) {
+                    await registration.unregister();
+                }
+            }
+
+            // Clear Storage
+            localStorage.clear();
+            sessionStorage.clear();
+
+            // Clear Cache API
+            if ('caches' in window) {
+                const keys = await caches.keys();
+                for (const key of keys) {
+                    await caches.delete(key);
+                }
+            }
+
+            // Force Reload
+            window.location.reload(true);
+        } catch (e) {
+            console.error('Reset failed:', e);
+            alert('Failed to reset automatically. Please clear browser data manually.');
+        }
     }
 };
 
