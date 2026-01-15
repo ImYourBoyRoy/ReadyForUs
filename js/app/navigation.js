@@ -173,6 +173,11 @@ const AppNavigation = {
             this.renderWelcomeIntro();
         }
 
+        // Special handling for complete view - render stats and upgrade prompt
+        if (viewName === 'complete') {
+            this.renderComplete();
+        }
+
         // Special handling for about view - update back button text
         if (viewName === 'about') {
             this.renderAbout();

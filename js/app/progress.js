@@ -43,6 +43,11 @@ const AppProgress = {
             this.updateModeDisplay();
 
             console.log(`Switched from ${result.previousMode} to ${result.newMode}. ${result.existingAnswers} answers preserved.`);
+
+            // Explicitly re-render review view if active to show updated filtered list
+            if (this.currentView === 'review') {
+                this.renderReview();
+            }
         }
     },
 
@@ -142,6 +147,11 @@ const AppProgress = {
 
                 // Brief notification
                 console.log(`Upgraded to Full mode. Starting at question ${result.firstNewQuestionIndex + 1} with ${result.existingAnswers} existing answers.`);
+            }
+
+            // Explicitly re-render review view if active to show new questions
+            if (this.currentView === 'review') {
+                this.renderReview();
             }
         } catch (err) {
             console.error('Upgrade error:', err);

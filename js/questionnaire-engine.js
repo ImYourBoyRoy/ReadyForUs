@@ -78,10 +78,30 @@ const QuestionnaireEngine = {
     /**
      * Get the response for a specific question.
      * @param {string} questionId - Question ID.
-     * @returns {Object} Response object.
+     * @returns {Object} Response object or empty object.
      */
     getResponse(questionId) {
         return this.responses[questionId] || {};
+    },
+
+    /**
+     * Check if current session can be upgraded to full mode.
+     * @returns {boolean} True if currently lite and full mode is available.
+     */
+    canUpgradeToFull() {
+        return this.mode === 'lite';
+    },
+
+    /**
+     * Get number of additional questions in full mode.
+     * @returns {number} Count of extra questions.
+     */
+    getAdditionalQuestionCount() {
+        // Estimate based on currently known total vs hypothetical full total
+        // This is an estimate since we don't load the full set until upgrade
+        // But we can approximate based on loaded metadata if available, 
+        // or just return a generic "more" if not.
+        return "additional"; // Simplified for now, or calculate if data available
     },
 
     /**

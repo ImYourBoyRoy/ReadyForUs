@@ -117,6 +117,30 @@ const AppViews = {
         if (skipBtn) {
             skipBtn.style.display = stats.skipped > 0 ? 'inline-block' : 'none';
         }
+
+        // Handle upgrade prompt using existing DOM structure
+        const upgradeSection = document.getElementById('upgrade-section');
+        const upgradeBtn = document.getElementById('btn-upgrade-full');
+        const countSpan = document.getElementById('additional-count');
+
+        if (upgradeSection && QuestionnaireEngine.canUpgradeToFull()) {
+            upgradeSection.style.display = 'block';
+
+            if (countSpan) {
+                countSpan.textContent = QuestionnaireEngine.getAdditionalQuestionCount();
+            }
+
+            // Remove old listeners to prevent duplicates (cloning is a simple way)
+            if (upgradeBtn) {
+                const newBtn = upgradeBtn.cloneNode(true);
+                upgradeBtn.parentNode.replaceChild(newBtn, upgradeBtn);
+                newBtn.addEventListener('click', () => {
+                    this.upgradeToFullMode();
+                });
+            }
+        } else if (upgradeSection) {
+            upgradeSection.style.display = 'none';
+        }
     },
 
     /**

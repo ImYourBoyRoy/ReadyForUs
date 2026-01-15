@@ -213,10 +213,20 @@ const URLRouter = {
                 break;
 
             case 'review':
+                // Ensure engine is initialized
+                if (typeof QuestionnaireEngine !== 'undefined' && QuestionnaireEngine.questions.length === 0) {
+                    const savedMode = StorageManager.loadMode() || 'lite';
+                    await QuestionnaireEngine.init(savedMode);
+                }
                 App.showView('review');
                 break;
 
             case 'complete':
+                // Ensure engine is initialized
+                if (typeof QuestionnaireEngine !== 'undefined' && QuestionnaireEngine.questions.length === 0) {
+                    const savedMode = StorageManager.loadMode() || 'lite';
+                    await QuestionnaireEngine.init(savedMode);
+                }
                 App.showView('complete');
                 break;
 
