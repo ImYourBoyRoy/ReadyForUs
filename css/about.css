@@ -139,6 +139,8 @@
     padding: var(--space-6);
     box-shadow: var(--shadow-sm);
     transition: box-shadow var(--transition-normal);
+    max-width: 100%;
+    /* Ensure it doesn't overflow container */
 }
 
 .about-card:hover {

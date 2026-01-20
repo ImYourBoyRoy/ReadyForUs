@@ -13,7 +13,11 @@
 
 /* Container adjustments - Generous mobile padding for edge breathing room */
 .container {
+    width: 100%;
+    max-width: 100vw;
     padding: 0 var(--space-5);
+    overflow-x: hidden;
+    /* Prevent inner content from causing scroll */
 }
 
 /* Navigation */
