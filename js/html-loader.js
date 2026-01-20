@@ -20,7 +20,7 @@ const HTMLLoader = {
     basePath: 'html/',
 
     // Cache version for cache busting
-    CACHE_VERSION: '2.3.4',
+    CACHE_VERSION: '2.4.0',
 
     // Initialization guard
     _initialized: false,

@@ -179,7 +179,7 @@ const AppAIPrompts = {
         }
 
         // Fetch prompts.json for this phase
-        const version = DataLoader.CACHE_VERSION || '2.3.4';
+        const version = DataLoader.CACHE_VERSION || '2.4.0';
         const response = await fetch(`data/${phaseId}/prompts.json?v=${version}`);
 
         if (!response.ok) {

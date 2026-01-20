@@ -64,6 +64,18 @@ def bump_version(new_version):
             'pattern': r"(\?v=)([\d\.]+)([\"'])", # Matches ?v=x.y.z in link/script tags
             'replacement': f"\\g<1>{new_version}\\g<3>",
             'desc': 'Index HTML Assets'
+        },
+        {
+            'path': 'js/app/dashboard.js',
+            'pattern': r"(const v = DataLoader\.CACHE_VERSION \|\| ')([\d\.]+)(['\"];)",
+            'replacement': f"\\g<1>{new_version}\\g<3>",
+            'desc': 'Dashboard JS Fallback Version'
+        },
+        {
+            'path': 'js/app/ai-prompts.js',
+            'pattern': r"(const version = DataLoader\.CACHE_VERSION \|\| ')([\d\.]+)(['\"];)",
+            'replacement': f"\\g<1>{new_version}\\g<3>",
+            'desc': 'AI Prompts JS Fallback Version'
         }
     ]
 
