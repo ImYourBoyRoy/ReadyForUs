@@ -37,6 +37,9 @@ const AppQuestionnaire = {
         const container = document.getElementById('question-container');
         if (!container) return;
 
+        // Scroll to top for consistent UX between questions
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
         const question = QuestionnaireEngine.getCurrentQuestion();
         if (!question) {
             this.showView('complete');

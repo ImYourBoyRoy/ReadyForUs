@@ -26,10 +26,10 @@ const URLRouter = {
     previousRoute: null,
 
     // Known view names (non-question routes)
-    viewNames: ['welcome', 'review', 'complete', 'comparison', 'dashboard', 'about'],
+    viewNames: ['welcome', 'review', 'complete', 'comparison', 'dashboard', 'about', 'howto', 'ai-prompts'],
 
     // Standalone views that don't require a phase (global views)
-    standaloneViews: ['about'],
+    standaloneViews: ['about', 'howto', 'ai-prompts'],
 
     /**
      * Initialize the router.
@@ -237,6 +237,17 @@ const URLRouter = {
 
             case 'about':
                 App.showView('about');
+                break;
+
+            case 'howto':
+                App.showView('howto');
+                App.renderHowto();
+                break;
+
+            case 'ai-prompts':
+                App.showView('ai-prompts');
+                App.initAIPromptsPage();
+                App.setupAIPromptsListeners();
                 break;
 
             default:

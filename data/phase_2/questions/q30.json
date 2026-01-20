@@ -1,0 +1,27 @@
+{
+  "id": "q30",
+  "section_id": "s6",
+  "order": 30,
+  "title": "What You Hope Would Change",
+  "prompt": "If yes or unsure: what are you hoping will change? (1-3 sentences)",
+  "type": "free_text",
+  "answer_schema": {
+    "text": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "full"
+    ]
+  },
+  "showWhen": {
+    "field": "q29",
+    "in": [
+      "yes",
+      "unsure"
+    ]
+  },
+  "examples": [
+    "I hope they will start planning dates more often once we are 'official'.",
+    "I hope they will be more open about their feelings."
+  ]
+}

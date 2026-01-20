@@ -1,5 +1,14 @@
 {
     "schema_version": "1.3.0",
+    "display": {
+        "id": "phase_0",
+        "title": "Phase 0: Heart Readiness Check-in",
+        "short_title": "Self-Readiness",
+        "description": "A space to explore your own readiness before opening your heart to someone new.",
+        "icon": "🧭",
+        "menu_icon": "◇",
+        "order": 0
+    },
     "artifact": {
         "id": "phase_0_pre_dating_readiness",
         "title": "Heart Readiness Review",

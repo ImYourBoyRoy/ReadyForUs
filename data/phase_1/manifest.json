@@ -1,5 +1,14 @@
 {
     "schema_version": "1.3.0",
+    "display": {
+        "id": "phase_1",
+        "title": "Phase 1: Early Connection Check-In",
+        "short_title": "Are We Aligned?",
+        "description": "For exploring if you're on the same page before you commit to committing.",
+        "icon": "🌱",
+        "menu_icon": "❦",
+        "order": 1
+    },
     "artifact": {
         "id": "phase_1_early_compatibility",
         "title": "Early Connection Check-In",

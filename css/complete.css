@@ -50,6 +50,12 @@
     margin: 0 auto;
 }
 
+#complete-stats {
+    margin-top: var(--space-4);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
+}
+
 /* ==================== Cards ==================== */
 .complete-card {
     background: var(--color-bg-card);
@@ -78,6 +84,36 @@
     margin-bottom: var(--space-8);
     line-height: var(--line-height-relaxed);
     max-width: 800px;
+}
+
+.complete-card.review-card {
+    margin-bottom: var(--space-4);
+    text-align: center;
+    border: 2px solid var(--color-primary-light);
+    background: var(--color-bg-elevated);
+}
+
+.complete-card.review-card .card-description {
+    margin-bottom: var(--space-3);
+}
+
+#btn-review-answers {
+    width: 100%;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+}
+
+/* ==================== Upgrade Section ==================== */
+#upgrade-section {
+    display: none;
+    text-align: center;
+    border-color: var(--color-primary-light);
+    background: var(--color-bg-elevated);
+}
+
+#additional-count {
+    font-weight: bold;
+    color: var(--color-primary);
 }
 
 /* ==================== Couple's Reflection (Comparison) ==================== */
@@ -148,8 +184,36 @@
     background: var(--color-bg-hover);
 }
 
+.upload-icon {
+    font-size: 1.5em;
+    /* verify if var exists for 1.5em, otherwise keep 1.5em */
+    margin-bottom: var(--space-2);
+}
+
 .upload-text {
     font-size: var(--font-size-base);
+}
+
+.upload-link {
+    color: var(--color-primary);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.upload-zone-info {
+    display: none;
+    /* hidden by default */
+    width: 100%;
+    padding: 0;
+    background: transparent;
+}
+
+.upload-file-details {
+    margin-bottom: var(--space-2);
+}
+
+.upload-name {
+    font-size: var(--font-size-sm);
 }
 
 /* 
@@ -164,6 +228,18 @@
     border-radius: var(--radius-sm);
     -webkit-text-fill-color: var(--color-text) !important;
     /* Forces Safari/Chrome to respect color */
+}
+
+#partner-name-input {
+    width: 100%;
+    margin-bottom: var(--space-2);
+}
+
+#partner-warning {
+    display: none;
+    margin-top: var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--color-error);
 }
 
 /* ==================== Actions Row ==================== */

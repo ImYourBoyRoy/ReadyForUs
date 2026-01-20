@@ -1,0 +1,96 @@
+{
+  "id": "q32",
+  "section_id": "s7",
+  "order": 32,
+  "title": "The Quiet Dealbreaker",
+  "prompt": "Is there a potential dealbreaker you're trying not to look at yet? You don't have to name details.",
+  "type": "compound",
+  "answer_schema": {
+    "is_there_a_potential": "",
+    "category": "",
+    "notes": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "full"
+    ]
+  },
+  "fields": [
+    {
+      "key": "is_there_a_potential",
+      "label": "Is there a potential dealbreaker?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "no",
+          "label": "no"
+        },
+        {
+          "value": "yes",
+          "label": "yes"
+        },
+        {
+          "value": "unsure",
+          "label": "unsure"
+        }
+      ]
+    },
+    {
+      "key": "category",
+      "label": "Category",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "values",
+          "label": "values"
+        },
+        {
+          "value": "faith",
+          "label": "faith"
+        },
+        {
+          "value": "sexual_boundaries",
+          "label": "sexual boundaries"
+        },
+        {
+          "value": "honestytrust",
+          "label": "honesty/trust"
+        },
+        {
+          "value": "emotional_availability",
+          "label": "emotional availability"
+        },
+        {
+          "value": "angerconflict_behavior",
+          "label": "anger/conflict behavior"
+        },
+        {
+          "value": "life_direction",
+          "label": "life direction"
+        },
+        {
+          "value": "kids",
+          "label": "kids"
+        },
+        {
+          "value": "other",
+          "label": "other"
+        },
+        {
+          "value": "prefer_not_to",
+          "label": "prefer not to say"
+        }
+      ]
+    },
+    {
+      "key": "notes",
+      "label": "Notes",
+      "type": "free_text"
+    }
+  ],
+  "examples": [
+    "No potential dealbreakers.",
+    "Yes: Life direction (they want to be nomadic, I want roots).",
+    "Yes: Kids (they are unsure, I definitely want them)."
+  ]
+}

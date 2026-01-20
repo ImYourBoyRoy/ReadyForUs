@@ -261,6 +261,41 @@
     letter-spacing: 0.05em;
 }
 
+/* Progress Indicators */
+.nav-menu-indicator {
+    font-size: var(--font-size-xs);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-full);
+    font-weight: var(--font-weight-medium);
+    margin-left: auto;
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.nav-menu-indicator--not-started {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.nav-menu-indicator--in-progress {
+    background: var(--color-accent);
+    color: var(--color-text);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.nav-menu-link:hover .nav-menu-indicator--in-progress {
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+.nav-menu-indicator--completed {
+    background: var(--color-success);
+    color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
 /* Theme Selector in Menu */
 .nav-menu-themes {
     display: flex;
@@ -331,8 +366,9 @@
 }
 
 /* Mode Toggle - Pills Style */
+/* Hidden by default - JS shows it only on questionnaire views */
 .mode-toggle {
-    display: flex;
+    display: none;
     background: var(--color-bg-hover);
     border-radius: var(--radius-full);
     padding: 3px;
@@ -690,6 +726,55 @@
 
 .number-input {
     width: 100px;
+}
+
+/* Inline Compound Fields - for duration inputs and compact layouts */
+.compound-field.inline-field {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+}
+
+.compound-field.inline-field .input-label {
+    margin-bottom: 0;
+    flex: 1;
+    min-width: 200px;
+    font-size: var(--font-size-sm);
+}
+
+.compound-field.inline-field .input,
+.compound-field.inline-field .dropdown-input,
+.compound-field.inline-field .number-input {
+    flex: 0 0 auto;
+    width: auto;
+}
+
+.compound-field.inline-field .number-input {
+    width: 100px;
+}
+
+.compound-field.inline-field .dropdown-input {
+    min-width: 140px;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 600px) {
+    .compound-field.inline-field {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .compound-field.inline-field .input-label {
+        margin-bottom: var(--space-2);
+        min-width: auto;
+    }
+
+    .compound-field.inline-field .input,
+    .compound-field.inline-field .dropdown-input,
+    .compound-field.inline-field .number-input {
+        width: 100%;
+    }
 }
 
 /* Navigation Buttons */

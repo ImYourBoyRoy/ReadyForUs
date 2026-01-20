@@ -42,7 +42,44 @@ const AppProgress = {
             this.updateProgress();
             this.updateModeDisplay();
 
-            console.log(`Switched from ${result.previousMode} to ${result.newMode}. ${result.existingAnswers} answers preserved.`);
+            // Show helpful toast notification with user-friendly guidance
+            if (typeof this.showToast === 'function') {
+                const questionNum = result.firstUnansweredIndex + 1;
+
+                if (result.isUpgrade) {
+                    // Lite → Full: Explain what's happening and where they're starting
+                    if (result.unansweredCount > 0) {
+                        this.showToast(
+                            `✨ Full Mode — ${result.unansweredCount} questions remaining, starting at #${questionNum}`,
+                            'success',
+                            5000
+                        );
+                    } else {
+                        this.showToast(
+                            `✨ Full Mode — All ${result.newQuestionCount} questions already answered!`,
+                            'success',
+                            4000
+                        );
+                    }
+                } else {
+                    // Full → Lite: Reassure them their answers are safe
+                    if (result.unansweredCount > 0) {
+                        this.showToast(
+                            `📋 Lite Mode — ${result.unansweredCount} core questions remaining, starting at #${questionNum}`,
+                            'info',
+                            5000
+                        );
+                    } else {
+                        this.showToast(
+                            `📋 Lite Mode — All ${result.newQuestionCount} core questions complete!`,
+                            'success',
+                            4000
+                        );
+                    }
+                }
+            }
+
+            console.log(`Switched from ${result.previousMode} to ${result.newMode}. ${result.answeredCount} answers preserved, ${result.unansweredCount} remaining.`);
 
             // Explicitly re-render review view if active to show updated filtered list
             if (this.currentView === 'review') {
@@ -74,6 +111,11 @@ const AppProgress = {
         this.showView('questionnaire');
         this.renderCurrentQuestion();
         this.updateProgress();
+
+        // Refresh menu indicators
+        if (typeof this.refreshMenuIndicators === 'function') {
+            this.refreshMenuIndicators();
+        }
     },
 
     /**
@@ -82,6 +124,11 @@ const AppProgress = {
     startFresh() {
         StorageManager.clearAll();
         document.getElementById('resume-prompt').style.display = 'none';
+
+        // Refresh menu indicators to clear any "Continue" badges
+        if (typeof this.refreshMenuIndicators === 'function') {
+            this.refreshMenuIndicators();
+        }
     },
 
     /**
@@ -116,6 +163,11 @@ const AppProgress = {
 
                 // Show resume prompt since we now have data
                 this.showResumePrompt();
+
+                // Refresh menu indicators to show imported progress
+                if (typeof this.refreshMenuIndicators === 'function') {
+                    this.refreshMenuIndicators();
+                }
             } else {
                 alert(`❌ Import failed: ${result.message}`);
             }
@@ -140,14 +192,36 @@ const AppProgress = {
             const result = await QuestionnaireEngine.initWithUpgrade('full');
 
             if (result.success) {
-                // Show questionnaire with first new question
+                // Show questionnaire with first unanswered question
                 this.showView('questionnaire');
                 this.renderCurrentQuestion();
                 this.updateProgress();
                 this.updateModeDisplay();
 
-                // Brief notification
-                console.log(`Upgraded to Full mode. Starting at question ${result.firstNewQuestionIndex + 1} with ${result.existingAnswers} existing answers.`);
+                // Show toast notification with user-friendly guidance
+                if (typeof this.showToast === 'function') {
+                    const questionNum = result.firstUnansweredIndex + 1;
+                    if (result.unansweredCount > 0) {
+                        this.showToast(
+                            `✨ Full Mode — ${result.unansweredCount} questions remaining, starting at #${questionNum}`,
+                            'success',
+                            5000
+                        );
+                    } else {
+                        this.showToast(
+                            `✨ Full Mode — All ${result.newQuestionCount} questions already answered!`,
+                            'success',
+                            4000
+                        );
+                    }
+                }
+
+                console.log(`Upgraded to Full mode. Starting at question ${result.firstUnansweredIndex + 1} with ${result.answeredCount} existing answers.`);
+
+                // Refresh menu indicators to reflect completion status
+                if (typeof this.refreshMenuIndicators === 'function') {
+                    this.refreshMenuIndicators();
+                }
             }
 
             // Explicitly re-render review view if active to show new questions

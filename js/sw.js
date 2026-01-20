@@ -12,7 +12,7 @@
  * - Network requests made in background to update cache
  */
 
-const CACHE_NAME = 'readyforus-v2.3.3';
+const CACHE_NAME = 'readyforus-v2.3.5';
 
 // Assets to cache on install (paths relative to site root)
 const STATIC_ASSETS = [
@@ -76,12 +76,14 @@ const STATIC_ASSETS = [
     '../html/views/about.html?v=2.3.3',
     '../html/modals/import.html?v=2.3.3',
     '../html/modals/save.html?v=2.3.3',
-    // Data files
+    // Data files - phase manifests are discovered dynamically
     '../data/config.json?v=2.3.3',
-    '../data/phases.json?v=2.3.3',
     '../data/phase_0/manifest.json?v=2.3.3',
     '../data/phase_0/questions.json?v=2.3.3',
     '../data/phase_0/prompts.json?v=2.3.3',
+    '../data/phase_1/manifest.json?v=2.3.3',
+    '../data/phase_1/questions.json?v=2.3.3',
+    '../data/phase_1/prompts.json?v=2.3.3',
     '../data/phase_1.5/manifest.json?v=2.3.3',
     '../data/phase_1.5/questions.json?v=2.3.3',
     '../data/phase_1.5/prompts.json?v=2.3.3',

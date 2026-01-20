@@ -1,0 +1,62 @@
+{
+  "id": "q22",
+  "section_id": "s4",
+  "order": 22,
+  "title": "Felt Respect",
+  "prompt": "Do you feel consistently respected in tone, effort, honesty, and boundaries?",
+  "type": "compound",
+  "answer_schema": {
+    "respect_level": "",
+    "one_thing_that_feels": "",
+    "one_thing_that_doesnt": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "lite",
+      "full"
+    ]
+  },
+  "fields": [
+    {
+      "key": "respect_level",
+      "label": "Respect level",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "yes",
+          "label": "yes"
+        },
+        {
+          "value": "mostly",
+          "label": "mostly"
+        },
+        {
+          "value": "mixed",
+          "label": "mixed"
+        },
+        {
+          "value": "not_really",
+          "label": "not really"
+        },
+        {
+          "value": "not_sure_yet",
+          "label": "not sure yet"
+        }
+      ]
+    },
+    {
+      "key": "one_thing_that_feels",
+      "label": "One thing that feels respectful",
+      "type": "short_text"
+    },
+    {
+      "key": "one_thing_that_doesnt",
+      "label": "One thing that doesn't",
+      "type": "short_text"
+    }
+  ],
+  "examples": [
+    "Yes (e.g., they respect my 'no' always).",
+    "Mixed (e.g., they are mostly respectful, but sometimes pushy about time)."
+  ]
+}

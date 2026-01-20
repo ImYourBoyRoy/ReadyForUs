@@ -1,0 +1,60 @@
+{
+  "id": "q47",
+  "section_id": "s10",
+  "order": 47,
+  "title": "What You Most Want Help With",
+  "prompt": "What do you most want help seeing clearly right now?",
+  "type": "multi_select",
+  "answer_schema": {
+    "selected_values": [],
+    "other_text": "",
+    "notes": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "full"
+    ]
+  },
+  "options": [
+    {
+      "value": "my_feelings",
+      "label": "my feelings"
+    },
+    {
+      "value": "their_signals",
+      "label": "their signals"
+    },
+    {
+      "value": "my_readiness",
+      "label": "my readiness"
+    },
+    {
+      "value": "expectations_and_boundaries",
+      "label": "expectations and boundaries"
+    },
+    {
+      "value": "conflictrepair",
+      "label": "conflict/repair"
+    },
+    {
+      "value": "valuesfaith_alignment",
+      "label": "values/faith alignment"
+    },
+    {
+      "value": "making_the_decision",
+      "label": "making the decision"
+    },
+    {
+      "value": "having_the_conversation",
+      "label": "having the conversation"
+    },
+    {
+      "value": "other",
+      "label": "other (write in)"
+    }
+  ],
+  "examples": [
+    "My readiness (e.g., am I seeing this clearly?).",
+    "Their signals (e.g., are they really interested?)."
+  ]
+}

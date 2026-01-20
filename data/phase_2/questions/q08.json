@@ -1,0 +1,62 @@
+{
+  "id": "q08",
+  "section_id": "s2",
+  "order": 8,
+  "title": "What DTR Means to Me",
+  "prompt": "If you define the relationship, what does that specifically mean to you? Select all that fit.",
+  "type": "multi_select",
+  "answer_schema": {
+    "selected_values": [],
+    "other_text": "",
+    "notes": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "lite",
+      "full"
+    ]
+  },
+  "options": [
+    {
+      "value": "exclusivity_no_dating",
+      "label": "exclusivity (no dating others)"
+    },
+    {
+      "value": "a_clear_label",
+      "label": "a clear label (boyfriend/girlfriend/partner)"
+    },
+    {
+      "value": "clearer_expectations_and",
+      "label": "clearer expectations and boundaries"
+    },
+    {
+      "value": "increased_consistency_time",
+      "label": "increased consistency (time, communication, follow-through)"
+    },
+    {
+      "value": "deeper_emotional_responsibilit",
+      "label": "deeper emotional responsibility (repair matters more)"
+    },
+    {
+      "value": "integrating_lives_friends",
+      "label": "integrating lives (friends, family, routines)"
+    },
+    {
+      "value": "future_intent_becomes",
+      "label": "future intent becomes more explicit (where this is going)"
+    },
+    {
+      "value": "public_clarity_friendssocial",
+      "label": "public clarity (friends/social media)"
+    },
+    {
+      "value": "other",
+      "label": "other (write in)"
+    }
+  ],
+  "examples": [
+    "Exclusivity (e.g., we agree to close our dating apps and focus only on each other).",
+    "Clear label (e.g., I want to call them my boyfriend/girlfriend/partner).",
+    "Future intent (e.g., I want to know if we are building toward something long-term)."
+  ]
+}

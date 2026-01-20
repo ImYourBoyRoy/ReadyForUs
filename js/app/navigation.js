@@ -148,8 +148,10 @@ const AppNavigation = {
         const modeToggle = document.querySelector('.mode-toggle');
         const dashboardBtn = document.getElementById('btn-dashboard');
 
-        // Dashboard/welcome/about hide most nav controls
-        const showNavControls = !['dashboard', 'welcome', 'about'].includes(viewName);
+        // Dashboard/welcome/about and info pages hide most nav controls
+        // Only questionnaire, review, complete, comparison need full nav controls
+        const questionnaireViews = ['questionnaire', 'review', 'complete', 'comparison'];
+        const showNavControls = questionnaireViews.includes(viewName);
         const showDashboardBtn = viewName !== 'dashboard';
 
         if (navRestart) {
@@ -171,6 +173,10 @@ const AppNavigation = {
         // Special handling for welcome view - render dynamic intro
         if (viewName === 'welcome') {
             this.renderWelcomeIntro();
+            // Check if there's resumable progress and show prompt
+            if (StorageManager.hasResumableProgress()) {
+                this.showResumePrompt();
+            }
         }
 
         // Special handling for complete view - render stats and upgrade prompt
@@ -196,6 +202,11 @@ const AppNavigation = {
             const navLogo = document.querySelector('.nav-logo');
             if (navTitle) navTitle.textContent = 'Ready for Us';
             if (navLogo) navLogo.textContent = '💜';
+
+            // Refresh menu indicators when returning to dashboard
+            if (typeof this.refreshMenuIndicators === 'function') {
+                this.refreshMenuIndicators();
+            }
         }
 
         // Update URL hash for navigation state

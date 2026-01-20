@@ -1,0 +1,40 @@
+{
+  "id": "q46",
+  "section_id": "s10",
+  "order": 46,
+  "title": "Challenge vs Comfort Dial",
+  "prompt": "Right now, do you want to be challenged, comforted, or both?",
+  "type": "single_select",
+  "answer_schema": {
+    "selected_value": "",
+    "other_text": "",
+    "notes": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "full"
+    ]
+  },
+  "options": [
+    {
+      "value": "mostly_challenged",
+      "label": "mostly challenged"
+    },
+    {
+      "value": "mostly_comforted",
+      "label": "mostly comforted"
+    },
+    {
+      "value": "both",
+      "label": "both"
+    },
+    {
+      "value": "not_sure",
+      "label": "not sure"
+    }
+  ],
+  "examples": [
+    "Mostly challenged (e.g., push me to grow).",
+    "Mostly comforted (e.g., tell me it's going to be okay)."
+  ]
+}

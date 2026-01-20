@@ -1,0 +1,49 @@
+{
+  "id": "q23",
+  "section_id": "s5",
+  "order": 23,
+  "title": "Emotional Regulation Effect",
+  "prompt": "Overall, this relationship tends to make your nervous system feel:",
+  "type": "single_select",
+  "answer_schema": {
+    "selected_value": "",
+    "other_text": "",
+    "notes": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "full"
+    ]
+  },
+  "options": [
+    {
+      "value": "more_regulated_and",
+      "label": "more regulated and grounded"
+    },
+    {
+      "value": "more_open_and",
+      "label": "more open and hopeful"
+    },
+    {
+      "value": "more_anxiousactivated",
+      "label": "more anxious/activated"
+    },
+    {
+      "value": "more_shut_downnumb",
+      "label": "more shut down/numb"
+    },
+    {
+      "value": "mixed",
+      "label": "mixed"
+    },
+    {
+      "value": "not_sure_yet",
+      "label": "not sure yet"
+    }
+  ],
+  "examples": [
+    "Regulated (e.g., I feel calm and safe with them).",
+    "Open and hopeful (e.g., I feel excited about the future context).",
+    "Anxious/activated (e.g., I feel on edge or hyper-vigilant)."
+  ]
+}

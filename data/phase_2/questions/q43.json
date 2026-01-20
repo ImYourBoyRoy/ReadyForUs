@@ -1,0 +1,51 @@
+{
+  "id": "q43",
+  "section_id": "s9",
+  "order": 43,
+  "title": "Spiritual Integrity",
+  "prompt": "If faith matters to you: does this relationship support or strain your spiritual integrity right now?",
+  "type": "compound",
+  "answer_schema": {
+    "choice": "",
+    "in_what_way": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "full"
+    ]
+  },
+  "fields": [
+    {
+      "key": "choice",
+      "label": "Options",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "supports",
+          "label": "supports"
+        },
+        {
+          "value": "strains",
+          "label": "strains"
+        },
+        {
+          "value": "mixed",
+          "label": "mixed"
+        },
+        {
+          "value": "not_sure",
+          "label": "not sure"
+        }
+      ]
+    },
+    {
+      "key": "in_what_way",
+      "label": "In what way?",
+      "type": "free_text"
+    }
+  ],
+  "examples": [
+    "Supports (e.g., we pray together and encourage each other).",
+    "Strains (e.g., we argue about how we spend Sundays)."
+  ]
+}

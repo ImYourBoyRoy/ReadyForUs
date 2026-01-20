@@ -1,0 +1,54 @@
+{
+  "id": "q02",
+  "section_id": "s1",
+  "order": 2,
+  "title": "The Notification Reaction",
+  "prompt": "When their name pops up on your phone, your first micro-reaction is usually:",
+  "type": "single_select",
+  "answer_schema": {
+    "selected_value": "",
+    "other_text": "",
+    "notes": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "lite",
+      "full"
+    ]
+  },
+  "options": [
+    {
+      "value": "warmth_or_smile",
+      "label": "warmth or smile"
+    },
+    {
+      "value": "calm_and_steady",
+      "label": "calm and steady"
+    },
+    {
+      "value": "anxious_or_tight",
+      "label": "anxious or tight"
+    },
+    {
+      "value": "dread_or_avoidance",
+      "label": "dread or avoidance"
+    },
+    {
+      "value": "neutral_or_flat",
+      "label": "neutral or flat"
+    },
+    {
+      "value": "it_depends_lately",
+      "label": "it depends lately"
+    },
+    {
+      "value": "other",
+      "label": "other (write in)"
+    }
+  ],
+  "examples": [
+    "Warmth or smile (e.g., I feel immediate happiness when their name pops up).",
+    "Anxious or tight (e.g., I worry about what they want or if I'm in trouble).",
+    "Neutral or flat (e.g., it doesn't really change my mood much)."
+  ]
+}

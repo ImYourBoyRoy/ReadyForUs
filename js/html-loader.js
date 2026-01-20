@@ -20,7 +20,7 @@ const HTMLLoader = {
     basePath: 'html/',
 
     // Cache version for cache busting
-    CACHE_VERSION: '2.3.3',
+    CACHE_VERSION: '2.3.4',
 
     // Initialization guard
     _initialized: false,
@@ -39,7 +39,9 @@ const HTMLLoader = {
         'review': ['views/review.html', '#main-content'],
         'complete': ['views/complete.html', '#main-content'],
         'comparison': ['views/comparison.html', '#main-content'],
-        'about': ['views/about.html', '#main-content']
+        'about': ['views/about.html', '#main-content'],
+        'howto': ['views/howto.html', '#main-content'],
+        'ai-prompts': ['views/ai-prompts.html', '#main-content']
     },
 
     modals: {
@@ -115,7 +117,7 @@ const HTMLLoader = {
         await this.loadPartial('views/dashboard.html', '#main-content');
 
         // Phase 3: Load remaining views in parallel (improves load time significantly)
-        const remainingViews = ['welcome', 'questionnaire', 'review', 'complete', 'comparison', 'about'];
+        const remainingViews = ['welcome', 'questionnaire', 'review', 'complete', 'comparison', 'about', 'howto', 'ai-prompts'];
         await Promise.all(
             remainingViews.map(viewName => {
                 const [path, container] = this.views[viewName];

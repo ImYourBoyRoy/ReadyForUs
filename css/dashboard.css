@@ -55,7 +55,6 @@
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    overflow: hidden;
     /* Flexbox for consistent alignment */
     display: flex;
     flex-direction: column;
@@ -617,4 +616,63 @@
     .instructions-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* ==================== Card Progress Indicators ==================== */
+.card-progress-section {
+    flex: 1;
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.progress-percentage {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.progress-counts {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
+
+.progress-mode-badge {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: rgba(var(--color-primary-rgb, 168, 85, 247), 0.12);
+    padding: 0.25rem 0.5rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.progress-bar {
+    height: 6px;
+    background: rgba(var(--color-primary-rgb, 168, 85, 247), 0.1);
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    border-radius: 50px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-cta-continue {
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+    flex-shrink: 0;
+}
+
+.questionnaire-card:hover .card-cta-continue {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
 }

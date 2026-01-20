@@ -1,5 +1,14 @@
 {
     "schema_version": "1.3.0",
+    "display": {
+        "id": "phase_1.5",
+        "title": "Phase 1.5: Slow Build Connection",
+        "short_title": "Building Together",
+        "description": "For the early days: moving with intention, pacing, and mutual care.",
+        "icon": "💜",
+        "menu_icon": "∞",
+        "order": 2
+    },
     "artifact": {
         "id": "phase1_5_intentional_early_dating",
         "title": "Slow Build Connection",

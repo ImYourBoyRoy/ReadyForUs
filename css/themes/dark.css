@@ -6,55 +6,56 @@
  */
 
 [data-theme="dark"] {
-    /* Primary - Warm Muted Lavender */
-    --color-primary: #D8C4DF;
-    --color-primary-hover: #E4D4EB;
-    --color-primary-light: #C8B6D0;
+    /* Primary - Soft Royal Lavender */
+    --color-primary: #E6D0E8;
+    --color-primary-hover: #F0DEFA;
+    --color-primary-light: #D8C4DF;
 
-    /* Secondary - Deep Taupe/Mauve */
-    --color-secondary: #5E5056;
-    --color-secondary-hover: #6E5E65;
+    /* Secondary - Rich Mauve Gray */
+    --color-secondary: #74646A;
+    --color-secondary-hover: #86747A;
 
-    /* Accent - Warm Rose Gold */
-    --color-accent: #E0B0B0;
-    --color-accent-hover: #ECC0C0;
+    /* Accent - Champagne Rose */
+    --color-accent: #E8C8C8;
+    --color-accent-hover: #F4D8D8;
 
     /* Semantic colors - Earthy tones */
-    --color-success: #98C49F;
-    --color-warning: #E0C090;
-    --color-error: #E09090;
+    --color-success: #AABFA6;
+    --color-warning: #E2CBA6;
+    --color-error: #E6A6A6;
 
-    /* Backgrounds - Warm Resilience (Deep Charcoal/Espresso) */
-    --color-bg: #1E1C1C;
-    --color-bg-elevated: #262424;
-    --color-bg-card: #2D2A2A;
-    --color-bg-input: #161515;
-    --color-bg-hover: rgba(216, 196, 223, 0.08);
+    /* Backgrounds - "Luxury Warmth" (Deep Taupe/Espresso) */
+    --color-bg: #282626;
+    --color-bg-elevated: #322E2E;
+    --color-bg-card: #383434;
+    --color-bg-input: #443E3E;
+    /* Significantly lighter, inviting surface */
+    --color-bg-hover: rgba(230, 208, 232, 0.08);
 
-    /* Text - Warm Cream/Bone */
-    --color-text: #EBE5E0;
-    --color-text-muted: #B0A6A4;
-    --color-text-light: #8A807E;
-    --color-text-inverse: #1E1C1C;
+    /* Text - Pearl/Cream */
+    --color-text: #F2EBE5;
+    --color-text-muted: #BCB4B0;
+    --color-text-light: #98908C;
+    --color-text-inverse: #282626;
 
-    /* Borders - Warm Gray */
-    --color-border: #443E3E;
+    /* Borders - Warm Brown-Gray */
+    --color-border: #564E4E;
     --color-border-focus: var(--color-primary);
 
     /* Progress */
-    --color-progress-bg: #443E3E;
+    --color-progress-bg: #564E4E;
     --color-progress-fill: linear-gradient(90deg, var(--color-primary), var(--color-accent));
 
     /* Selection and focus */
-    --color-selection-bg: rgba(216, 196, 223, 0.2);
-    --color-focus-ring: rgba(216, 196, 223, 0.4);
+    --color-selection-bg: rgba(230, 208, 232, 0.15);
+    --color-focus-ring: rgba(230, 208, 232, 0.3);
 
-    /* Shadows - Deep Warmth */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 12px -1px rgba(0, 0, 0, 0.4), 0 2px 6px -1px rgba(0, 0, 0, 0.2);
-    --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.5), 0 6px 10px -2px rgba(0, 0, 0, 0.3);
-    --shadow-xl: 0 24px 40px -6px rgba(0, 0, 0, 0.5), 0 12px 20px -6px rgba(0, 0, 0, 0.3);
-    --shadow-glow: 0 0 28px rgba(216, 196, 223, 0.12);
+    /* Shadows - Rich Warmth */
+    --shadow-sm: 0 1px 3px rgba(20, 10, 10, 0.3);
+    --shadow-md: 0 4px 12px -1px rgba(20, 10, 10, 0.4), 0 2px 6px -1px rgba(20, 10, 10, 0.2);
+    --shadow-lg: 0 12px 24px -4px rgba(20, 10, 10, 0.5), 0 6px 10px -2px rgba(20, 10, 10, 0.3);
+    --shadow-xl: 0 24px 40px -6px rgba(20, 10, 10, 0.5), 0 12px 20px -6px rgba(20, 10, 10, 0.3);
+    --shadow-glow: 0 0 30px rgba(230, 208, 232, 0.1);
 }
 
 /* Dark mode specific refinements */

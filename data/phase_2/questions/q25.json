@@ -1,0 +1,50 @@
+{
+  "id": "q25",
+  "section_id": "s5",
+  "order": 25,
+  "title": "Repair Reliability",
+  "prompt": "After a hard moment, you usually feel:",
+  "type": "single_select",
+  "answer_schema": {
+    "selected_value": "",
+    "other_text": "",
+    "notes": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "lite",
+      "full"
+    ]
+  },
+  "options": [
+    {
+      "value": "more_connected",
+      "label": "more connected"
+    },
+    {
+      "value": "about_the_same",
+      "label": "about the same"
+    },
+    {
+      "value": "a_little_less",
+      "label": "a little less safe"
+    },
+    {
+      "value": "more_distant",
+      "label": "more distant"
+    },
+    {
+      "value": "it_varies",
+      "label": "it varies"
+    },
+    {
+      "value": "not_sure_yet",
+      "label": "not sure yet"
+    }
+  ],
+  "examples": [
+    "More connected (e.g., resolving it made us feel closer).",
+    "About the same (e.g., we got through it).",
+    "Less safe (e.g., I'm afraid to bring it up again)."
+  ]
+}

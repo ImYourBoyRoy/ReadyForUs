@@ -1,0 +1,51 @@
+{
+  "id": "q37",
+  "section_id": "s8",
+  "order": 37,
+  "title": "Readiness Score (Now)",
+  "prompt": "On a scale of 1-10, how ready are you to define the relationship?",
+  "type": "compound",
+  "answer_schema": {
+    "readiness_score": "",
+    "why_that_number": "",
+    "what_would_raise_it": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "lite",
+      "full"
+    ]
+  },
+  "fields": [
+    {
+      "key": "readiness_score",
+      "label": "Readiness score (1 = not ready at all, 10 = ready and at peace)",
+      "type": "number",
+      "options": [
+        {
+          "value": "1__not",
+          "label": "1 = not ready at all"
+        },
+        {
+          "value": "10__ready",
+          "label": "10 = ready and at peace doing it now"
+        }
+      ]
+    },
+    {
+      "key": "why_that_number",
+      "label": "Why that number?",
+      "type": "short_text"
+    },
+    {
+      "key": "what_would_raise_it",
+      "label": "What would raise it by 1-2 points?",
+      "type": "free_text"
+    }
+  ],
+  "examples": [
+    "8: I feel very good about us, just want to clarify one boundary.",
+    "10: I am completely at peace and excited to define this.",
+    "3: I have too many doubts right now."
+  ]
+}

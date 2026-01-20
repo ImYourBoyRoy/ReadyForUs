@@ -1,0 +1,49 @@
+{
+  "id": "q45",
+  "section_id": "s10",
+  "order": 45,
+  "title": "Guidance Style Preference",
+  "prompt": "When receiving guidance (human or AI), you prefer it to be:",
+  "type": "single_select",
+  "answer_schema": {
+    "selected_value": "",
+    "other_text": "",
+    "notes": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "full"
+    ]
+  },
+  "options": [
+    {
+      "value": "gentle_and_validating",
+      "label": "gentle and validating"
+    },
+    {
+      "value": "direct_and_honest",
+      "label": "direct and honest"
+    },
+    {
+      "value": "structured_and_practical",
+      "label": "structured and practical"
+    },
+    {
+      "value": "reflective_and_exploratory",
+      "label": "reflective and exploratory"
+    },
+    {
+      "value": "a_mix",
+      "label": "a mix"
+    },
+    {
+      "value": "not_sure_yet",
+      "label": "not sure yet"
+    }
+  ],
+  "examples": [
+    "Direct and honest (e.g., just tell me the truth).",
+    "Gentle and validating (e.g., be kind and supportive).",
+    "Structured (e.g., give me a plan)."
+  ]
+}

@@ -388,13 +388,14 @@ const QuestionnaireEngine = {
 
     /**
      * Initialize with mode switch (Lite ↔ Full).
-     * Keeps existing responses and goes to last answered question.
+     * Keeps existing responses and navigates to the FIRST unanswered question.
      * @param {string} newMode - The new mode ('full' or 'lite').
-     * @returns {Object} Result with success status and target question index.
+     * @returns {Object} Result with success status, navigation target, and stats for toast.
      */
     async initWithUpgrade(newMode = 'full') {
-        // Store the previous mode and questions answered
+        // Store the previous state for stats
         const previousMode = this.mode;
+        const previousQuestionCount = this.questions.length;
         const previousAnswers = { ...this.responses };
         const previousSkipped = [...this.skipped];
 
@@ -408,27 +409,43 @@ const QuestionnaireEngine = {
             this.questions.some(q => q.id === id)
         );
 
-        // Find the last answered question in the new mode's question set
-        let lastAnsweredIndex = 0;
-        for (let i = this.questions.length - 1; i >= 0; i--) {
+        // Count answered questions in the new mode
+        let answeredCount = 0;
+        this.questions.forEach(q => {
+            if (this.getQuestionStatus(q.id) === 'answered') {
+                answeredCount++;
+            }
+        });
+
+        // Find the FIRST unanswered question in the new mode's question set
+        let firstUnansweredIndex = this.questions.length - 1; // Default to last if all answered
+        for (let i = 0; i < this.questions.length; i++) {
             const status = this.getQuestionStatus(this.questions[i].id);
-            if (status === 'answered') {
-                lastAnsweredIndex = i;
+            if (status !== 'answered') {
+                firstUnansweredIndex = i;
                 break;
             }
         }
 
-        this.currentIndex = lastAnsweredIndex;
+        this.currentIndex = firstUnansweredIndex;
         StorageManager.saveMode(newMode);
         StorageManager.saveProgress(this.currentIndex);
+
+        const unansweredCount = this.questions.length - answeredCount;
+        const isUpgrade = newMode === 'full' && previousMode === 'lite';
 
         return {
             success: true,
             previousMode,
             newMode,
-            targetQuestionIndex: lastAnsweredIndex,
-            existingAnswers: Object.keys(previousAnswers).length,
-            newQuestions: this.questions.length
+            previousQuestionCount,
+            newQuestionCount: this.questions.length,
+            answeredCount,
+            unansweredCount,
+            firstUnansweredIndex,
+            isUpgrade,
+            // Number of additional questions unlocked (for Lite→Full)
+            additionalQuestions: isUpgrade ? this.questions.length - previousQuestionCount : 0
         };
     },
 

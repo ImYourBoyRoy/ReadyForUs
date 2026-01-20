@@ -1,0 +1,53 @@
+{
+  "id": "q17",
+  "section_id": "s3",
+  "order": 17,
+  "title": "Integration Pace",
+  "prompt": "The pace of integrating lives (friends, family, routines, church/community visibility if applicable) feels:",
+  "type": "single_select",
+  "answer_schema": {
+    "selected_value": "",
+    "other_text": "",
+    "notes": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "full"
+    ]
+  },
+  "options": [
+    {
+      "value": "healthy_and_comfortable",
+      "label": "healthy and comfortable"
+    },
+    {
+      "value": "a_little_fast",
+      "label": "a little fast for my nervous system"
+    },
+    {
+      "value": "too_fast",
+      "label": "too fast"
+    },
+    {
+      "value": "a_little_slow",
+      "label": "a little slow"
+    },
+    {
+      "value": "too_slow",
+      "label": "too slow"
+    },
+    {
+      "value": "varies",
+      "label": "varies"
+    },
+    {
+      "value": "not_sure_yet",
+      "label": "not sure yet"
+    }
+  ],
+  "examples": [
+    "Healthy (e.g., meeting friends felt natural and fun).",
+    "Too fast (e.g., meeting parents after 3 weeks felt like too much pressure).",
+    "Too slow (e.g., I feel hidden because I haven't met anyone in their life yet)."
+  ]
+}

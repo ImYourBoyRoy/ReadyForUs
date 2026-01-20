@@ -18,7 +18,7 @@ const DataLoader = {
   currentPhase: null,
 
   // Cache version for cache busting
-  CACHE_VERSION: '2.3.3',
+  CACHE_VERSION: '2.3.5',
 
   /**
    * Load site-wide configuration.
@@ -70,16 +70,57 @@ const DataLoader = {
 
 
   /**
-   * Load the phases manifest.
-   * @returns {Promise<Object>} The phases manifest.
+   * Load phases from the phase registry file.
+   * Reads phase-registry.json which lists available phase folder names.
+   * Then loads manifest.json from each registered phase folder.
+   * @returns {Promise<Object>} The phases data with all display metadata.
    */
   async loadPhases() {
     try {
-      const res = await fetch(`./data/phases.json?v=${this.CACHE_VERSION}`);
-      if (!res.ok) {
-        throw new Error('Failed to load phases manifest');
+      console.log('DataLoader: Starting loadPhases...');
+      // Load the phase registry
+      const registryRes = await fetch(`./data/phase-registry.json?v=${this.CACHE_VERSION}`);
+      if (!registryRes.ok) {
+        throw new Error('Failed to load phase registry');
       }
-      this.phases = await res.json();
+      const registry = await registryRes.json();
+      const phaseFolders = registry.phases || [];
+      console.log('DataLoader: Phase registry loaded:', phaseFolders);
+
+      // Load manifests for all registered phases in parallel
+      const manifestPromises = phaseFolders.map(async (folder) => {
+        try {
+          const manifestRes = await fetch(`./data/${folder}/manifest.json?v=${this.CACHE_VERSION}`);
+          if (!manifestRes.ok) {
+            console.warn(`Manifest not found for registered phase: ${folder}`);
+            return null;
+          }
+          const manifest = await manifestRes.json();
+          // Only include if it has a valid display section
+          if (manifest.display && manifest.display.id) {
+            return { folder, manifest };
+          }
+          return null;
+        } catch (error) {
+          console.warn(`Error loading manifest for ${folder}:`, error);
+          return null;
+        }
+      });
+
+      const results = await Promise.all(manifestPromises);
+      console.log('DataLoader: All manifest promises resolved');
+
+      // Build phases array from successful loads
+      const phasesArray = results
+        .filter(item => item !== null)
+        .map(({ folder, manifest }) => ({
+          ...manifest.display,
+          data_path: `data/${folder}`
+        }))
+        .sort((a, b) => (a.order || 0) - (b.order || 0));
+
+      this.phases = { phases: phasesArray };
+      console.log('DataLoader: loadPhases complete. Loaded:', phasesArray.length);
       return this.phases;
     } catch (error) {
       console.error('DataLoader phases error:', error);
@@ -96,11 +137,11 @@ const DataLoader = {
   },
 
   /**
-   * Get the default phase ID.
+   * Get the default phase ID (first phase in order).
    * @returns {string} Default phase ID.
    */
   getDefaultPhaseId() {
-    return this.phases?.default_phase || 'phase_1';
+    return this.phases?.phases?.[0]?.id || 'phase_0';
   },
 
   /**

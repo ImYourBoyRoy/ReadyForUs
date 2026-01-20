@@ -1,0 +1,65 @@
+{
+  "id": "q38",
+  "section_id": "s8",
+  "order": 38,
+  "title": "What You Still Need",
+  "prompt": "What do you still need to decide cleanly? Select any.",
+  "type": "multi_select",
+  "answer_schema": {
+    "selected_values": [],
+    "other_text": "",
+    "notes": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "full"
+    ]
+  },
+  "options": [
+    {
+      "value": "more_time",
+      "label": "more time"
+    },
+    {
+      "value": "a_hard_conversation",
+      "label": "a hard conversation"
+    },
+    {
+      "value": "behavioral_consistency",
+      "label": "behavioral consistency"
+    },
+    {
+      "value": "repair_and_conflict",
+      "label": "repair and conflict stability"
+    },
+    {
+      "value": "emotional_safety",
+      "label": "emotional safety"
+    },
+    {
+      "value": "clarity_about_exclusivity",
+      "label": "clarity about exclusivity"
+    },
+    {
+      "value": "faithspiritual_alignment",
+      "label": "faith/spiritual alignment"
+    },
+    {
+      "value": "meet_friendsfamily",
+      "label": "meet friends/family"
+    },
+    {
+      "value": "time_availability_clarity",
+      "label": "time availability clarity"
+    },
+    {
+      "value": "other",
+      "label": "other (write in)"
+    }
+  ],
+  "examples": [
+    "More time (e.g., I need a few more weeks to see consistency).",
+    "Hard conversation (e.g., we need to talk about finances first).",
+    "Meeting family (e.g., I need to see how they are with my siblings)."
+  ]
+}

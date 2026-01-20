@@ -20,6 +20,8 @@ const AppViews = {
         this.views.complete = document.getElementById('view-complete');
         this.views.comparison = document.getElementById('view-comparison');
         this.views.about = document.getElementById('view-about');
+        this.views.howto = document.getElementById('view-howto');
+        this.views['ai-prompts'] = document.getElementById('view-ai-prompts');
 
         // Set initial inert state
         Object.values(this.views).forEach(view => {
@@ -203,26 +205,29 @@ const AppViews = {
         const btn = document.getElementById('btn-about-dashboard');
         if (!btn) return;
 
-        // Default text - clean, no emoji
-        let text = 'Back to Dashboard';
+        // Always say Back to Home as requested
+        btn.textContent = 'Back to Home';
+    },
 
-        if (typeof URLRouter !== 'undefined' && URLRouter.previousRoute) {
-            const prev = URLRouter.previousRoute;
+    /**
+     * Render How-To view.
+     * Sets page title and attaches button handlers.
+     */
+    renderHowto() {
+        // Set page title
+        document.title = 'How to Use | Ready for Us';
 
-            if (prev.view === 'dashboard') {
-                text = 'Back to Dashboard';
-            } else if (prev.view === 'questionnaire') {
-                text = prev.questionId ? 'Return to Question' : 'Return to Questions';
-            } else if (prev.view === 'review') {
-                text = 'Return to Review';
-            } else if (prev.view === 'complete') {
-                text = 'Return to Summary';
-            } else if (prev.view === 'welcome') {
-                text = 'Return to Welcome';
-            }
-        }
+        // Set up back button
+        // Event listener handled by delegation in init.js
+    },
 
-        btn.textContent = text;
+    /**
+     * Render AI Prompts view.
+     * Sets page title. Dynamic content handled by ai-prompts.js.
+     */
+    renderAIPrompts() {
+        // Set page title
+        document.title = 'AI Prompts | Ready for Us';
     }
 };
 

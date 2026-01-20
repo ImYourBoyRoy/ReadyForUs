@@ -245,8 +245,9 @@ const QuestionRenderer = {
         `;
 
       case 'number':
+        const isInlineNumber = field.layout === 'inline';
         return `
-          <div class="compound-field ${hiddenClass}" data-field-key="${field.key}">
+          <div class="compound-field ${isInlineNumber ? 'inline-field' : ''} ${hiddenClass}" data-field-key="${field.key}">
             <label class="input-label">${field.label}</label>
             <input 
               type="number" 
@@ -258,6 +259,26 @@ const QuestionRenderer = {
               data-question-id="${questionId}"
               data-field="${field.key}"
             >
+          </div>
+        `;
+
+      case 'dropdown':
+        const isInlineDropdown = field.layout === 'inline';
+        return `
+          <div class="compound-field ${isInlineDropdown ? 'inline-field' : ''} ${hiddenClass}" data-field-key="${field.key}">
+            <label class="input-label">${field.label}</label>
+            <select 
+              class="input dropdown-input" 
+              data-question-id="${questionId}"
+              data-field="${field.key}"
+            >
+              <option value="">Select...</option>
+              ${field.options.map(option => `
+                <option value="${option.value}" ${value === option.value ? 'selected' : ''}>
+                  ${option.label}
+                </option>
+              `).join('')}
+            </select>
           </div>
         `;
 

@@ -1,0 +1,120 @@
+{
+  "id": "q01",
+  "section_id": "s1",
+  "order": 1,
+  "title": "Timeline Snapshot",
+  "prompt": "Before we go deep, give a simple snapshot so we interpret everything in context.",
+  "type": "compound",
+  "answer_schema": {
+    "how_long_have_you": "",
+    "unit": "",
+    "how_long_have_you_2": "",
+    "unit_2": "",
+    "about_how_often_do": "",
+    "notes": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "lite",
+      "full"
+    ]
+  },
+  "fields": [
+    {
+      "key": "how_long_have_you",
+      "label": "How long have you known each other total",
+      "type": "number",
+      "layout": "inline"
+    },
+    {
+      "key": "unit",
+      "label": "Unit",
+      "type": "dropdown",
+      "layout": "inline",
+      "options": [
+        {
+          "value": "days",
+          "label": "days"
+        },
+        {
+          "value": "weeks",
+          "label": "weeks"
+        },
+        {
+          "value": "months",
+          "label": "months"
+        },
+        {
+          "value": "years",
+          "label": "years"
+        }
+      ]
+    },
+    {
+      "key": "how_long_have_you_2",
+      "label": "How long have you been intentionally dating/seeing each other?",
+      "type": "number",
+      "layout": "inline"
+    },
+    {
+      "key": "unit_2",
+      "label": "Unit",
+      "type": "dropdown",
+      "layout": "inline",
+      "options": [
+        {
+          "value": "days",
+          "label": "days"
+        },
+        {
+          "value": "weeks",
+          "label": "weeks"
+        },
+        {
+          "value": "months",
+          "label": "months"
+        },
+        {
+          "value": "years",
+          "label": "years"
+        }
+      ]
+    },
+    {
+      "key": "about_how_often_do",
+      "label": "About how often do you see each other right now?",
+      "type": "dropdown",
+      "options": [
+        {
+          "value": "multiple_timesweek",
+          "label": "multiple times/week"
+        },
+        {
+          "value": "weekly",
+          "label": "weekly"
+        },
+        {
+          "value": "every_other_week",
+          "label": "every other week"
+        },
+        {
+          "value": "rarelylong_distance",
+          "label": "rarely/long distance"
+        },
+        {
+          "value": "varies",
+          "label": "varies"
+        }
+      ]
+    },
+    {
+      "key": "notes",
+      "label": "Notes",
+      "type": "free_text"
+    }
+  ],
+  "examples": [
+    "How long have you known each other: 2 years. Dating: 6 months. Seeing each other: weekly.",
+    "How long have you known each other: 3 months. Dating: 3 months. Seeing each other: multiple times/week."
+  ]
+}

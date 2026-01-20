@@ -1,0 +1,44 @@
+{
+  "id": "q31",
+  "section_id": "s6",
+  "order": 31,
+  "title": "Self-Editing Check",
+  "prompt": "Around them, you feel:",
+  "type": "single_select",
+  "answer_schema": {
+    "selected_value": "",
+    "other_text": "",
+    "notes": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "full"
+    ]
+  },
+  "options": [
+    {
+      "value": "more_myself",
+      "label": "more myself"
+    },
+    {
+      "value": "mostly_myself",
+      "label": "mostly myself"
+    },
+    {
+      "value": "somewhat_edited",
+      "label": "somewhat edited"
+    },
+    {
+      "value": "heavily_edited",
+      "label": "heavily edited"
+    },
+    {
+      "value": "not_sure_yet",
+      "label": "not sure yet"
+    }
+  ],
+  "examples": [
+    "More myself (e.g., I feel freer and more authentic with them).",
+    "Edited (e.g., I hold back my true personality to fit what they like)."
+  ]
+}

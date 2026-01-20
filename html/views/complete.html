@@ -14,19 +14,16 @@
             </p>
 
             <!-- Global Stats -->
-            <div id="complete-stats" aria-live="polite"
-                style="margin-top: var(--space-4); font-weight: var(--font-weight-medium); color: var(--color-primary);">
+            <div id="complete-stats" aria-live="polite">
                 <span id="complete-stats-text">Loading stats...</span>
             </div>
         </header>
 
         <!-- Review Action - Moved to top -->
-        <div class="complete-card"
-            style="margin-bottom: var(--space-4); text-align: center; border: 2px solid var(--color-primary-light); background: var(--color-bg-elevated);">
-            <p class="card-description" style="margin-bottom: var(--space-3);">Before you save or generate prompts, take
+        <div class="complete-card review-card">
+            <p class="card-description">Before you save or generate prompts, take
                 a moment to reflect on your answers.</p>
-            <button id="btn-review-answers" class="btn btn-primary btn-lg"
-                style="width: 100%; justify-content: center; box-shadow: var(--shadow-md);">
+            <button id="btn-review-answers" class="btn btn-primary btn-lg">
                 📋 Review Your Answers
             </button>
         </div>
@@ -91,33 +88,29 @@
 
                         <!-- Empty State -->
                         <div class="upload-zone-content">
-                            <div class="upload-icon" style="font-size: 1.5em; margin-bottom: var(--space-2);">📂</div>
+                            <div class="upload-icon">📂</div>
                             <div class="upload-text">
-                                <span class="upload-link"
-                                    style="color: var(--color-primary); font-weight: 500; cursor: pointer;">Upload
+                                <span class="upload-link">Upload
                                     JSON</span>
                             </div>
                         </div>
 
                         <!-- Filled State -->
-                        <div class="upload-zone-info"
-                            style="display: none; width: 100%; padding: 0; background: transparent;">
-                            <div class="upload-file-details" style="margin-bottom: var(--space-2);">
-                                <span class="upload-name" style="font-size: var(--font-size-sm);">filename.json</span>
+                        <div class="upload-zone-info">
+                            <div class="upload-file-details">
+                                <span class="upload-name">filename.json</span>
                                 <button class="upload-remove" aria-label="Remove file">×</button>
                             </div>
 
                             <!-- Editable Inputs -->
                             <div id="partner-info-container">
                                 <input type="text" id="partner-name-input" class="text-input input-sm"
-                                    style="width: 100%; margin-bottom: var(--space-2);" placeholder="Name"
-                                    value="Partner">
+                                    placeholder="Name" value="Partner">
                                 <div class="partner-stats-display">
                                     <span id="partner-stats-answered">--</span>/<span id="partner-stats-total">--</span>
                                     Answered
                                 </div>
-                                <div id="partner-warning" class="partner-warning"
-                                    style="display: none; margin-top: var(--space-2); font-size: var(--font-size-xs); color: var(--color-error);">
+                                <div id="partner-warning" class="partner-warning">
                                 </div>
                             </div>
                         </div>
@@ -132,12 +125,11 @@
         </div>
 
         <!-- Upgrade Section -->
-        <div id="upgrade-section" class="complete-card"
-            style="display: none; text-align: center; border-color: var(--color-primary-light); background: var(--color-bg-elevated);">
+        <div id="upgrade-section" class="complete-card">
             <h2 class="card-title">🚀 Ready for More?</h2>
             <p class="card-description">
-                You've completed the Lite version. Continue with <span id="additional-count"
-                    style="font-weight: bold; color: var(--color-primary);">--</span> more questions to go deeper.
+                You've completed the Lite version. Continue with <span id="additional-count">--</span> more questions to
+                go deeper.
             </p>
             <button id="btn-upgrade-full" class="btn btn-primary">
                 📈 Continue to Full Mode

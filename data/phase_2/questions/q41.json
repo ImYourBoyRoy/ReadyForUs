@@ -1,0 +1,47 @@
+{
+  "id": "q41",
+  "section_id": "s9",
+  "order": 41,
+  "title": "The Honesty Check",
+  "prompt": "Is there a part of you that already knows your answer but is afraid to admit it?",
+  "type": "compound",
+  "answer_schema": {
+    "choice": "",
+    "if_yesunsure": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "full"
+    ]
+  },
+  "fields": [
+    {
+      "key": "choice",
+      "label": "Options",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "no",
+          "label": "no"
+        },
+        {
+          "value": "yes",
+          "label": "yes"
+        },
+        {
+          "value": "unsure",
+          "label": "unsure"
+        }
+      ]
+    },
+    {
+      "key": "if_yesunsure",
+      "label": "If yes/unsure",
+      "type": "short_text"
+    }
+  ],
+  "examples": [
+    "No (e.g., I am being totally honest with myself).",
+    "Yes (e.g., deep down I know they aren't 'the one', but I don't want to be lonely)."
+  ]
+}

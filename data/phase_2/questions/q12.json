@@ -1,0 +1,34 @@
+{
+  "id": "q12",
+  "section_id": "s2",
+  "order": 12,
+  "title": "Expectations You're Carrying",
+  "prompt": "Name the expectations you already have, even if you haven't said them out loud.",
+  "type": "compound",
+  "answer_schema": {
+    "f_13_expectations": "",
+    "which_of_these_feel": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "full"
+    ]
+  },
+  "fields": [
+    {
+      "key": "f_13_expectations",
+      "label": "1-3 expectations",
+      "type": "free_text"
+    },
+    {
+      "key": "which_of_these_feel",
+      "label": "Which of these feel fair vs possibly unrealistic?",
+      "type": "free_text"
+    }
+  ],
+  "examples": [
+    "Expectation: That I become their priority on weekends.",
+    "Expectation: That they stop talking to their ex.",
+    "Expectation: That we start planning a trip together."
+  ]
+}

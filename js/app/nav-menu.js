@@ -3,7 +3,7 @@
  * Navigation hamburger menu module for Ready for Us.
  * 
  * Handles the slide-out navigation menu with dynamic phase links and theme selection.
- * Populates menu items from phases.json and manages open/close behavior.
+ * Populates menu items from phase manifests (via DataLoader) and manages open/close behavior.
  * 
  * Usage: Automatically initializes when loaded. Call App.initNavMenu() if needed manually.
  */
@@ -76,6 +76,10 @@ const AppNavMenu = {
                         this.showImportModal();
                     } else if (action === 'about') {
                         window.location.hash = '#/about';
+                    } else if (action === 'howto') {
+                        window.location.hash = '#/howto';
+                    } else if (action === 'ai-prompts') {
+                        window.location.hash = '#/ai-prompts';
                     } else if (phaseId) {
                         this.selectPhase(phaseId);
                     }
@@ -101,9 +105,10 @@ const AppNavMenu = {
         // Prevent body scroll when menu is open
         document.body.style.overflow = isOpen ? 'hidden' : '';
 
-        // Update theme buttons when opening
+        // Update theme buttons and progress indicators when opening
         if (isOpen) {
             this.updateThemeButtons();
+            this.refreshMenuIndicators();
         }
     },
 
@@ -114,6 +119,12 @@ const AppNavMenu = {
         const hamburger = document.getElementById('nav-menu-toggle');
         const menu = document.getElementById('nav-menu');
         const overlay = document.getElementById('nav-menu-overlay');
+
+        // If focus is inside the menu, move it back to the toggle button
+        // This prevents "aria-hidden element contains focus" warnings
+        if (menu && menu.contains(document.activeElement)) {
+            hamburger?.focus();
+        }
 
         hamburger?.classList.remove('open');
         menu?.classList.remove('open');
@@ -169,15 +180,26 @@ const AppNavMenu = {
             <li class="nav-menu-section">Questionnaires</li>
         `;
 
-        // Add phase links with elegant icons based on phase data
+        // Add phase links with elegant icons and progress indicators
         phases.forEach(phase => {
             // Use refined icons for phases
-            const phaseIcon = this.getPhaseIcon(phase.id);
+            const phaseIcon = this.getPhaseIcon(phase);
+            const progressStatus = this.getPhaseProgress(phase.id);
+
+            // Determine indicator content
+            let indicatorContent = '';
+            if (progressStatus === 'in-progress') {
+                indicatorContent = 'Continue →';
+            } else if (progressStatus === 'completed') {
+                indicatorContent = '✓';
+            }
+
             html += `
                 <li class="nav-menu-item">
                     <button class="nav-menu-link" data-phase-id="${phase.id}">
                         <span class="nav-menu-icon">${phaseIcon}</span>
                         <span class="nav-menu-label">${phase.short_title}</span>
+                        <span class="nav-menu-indicator nav-menu-indicator--${progressStatus}">${indicatorContent}</span>
                     </button>
                 </li>
             `;
@@ -192,7 +214,23 @@ const AppNavMenu = {
             <li class="nav-menu-item">
                 <button class="nav-menu-link" data-action="about">
                     <span class="nav-menu-icon">${icons.about}</span>
-                    <span class="nav-menu-label">About</span>
+                    <span class="nav-menu-label">About Me</span>
+                </button>
+            </li>
+            
+            <!-- How to Use -->
+            <li class="nav-menu-item">
+                <button class="nav-menu-link" data-action="howto">
+                    <span class="nav-menu-icon">?</span>
+                    <span class="nav-menu-label">How to Use</span>
+                </button>
+            </li>
+            
+            <!-- AI Prompts -->
+            <li class="nav-menu-item">
+                <button class="nav-menu-link" data-action="ai-prompts">
+                    <span class="nav-menu-icon">⚙</span>
+                    <span class="nav-menu-label">AI Prompts</span>
                 </button>
             </li>
             
@@ -231,17 +269,38 @@ const AppNavMenu = {
 
     /**
      * Get elegant icon for a phase.
-     * @param {string} phaseId - Phase ID
+     * @param {Object} phase - Phase object
      * @returns {string} Icon character
      */
-    getPhaseIcon(phaseId) {
-        // Use refined typography symbols instead of emojis
-        const phaseIcons = {
-            'phase_0': '◇',   // Diamond outline - self-discovery
-            'phase_1': '❦',   // Floral heart - alignment
-            'phase_1.5': '∞'  // Infinity - building together
-        };
-        return phaseIcons[phaseId] || '•';
+    getPhaseIcon(phase) {
+        // Guard against null, undefined, or the literal string "null" from stale cache
+        const menuIcon = phase.menu_icon;
+        const icon = phase.icon;
+        if (menuIcon && menuIcon !== 'null') return menuIcon;
+        if (icon && icon !== 'null') return icon;
+        return '•';
+    },
+
+    /**
+     * Get progress status for a phase.
+     * @param {string} phaseId - Phase ID to check
+     * @returns {string} Status: 'completed', 'in-progress', or 'not-started'
+     */
+    getPhaseProgress(phaseId) {
+        // Temporarily switch to the phase's storage context
+        const originalPhase = StorageManager.currentPhaseId;
+        StorageManager.currentPhaseId = phaseId;
+
+        const hasProgress = StorageManager.hasResumableProgress();
+        const completedModes = StorageManager.loadCompletedModes();
+
+        // Restore original phase
+        StorageManager.currentPhaseId = originalPhase;
+
+        // Determine status
+        if (completedModes.includes('full')) return 'completed';
+        if (hasProgress) return 'in-progress';
+        return 'not-started';
     },
 
     /**
@@ -300,8 +359,14 @@ const AppNavMenu = {
             this.updateModeOptions();
         }
 
-        // Go to welcome page for this phase
-        this.showView('welcome');
+        // Check if there's resumable progress
+        if (StorageManager.hasResumableProgress()) {
+            // Resume questionnaire directly (better UX when clicking "Continue →")
+            await this.resumeProgress();
+        } else {
+            // No progress - go to welcome page
+            this.showView('welcome');
+        }
     },
 
     /**
@@ -309,6 +374,42 @@ const AppNavMenu = {
      */
     refreshMenu() {
         this.populateMenu();
+    },
+
+    /**
+     * Refresh only the progress indicators without re-rendering the entire menu.
+     * Call this when progress state changes (save, clear, import, etc.)
+     */
+    refreshMenuIndicators() {
+        const menuItems = document.getElementById('nav-menu-items');
+        if (!menuItems) return;
+
+        const phases = DataLoader.getPhases();
+
+        phases.forEach(phase => {
+            // Find the menu link for this phase
+            const link = menuItems.querySelector(`[data-phase-id="${phase.id}"]`);
+            if (!link) return;
+
+            // Find the indicator span
+            const indicator = link.querySelector('.nav-menu-indicator');
+            if (!indicator) return;
+
+            // Get current progress status
+            const progressStatus = this.getPhaseProgress(phase.id);
+
+            // Update indicator content
+            let indicatorContent = '';
+            if (progressStatus === 'in-progress') {
+                indicatorContent = 'Continue →';
+            } else if (progressStatus === 'completed') {
+                indicatorContent = '✓';
+            }
+
+            // Update classes
+            indicator.className = `nav-menu-indicator nav-menu-indicator--${progressStatus}`;
+            indicator.textContent = indicatorContent;
+        });
     }
 };
 

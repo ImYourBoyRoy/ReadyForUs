@@ -349,7 +349,7 @@ dating_questionnaire/
 ├── README.md                   # This file
 │
 ├── data/
-│   ├── phases.json             # Phase definitions
+│   ├── config.json             # Site-wide configuration
 │   ├── SCHEMA.md               # Schema documentation
 │   ├── TEMPLATE_questions.json # Template for new phases
 │   ├── TEMPLATE_prompts.json   # Template for new prompts
@@ -582,11 +582,13 @@ Edit `data/phase_*/questions.json`. The system supports **4 question types**:
 
 ### Creating a New Phase
 
-1. Create a new folder in `data/` (e.g., `data/phase_2/`)
-2. Copy `TEMPLATE_questions.json` and `TEMPLATE_prompts.json` into it
-3. Rename them to `questions.json` and `prompts.json`
-4. Edit the content following the schema in `data/SCHEMA.md`
-5. Add the new phase to `data/phases.json`
+1. Create a new folder in `data/` matching pattern `phase_X` (e.g., `data/phase_2/`)
+2. Copy `TEMPLATE_manifest.json`, `TEMPLATE_questions.json`, and `TEMPLATE_prompts.json` into it
+3. Rename them to `manifest.json`, `questions.json`, and `prompts.json`
+4. Fill in the `display` section in `manifest.json` with id, title, short_title, description, icon, and order
+5. Edit the content following the schema in `data/SCHEMA.md`
+
+> **Note**: Phases are auto-discovered! The app probes for folders matching `phase_0` through `phase_10` (including `.5` sub-versions like `phase_1.5`). No registry file needed.
 
 ### Adding to Lite vs Full Mode
 

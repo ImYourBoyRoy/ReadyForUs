@@ -1,0 +1,65 @@
+{
+  "id": "q44",
+  "section_id": "s10",
+  "order": 44,
+  "title": "Faith-Based Expectations / Standards",
+  "prompt": "If applicable, which faith-based expectations matter for defining the relationship? Select any.",
+  "type": "multi_select",
+  "answer_schema": {
+    "selected_values": [],
+    "other_text": "",
+    "notes": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "full"
+    ]
+  },
+  "options": [
+    {
+      "value": "shared_worshipchurch_life",
+      "label": "shared worship/church life"
+    },
+    {
+      "value": "sexual_standardsboundaries_eg",
+      "label": "sexual standards/boundaries (e.g., chastity expectations)"
+    },
+    {
+      "value": "word_of_wisdom",
+      "label": "Word of Wisdom style alignment (substances)"
+    },
+    {
+      "value": "sabbath_day_approach",
+      "label": "Sabbath day approach"
+    },
+    {
+      "value": "templecovenant_direction_if",
+      "label": "temple/covenant direction (if applicable)"
+    },
+    {
+      "value": "tithinggenerosity_and_stewards",
+      "label": "tithing/generosity and stewardship approach"
+    },
+    {
+      "value": "rolesleadership_expectations",
+      "label": "roles/leadership expectations"
+    },
+    {
+      "value": "family_integration_expectation",
+      "label": "family integration expectations"
+    },
+    {
+      "value": "none",
+      "label": "none"
+    },
+    {
+      "value": "other",
+      "label": "other (write in)"
+    }
+  ],
+  "examples": [
+    "Shared worship (e.g., going to church together).",
+    "Sexual standards (e.g., waiting for marriage).",
+    "Tithing (e.g., agreement on charitable giving)."
+  ]
+}

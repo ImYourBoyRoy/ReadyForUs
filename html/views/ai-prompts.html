@@ -1,0 +1,71 @@
+<!-- ./html/views/ai-prompts.html -->
+<!-- AI Prompts Transparency: Dynamically displays AI prompts for each questionnaire phase -->
+
+<section id="view-ai-prompts" class="view" aria-labelledby="ai-prompts-title" tabindex="-1">
+    <div class="about-container">
+        <!-- Hero Section -->
+        <header class="about-hero">
+            <div class="about-hero-content">
+                <div class="about-intro">
+                    <div class="about-badge">🤖 Transparency</div>
+                    <h1 id="ai-prompts-title" class="about-title">AI Prompts</h1>
+                    <p class="about-tagline">Complete transparency on how AI analyzes your responses</p>
+                    <p class="about-lead">
+                        We believe in being fully transparent about how AI is used in Ready for Us.
+                        Below you'll find the exact prompts we provide to AI when analyzing your questionnaire
+                        responses.
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="about-content">
+            <!-- How It Works Card -->
+            <article class="about-card about-card-featured">
+                <h2 class="about-section-title">How AI Analysis Works</h2>
+                <p class="about-text">
+                    When you export your answers and paste them into an AI assistant, that AI uses our carefully crafted
+                    prompts to provide meaningful, personalized insights. Each prompt includes:
+                </p>
+                <ul class="about-list about-list-positive">
+                    <li><strong>Role</strong> — Who the AI should be when responding (e.g., therapist, coach)</li>
+                    <li><strong>Context</strong> — Background information about the questionnaire phase</li>
+                    <li><strong>Output Format</strong> — The specific sections and structure of the analysis</li>
+                    <li><strong>Constraints</strong> — Guidelines to ensure helpful, ethical responses</li>
+                </ul>
+            </article>
+
+            <!-- Phase Selector -->
+            <div class="ai-prompts-phase-selector">
+                <h2 class="about-section-title">Select a Phase to View Prompts</h2>
+                <div id="ai-prompts-phase-tabs" class="ai-prompts-tabs">
+                    <!-- Tabs populated dynamically by ai-prompts.js -->
+                    <p class="ai-prompts-loading">Loading phases...</p>
+                </div>
+            </div>
+
+            <!-- Prompts Container -->
+            <div id="ai-prompts-container" class="ai-prompts-container">
+                <!-- Prompt cards populated dynamically by ai-prompts.js -->
+            </div>
+
+            <!-- Privacy Note -->
+            <article class="about-card about-card-closing">
+                <h2 class="about-section-title">Privacy Reminder</h2>
+                <p class="about-text">
+                    Your questionnaire answers never leave your device unless you choose to export them.
+                    When using AI for analysis, you control what you share. Feel free to redact names,
+                    omit sensitive details, or share only what feels comfortable.
+                </p>
+            </article>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="about-actions">
+            <button id="btn-ai-prompts-dashboard" class="btn btn-primary">
+                Back to Home
+            </button>
+        </div>
+    </div>
+</section>

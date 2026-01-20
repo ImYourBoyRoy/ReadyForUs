@@ -1,0 +1,66 @@
+{
+    "schema_version": "1.3.0",
+    "display": {
+        "id": "phase_2",
+        "title": "Phase 2: Define the Relationship (DTR) Check-In",
+        "short_title": "Define Us",
+        "description": "A clear, emotionally-safe commitment audit to define exclusivity, expectations, and next steps without guesswork.",
+        "icon": "⚓",
+        "menu_icon": "❞",
+        "order": 2
+    },
+    "artifact": {
+        "id": "phase_2_dtr_checkin",
+        "title": "DTR Check-In",
+        "subtitle": "Move from ambiguity to clarity: define terms, verify safety, and choose the next step with integrity.",
+        "language": "en-US",
+        "stage": {
+            "code": "phase_2",
+            "label": "Defining the Relationship",
+            "eligibility": [
+                "You are dating intentionally and considering exclusivity, labels, or a defined commitment step.",
+                "You feel the ambiguity is starting to cost you (emotionally, spiritually, or relationally).",
+                "You want to confirm your assumptions about expectations before you commit further.",
+                "You want a clean, respectful next step: Define, Pause, or Step Back."
+            ]
+        },
+        "purpose": [
+            "Clarify what 'defining the relationship' means for you (exclusivity, expectations, boundaries, visibility).",
+            "Check nervous-system safety and masking so commitment is grounded, not performative.",
+            "Surface hidden expectations, dealbreakers, and misalignments early (before they become damage).",
+            "Assess conflict and repair reliability (a better predictor than avoiding conflict).",
+            "Produce a practical conversation pack: talking points, boundaries, fears, requests, and a shared next step."
+        ]
+    },
+    "intro": {
+        "instructions": {
+            "title": "How to Use This Phase",
+            "items": [
+                "Answer from recent reality (the last few weeks), not from hope or projection.",
+                "If a question tightens your stomach, treat it as information, not a problem.",
+                "This is for clarity, not pressure. You can choose 'not yet' and still be healthy.",
+                "If you notice coercion, control, or repeated boundary violations, pause and get human support."
+            ]
+        },
+        "keep_in_mind": {
+            "title": "Core Reminders",
+            "items": [
+                "Chemistry is not compatibility. Compatibility is how two nervous systems and lifestyles fit over time.",
+                "A DTR only works when terms are explicit. Assumptions silently poison trust.",
+                "Masking to be liked is not sustainable. Commitment must be safe for the real self.",
+                "Repair skill predicts longevity better than the absence of conflict.",
+                "If faith is central for you, it must be treated as core identity, not a side preference."
+            ]
+        }
+    },
+    "prompts_artifact": {
+        "id": "phase_2_prompts",
+        "title": "Phase 2: DTR Analysis Prompts",
+        "language": "en-US",
+        "applies_to": "phase_2_dtr_checkin"
+    },
+    "privacy_preface": {
+        "title": "Privacy & Safety",
+        "text": "Your inputs are yours until you choose to export or share them. If using AI for analysis, redact names or identifying details if you prefer. This tool provides decision support, not clinical diagnosis. If the audit surfaces coercion, control, threats, stalking, or repeated boundary violations, pause and seek trusted human support."
+    }
+}

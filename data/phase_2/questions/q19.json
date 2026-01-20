@@ -1,0 +1,105 @@
+{
+  "id": "q19",
+  "section_id": "s4",
+  "order": 19,
+  "title": "The Pink Flag Check (Chemistry Filter)",
+  "prompt": "Is there something you're minimizing because the chemistry is strong? You can keep it high-level.",
+  "type": "compound",
+  "answer_schema": {
+    "are_you_ignoring_a": "",
+    "if_yesunsure": "",
+    "optional_context": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "lite",
+      "full"
+    ]
+  },
+  "fields": [
+    {
+      "key": "are_you_ignoring_a",
+      "label": "Are you ignoring a small-but-real concern?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "no",
+          "label": "no"
+        },
+        {
+          "value": "yes",
+          "label": "yes"
+        },
+        {
+          "value": "unsure",
+          "label": "unsure"
+        }
+      ]
+    },
+    {
+      "key": "if_yesunsure",
+      "label": "If yes/unsure",
+      "type": "short_text",
+      "options": [
+        {
+          "value": "communication_style",
+          "label": "communication style"
+        },
+        {
+          "value": "conflict_behavior",
+          "label": "conflict behavior"
+        },
+        {
+          "value": "faithvalues",
+          "label": "faith/values"
+        },
+        {
+          "value": "boundariessexual_pace",
+          "label": "boundaries/sexual pace"
+        },
+        {
+          "value": "jealousyinsecurity",
+          "label": "jealousy/insecurity"
+        },
+        {
+          "value": "ambitionwork_ethic",
+          "label": "ambition/work ethic"
+        },
+        {
+          "value": "money_habits",
+          "label": "money habits"
+        },
+        {
+          "value": "cleanlinesslifestyle",
+          "label": "cleanliness/lifestyle"
+        },
+        {
+          "value": "exboundaries",
+          "label": "ex-boundaries"
+        },
+        {
+          "value": "family_involvement",
+          "label": "family involvement"
+        },
+        {
+          "value": "other",
+          "label": "other"
+        },
+        {
+          "value": "prefer_not_to",
+          "label": "prefer not to say"
+        }
+      ]
+    },
+    {
+      "key": "optional_context",
+      "label": "Optional context",
+      "type": "free_text"
+    }
+  ],
+  "examples": [
+    "No concern: Everything feels green light.",
+    "Yes: Conflict behavior (they shut down and won't talk for days).",
+    "Yes: Money habits (they seem financially irresponsible)."
+  ]
+}

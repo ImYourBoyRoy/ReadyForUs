@@ -1,0 +1,45 @@
+{
+  "id": "q21",
+  "section_id": "s4",
+  "order": 21,
+  "title": "Eggshel ls Check",
+  "prompt": "Do you feel you have to manage their emotions to keep peace?",
+  "type": "single_select",
+  "answer_schema": {
+    "selected_value": "",
+    "other_text": "",
+    "notes": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "full"
+    ]
+  },
+  "options": [
+    {
+      "value": "no",
+      "label": "no"
+    },
+    {
+      "value": "sometimes",
+      "label": "sometimes"
+    },
+    {
+      "value": "often",
+      "label": "often"
+    },
+    {
+      "value": "yes_regularly",
+      "label": "yes, regularly"
+    },
+    {
+      "value": "not_sure_yet",
+      "label": "not sure yet"
+    }
+  ],
+  "examples": [
+    "No (e.g., I feel free to bring up issues).",
+    "Sometimes (e.g., I hesitate to bring up needs because they might get annoyed).",
+    "Yes, regularly (e.g., I constantly monitor their mood to avoid conflict)."
+  ]
+}

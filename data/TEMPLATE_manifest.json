@@ -1,5 +1,13 @@
 {
     "schema_version": "1.3.0",
+    "display": {
+        "id": "REPLACE_phase_id",
+        "title": "REPLACE_Phase Title",
+        "short_title": "REPLACE_Short Title",
+        "description": "REPLACE_Brief description for dashboard card",
+        "icon": "📋",
+        "order": 0
+    },
     "artifact": {
         "id": "REPLACE_phase_id",
         "title": "REPLACE_Title",

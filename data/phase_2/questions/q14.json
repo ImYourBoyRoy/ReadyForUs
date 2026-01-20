@@ -1,0 +1,46 @@
+{
+  "id": "q14",
+  "section_id": "s3",
+  "order": 14,
+  "title": "Exclusivity Reality Check",
+  "prompt": "Right now, are you exclusive?",
+  "type": "single_select",
+  "answer_schema": {
+    "selected_value": "",
+    "other_text": "",
+    "notes": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "lite",
+      "full"
+    ]
+  },
+  "options": [
+    {
+      "value": "yes",
+      "label": "yes"
+    },
+    {
+      "value": "no",
+      "label": "no"
+    },
+    {
+      "value": "not_sure",
+      "label": "not sure"
+    },
+    {
+      "value": "we_havent_defined",
+      "label": "we haven't defined it"
+    },
+    {
+      "value": "its_complicated",
+      "label": "it's complicated"
+    }
+  ],
+  "examples": [
+    "Yes (we have explicitly agreed to be exclusive).",
+    "No (we are still technically free to see others).",
+    "It's complicated (we act exclusive but haven't defined it)."
+  ]
+}

@@ -482,6 +482,27 @@ const StorageManager = {
         } catch (e) {
             console.error('Failed to save bookmarks:', e);
         }
+    },
+
+    // ==================== PROGRESS STATS ====================
+
+    /**
+     * Get progress statistics for current phase.
+     * @param {number} totalQuestions - Total number of questions in the mode.
+     * @returns {Object} Progress stats including percentage and counts.
+     */
+    getProgressStats(totalQuestions = 0) {
+        const responses = this.loadResponses();
+        const responseCount = Object.keys(responses).length;
+        const percentage = totalQuestions > 0 ? Math.round((responseCount / totalQuestions) * 100) : 0;
+
+        return {
+            responseCount,
+            totalQuestions,
+            percentage,
+            hasProgress: responseCount > 0,
+            mode: this.loadMode()
+        };
     }
 };
 

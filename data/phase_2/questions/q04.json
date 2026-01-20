@@ -1,0 +1,49 @@
+{
+  "id": "q04",
+  "section_id": "s1",
+  "order": 4,
+  "title": "Masking / Filtering",
+  "prompt": "When you're with them for a long stretch, how much do you feel you have to perform or filter yourself?",
+  "type": "single_select",
+  "answer_schema": {
+    "selected_value": "",
+    "other_text": "",
+    "notes": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "full"
+    ]
+  },
+  "options": [
+    {
+      "value": "none_im_fully",
+      "label": "none, I'm fully myself"
+    },
+    {
+      "value": "light_filtering_mostly",
+      "label": "light filtering, mostly myself"
+    },
+    {
+      "value": "moderate_filtering_im",
+      "label": "moderate filtering, I'm careful about what I say/do"
+    },
+    {
+      "value": "heavy_masking_i",
+      "label": "heavy masking, I feel like I have to be on to be liked"
+    },
+    {
+      "value": "not_sure_yet",
+      "label": "not sure yet"
+    },
+    {
+      "value": "other",
+      "label": "other (write in)"
+    }
+  ],
+  "examples": [
+    "None (e.g., I can be weird, quiet, or loud, and they accept it all).",
+    "Light filtering (e.g., I'm mostly myself but hold back slightly on controversial opinions).",
+    "Heavy masking (e.g., I feel like I'm playing a character to keep them interested)."
+  ]
+}

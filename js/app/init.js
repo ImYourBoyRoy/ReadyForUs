@@ -226,8 +226,10 @@ const AppInit = {
         // About page - Back to Dashboard
         // About page - Back to Dashboard (Delegated)
         document.addEventListener('click', (e) => {
-            if (e.target.id === 'btn-about-dashboard') {
-                this.returnToPrevious();
+            if (e.target.id === 'btn-about-dashboard' ||
+                e.target.id === 'btn-howto-dashboard' ||
+                e.target.id === 'btn-ai-prompts-dashboard') {
+                window.location.hash = '/';
             }
         });
 

@@ -10,6 +10,8 @@
  */
 
 const AppDashboard = {
+    // Guard against duplicate event listener setup
+    _dashboardListenersInitialized: false,
     /**
      * Render the dashboard with questionnaire cards.
      * Uses progressive loading: renders skeleton cards first, then populates
@@ -18,6 +20,11 @@ const AppDashboard = {
     async renderDashboard() {
         const grid = document.getElementById('questionnaire-grid');
         if (!grid) return;
+
+        // Refresh menu indicators whenever dashboard is rendered
+        if (typeof this.refreshMenuIndicators === 'function') {
+            this.refreshMenuIndicators();
+        }
 
         // Render dynamic header, instructions, and tips from config
         this.renderDashboardHeader();
@@ -41,47 +48,33 @@ const AppDashboard = {
             if (card) {
                 const phaseId = card.dataset.phaseId;
                 if (phaseId) {
-                    // Navigate to welcome page where user can choose mode
-                    this.selectQuestionnaire(phaseId, null);
+                    // Check if they clicked the Continue button (resume progress)
+                    const isContinueBtn = e.target.closest('.card-cta-continue');
+                    if (isContinueBtn) {
+                        // Resume existing progress
+                        this.selectQuestionnaire(phaseId, null, true);
+                    } else {
+                        // Navigate to welcome page where user can choose mode
+                        this.selectQuestionnaire(phaseId, null);
+                    }
                 }
             }
         });
 
-        // Check for resume banner (can show immediately from localStorage)
-        this.updateDashboardResumeBanner();
+        // Hide global resume banner since cards now show per-phase progress
+        const resumeBanner = document.getElementById('dashboard-resume-banner');
+        if (resumeBanner) {
+            resumeBanner.classList.add('hidden');
+        }
 
         // Check for install banner (PWA)
         this.updateInstallBanner();
 
-        // Setup dashboard button in nav
-        document.getElementById('btn-dashboard')?.addEventListener('click', () => {
-            this.showView('dashboard');
-            this.renderDashboard();
-        });
-
-        // Setup install button
-        document.getElementById('btn-install-app')?.addEventListener('click', async () => {
-            if (typeof PWAInstall !== 'undefined' && PWAInstall.canInstall()) {
-                const result = await PWAInstall.triggerInstall();
-                if (result.outcome === 'accepted') {
-                    this.showToast('App installed successfully! 🎉', 'success');
-                }
-                this.updateInstallBanner();
-            }
-        });
-
-        // Setup dashboard resume/fresh buttons
-        document.getElementById('btn-dashboard-resume')?.addEventListener('click', () => {
-            const lastPhase = StorageManager.getLastPhase();
-            if (lastPhase) {
-                this.selectQuestionnaire(lastPhase, null, true);
-            }
-        });
-
-        document.getElementById('btn-dashboard-fresh')?.addEventListener('click', () => {
-            const lastPhase = StorageManager.getLastPhase() || DataLoader.getDefaultPhaseId();
-            this.selectQuestionnaire(lastPhase, 'lite', false);
-        });
+        // Setup dashboard button listeners (only once)
+        if (!this._dashboardListenersInitialized) {
+            this._dashboardListenersInitialized = true;
+            this.setupDashboardListeners();
+        }
 
         // PHASE 2: Load metadata in parallel and update cards progressively
         phases.forEach(async (phase) => {
@@ -92,6 +85,50 @@ const AppDashboard = {
                 console.warn(`Failed to load metadata for ${phase.id}:`, error);
             }
         });
+    },
+
+    /**
+     * Set up dashboard button event listeners.
+     * Called once to avoid duplicate handlers.
+     */
+    setupDashboardListeners() {
+        // Dashboard button in nav
+        document.getElementById('btn-dashboard')?.addEventListener('click', () => {
+            this.showView('dashboard');
+            this.renderDashboard();
+        });
+
+        // Install app button
+        document.getElementById('btn-install-app')?.addEventListener('click', async () => {
+            if (typeof PWAInstall !== 'undefined' && PWAInstall.canInstall()) {
+                const result = await PWAInstall.triggerInstall();
+                if (result.outcome === 'accepted') {
+                    this.showToast('App installed successfully! 🎉', 'success');
+                }
+                this.updateInstallBanner();
+            }
+        });
+
+        // Resume button
+        document.getElementById('btn-dashboard-resume')?.addEventListener('click', () => {
+            const lastPhase = StorageManager.getLastPhase();
+            if (lastPhase) {
+                this.selectQuestionnaire(lastPhase, null, true);
+            }
+        });
+
+        // Start fresh button
+        document.getElementById('btn-dashboard-fresh')?.addEventListener('click', () => {
+            const lastPhase = StorageManager.getLastPhase() || DataLoader.getDefaultPhaseId();
+            this.selectQuestionnaire(lastPhase, 'lite', false);
+        });
+
+        // Listen for PWA state changes (showing banner when prompt becomes available)
+        if (typeof PWAInstall !== 'undefined') {
+            PWAInstall.onStateChange(() => {
+                this.updateInstallBanner();
+            });
+        }
     },
 
     /**
@@ -140,6 +177,44 @@ const AppDashboard = {
                 </div>
             </div>
         `;
+    },
+
+    /**
+     * Get detailed progress information for a specific phase.
+     * @param {string} phaseId - Phase ID to check
+     * @param {Object} metadata - Phase metadata with question counts
+     * @returns {Object} Progress info or null if no progress
+     */
+    getPhaseProgressDetails(phaseId, metadata) {
+        const originalPhase = StorageManager.currentPhaseId;
+        StorageManager.currentPhaseId = phaseId;
+
+        const responses = StorageManager.loadResponses();
+        const responseCount = Object.keys(responses).length;
+        const mode = StorageManager.loadMode();
+        const hasProgress = responseCount > 0;
+
+        // Debug logging
+        console.log(`[Progress Check] Phase: ${phaseId}, Responses: ${responseCount}, Mode: ${mode}, Metadata:`, metadata);
+
+        // Get total questions for the saved mode
+        const totalQuestions = mode === 'lite' ? (metadata.liteCount || 0) : (metadata.fullCount || 0);
+
+        const percentage = totalQuestions > 0 ? Math.round((responseCount / totalQuestions) * 100) : 0;
+
+        StorageManager.currentPhaseId = originalPhase;
+
+        if (hasProgress) {
+            console.log(`[Progress Detected] ${phaseId}: ${percentage}% (${responseCount}/${totalQuestions})`);
+        }
+
+        return hasProgress ? {
+            hasProgress: true,
+            mode,
+            responseCount,
+            totalQuestions,
+            percentage
+        } : null;
     },
 
     /**
@@ -202,17 +277,44 @@ const AppDashboard = {
             detailsContainer.innerHTML = detailsHTML || '';
         }
 
-        // Update question counts with smooth transition
-        const liteCount = card.querySelector('.question-count-badge:first-child .count-number');
-        const fullCount = card.querySelector('.question-count-badge:last-child .count-number');
+        // Check for existing progress
+        const progress = this.getPhaseProgressDetails(phaseId, metadata);
 
-        if (liteCount) {
-            liteCount.classList.remove('skeleton-pulse');
-            liteCount.textContent = metadata.liteCount || 0;
-        }
-        if (fullCount) {
-            fullCount.classList.remove('skeleton-pulse');
-            fullCount.textContent = metadata.fullCount || 0;
+        // Update footer with progress or question counts
+        const footerEl = card.querySelector('.card-footer');
+        if (footerEl) {
+            if (progress && progress.hasProgress) {
+                // Show progress indicator and Continue button
+                footerEl.innerHTML = `
+                    <div class="card-progress-section">
+                        <div class="progress-info">
+                            <span class="progress-percentage">${progress.percentage}%</span>
+                            <span class="progress-counts">${progress.responseCount}/${progress.totalQuestions} questions</span>
+                            <span class="progress-mode-badge">${progress.mode === 'lite' ? 'Lite' : 'Full'} Mode</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${progress.percentage}%"></div>
+                        </div>
+                    </div>
+                    <div class="card-cta card-cta-continue">
+                        <span class="cta-text">Continue</span>
+                        <span class="cta-arrow">→</span>
+                    </div>
+                `;
+            } else {
+                // Show normal question counts and CTA
+                const liteCount = card.querySelector('.question-count-badge:first-child .count-number');
+                const fullCount = card.querySelector('.question-count-badge:last-child .count-number');
+
+                if (liteCount) {
+                    liteCount.classList.remove('skeleton-pulse');
+                    liteCount.textContent = metadata.liteCount || 0;
+                }
+                if (fullCount) {
+                    fullCount.classList.remove('skeleton-pulse');
+                    fullCount.textContent = metadata.fullCount || 0;
+                }
+            }
         }
     },
 

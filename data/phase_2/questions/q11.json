@@ -1,0 +1,80 @@
+{
+  "id": "q11",
+  "section_id": "s2",
+  "order": 11,
+  "title": "What Should Change After Labeling",
+  "prompt": "If you define the relationship, what do you believe should change (if anything)?",
+  "type": "compound",
+  "answer_schema": {
+    "select_any_that_you": [],
+    "if_other_describe": "",
+    "notes": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "lite",
+      "full"
+    ]
+  },
+  "fields": [
+    {
+      "key": "select_any_that_you",
+      "label": "Select any that you expect to change",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "communication_consistency",
+          "label": "communication consistency"
+        },
+        {
+          "value": "time_together",
+          "label": "time together"
+        },
+        {
+          "value": "emotional_responsibility_and",
+          "label": "emotional responsibility and follow-through"
+        },
+        {
+          "value": "physicalsexual_boundaries",
+          "label": "physical/sexual boundaries"
+        },
+        {
+          "value": "clarity_about_exclusivity",
+          "label": "clarity about exclusivity"
+        },
+        {
+          "value": "social_visibility_friendsfamil",
+          "label": "social visibility (friends/family/social media)"
+        },
+        {
+          "value": "future_planning",
+          "label": "future planning"
+        },
+        {
+          "value": "nothing_major_should",
+          "label": "nothing major should change, just clarity"
+        },
+        {
+          "value": "other",
+          "label": "other (write in)"
+        }
+      ]
+    },
+    {
+      "key": "if_other_describe",
+      "label": "If other, describe",
+      "type": "short_text"
+    },
+    {
+      "key": "notes",
+      "label": "Notes",
+      "type": "free_text"
+    }
+  ],
+  "examples": [
+    "Communication consistency: I expect us to talk every day.",
+    "Social visibility: I expect to meet their friends soon.",
+    "Emotional responsibility: I expect them to care more about my feelings.",
+    "Nothing major: We are already acting like a couple, I just want the title."
+  ]
+}

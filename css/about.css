@@ -482,3 +482,419 @@
         font-size: var(--font-size-xs);
     }
 }
+
+/* ==================== How-To Page Styles ==================== */
+
+/* Ordered steps list */
+.howto-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: howto-step;
+}
+
+.howto-steps>li {
+    position: relative;
+    padding: var(--space-4) 0 var(--space-4) var(--space-10);
+    border-bottom: 1px solid var(--color-border);
+    counter-increment: howto-step;
+}
+
+.howto-steps>li:last-child {
+    border-bottom: none;
+}
+
+.howto-steps>li::before {
+    content: counter(howto-step);
+    position: absolute;
+    left: 0;
+    top: var(--space-4);
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+    border-radius: 50%;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.howto-steps>li strong {
+    display: block;
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+}
+
+.howto-steps>li p {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+}
+
+.howto-steps-compact>li {
+    padding: var(--space-2) 0 var(--space-2) var(--space-8);
+}
+
+.howto-steps-compact>li::before {
+    width: 22px;
+    height: 22px;
+    font-size: var(--font-size-xs);
+    top: var(--space-2);
+}
+
+.howto-link {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: var(--font-weight-medium);
+}
+
+.howto-link:hover {
+    color: var(--color-primary-hover);
+}
+
+/* ==================== AI Prompts Page Styles ==================== */
+
+/* Phase tabs */
+.ai-prompts-phase-selector {
+    margin-bottom: var(--space-6);
+}
+
+.ai-prompts-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+}
+
+.ai-prompts-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    font-family: inherit;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.ai-prompts-tab:hover {
+    border-color: var(--color-primary);
+    color: var(--color-text);
+}
+
+.ai-prompts-tab.active {
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+    border-color: var(--color-primary);
+}
+
+.ai-prompts-tab-icon {
+    font-size: var(--font-size-base);
+}
+
+/* Prompts container */
+.ai-prompts-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.ai-prompts-loading,
+.ai-prompts-error {
+    padding: var(--space-6);
+    text-align: center;
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+.ai-prompts-error {
+    color: var(--color-error);
+}
+
+/* Prompt cards */
+.ai-prompts-card {
+    overflow: hidden;
+}
+
+.ai-prompts-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    background: var(--color-bg-elevated);
+    border-bottom: 1px solid var(--color-border);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+    margin: calc(-1 * var(--space-6));
+    margin-bottom: var(--space-4);
+}
+
+.ai-prompts-card-header:hover {
+    background: var(--color-bg-hover);
+}
+
+.ai-prompts-card-icon {
+    font-size: var(--font-size-lg);
+}
+
+.ai-prompts-card-title {
+    flex: 1;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    margin: 0;
+}
+
+.ai-prompts-card-toggle {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    transition: transform var(--transition-fast);
+}
+
+.ai-prompts-card.collapsed .ai-prompts-card-content {
+    display: none;
+}
+
+.ai-prompts-description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-4);
+    padding: var(--space-3);
+    background: var(--color-bg-hover);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--color-primary);
+}
+
+/* Prompt sections */
+.ai-prompts-section {
+    margin-bottom: var(--space-5);
+}
+
+.ai-prompts-section:last-child {
+    margin-bottom: 0;
+}
+
+.ai-prompts-section-title {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+}
+
+.ai-prompts-text {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.ai-prompts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ai-prompts-list li {
+    position: relative;
+    padding: var(--space-2) 0 var(--space-2) var(--space-5);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+    color: var(--color-text-secondary);
+}
+
+.ai-prompts-list li::before {
+    content: '•';
+    position: absolute;
+    left: var(--space-2);
+    color: var(--color-primary);
+}
+
+/* Output format sections */
+.ai-prompts-output-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.ai-prompts-output-section {
+    padding: var(--space-3);
+    background: var(--color-bg-hover);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+}
+
+.ai-prompts-output-section strong {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+}
+
+.ai-prompts-requirements {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ai-prompts-requirements li {
+    position: relative;
+    padding: var(--space-1) 0 var(--space-1) var(--space-4);
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-normal);
+    color: var(--color-text-muted);
+}
+
+.ai-prompts-requirements li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ai-prompts-tabs {
+        flex-direction: column;
+    }
+
+    .ai-prompts-tab {
+        justify-content: center;
+    }
+
+    .howto-steps>li {
+        padding-left: var(--space-8);
+    }
+
+    .howto-steps>li::before {
+        width: 24px;
+        height: 24px;
+        font-size: var(--font-size-xs);
+    }
+}
+
+/* ==================== AI Prompts Accordion ==================== */
+.ai-prompts-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.phase-accordion-item {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: box-shadow var(--transition-normal);
+}
+
+.phase-accordion-item:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.phase-accordion-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background var(--transition-fast);
+}
+
+.phase-accordion-header:hover {
+    background: var(--color-bg-hover);
+}
+
+.phase-accordion-header[aria-expanded="true"] {
+    background: var(--color-bg-elevated);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.phase-accordion-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xl);
+    background: var(--color-bg-hover);
+    border-radius: var(--radius-full);
+    color: var(--color-primary);
+}
+
+.phase-accordion-title-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.phase-accordion-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+}
+
+.phase-accordion-subtitle {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.phase-accordion-toggle {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    transition: transform var(--transition-normal);
+}
+
+.phase-accordion-content {
+    padding: var(--space-6);
+    background: var(--color-bg-section);
+}
+
+.phase-prompts-loading {
+    padding: var(--space-4);
+    text-align: center;
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+.phase-prompts-loading.error {
+    color: var(--color-error);
+    font-style: normal;
+}
+
+.ai-prompts-empty {
+    text-align: center;
+    color: var(--color-text-muted);
+    padding: var(--space-4);
+}
+
+/* Responsive adjustments for Accordion */
+@media (max-width: 480px) {
+    .phase-accordion-header {
+        padding: var(--space-4);
+        gap: var(--space-3);
+    }
+
+    .phase-accordion-icon {
+        width: 32px;
+        height: 32px;
+        font-size: var(--font-size-lg);
+    }
+
+    .phase-accordion-title {
+        font-size: var(--font-size-base);
+    }
+}

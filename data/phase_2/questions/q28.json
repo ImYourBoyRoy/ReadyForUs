@@ -1,0 +1,63 @@
+{
+  "id": "q28",
+  "section_id": "s6",
+  "order": 28,
+  "title": "Values Alignment (Real-Life, Not Theory)",
+  "prompt": "Do your core values feel aligned in real life right now?",
+  "type": "compound",
+  "answer_schema": {
+    "overall_alignment": "",
+    "f_12_values_that_feel": "",
+    "f_12_values_that_feel_2": ""
+  },
+  "tags": {
+    "included_in_manifests": [
+      "lite",
+      "full"
+    ]
+  },
+  "fields": [
+    {
+      "key": "overall_alignment",
+      "label": "Overall alignment",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "aligned",
+          "label": "aligned"
+        },
+        {
+          "value": "mostly_aligned",
+          "label": "mostly aligned"
+        },
+        {
+          "value": "mixed",
+          "label": "mixed"
+        },
+        {
+          "value": "misaligned",
+          "label": "misaligned"
+        },
+        {
+          "value": "not_sure_yet",
+          "label": "not sure yet"
+        }
+      ]
+    },
+    {
+      "key": "f_12_values_that_feel",
+      "label": "1-2 values that feel aligned",
+      "type": "short_text"
+    },
+    {
+      "key": "f_12_values_that_feel_2",
+      "label": "1-2 values that feel uncertain",
+      "type": "short_text"
+    }
+  ],
+  "examples": [
+    "Aligned (e.g., we both value family and honesty deeply).",
+    "Misaligned (e.g., they prioritize work over everything, I prioritize connection).",
+    "Mixed (e.g., we share political views but differ on financial goals)."
+  ]
+}
