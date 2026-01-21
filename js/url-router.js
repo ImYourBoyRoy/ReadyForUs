@@ -26,10 +26,10 @@ const URLRouter = {
     previousRoute: null,
 
     // Known view names (non-question routes)
-    viewNames: ['welcome', 'review', 'complete', 'comparison', 'dashboard', 'about', 'howto', 'ai-prompts'],
+    viewNames: ['welcome', 'review', 'complete', 'comparison', 'dashboard', 'about', 'howto', 'ai-prompts', 'ai-analysis'],
 
     // Standalone views that don't require a phase (global views)
-    standaloneViews: ['about', 'howto', 'ai-prompts'],
+    standaloneViews: ['about', 'howto', 'ai-prompts', 'ai-analysis'],
 
     /**
      * Initialize the router.
@@ -165,14 +165,8 @@ const URLRouter = {
     async handleHashChange(isInitial = false) {
         const route = this.parseHash();
 
-        // Handle standalone views (like About) that don't need a phase
-        if (!route.phase && this.standaloneViews.includes(route.view)) {
-            App.showView(route.view);
-            return;
-        }
-
         // If no phase or dashboard view, show dashboard
-        if (!route.phase || route.view === 'dashboard') {
+        if (!route.phase && route.view === 'dashboard') {
             if (!isInitial) {
                 App.showView('dashboard');
                 App.renderDashboard();
@@ -180,15 +174,17 @@ const URLRouter = {
             return;
         }
 
-        // Check if we need to switch phases
-        const currentPhase = DataLoader.getCurrentPhaseId();
-        if (route.phase !== currentPhase) {
-            // Load the requested phase
-            DataLoader.setCurrentPhase(route.phase);
-            StorageManager.setPhase(route.phase);
-            await DataLoader.load();
-            App.updateModeOptions();
-            App.updateModeDisplay();
+        // Check if we need to switch phases (for phase-based views)
+        if (route.phase) {
+            const currentPhase = DataLoader.getCurrentPhaseId();
+            if (route.phase !== currentPhase) {
+                // Load the requested phase
+                DataLoader.setCurrentPhase(route.phase);
+                StorageManager.setPhase(route.phase);
+                await DataLoader.load();
+                App.updateModeOptions();
+                App.updateModeDisplay();
+            }
         }
 
         // Navigate to the requested view
@@ -248,6 +244,16 @@ const URLRouter = {
                 App.showView('ai-prompts');
                 App.initAIPromptsPage();
                 App.setupAIPromptsListeners();
+                break;
+
+            case 'ai-analysis':
+                App.showView('ai-analysis');
+                if (typeof App.initAIAnalysisPage === 'function') {
+                    App.initAIAnalysisPage();
+                }
+                if (typeof App.setupAIAnalysisListeners === 'function') {
+                    App.setupAIAnalysisListeners();
+                }
                 break;
 
             default:

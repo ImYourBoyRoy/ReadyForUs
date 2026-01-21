@@ -232,6 +232,114 @@ const AppExport = {
      * Bind events for the Complete page specifically.
      */
     bindCompleteViewEvents() {
+        // Name field - populate and auto-save
+        const nameInput = document.getElementById('complete-name-input');
+        if (nameInput) {
+            // Populate from storage
+            nameInput.value = this.getParticipantName();
+
+            // Auto-save on input (debounced)
+            let timeoutId;
+            nameInput.addEventListener('input', (e) => {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => {
+                    const newName = e.target.value.trim();
+                    if (newName) {
+                        this.participantName = newName;
+                        StorageManager.saveParticipantName(newName);
+                        if (typeof QuestionnaireEngine !== 'undefined') {
+                            QuestionnaireEngine.participantName = newName;
+                        }
+                    }
+                }, 300); // 300ms debounce
+            });
+        }
+
+        // Copy AI Prompt button - replaces navigation
+        const copyPromptBtn = document.getElementById('btn-copy-ai-prompt');
+        if (copyPromptBtn) {
+            copyPromptBtn.onclick = async () => {
+                const name = this.getParticipantName();
+                const success = await ExportManager.copyAIPrompt('individual', {
+                    participantName: name
+                });
+
+                if (success) {
+                    // Show success toast
+                    if (typeof this.showSuccessCopyToast === 'function') {
+                        this.showSuccessCopyToast(name);
+                    }
+
+                    // Visual button feedback
+                    const originalText = copyPromptBtn.textContent;
+                    copyPromptBtn.textContent = '✓ Copied!';
+                    copyPromptBtn.classList.add('btn-success');
+                    setTimeout(() => {
+                        copyPromptBtn.textContent = originalText;
+                        copyPromptBtn.classList.remove('btn-success');
+                    }, 2000);
+                } else {
+                    // Error feedback
+                    alert('Failed to copy to clipboard. Please use the View Raw button instead.');
+                }
+            };
+        }
+
+        // View Raw Prompt button
+        const viewRawBtn = document.getElementById('btn-view-raw-prompt');
+        if (viewRawBtn) {
+            viewRawBtn.onclick = () => {
+                const name = this.getParticipantName();
+                ExportManager.showIndividualPromptRaw({ participantName: name });
+            };
+        }
+
+        // Review Answers
+        const reviewBtn = document.getElementById('btn-review-answers');
+        if (reviewBtn) {
+            reviewBtn.onclick = () => {
+                const phase = DataLoader.getCurrentPhaseId();
+                window.location.hash = `#/${phase}/review`;
+            };
+        }
+
+        // Export Buttons
+        const exportJsonBtn = document.getElementById('btn-export-json');
+        if (exportJsonBtn) {
+            exportJsonBtn.onclick = () => this.exportJSON();
+        }
+
+        const exportTextBtn = document.getElementById('btn-export-text');
+        if (exportTextBtn) {
+            exportTextBtn.onclick = () => this.exportText();
+        }
+
+        // Upgrade to Full Mode
+        const upgradeBtn = document.getElementById('btn-upgrade-full');
+        if (upgradeBtn) {
+            upgradeBtn.onclick = async () => {
+                // Switch to full mode
+                QuestionnaireEngine.mode = 'full';
+                StorageManager.saveMode('full');
+
+                // Reinitialize with full mode
+                await QuestionnaireEngine.init('full');
+
+                // Navigate to first unanswered question in full mode
+                const phase = DataLoader.getCurrentPhaseId();
+                const firstUnanswered = QuestionnaireEngine.findFirstUnanswered();
+                if (firstUnanswered) {
+                    window.location.hash = `#/${phase}/${firstUnanswered}`;
+                } else {
+                    // All questions answered, go to questionnaire view
+                    window.location.hash = `#/${phase}/questionnaire`;
+                }
+            };
+        }
+
+        // Check if user completed in Lite mode and show upgrade section
+        this.updateUpgradeSection();
+
         // Partner file upload
         const zone = document.getElementById('upload-zone-partner');
         const input = document.getElementById('import-file-partner');
@@ -517,7 +625,55 @@ const AppExport = {
                 btn.classList.remove('success', 'error');
             }, 2000);
         }
+    },
+
+    /**
+     * Update the upgrade section visibility and position based on completion mode.
+     * Shows upgrade section prominently for Lite mode completers.
+     */
+    updateUpgradeSection() {
+        const upgradeSection = document.getElementById('upgrade-section');
+        if (!upgradeSection) return;
+
+        const currentMode = QuestionnaireEngine.mode || 'lite';
+        const completedModes = StorageManager.loadCompletedModes();
+
+        // Show upgrade section if user completed in Lite mode but not Full
+        if (currentMode === 'lite' && !completedModes.includes('full')) {
+            upgradeSection.style.display = 'block';
+
+            // Calculate additional questions
+            const stats = QuestionnaireEngine.getStats();
+            const fullQuestions = DataLoader.getQuestions('full');
+            const liteQuestions = DataLoader.getQuestions('lite');
+            const additionalCount = fullQuestions.length - liteQuestions.length;
+
+            const countEl = document.getElementById('additional-count');
+            if (countEl) {
+                countEl.textContent = additionalCount;
+            }
+
+            // Move upgrade section to prominent position (after review card)
+            const container = upgradeSection.parentElement;
+            const reviewCard = document.querySelector('.review-card');
+            if (container && reviewCard && reviewCard.nextSibling !== upgradeSection) {
+                container.insertBefore(upgradeSection, reviewCard.nextSibling);
+            }
+        } else {
+            upgradeSection.style.display = 'none';
+        }
+    },
+
+    /**
+     * Show success toast when AI prompt is copied.
+     * @param {string} name - Participant name
+     */
+    showSuccessCopyToast(name) {
+        if (typeof this.showToast === 'function') {
+            this.showToast(`✓ Successfully copied AI prompt for ${name}!`, 'success', 4000);
+        }
     }
+
 };
 
 // Mix into App when loaded

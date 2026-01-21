@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Ready for Us — A warm toolkit for healthy relationship building. From pre-dating preparation through intentional partnership.">
-    <!-- theme-color: Customizes the browser toolbar color -->
+    <!-- theme-color: Customizes browser toolbar color (Chrome, Edge, Safari - progressive enhancement) -->
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#7C6B9E">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1E1C1C">
 
@@ -53,24 +53,26 @@
         }
     </script>
 
-    <!-- Stylesheets (v=2.3.1 for cache busting) -->
-    <link rel="stylesheet" href="css/variables.css?v=2.4.0">
-    <link rel="stylesheet" href="css/base.css?v=2.4.0">
-    <link rel="stylesheet" href="css/components.css?v=2.4.0">
-    <link rel="stylesheet" href="css/animations.css?v=2.4.0">
-    <link rel="stylesheet" href="css/responsive.css?v=2.4.0">
-    <link rel="stylesheet" href="css/app.css?v=2.4.0">
-    <link rel="stylesheet" href="css/dashboard.css?v=2.4.0">
-    <link rel="stylesheet" href="css/toast.css?v=2.4.0">
-    <link rel="stylesheet" href="css/comparison.css?v=2.4.0">
-    <link rel="stylesheet" href="css/about.css?v=2.4.0">
-    <link rel="stylesheet" href="css/complete.css?v=2.4.0">
+    <!-- Stylesheets (v=2.4.1 for cache busting - Added AI Analysis Page) -->
+    <link rel="stylesheet" href="css/variables.css?v=2.4.1">
+    <link rel="stylesheet" href="css/base.css?v=2.4.1">
+    <link rel="stylesheet" href="css/components.css?v=2.4.1">
+    <link rel="stylesheet" href="css/animations.css?v=2.4.1">
+    <link rel="stylesheet" href="css/responsive.css?v=2.4.1">
+    <link rel="stylesheet" href="css/app.css?v=2.4.1">
+    <link rel="stylesheet" href="css/dashboard.css?v=2.4.1">
+    <link rel="stylesheet" href="css/toast.css?v=2.4.1">
+    <link rel="stylesheet" href="css/comparison.css?v=2.4.1">
+    <link rel="stylesheet" href="css/about.css?v=2.4.1">
+    <link rel="stylesheet" href="css/complete.css?v=2.4.3">
+    <link rel="stylesheet" href="css/ai-analysis.css?v=2.4.1">
+    <link rel="stylesheet" href="css/ai-analysis-transparency.css?v=2.4.6">
 
     <!-- Theme stylesheets -->
-    <link rel="stylesheet" href="css/themes/light.css?v=2.4.0">
-    <link rel="stylesheet" href="css/themes/dark.css?v=2.4.0">
-    <link rel="stylesheet" href="css/themes/warm.css?v=2.4.0">
-    <link rel="stylesheet" href="css/themes/nature.css?v=2.4.0">
+    <link rel="stylesheet" href="css/themes/light.css?v=2.4.1">
+    <link rel="stylesheet" href="css/themes/dark.css?v=2.4.1">
+    <link rel="stylesheet" href="css/themes/warm.css?v=2.4.1">
+    <link rel="stylesheet" href="css/themes/nature.css?v=2.4.1">
 
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
@@ -125,9 +127,8 @@
     <script defer src="js/theme-manager.js?v=2.4.0"></script>
     <script defer src="js/question-renderer.js?v=2.4.0"></script>
     <script defer src="js/questionnaire-engine.js?v=2.4.0"></script>
-    <script defer src="js/export-manager.js?v=2.4.0"></script>
-    <script defer src="js/import-manager.js?v=2.4.0"></script>
-    <script defer src="js/url-router.js?v=2.4.0"></script>
+    <script defer src="js/export-manager.js?v=2.4.3"></script>
+    <script defer src="js/url-router.js?v=2.4.2"></script>
     <script defer src="js/pwa-install.js?v=2.4.0"></script>
     <!-- App Core (defines App object) - MUST be first of app modules -->
     <script defer src="js/app/core.js?v=2.4.0"></script>
@@ -137,20 +138,24 @@
     <script defer src="js/app/accessibility.js?v=2.4.0"></script>
     <script defer src="js/app/toast.js?v=2.4.0"></script>
     <script defer src="js/app/bookmarks.js?v=2.4.0"></script>
+    <script defer src="js/import-manager.js?v=2.4.2"></script>
     <!-- Core flow modules -->
     <script defer src="js/app/views.js?v=2.4.0"></script>
     <script defer src="js/app/questionnaire.js?v=2.4.0"></script>
     <script defer src="js/app/navigation.js?v=2.4.0"></script>
     <!-- Feature modules -->
-    <script defer src="js/app/export.js?v=2.4.0"></script>
+    <script defer src="js/app/export.js?v=2.4.3"></script>
     <script defer src="js/app/phase.js?v=2.4.0"></script>
     <script defer src="js/app/progress.js?v=2.4.0"></script>
     <!-- Complex UI modules -->
     <script defer src="js/app/ranked-select.js?v=2.4.0"></script>
     <script defer src="js/app/dashboard.js?v=2.4.0"></script>
-    <script defer src="js/app/nav-menu.js?v=2.4.0"></script>
-    <script defer src="js/app/import-modal.js?v=2.4.0"></script>
-    <script defer src="js/app/ai-prompts.js?v=2.4.0"></script>
+    <script defer src="js/app/nav-menu.js?v=2.4.2"></script>
+    <script defer src="js/app/import-modal.js?v=2.4.2"></script>
+    <script defer src="js/app/ai-prompts.js?v=2.4.1"></script>
+    <script defer src="js/app/results-navigator.js?v=2.4.6"></script>
+    <script defer src="js/app/ai-analysis-transparency.js?v=2.4.6"></script>
+    <script defer src="js/app/ai-analysis.js?v=2.4.6"></script>
     <!-- App Init (bootstrap) - MUST be last of app modules -->
     <script defer src="js/app/init.js?v=2.4.0"></script>
     <script defer src="js/debug-overlay.js?v=2.4.0"></script>

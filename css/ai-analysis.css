@@ -1,0 +1,383 @@
+/* ./css/ai-analysis.css */
+/**
+ * Styles for the AI Analysis page.
+ * Provides clean, welcoming design for step-by-step AI prompt generation workflow.
+ */
+
+/* Fix header width to match content sections */
+#view-ai-analysis .about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Ensure hidden class works specifically for this page if global is missing/overridden */
+#view-ai-analysis .hidden {
+    display: none !important;
+}
+
+/* Import Section */
+.ai-analysis-import-section {
+    background: var(--card-bg);
+    border-left: 4px solid var(--accent-purple);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.ai-analysis-import-zone {
+    margin: 1.5rem 0;
+    padding: 2.5rem;
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    background: var(--bg-soft);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    text-align: center;
+}
+
+.ai-analysis-import-zone:hover {
+    border-color: var(--accent-purple);
+    background: var(--hover-bg);
+    transform: translateY(-2px);
+}
+
+.ai-analysis-import-zone.drag-over {
+    border-color: var(--accent-purple);
+    background: var(--accent-purple-alpha);
+    transform: scale(1.02);
+}
+
+.ai-analysis-import-zone.has-file {
+    border-style: solid;
+    border-color: var(--accent-green);
+    background: var(--success-bg, #e8f5e9);
+}
+
+/* Individual Analysis Section */
+.ai-analysis-individual-section {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.ai-analysis-steps {
+    margin: 2.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    position: relative;
+}
+
+/* Connecting line for steps */
+.ai-analysis-steps::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    bottom: 24px;
+    width: 2px;
+    background: var(--border-color);
+    z-index: 0;
+}
+
+.ai-analysis-step {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(139, 69, 255, 0.3);
+    border: 4px solid var(--card-bg);
+    /* Add border to separate from line */
+}
+
+.step-content {
+    flex: 1;
+    background: var(--bg-soft);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease;
+}
+
+.step-content:hover {
+    transform: translateX(5px);
+    border-color: var(--accent-purple);
+}
+
+.step-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+    color: var(--text-primary);
+}
+
+.step-description {
+    color: var(--text-secondary);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* AI Platforms Grid */
+.ai-platforms {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.ai-platform-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.ai-platform-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-purple);
+}
+
+.ai-platform-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.ai-platform-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Buttons */
+.btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+/* Success Message */
+.success-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--success-bg, #e8f5e9);
+    color: var(--success-text, #2e7d32);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    animation: slideIn 0.3s ease;
+    border: 1px solid var(--success-border, #c8e6c9);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.success-icon {
+    font-size: 1.25rem;
+    background: white;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* Transparency Section */
+.prompt-transparency-section {
+    margin-top: 3rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+}
+
+/* Privacy Card */
+.privacy-card {
+    background: linear-gradient(135deg, var(--card-bg), var(--bg-soft));
+    border-left: 4px solid var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ai-analysis-steps::before {
+        left: 20px;
+    }
+
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .ai-analysis-step {
+        gap: 1rem;
+    }
+
+    .step-content {
+        padding: 1.25rem;
+    }
+}
+
+/* Results Navigator */
+.results-navigator-section {
+    margin: 0 0 2rem 0;
+    padding: 1rem;
+    background: var(--bg-soft);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.results-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.results-nav-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.results-nav-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.result-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.result-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.result-card.active {
+    border-color: var(--accent-purple);
+    background: linear-gradient(to right, var(--card-bg), #f8f0ff);
+}
+
+@media (prefers-color-scheme: dark) {
+    .result-card.active {
+        background: linear-gradient(to right, var(--card-bg), #2d1f3d);
+    }
+}
+
+.result-card-icon {
+    font-size: 1.5rem;
+}
+
+.result-card-info {
+    flex: 1;
+    min-width: 0;
+    /* Prevent text overflow */
+}
+
+.result-card-name {
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-primary);
+}
+
+.result-card-meta {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;
+}
+
+.result-card-remove {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    line-height: 1;
+    transition: all 0.2s;
+    opacity: 0;
+}
+
+.result-card:hover .result-card-remove {
+    opacity: 1;
+}
+
+.result-card-remove:hover {
+    background: #ffebee;
+    color: #ef5350;
+}
+
+/* Highlight animation for navigator */
+@keyframes flashHighlight {
+    0% {
+        box-shadow: 0 0 0 0 rgba(139, 69, 255, 0);
+    }
+
+    30% {
+        box-shadow: 0 0 0 10px rgba(139, 69, 255, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(139, 69, 255, 0);
+    }
+}
+
+.flash-highlight {
+    animation: flashHighlight 1s ease-out;
+    border-color: var(--accent-purple) !important;
+}

@@ -41,7 +41,8 @@ const HTMLLoader = {
         'comparison': ['views/comparison.html', '#main-content'],
         'about': ['views/about.html', '#main-content'],
         'howto': ['views/howto.html', '#main-content'],
-        'ai-prompts': ['views/ai-prompts.html', '#main-content']
+        'ai-prompts': ['views/ai-prompts.html', '#main-content'],
+        'ai-analysis': ['views/ai-analysis.html', '#main-content']
     },
 
     modals: {
@@ -117,7 +118,7 @@ const HTMLLoader = {
         await this.loadPartial('views/dashboard.html', '#main-content');
 
         // Phase 3: Load remaining views in parallel (improves load time significantly)
-        const remainingViews = ['welcome', 'questionnaire', 'review', 'complete', 'comparison', 'about', 'howto', 'ai-prompts'];
+        const remainingViews = ['welcome', 'questionnaire', 'review', 'complete', 'comparison', 'about', 'howto', 'ai-prompts', 'ai-analysis'];
         await Promise.all(
             remainingViews.map(viewName => {
                 const [path, container] = this.views[viewName];

@@ -343,9 +343,13 @@ const ImportManager = {
      */
     formatJSONResponses(responses) {
         let text = '';
+        console.log('Formatting responses:', Object.keys(responses).length, 'items');
 
         Object.entries(responses).forEach(([questionId, data]) => {
-            if (!data.question || !data.response) return;
+            if (!data.question || !data.response) {
+                console.warn(`Skipping ${questionId}: Missing question or response`, data);
+                return;
+            }
 
             const q = data.question;
             const r = data.response;
@@ -355,6 +359,7 @@ const ImportManager = {
             text += `Answer: ${this.formatResponse(q.type, r)}\n\n`;
         });
 
+        if (!text) console.warn('formatJSONResponses produced empty text');
         return text;
     },
 

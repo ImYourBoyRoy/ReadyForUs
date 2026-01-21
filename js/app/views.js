@@ -22,6 +22,7 @@ const AppViews = {
         this.views.about = document.getElementById('view-about');
         this.views.howto = document.getElementById('view-howto');
         this.views['ai-prompts'] = document.getElementById('view-ai-prompts');
+        this.views['ai-analysis'] = document.getElementById('view-ai-analysis');
 
         // Set initial inert state
         Object.values(this.views).forEach(view => {

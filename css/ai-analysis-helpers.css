@@ -1,0 +1,19 @@
+/* Helper classes for ai-analysis.html */
+
+.hidden {
+    display: none !important;
+}
+
+.import-tip {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.details-intro {
+    margin-bottom: 1rem;
+}
+
+.couple-success {
+    margin-top: 1rem;
+}

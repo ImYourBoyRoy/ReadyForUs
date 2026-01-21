@@ -33,6 +33,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 1200px !important;
+    /* Match dashboard/content width instead of default container width */
 }
 
 .nav-brand {
@@ -45,6 +47,13 @@
 
 .nav-brand:hover {
     opacity: 0.8;
+    text-decoration: none;
+    /* Remove underline from entire link */
+}
+
+/* Only underline the text portion on hover, not the emoji */
+.nav-brand:hover .nav-title {
+    text-decoration: underline;
 }
 
 .nav-logo {

@@ -1,0 +1,271 @@
+<!-- ./html/views/ai-analysis.html -->
+<!-- AI Analysis: Dedicated page for generating AI prompts with clear step-by-step guidance -->
+
+<section id="view-ai-analysis" class="view" aria-labelledby="ai-analysis-title" tabindex="-1">
+    <div class="about-container">
+        <!-- Hero Section -->
+        <header class="about-hero">
+            <div class="about-hero-content">
+                <div class="about-intro">
+                    <div class="about-badge">🤖 AI Insights</div>
+                    <h1 id="ai-analysis-title" class="about-title">Get AI Insights</h1>
+                    <p class="about-tagline">Share your answers with AI for personalized reflections</p>
+                    <p class="about-lead">
+                        Ready to go deeper? Get personalized insights by sharing your questionnaire answers
+                        with ChatGPT, Claude, or Gemini. We'll create a special message that helps the AI
+                        understand your responses and provide meaningful reflections.
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="about-content">
+
+            <!-- Import Section (For All Users) -->
+            <article class="about-card about-card-featured ai-analysis-import-section">
+                <h2 class="about-section-title">📂 Have Saved Results?</h2>
+                <p class="about-text">
+                    If you saved your answers before, you can import them here to generate a fresh AI prompt
+                    or continue your analysis.
+                </p>
+
+                <div class="ai-analysis-import-zone" id="ai-analysis-import-zone">
+                    <input type="file" id="ai-analysis-import-file" accept=".json" hidden>
+
+                    <!-- Empty State -->
+                    <div class="upload-zone-content">
+                        <div class="upload-icon">📂</div>
+                        <div class="upload-text">
+                            <span class="upload-link">Click to Upload Your Saved Results</span>
+                            <span class="upload-hint">or drag and drop your file here</span>
+                        </div>
+                    </div>
+
+                    <!-- Filled State -->
+                    <div class="upload-zone-info hidden">
+                        <div class="upload-file-details">
+                            <span class="upload-name">filename.json</span>
+                            <button class="upload-remove" aria-label="Remove file">×</button>
+                        </div>
+                        <div class="import-stats-display">
+                            <span id="import-stats-answered">--</span>/<span id="import-stats-total">--</span> Questions
+                            Answered
+                        </div>
+                    </div>
+                </div>
+
+                <p class="about-text import-tip">
+                    <strong>Tip:</strong> Your current session answers are already loaded below. Only use this if you
+                    want to import a different saved file.
+                </p>
+            </article>
+
+            <!-- Individual Analysis Section -->
+            <article class="about-card ai-analysis-individual-section">
+                <h2 class="about-section-title">👤 Get Your Personal Insights</h2>
+                <p class="about-text">
+                    Follow these simple steps to get AI-powered reflections on your answers:
+                </p>
+
+                <!-- Results Navigator (Hidden by default) -->
+                <div id="results-navigator-container" class="results-navigator-section" style="display: none;"></div>
+
+                <!-- Step-by-Step Guide -->
+                <div class="ai-analysis-steps">
+                    <div class="ai-analysis-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Generate Your AI Message</h3>
+                            <p class="step-description">Click the button below to create and copy your personalized
+                                message.</p>
+                            <button id="btn-generate-individual-analysis" class="btn btn-primary btn-lg">
+                                🤖 Generate & Copy My AI Message
+                            </button>
+                            <div id="individual-success-message" class="success-message hidden">
+                                <span class="success-icon">✓</span> Copied to clipboard! Now go to step 2.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ai-analysis-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Open Your Preferred AI</h3>
+                            <p class="step-description">Choose one of these AI assistants (all are free to use):</p>
+                            <div class="ai-platforms">
+                                <a href="https://chatgpt.com" target="_blank" rel="noopener" class="ai-platform-link">
+                                    <span class="ai-platform-icon">💬</span>
+                                    <span class="ai-platform-name">ChatGPT</span>
+                                </a>
+                                <a href="https://claude.ai" target="_blank" rel="noopener" class="ai-platform-link">
+                                    <span class="ai-platform-icon">🔮</span>
+                                    <span class="ai-platform-name">Claude</span>
+                                </a>
+                                <a href="https://gemini.google.com" target="_blank" rel="noopener"
+                                    class="ai-platform-link">
+                                    <span class="ai-platform-icon">✨</span>
+                                    <span class="ai-platform-name">Gemini</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ai-analysis-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Paste & Start Chatting</h3>
+                            <p class="step-description">
+                                Paste the message you copied (press Ctrl+V or Cmd+V) into the AI's chat box,
+                                then press Enter. The AI will analyze your answers and provide personalized insights.
+                                You can then ask follow-up questions or explore specific areas deeper!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Prompt Transparency Section -->
+                <div id="individual-transparency-container" class="prompt-transparency-section">
+                    <!-- Transparency viewer will be dynamically injected here -->
+                </div>
+            </article>
+
+            <!-- Couple's Analysis Section -->
+            <article class="about-card ai-analysis-couple-section">
+                <h2 class="about-section-title">💑 Get Combined Insights (For Couples)</h2>
+                <p class="about-text">
+                    Want to discuss your answers together? Upload your partner's saved results to create
+                    a combined AI message that compares and reflects on both of your responses.
+                </p>
+
+                <div class="comparison-grid">
+                    <!-- Partner 1 (You) -->
+                    <div class="partner-column">
+                        <span class="partner-label">Partner 1 (You)</span>
+                        <div class="partner-name" id="couple-p1-name">Me</div>
+                        <div class="partner-stats-display" id="couple-p1-stats">
+                            <span id="couple-p1-answered">--</span>/<span id="couple-p1-total">--</span> Answered
+                        </div>
+                    </div>
+
+                    <!-- Partner 2 (Upload) -->
+                    <div class="partner-column">
+                        <span class="partner-label">Partner 2</span>
+
+                        <!-- Upload Zone -->
+                        <div id="upload-zone-couple-partner" class="upload-zone mini-zone">
+                            <input type="file" id="import-file-couple-partner" accept=".json" hidden>
+
+                            <!-- Empty State -->
+                            <div class="upload-zone-content">
+                                <div class="upload-icon">📂</div>
+                                <div class="upload-text">
+                                    <span class="upload-link">Upload Partner's Results</span>
+                                </div>
+                            </div>
+
+                            <!-- Filled State -->
+                            <div class="upload-zone-info">
+                                <div class="upload-file-details">
+                                    <span class="upload-name">filename.json</span>
+                                    <button class="upload-remove" aria-label="Remove file">×</button>
+                                </div>
+
+                                <!-- Editable Inputs -->
+                                <div id="couple-partner-info-container">
+                                    <input type="text" id="couple-partner-name-input" class="text-input input-sm"
+                                        placeholder="Partner's Name" value="Partner">
+                                    <div class="partner-stats-display">
+                                        <span id="couple-partner-stats-answered">--</span>/<span
+                                            id="couple-partner-stats-total">--</span>
+                                        Answered
+                                    </div>
+                                    <div id="couple-partner-warning" class="partner-warning">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generate Action -->
+                <button id="btn-generate-couple-analysis" class="btn btn-primary btn-full-width" disabled>
+                    ✨ Generate Combined AI Message & Copy
+                </button>
+
+                <div id="couple-success-message" class="success-message hidden couple-success">
+                    <span class="success-icon">✓</span> Combined message copied! Open ChatGPT, Claude, or Gemini and
+                    paste it to start your discussion.
+                </div>
+            </article>
+
+            <!-- FAQ Section -->
+            <article class="about-card">
+                <h2 class="about-section-title">❓ Frequently Asked Questions</h2>
+
+                <details class="ai-analysis-faq">
+                    <summary class="ai-analysis-faq-summary">What is an AI message / prompt?</summary>
+                    <p class="about-text">
+                        It's simply a special message that tells the AI assistant (like ChatGPT) about your
+                        questionnaire answers and asks it to provide thoughtful reflections. Think of it as
+                        giving context so the AI can have a meaningful conversation with you.
+                    </p>
+                </details>
+
+                <details class="ai-analysis-faq">
+                    <summary class="ai-analysis-faq-summary">Do I need to pay for an AI account?</summary>
+                    <p class="about-text">
+                        No! ChatGPT, Claude, and Gemini all offer free versions that work great for this purpose.
+                        You may need to create a free account, but there's no payment required.
+                    </p>
+                </details>
+
+                <details class="ai-analysis-faq">
+                    <summary class="ai-analysis-faq-summary">Is my data private?</summary>
+                    <p class="about-text">
+                        Your answers never leave your device unless YOU choose to share them. When you paste
+                        your message into an AI assistant, you're choosing to share it with that AI service
+                        (ChatGPT, Claude, or Gemini). Feel free to redact or skip any information you want to
+                        keep private before pasting.
+                    </p>
+                </details>
+
+                <details class="ai-analysis-faq">
+                    <summary class="ai-analysis-faq-summary">Can I use this multiple times?</summary>
+                    <p class="about-text">
+                        Absolutely! Come back anytime to generate a fresh message with your latest answers,
+                        or import old results to reflect on how your responses have changed over time.
+                    </p>
+                </details>
+
+                <details class="ai-analysis-faq">
+                    <summary class="ai-analysis-faq-summary">What if the AI gives unhelpful advice?</summary>
+                    <p class="about-text">
+                        Remember, AI assistants are tools for reflection, not professional therapists. Use their
+                        insights as conversation starters, but always trust your own judgment. For serious
+                        relationship concerns, consider speaking with a licensed professional.
+                    </p>
+                </details>
+            </article>
+
+            <!-- Privacy Reminder -->
+            <article class="about-card about-card-closing">
+                <h2 class="about-section-title">🔒 Your Privacy Matters</h2>
+                <p class="about-text">
+                    Your questionnaire answers are stored only on your device. When you generate and copy
+                    an AI message, you're choosing what to share. You can always review the message before
+                    pasting it into an AI assistant, and you can edit or remove any sensitive information.
+                </p>
+            </article>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="about-actions">
+
+            <button id="btn-ai-analysis-dashboard" class="btn btn-primary">
+                Back to Home
+            </button>
+        </div>
+    </div>
+</section>

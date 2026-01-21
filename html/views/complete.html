@@ -21,46 +21,86 @@
 
         <!-- Review Action - Moved to top -->
         <div class="complete-card review-card">
-            <p class="card-description">Before you save or generate prompts, take
-                a moment to reflect on your answers.</p>
+            <p class="card-description">Want to review what you wrote? Take a moment to reflect on your answers.</p>
             <button id="btn-review-answers" class="btn btn-primary btn-lg">
                 📋 Review Your Answers
             </button>
         </div>
 
+        <!-- What's Next Section -->
+        <div class="complete-card next-steps-card">
+            <h2 class="card-title">💜 What's Next?</h2>
+            <p class="card-description">
+                Your answers are safely stored! Here's the simplest way to get AI insights:
+            </p>
+
+            <!-- Name Personalization -->
+            <div class="name-field-container">
+                <label for="complete-name-input" class="name-field-label">Your Name (for personalization)</label>
+                <input type="text" id="complete-name-input" class="name-field-input" placeholder="Your first name"
+                    autocomplete="given-name" />
+                <p class="name-field-hint">This will personalize your AI prompt</p>
+            </div>
+
+            <!-- Clear Step-by-Step Guide -->
+            <div class="next-steps-guide">
+                <div class="next-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Copy Your Personalized AI Prompt</h3>
+                        <p class="step-text">Click below to copy your customized prompt to the clipboard</p>
+                        <button id="btn-copy-ai-prompt" class="btn btn-primary btn-lg">
+                            ✨ Copy My AI Prompt
+                        </button>
+                        <button id="btn-view-raw-prompt" class="btn btn-secondary btn-sm">
+                            👁 View Raw Prompt
+                        </button>
+                    </div>
+                </div>
+
+                <div class="next-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Paste into ChatGPT, Claude, or Gemini</h3>
+                        <p class="step-text">Open your favorite AI assistant and paste (Ctrl+V or Cmd+V)</p>
+                    </div>
+                </div>
+
+                <div class="next-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Get Personalized Insights</h3>
+                        <p class="step-text">The AI will analyze your responses and share meaningful reflections</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="help-link-container">
+                <a href="#/howto" class="help-link">📖 Need help? View the step-by-step guide</a>
+            </p>
+        </div>
+
         <!-- Card 1: Save & Actions -->
         <div class="complete-card">
-            <h2 class="card-title">Save Your Progress</h2>
-            <p class="card-description">Download your responses to keep them safe or verify them later.</p>
+            <h2 class="card-title">💾 Save Your Answers</h2>
+            <p class="card-description">Keep a copy of your responses to revisit later or continue where you left off.
+            </p>
 
             <div class="action-row">
                 <button id="btn-export-json" class="btn btn-primary">
-                    📁 Save Progress (JSON)
+                    📁 Save to Continue Later
                 </button>
                 <button id="btn-export-text" class="btn btn-secondary">
-                    📄 Save for Personal Use (Text)
+                    📄 Save as Readable Text
                 </button>
             </div>
-        </div>
-
-        <!-- Card 2: Individual AI Reflection -->
-        <div class="complete-card">
-            <h2 class="card-title">✨ Individual AI Reflection</h2>
-            <p class="card-description">
-                Generate a private prompt to use with ChatGPT, Claude, or Gemini. It combines your answers with
-                psychological insights to help you reflect deeper.
+            <p class="card-description card-tip">
+                <strong>Tip:</strong> Save your file to import it later on the AI Analysis page or to share with your
+                partner.
             </p>
-            <div class="action-row">
-                <button id="btn-copy-ai-prompt" class="btn btn-primary">
-                    🤖 Copy Prompt
-                </button>
-                <button id="btn-view-ai-prompt" class="btn btn-ghost">
-                    👁 View Raw
-                </button>
-            </div>
         </div>
 
-        <!-- Card 3: Couple's Reflection -->
+        <!-- Upgrade Section -->
         <div class="complete-card">
             <h2 class="card-title">💑 Couple's AI Reflection</h2>
             <p class="card-description">

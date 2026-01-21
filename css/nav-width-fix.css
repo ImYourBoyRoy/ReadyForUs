@@ -1,0 +1,4 @@
+/* Match navigation width to content areas */
+.nav-content {
+    max-width: 1200px !important;
+}

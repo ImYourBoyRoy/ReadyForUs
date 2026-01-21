@@ -28,7 +28,8 @@
 }
 
 .complete-icon {
-    font-size: var(--font-size-4xl);
+    font-size: 4rem;
+    /* Large celebratory icon */
     margin-bottom: var(--space-4);
     display: block;
     animation: float 6s ease-in-out infinite;
@@ -102,6 +103,182 @@
     justify-content: center;
     box-shadow: var(--shadow-md);
 }
+
+/* ==================== What's Next: Stepped Guide ==================== */
+.next-steps-guide {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    margin-top: var(--space-6);
+}
+
+.next-step {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    box-shadow: var(--shadow-sm);
+}
+
+.step-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.step-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    margin: 0;
+}
+
+.step-text {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--space-3) 0;
+    line-height: var(--line-height-relaxed);
+}
+
+.step-content .btn {
+    align-self: flex-start;
+    margin-top: var(--space-2);
+}
+
+.help-link-container {
+    text-align: center;
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
+}
+
+.help-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    transition: color var(--transition-fast);
+}
+
+.help-link:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
+
+/* ==================== Name Field ==================== */
+.name-field-container {
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    margin-bottom: var(--space-8);
+    transition: all var(--transition-normal);
+}
+
+.name-field-container:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.name-field-label {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+}
+
+.name-field-input {
+    width: 100%;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    background: transparent;
+    border: none;
+    padding: var(--space-2) 0;
+    outline: none;
+    transition: color var(--transition-fast);
+}
+
+.name-field-input::placeholder {
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+.name-field-hint {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin-top: var(--space-2);
+    margin-bottom: 0;
+}
+
+/* ==================== Button Hierarchy ==================== */
+.step-content .btn.btn-lg {
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-2);
+    font-weight: var(--font-weight-semibold);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-fast);
+}
+
+.step-content .btn.btn-lg:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.step-content .btn.btn-lg:active {
+    transform: translateY(0);
+}
+
+.step-content .btn.btn-sm {
+    margin-top: var(--space-2);
+    font-size: var(--font-size-sm);
+    padding: var(--space-2) var(--space-4);
+    opacity: 0.9;
+}
+
+.step-content .btn.btn-sm:hover {
+    opacity: 1;
+}
+
+/* Success state animation */
+.btn.btn-success {
+    background: var(--color-success) !important;
+    border-color: var(--color-success) !important;
+    animation: successPulse 0.6s ease-out;
+}
+
+@keyframes successPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
 
 /* ==================== Upgrade Section ==================== */
 #upgrade-section {

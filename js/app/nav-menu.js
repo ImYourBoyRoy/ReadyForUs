@@ -80,6 +80,8 @@ const AppNavMenu = {
                         window.location.hash = '#/howto';
                     } else if (action === 'ai-prompts') {
                         window.location.hash = '#/ai-prompts';
+                    } else if (action === 'ai-analysis') {
+                        window.location.hash = '#/ai-analysis';
                     } else if (phaseId) {
                         this.selectPhase(phaseId);
                     }
@@ -231,6 +233,14 @@ const AppNavMenu = {
                 <button class="nav-menu-link" data-action="ai-prompts">
                     <span class="nav-menu-icon">⚙</span>
                     <span class="nav-menu-label">AI Prompts</span>
+                </button>
+            </li>
+            
+            <!-- AI Analysis -->
+            <li class="nav-menu-item">
+                <button class="nav-menu-link" data-action="ai-analysis">
+                    <span class="nav-menu-icon">🤖</span>
+                    <span class="nav-menu-label">AI Analysis</span>
                 </button>
             </li>
             
