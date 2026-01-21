@@ -615,6 +615,19 @@
     color: var(--color-text);
 }
 
+#btn-show-bookmarked {
+    display: none;
+}
+
+#review-badge {
+    display: none;
+}
+
+.progress-fill,
+.progress-fill-skipped {
+    width: 0%;
+}
+
 /* Question Container */
 #question-container {
     min-height: 300px;

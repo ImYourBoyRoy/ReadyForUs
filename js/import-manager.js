@@ -798,6 +798,45 @@ const ImportManager = {
                     }
                 });
 
+                // Handle schema evolution: detect ranked_select fields with old-format data
+                // Old exports may have selected_values (multi_select) or selected_value (single_select)
+                // that should now map to ranked_select fields in compound questions
+                fields.forEach(field => {
+                    if (field.type === 'ranked_select') {
+                        const key = field.key;
+
+                        // Check if this field is still empty after normal mapping
+                        if (!mappedResponse[key] || (Array.isArray(mappedResponse[key]) && mappedResponse[key].length === 0)) {
+                            // Check if response has old multi_select format (array)
+                            if (response.selected_values && Array.isArray(response.selected_values)) {
+                                // Map old multi-select values to ranked field
+                                const mappedValues = [];
+                                response.selected_values.forEach(oldValue => {
+                                    const match = this.findMatchingOption(oldValue, field.options);
+                                    if (match) {
+                                        mappedValues.push(match.value);
+                                    }
+                                });
+
+                                if (mappedValues.length > 0) {
+                                    mappedResponse[key] = mappedValues;
+                                    warnings.push(`Field "${field.label || key}": converted from old multi-select format (unranked)`);
+                                    fullyMapped = false; // Mark for review to allow user to rank
+                                }
+                            }
+                            // Check if response has old single_select format (string)
+                            else if (response.selected_value && typeof response.selected_value === 'string') {
+                                const match = this.findMatchingOption(response.selected_value, field.options);
+                                if (match) {
+                                    mappedResponse[key] = [match.value];
+                                    warnings.push(`Field "${field.label || key}": converted from old single-select format`);
+                                    fullyMapped = false; // Mark for review
+                                }
+                            }
+                        }
+                    }
+                });
+
                 // Preserve text fallback
                 if (response.text) {
                     mappedResponse._importedText = response.text;

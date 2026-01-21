@@ -202,10 +202,12 @@ const URLRouter = {
                     QuestionnaireEngine.jumpTo(route.questionId);
                     App.showView('questionnaire');
                     App.renderCurrentQuestion();
+                    App.updateProgress(); // Update progress after engine is fully initialized
                 } else {
                     // Show from current position
                     App.showView('questionnaire');
                     App.renderCurrentQuestion();
+                    App.updateProgress(); // Update progress display
                 }
                 break;
 

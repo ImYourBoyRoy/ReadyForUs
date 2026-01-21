@@ -417,6 +417,37 @@ const AppImportModal = {
         if (!file || !file.responses) return;
 
         try {
+            // Extract artifact ID to determine the correct phase
+            const artifactId = file.meta?.artifact?.id || file.artifactId || null;
+
+            // Find the matching phase ID
+            let phaseId = null;
+            if (artifactId) {
+                phaseId = await DataLoader.getPhaseIdByArtifactId(artifactId);
+                if (!phaseId) {
+                    console.warn(`Could not find phase for artifact ID: ${artifactId}`);
+                }
+            }
+
+            // If no phase found, try to use the current phase or fall back to default
+            if (!phaseId) {
+                phaseId = StorageManager.getLastPhase() || DataLoader.getCurrentPhaseId() || DataLoader.getDefaultPhaseId();
+                console.log(`Falling back to phase: ${phaseId}`);
+            }
+
+            // Load the correct phase data
+            if (phaseId && phaseId !== DataLoader.getCurrentPhaseId()) {
+                console.log(`Switching to phase ${phaseId} for import`);
+                DataLoader.setCurrentPhase(phaseId);
+                StorageManager.setPhase(phaseId);
+                await DataLoader.load();
+
+                // Update the app's mode options for the new phase
+                if (typeof this.updateModeOptions === 'function') {
+                    this.updateModeOptions();
+                }
+            }
+
             // Load the questionnaire in the appropriate mode
             const mode = file.mode;
 
@@ -463,28 +494,90 @@ const AppImportModal = {
             this.importNeedsReview = needsReview;
             this.importWarnings = fieldWarnings;
 
-            // Update mode switcher
+            // Update mode switcher and display
             const modeSwitcher = document.getElementById('mode-switcher');
-            if (modeSwitcher) modeSwitcher.value = mode;
+            if (modeSwitcher) {
+                modeSwitcher.value = mode;
+            }
 
-            // Save to storage
-            StorageManager.saveProgress(QuestionnaireEngine.responses, QuestionnaireEngine.currentIndex);
+            // Update the visual mode toggle buttons to match imported mode
+            if (typeof this.updateModeToggle === 'function') {
+                this.updateModeToggle(mode);
+            }
+
+            // Save to storage - CRITICAL: Must save responses before navigation
+            // The URL router will re-initialize the engine and load from storage
+            StorageManager.saveResponses(mappedResponses);
+            StorageManager.saveProgress(QuestionnaireEngine.currentIndex);
             StorageManager.saveSkipped(QuestionnaireEngine.skipped);
             StorageManager.saveMode(mode);
+            StorageManager.saveParticipantName(this.participantName);
+
+            // Persist import metadata for review indicators
+            if (needsReview.length > 0) {
+                const phaseId = DataLoader.getCurrentPhaseId();
+                const storageKey = `slowbuild_${phaseId}_needsReview`;
+                localStorage.setItem(storageKey, JSON.stringify(needsReview));
+
+                // Also store field warnings for debugging
+                const warningsKey = `slowbuild_${phaseId}_importWarnings`;
+                localStorage.setItem(warningsKey, JSON.stringify(fieldWarnings));
+            }
 
             // Close modal
             this.hideImportModal();
 
-            // Navigate to questionnaire
-            this.showView('questionnaire');
-            this.renderCurrentQuestion();
-            this.updateProgress();
-            this.updateModeDisplay();
+            // Navigate to the correct question based on completion status
+            const currentPhaseId = DataLoader.getCurrentPhaseId();
 
-            // Log import summary (no intrusive alert)
+            // Find first unanswered or skipped question
+            let targetQuestionId = null;
+            for (const question of QuestionnaireEngine.questions) {
+                const status = QuestionnaireEngine.getQuestionStatus(question.id);
+                if (status !== 'answered') {
+                    targetQuestionId = question.id;
+                    break;
+                }
+            }
+
+            if (currentPhaseId && targetQuestionId) {
+                // Navigate to first unanswered question
+                window.location.hash = `/${currentPhaseId}/${targetQuestionId}`;
+            } else if (currentPhaseId) {
+                // All questions answered - go to review page
+                window.location.hash = `/${currentPhaseId}/review`;
+            } else {
+                // Fallback
+                this.showView('questionnaire');
+                this.renderCurrentQuestion();
+                this.updateProgress();
+                this.updateModeDisplay();
+            }
+
+            // Show success toast
             const totalImported = Object.keys(mappedResponses).length;
             const reviewCount = needsReview.length;
+
+            // Enhanced logging for debugging
+            console.log(`Import results: ${totalImported} mapped, ${reviewCount} need review`, {
+                totalImported,
+                reviewCount,
+                needsReview,
+                fieldWarnings,
+                mappedResponses: Object.keys(mappedResponses),
+                originalResponses: Object.keys(file.responses || {})
+            });
+
+            if (typeof this.showToast === 'function' && totalImported > 0) {
+                const message = reviewCount > 0
+                    ? `✓ Imported ${totalImported} response${totalImported !== 1 ? 's' : ''} (${reviewCount} need${reviewCount === 1 ? 's' : ''} review)`
+                    : `✓ Imported ${totalImported} response${totalImported !== 1 ? 's' : ''} from ${file.name}`;
+
+                this.showToast(message, reviewCount > 0 ? 'warning' : 'success', 3000);
+            }
+
         } catch (error) {
+            console.error('Import error:', error);
             this.showImportValidation(`Error loading file: ${error.message}`, 'error');
         }
     }

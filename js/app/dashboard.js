@@ -403,7 +403,7 @@ const AppDashboard = {
     async getPhaseMetadata(phase) {
         try {
             // Fetch manifest.json and questions.json for this phase
-            const v = DataLoader.CACHE_VERSION || '2.4.0';
+            const v = DataLoader.CACHE_VERSION || '2.5.0';
             const [manifestRes, questionsRes] = await Promise.all([
                 fetch(`${phase.data_path}/manifest.json?v=${v}`),
                 fetch(`${phase.data_path}/questions.json?v=${v}`)

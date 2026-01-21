@@ -98,6 +98,10 @@
     margin-bottom: var(--space-3);
 }
 
+.complete-card.warning-card {
+    display: none;
+}
+
 #btn-review-answers {
     width: 100%;
     justify-content: center;

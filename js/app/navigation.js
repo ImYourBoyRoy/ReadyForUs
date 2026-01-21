@@ -144,7 +144,6 @@ const AppNavigation = {
         this.currentView = viewName;
 
         // Show/hide nav elements based on view
-        const navRestart = document.getElementById('btn-nav-restart');
         const modeToggle = document.querySelector('.mode-toggle');
         const dashboardBtn = document.getElementById('btn-dashboard');
 
@@ -154,10 +153,6 @@ const AppNavigation = {
         const showNavControls = questionnaireViews.includes(viewName);
         const showDashboardBtn = viewName !== 'dashboard';
 
-        if (navRestart) {
-            // Use .visible class since CSS uses opacity for this button
-            navRestart.classList.toggle('visible', showNavControls);
-        }
         if (modeToggle) {
             modeToggle.style.display = showNavControls ? 'flex' : 'none';
         }

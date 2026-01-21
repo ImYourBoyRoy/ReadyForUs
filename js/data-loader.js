@@ -18,7 +18,7 @@ const DataLoader = {
   currentPhase: null,
 
   // Cache version for cache busting
-  CACHE_VERSION: '2.4.0',
+  CACHE_VERSION: '2.5.0',
 
   /**
    * Load site-wide configuration.
@@ -172,6 +172,35 @@ const DataLoader = {
    */
   getCurrentPhaseId() {
     return this.currentPhase?.id || null;
+  },
+
+  /**
+   * Find phase ID by artifact ID from an exported JSON file.
+   * Loads each phase's manifest and compares artifact IDs.
+   * @param {string} artifactId - Artifact ID from exported JSON (e.g., 'phase1_5_intentional_early_dating').
+   * @returns {Promise<string|null>} Phase ID (e.g., 'phase_1.5') or null if not found.
+   */
+  async getPhaseIdByArtifactId(artifactId) {
+    if (!artifactId || !this.phases?.phases) {
+      return null;
+    }
+
+    // Try to find the phase by loading each manifest and comparing artifact.id
+    for (const phase of this.phases.phases) {
+      try {
+        const manifestRes = await fetch(`./${phase.data_path}/manifest.json?v=${this.CACHE_VERSION}`);
+        if (manifestRes.ok) {
+          const manifest = await manifestRes.json();
+          if (manifest.artifact?.id === artifactId) {
+            return phase.id;
+          }
+        }
+      } catch (error) {
+        console.warn(`Error loading manifest for phase ${phase.id}:`, error);
+      }
+    }
+
+    return null;
   },
 
   /**

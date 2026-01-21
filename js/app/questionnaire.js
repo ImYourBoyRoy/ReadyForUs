@@ -156,6 +156,21 @@ const AppQuestionnaire = {
                 skippedBadge.style.display = 'none';
             }
         }
+
+        // Show review badge if questions need review (from import)
+        const reviewBadge = document.getElementById('review-badge');
+        if (reviewBadge) {
+            const phaseId = DataLoader.getCurrentPhaseId();
+            const storageKey = `slowbuild_${phaseId}_needsReview`;
+            const needsReview = JSON.parse(localStorage.getItem(storageKey) || '[]');
+
+            if (needsReview.length > 0) {
+                reviewBadge.textContent = `${needsReview.length} need review`;
+                reviewBadge.style.display = 'inline-flex';
+            } else {
+                reviewBadge.style.display = 'none';
+            }
+        }
     },
 
     /**

@@ -139,9 +139,8 @@ const AppInit = {
             ExportManager.showCouplePromptRaw();
         });
 
-        // Restart buttons (both nav and complete view)
+        // Restart button (complete view)
         document.getElementById('btn-restart')?.addEventListener('click', () => this.restart());
-        document.getElementById('btn-nav-restart')?.addEventListener('click', () => this.restart());
 
         // Review Answers button (on complete view)
         document.getElementById('btn-review-answers')?.addEventListener('click', () => this.showView('review'));

@@ -63,6 +63,11 @@ const AppViews = {
         const stats = QuestionnaireEngine.getStats();
         const questions = QuestionnaireEngine.getQuestionsWithStatus();
 
+        // Load needsReview metadata from localStorage (from import)
+        const phaseId = DataLoader.getCurrentPhaseId();
+        const storageKey = `slowbuild_${phaseId}_needsReview`;
+        const needsReview = JSON.parse(localStorage.getItem(storageKey) || '[]');
+
         // Update stats
         document.getElementById('review-total').textContent = stats.total;
         document.getElementById('review-answered').textContent = stats.answered;
@@ -70,7 +75,8 @@ const AppViews = {
 
         // Clear and rebuild grid
         grid.innerHTML = questions.map(({ question, status, response }) => {
-            return QuestionRenderer.renderReviewCard(question, response, status);
+            const needsReviewFlag = needsReview.includes(question.id);
+            return QuestionRenderer.renderReviewCard(question, response, status, { needsReview: needsReviewFlag });
         }).join('');
 
         // Add click handlers for editing
@@ -131,6 +137,38 @@ const AppViews = {
                 }
             } else {
                 upgradeSection.style.display = 'none';
+            }
+        }
+
+        // Show import review warning if applicable
+        const reviewWarning = document.getElementById('import-review-warning');
+        const reviewCountSpan = document.getElementById('review-count');
+        const reviewFlaggedBtn = document.getElementById('btn-review-flagged');
+
+        if (reviewWarning) {
+            const phaseId = DataLoader.getCurrentPhaseId();
+            const storageKey = `slowbuild_${phaseId}_needsReview`;
+            const needsReview = JSON.parse(localStorage.getItem(storageKey) || '[]');
+
+            if (needsReview.length > 0) {
+                reviewWarning.style.display = 'block';
+                if (reviewCountSpan) {
+                    reviewCountSpan.textContent = needsReview.length;
+                }
+
+                // Wire up button to navigate to first flagged question
+                if (reviewFlaggedBtn) {
+                    const newBtn = reviewFlaggedBtn.cloneNode(true);
+                    reviewFlaggedBtn.parentNode.replaceChild(newBtn, reviewFlaggedBtn);
+                    newBtn.addEventListener('click', () => {
+                        const firstFlaggedId = needsReview[0];
+                        QuestionnaireEngine.jumpTo(firstFlaggedId);
+                        this.showView('questionnaire');
+                        this.renderCurrentQuestion();
+                    });
+                }
+            } else {
+                reviewWarning.style.display = 'none';
             }
         }
     },

@@ -19,6 +19,20 @@
             </div>
         </header>
 
+        <!-- Import Review Warning (if applicable) -->
+        <div id="import-review-warning" class="complete-card warning-card">
+            <h2 class="card-title">⚠️ Some Answers Need Review</h2>
+            <p class="card-description">
+                <strong><span id="review-count">0</span> question(s)</strong> were partially imported and may need your
+                attention.
+                These questions have been flagged because the imported data didn't fully match the current questionnaire
+                format.
+            </p>
+            <button id="btn-review-flagged" class="btn btn-warning btn-lg">
+                📋 Review Flagged Questions
+            </button>
+        </div>
+
         <!-- Review Action - Moved to top -->
         <div class="complete-card review-card">
             <p class="card-description">Want to review what you wrote? Take a moment to reflect on your answers.</p>

@@ -116,6 +116,19 @@ const QuestionnaireEngine = {
         // Remove from skipped if it was skipped
         this.skipped = this.skipped.filter(id => id !== questionId);
         StorageManager.saveSkipped(this.skipped);
+
+        // Remove from needsReview if it was flagged (user has now edited it)
+        const phaseId = DataLoader.getCurrentPhaseId();
+        if (phaseId) {
+            const storageKey = `slowbuild_${phaseId}_needsReview`;
+            const needsReview = JSON.parse(localStorage.getItem(storageKey) || '[]');
+            const updatedReview = needsReview.filter(id => id !== questionId);
+
+            if (updatedReview.length !== needsReview.length) {
+                // Question was in the review list - update it
+                localStorage.setItem(storageKey, JSON.stringify(updatedReview));
+            }
+        }
     },
 
     /**
@@ -229,12 +242,16 @@ const QuestionnaireEngine = {
     },
 
     /**
-     * Jump to the first skipped question.
-     * @returns {boolean} True if jumped to a skipped question.
+     * Jump to the first incomplete question (skipped or unanswered).
+     * @returns {boolean} True if jumped to an incomplete question.
      */
     goToFirstSkipped() {
-        if (this.skipped.length > 0) {
-            return this.jumpTo(this.skipped[0]);
+        // Find first skipped OR unanswered question in question order
+        for (const question of this.questions) {
+            const status = this.getQuestionStatus(question.id);
+            if (status === 'skipped' || status === 'unanswered') {
+                return this.jumpTo(question.id);
+            }
         }
         return false;
     },

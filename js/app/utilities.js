@@ -43,7 +43,7 @@ const AppUtilities = {
     clearImportWarning(questionId) {
         if (!questionId) return;
 
-        // Remove from needs review
+        // Remove from needs review in memory
         if (this.importNeedsReview) {
             const idx = this.importNeedsReview.indexOf(questionId);
             if (idx > -1) {
@@ -51,9 +51,28 @@ const AppUtilities = {
             }
         }
 
-        // Remove from field warnings
+        // Remove from field warnings in memory
         if (this.importWarnings) {
             delete this.importWarnings[questionId];
+        }
+
+        // Persist to localStorage
+        const phaseId = DataLoader.getCurrentPhaseId();
+        if (phaseId) {
+            const storageKey = `slowbuild_${phaseId}_needsReview`;
+            const needsReview = JSON.parse(localStorage.getItem(storageKey) || '[]');
+            const updatedReview = needsReview.filter(id => id !== questionId);
+
+            if (updatedReview.length !== needsReview.length) {
+                // Question was in the review list - update localStorage
+                localStorage.setItem(storageKey, JSON.stringify(updatedReview));
+
+                // Also update warnings
+                const warningsKey = `slowbuild_${phaseId}_importWarnings`;
+                const warnings = JSON.parse(localStorage.getItem(warningsKey) || '{}');
+                delete warnings[questionId];
+                localStorage.setItem(warningsKey, JSON.stringify(warnings));
+            }
         }
     },
 
