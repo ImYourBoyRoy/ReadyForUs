@@ -1,0 +1,270 @@
+Questions Export for phase_2.5
+========================================
+
+
+[q01] Timeline Snapshot
+Before we go deep, give a simple snapshot so we interpret everything in context.
+  - How long have you known each other total?
+  - Unit
+  - How long have you been in a defined relationship?
+  - Unit
+  - About how long ago was your last intentional check-in?
+  - Unit
+  - Which kind of check-in was it?
+  - If other, what was it?
+  - How often do you want check-ins to happen (ideally)?
+  - Notes (optional)
+
+[q02] What "Defined" Means for You Two
+Pick the closest match. This helps later questions stay accurate.
+
+[q03] How You Best Receive Feedback
+Different people hear feedback differently. This helps your partner and the AI deliver it in a way you can actually receive.
+  - From my partner, I receive feedback best when it is...
+  - From my partner, feedback is hardest for me when it is...
+  - From the AI, I want guidance that is...
+  - From the AI, I want it to avoid...
+  - One thing that helps me stay open when receiving feedback
+  - One thing that shuts me down
+
+[q04] What You Want From This Check-In
+Pick and rank what matters most right now. This keeps the check-in focused and calmer.
+  - Select and rank your top goals (top = most important)
+  - If 'Other', what is it?
+  - Notes (optional)
+
+[q05] Quick Pulse Check
+Quick numbers, no overthinking. This helps the AI calibrate intensity.
+  - Overall relationship satisfaction (0-10)
+  - Feeling emotionally close lately (0-10)
+  - Outside stress affecting us (0-10)
+  - Notes (optional)
+
+[q06] What’s Working Right Now
+Start with what is strong. This makes the rest safer.
+
+[q07] Appreciation and Positive Reinforcement
+Healthy couples notice and reinforce the good. What is true right now?
+  - How often do we express appreciation (in real life)?
+  - The main way I show appreciation
+  - The main way I want to receive appreciation
+  - Anything specific you wish your partner noticed more
+
+[q08] Fun and Friendship
+Rank these from most important to least important for keeping your relationship fun and connected. This helps you focus on what actually matters.
+
+[q09] Drift Since the Last Check-In
+Drift is normal. The goal is noticing it early.
+
+[q10] Needs That Matter Most Right Now
+Select and rank the needs that would improve the relationship most if met consistently.
+  - Select and rank (top = biggest impact)
+  - If 'Other', what is it?
+  - Notes (optional)
+
+[q11] Your Cleanest Request
+If you could make ONE request that would help the most, what would it be? Make it specific and doable.
+
+[q12] What You Think Your Partner Needs
+This is a best guess. The goal is curiosity, not mind-reading.
+  - My best guess of what my partner needs more of from me
+  - What evidence do I have (words, behavior, patterns)?
+  - One clean question I can ask them to verify
+  - Notes (optional)
+
+[q13] Load and Resentment Check
+Resentment often comes from unspoken load. Name it early and gently.
+  - Overall, our effort and care feels...
+  - Where does the imbalance show up most?
+  - Resentment level right now
+  - Notes (optional)
+
+[q14] Your Contribution to the Drift
+Not blame. Just honesty. Where might you be adding friction or distance?
+
+[q15] Communication Rhythm
+What is the current rhythm and how does it land for you?
+  - Contact between seeing each other (text/calls)
+  - In-person time
+  - How satisfied are you with the rhythm?
+  - Notes (optional)
+
+[q16] Safety to Bring Up Concerns
+How safe do you feel bringing up something hard without it turning into a fight?
+
+[q17] Transparency and Updates
+This is not about control. It is about reducing avoidable ambiguity.
+  - Our transparency style is closest to...
+  - One kind of transparency I want more of (example: plans, friends, schedule)
+  - One boundary around privacy I respect and want honored
+  - Notes (optional)
+
+[q18] When Feedback Happens, What Do You Do?
+Pick what usually happens first. This is about awareness, not shame.
+
+[q19] Conflict Frequency and Intensity
+Keep it simple. This is just to calibrate the guidance.
+  - Conflicts in the last 4 weeks
+  - Typical intensity
+  - Most common trigger
+  - Notes (optional)
+
+[q20] Your Conflict Style
+When tension rises, what do you tend to do first?
+
+[q21] Repair Reliability
+After conflict, do you actually repair or do you just cool down?
+
+[q22] Lines You Don't Want Crossed
+When conflict happens, which behaviors feel unacceptable to you?
+
+[q23] What Repair Needs to Include
+If you could design a repair that actually works, what would it include?
+  - From my partner, repair works best when they...
+  - One repair behavior I commit to practicing
+  - A phrase that means: 'I am activated, but I want repair'
+  - Notes (optional)
+
+[q24] How You Receive Affection
+Select and rank what makes you feel loved (top = most important).
+  - Select and rank
+  - If 'Other', what is it?
+  - Notes (optional)
+
+[q25] Affection Alignment
+How aligned do you feel on affection and closeness right now?
+
+[q26] Feeling Known
+Feeling known is a core ingredient of intimacy.
+  - I feel known and understood lately
+  - One thing they do that makes me feel known
+  - One pattern that makes me feel unseen
+  - Notes (optional)
+
+[q27] Comfort Talking About Sex and Physical Boundaries
+Healthy couples can talk about sex without pressure. This is about clarity and respect.
+  - How comfortable am I discussing sex and boundaries with my partner?
+  - How comfortable am I exploring this with the AI?
+  - My goal for sex and boundaries conversations is...
+  - Notes (optional)
+
+[q28] Sexual Experience Context (Broad)
+This is intentionally broad. It helps the guidance fit your reality without asking details.
+
+[q29] Where You Two Are on Physical Boundaries
+This is about clarity and helping you succeed, not judging you.
+  - Our boundaries are...
+  - Right now, our physical closeness is closest to...
+  - Do you feel a pressure mismatch?
+  - In one sentence, why do healthy boundaries matter to you?
+  - Notes (optional)
+
+[q30] Sleeping Over and Temptation Risk
+For most couples, sleeping over dramatically increases risk and confusion. What is true for you two?
+  - Sleeping over is currently...
+  - If sleeping over happens, what boundaries do you use to stay safe?
+  - Why does sleeping over happen (or why do you avoid it)?
+  - Notes (optional)
+
+[q31] Sexual Integrity and Trust (If Relevant)
+This is optional. If sexual integrity or secrecy has ever affected trust, naming it gently can protect the relationship.
+  - Right now, sexual integrity feels...
+  - If there is tension, it relates to...
+  - Impact on trust
+  - Do you want help planning a calm, respectful conversation about this?
+  - Notes (optional)
+
+[q32] Desire Mismatch (If Any)
+Mismatched desire is normal. The danger is silence, pressure, or shame.
+  - Right now, desire feels...
+  - What I need (a clean request, not a demand)
+  - What I fear if we talk about this honestly
+  - Notes (optional)
+
+[q33] Physical Affection Boundaries You Want Honored
+Name one boundary you want honored without needing to justify it.
+
+[q34] Time, Priorities, and Presence
+Time is a love language. How is time actually going?
+  - Lately, time together feels...
+  - Biggest time stealers
+  - One change that would improve time together
+  - Notes (optional)
+
+[q35] Money Stress Level
+Money stress leaks into everything. Where are you right now?
+
+[q36] Money Operating Style
+This is about practical clarity, not control.
+  - How comfortable are you talking about money with your partner?
+  - Spending expectations in the relationship
+  - Debt and financial obligations are...
+  - Notes (optional)
+
+[q37] Life Load (Not Just Chores)
+Even if you do not live together, couples carry life load. Where is the load uneven?
+
+[q38] Support Under Stress
+When stress hits, what kind of support actually helps you?
+  - When I'm stressed, I need...
+  - When I'm stressed, what backfires?
+  - When my partner is stressed, I usually offer...
+  - Notes (optional)
+
+[q39] Are You Aligned on Direction?
+This is not about pressure. It is about shared reality.
+
+[q40] Next Steps Timeline
+What pace feels healthy right now?
+  - A healthy pace for next steps feels like...
+  - What makes you want to speed up?
+  - What makes you want to slow down?
+  - Notes (optional)
+
+[q41] Living Arrangements and Lifestyle Fit
+Some couples drift because lifestyle assumptions never got spoken.
+  - Right now, I live...
+  - If the relationship progresses, I prefer...
+  - One lifestyle non-negotiable I need respected
+  - Notes (optional)
+
+[q42] Kids and Family Planning (If Relevant)
+You do not need to solve everything now. You do need a direction that matches.
+  - Kids in our future feels...
+  - If yes, rough timeline
+  - One parenting value that matters a lot to me
+  - One family-related non-negotiable (if any)
+  - Notes (optional)
+
+[q43] Family, Community, and Faith in Practice
+For many couples, this is the hidden operating system. What is true for you?
+  - Faith and spirituality in our relationship is...
+  - Community and family expectations feel...
+  - One boundary with family/community we need to protect us
+  - Notes (optional)
+
+[q44] Safety and Respect Check
+This is not to judge. It is to protect you. Select anything that applies.
+
+[q45] Support Threshold
+When do you think outside support becomes wise?
+  - Right now, support feels...
+  - What kind of support would you be most open to?
+  - What is the main barrier (if any)?
+  - Notes (optional)
+
+[q46] Top Topics for Your Next Conversation
+Pick and rank what you want your next check-in conversation to cover.
+  - Select and rank
+  - If 'Other', what is it?
+  - Notes (optional)
+
+[q47] Next Check-In Plan
+A plan reduces anxiety. What does a good next check-in look like?
+  - When should the next check-in happen?
+  - Ideal length
+  - Best format
+  - Notes (optional)
+
+[q48] Anything the AI Should Know
+Optional. Add anything important that did not fit cleanly above.

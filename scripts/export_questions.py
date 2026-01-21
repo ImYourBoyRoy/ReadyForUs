@@ -1,6 +1,6 @@
 # ./scripts/export_questions.py
 """
-Exports questions from phases 0, 1, and 1.5 to questions.txt files in their respective folders.
+Exports questions from phases 0, 1, 1.5, and 2.5 to questions.txt files in their respective folders.
 
 Usage:
     python scripts/export_questions.py
@@ -9,11 +9,13 @@ Inputs:
     - data/phase_0/questions.json
     - data/phase_1/questions.json
     - data/phase_1.5/questions.json
+    - data/phase_2.5/questions.json
 
 Outputs:
     - data/phase_0/questions.txt
     - data/phase_1/questions.txt
     - data/phase_1.5/questions.txt
+    - data/phase_2.5/questions.txt
 """
 
 import json
@@ -22,7 +24,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 
-PHASES = ["phase_0", "phase_1", "phase_1.5"]
+PHASES = ["phase_0", "phase_1", "phase_1.5", "phase_2.5"]
 
 def format_question(q_data):
     lines = []

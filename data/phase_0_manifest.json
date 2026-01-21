@@ -1,0 +1,61 @@
+{
+    "schema_version": "1.3.0",
+    "display": {
+        "id": "phase_0",
+        "title": "Phase 0: Heart Readiness Check-in",
+        "short_title": "Self-Readiness",
+        "description": "A space to explore your own readiness before opening your heart to someone new.",
+        "icon": "🧭",
+        "menu_icon": "◇",
+        "order": 0
+    },
+    "artifact": {
+        "id": "phase_0_pre_dating_readiness",
+        "title": "Heart Readiness Review",
+        "subtitle": "Take a moment to reflect on your emotional and mental space before starting a new chapter.",
+        "language": "en-US",
+        "stage": {
+            "code": "phase_0",
+            "label": "Self-Reflection",
+            "eligibility": [
+                "You are considering stepping back into the world of dating.",
+                "You want to ensure you're standing on a solid foundation before you start."
+            ]
+        },
+        "purpose": [
+            "Gently surface any lingering blocks (closure, stability, or logistics).",
+            "Identify your own patterns so you can choose a different path this time.",
+            "Create a practical, kind plan for your own personal growth."
+        ]
+    },
+    "intro": {
+        "instructions": {
+            "title": "A Few Gentle Guidelines",
+            "items": [
+                "Think of this as a mirror, not a test. It’s here to help you see clearly.",
+                "Be honest with yourself—there are no 'right' answers here.",
+                "It’s okay to skip questions or stay high-level if that feels safer.",
+                "If you feel overwhelmed, please stop and do something grounding.",
+                "Your safety is paramount. If you are in crisis, please reach out for real-world support."
+            ]
+        },
+        "keep_in_mind": {
+            "title": "Words of Encouragement",
+            "items": [
+                "Readiness isn't about being perfect; it's about being stable and honest.",
+                "Clarity and accountability are acts of self-love, not tools for shame.",
+                "Your heart is a work in progress. You can return to this anytime."
+            ]
+        }
+    },
+    "prompts_artifact": {
+        "id": "phase_0_prompts",
+        "title": "Phase 0: Readiness & Forensic Analysis Prompts",
+        "language": "en-US",
+        "applies_to": "phase_0_pre_dating_readiness"
+    },
+    "privacy_preface": {
+        "title": "Privacy & Safety First",
+        "text": "Only share what you consent to share. You can omit details, redact names, and keep answers high-level. This is guidance and pattern-reflection, not medical or legal advice. If your answers suggest immediate danger (self-harm, abuse, stalking, threats), pause the analysis and seek real-world help now (US: call/text 988; if you are in immediate danger call your local emergency number)."
+    }
+}

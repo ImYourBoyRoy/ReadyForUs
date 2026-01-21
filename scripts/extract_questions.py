@@ -8,16 +8,28 @@ Usage:
     python scripts/extract_questions.py phase_1.5
     python scripts/extract_questions.py all
 
+CLI Arguments:
+    phase_name: Optional. Name of the phase folder (e.g., phase_0, phase_1.5) or 'all'. Default: 'all'
+
 Inputs:
-    - phase_name: Optional. Name of the phase folder (e.g., phase_0, phase_1.5) or 'all'
-    - Reads from data/{phase_name}/questions.json
+    - data/{phase_name}/questions.json
+    - data/{phase_name}/manifest.json (optional, for phase titles)
 
 Outputs:
     - Prints formatted question list to stdout with question ID, type, manifest inclusion, and prompt
     - Groups questions by section
+    - Displays options for select-type questions
+    - Displays field structure for compound questions
 
+Operational Notes:
+    - Read-only operation with no side effects
+    - Auto-discovers all data/phase_* directories when 'all' is specified
+    - Sections are displayed in order as they appear in the questionnaire
+    
 Author: Roy Dawson IV
+GitHub: https://github.com/imyourboyroy
 """
+
 
 import json
 import sys

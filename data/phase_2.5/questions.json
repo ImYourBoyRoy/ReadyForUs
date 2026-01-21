@@ -1,0 +1,4065 @@
+{
+  "sections": [
+    {
+      "id": "s1",
+      "title": "CONTEXT SNAPSHOT",
+      "question_ids": [
+        "q01",
+        "q02",
+        "q03",
+        "q04",
+        "q01b"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "WHAT'S WORKING",
+      "question_ids": [
+        "q05",
+        "q06",
+        "q07",
+        "q08"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "NEEDS + DRIFT",
+      "question_ids": [
+        "q09",
+        "q10",
+        "q11",
+        "q12",
+        "q13",
+        "q14"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "COMMUNICATION",
+      "question_ids": [
+        "q15",
+        "q16",
+        "q17",
+        "q18"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "CONFLICT + REPAIR",
+      "question_ids": [
+        "q19",
+        "q20",
+        "q21",
+        "q22",
+        "q23"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "AFFECTION + INTIMACY",
+      "question_ids": [
+        "q24",
+        "q25",
+        "q26",
+        "q27",
+        "q28",
+        "q29",
+        "q30",
+        "q31",
+        "q32",
+        "q33"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "LIFE LOGISTICS + MONEY",
+      "question_ids": [
+        "q34",
+        "q35",
+        "q36",
+        "q37",
+        "q38"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "FUTURE + FAMILY + FAITH",
+      "question_ids": [
+        "q39",
+        "q40",
+        "q41",
+        "q42",
+        "q43"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "SAFETY + SUPPORT",
+      "question_ids": [
+        "q44",
+        "q45",
+        "q46",
+        "q47",
+        "q48"
+      ]
+    }
+  ],
+  "questions": {
+    "q01": {
+      "id": "q01",
+      "section_id": "s1",
+      "order": 1,
+      "title": "Timeline Snapshot",
+      "prompt": "Before we go deep, give a simple snapshot so we interpret everything in context.",
+      "type": "compound",
+      "answer_schema": {
+        "how_long_known": "",
+        "known_unit": "",
+        "how_long_defined": "",
+        "defined_unit": "",
+        "last_checkin_how_long": "",
+        "last_checkin_unit": "",
+        "last_checkin_stage": "",
+        "other_last_stage": "",
+        "checkin_frequency": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "how_long_known",
+          "label": "How long have you known each other total?",
+          "type": "number",
+          "layout": "inline",
+          "min": 0
+        },
+        {
+          "key": "known_unit",
+          "label": "Unit",
+          "type": "dropdown",
+          "layout": "inline",
+          "options": [
+            {
+              "value": "days",
+              "label": "days"
+            },
+            {
+              "value": "weeks",
+              "label": "weeks"
+            },
+            {
+              "value": "months",
+              "label": "months"
+            },
+            {
+              "value": "years",
+              "label": "years"
+            }
+          ]
+        },
+        {
+          "key": "how_long_defined",
+          "label": "How long have you been in a defined relationship?",
+          "type": "number",
+          "layout": "inline",
+          "min": 0
+        },
+        {
+          "key": "defined_unit",
+          "label": "Unit",
+          "type": "dropdown",
+          "layout": "inline",
+          "options": [
+            {
+              "value": "days",
+              "label": "days"
+            },
+            {
+              "value": "weeks",
+              "label": "weeks"
+            },
+            {
+              "value": "months",
+              "label": "months"
+            },
+            {
+              "value": "years",
+              "label": "years"
+            }
+          ]
+        },
+        {
+          "key": "last_checkin_how_long",
+          "label": "About how long ago was your last intentional check-in?",
+          "type": "number",
+          "layout": "inline",
+          "min": 0
+        },
+        {
+          "key": "last_checkin_unit",
+          "label": "Unit",
+          "type": "dropdown",
+          "layout": "inline",
+          "options": [
+            {
+              "value": "days",
+              "label": "days"
+            },
+            {
+              "value": "weeks",
+              "label": "weeks"
+            },
+            {
+              "value": "months",
+              "label": "months"
+            },
+            {
+              "value": "years",
+              "label": "years"
+            },
+            {
+              "value": "never",
+              "label": "never"
+            }
+          ]
+        },
+        {
+          "key": "last_checkin_stage",
+          "label": "Which kind of check-in was it?",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "none_first_time",
+              "label": "None (this is our first real check-in)"
+            },
+            {
+              "value": "phase2_dtr",
+              "label": "Phase 2 (DTR / defining us)"
+            },
+            {
+              "value": "phase25_lite",
+              "label": "Phase 2.5 Lite"
+            },
+            {
+              "value": "phase25_full",
+              "label": "Phase 2.5 Full"
+            },
+            {
+              "value": "therapy_or_coaching",
+              "label": "Therapy / coaching session"
+            },
+            {
+              "value": "informal_talk",
+              "label": "Informal check-in talk"
+            },
+            {
+              "value": "other",
+              "label": "Other"
+            }
+          ]
+        },
+        {
+          "key": "other_last_stage",
+          "label": "If other, what was it?",
+          "type": "short_text",
+          "showWhen": {
+            "field": "last_checkin_stage",
+            "equals": "other"
+          }
+        },
+        {
+          "key": "checkin_frequency",
+          "label": "How often do you want check-ins to happen (ideally)?",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "weekly",
+              "label": "Weekly"
+            },
+            {
+              "value": "every_2_weeks",
+              "label": "Every 2 weeks"
+            },
+            {
+              "value": "monthly",
+              "label": "Monthly"
+            },
+            {
+              "value": "quarterly",
+              "label": "Quarterly"
+            },
+            {
+              "value": "as_needed",
+              "label": "Only when something feels off"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Known: 2 years. Defined: 6 months. Last check-in: 1 month ago (informal). Ideal: monthly.",
+        "Known: 8 months. Defined: 8 months. Last check-in: never. Ideal: every 2 weeks."
+      ]
+    },
+    "q02": {
+      "id": "q02",
+      "section_id": "s1",
+      "order": 3,
+      "title": "What \"Defined\" Means for You Two",
+      "prompt": "Pick the closest match. This helps later questions stay accurate.",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "exclusive_no_label",
+          "label": "Exclusive, but we do not use labels"
+        },
+        {
+          "value": "bf_gf",
+          "label": "Boyfriend/Girlfriend"
+        },
+        {
+          "value": "engaged",
+          "label": "Engaged"
+        },
+        {
+          "value": "married",
+          "label": "Married"
+        },
+        {
+          "value": "exclusive_long_distance",
+          "label": "Exclusive long-distance"
+        },
+        {
+          "value": "defined_other",
+          "label": "Defined in another way"
+        },
+        {
+          "value": "not_sure",
+          "label": "Not sure / unclear"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "examples": [
+        "Boyfriend/Girlfriend"
+      ]
+    },
+    "q03": {
+      "id": "q03",
+      "section_id": "s1",
+      "order": 4,
+      "title": "How You Best Receive Feedback",
+      "prompt": "Different people hear feedback differently. This helps your partner and the AI deliver it in a way you can actually receive.",
+      "type": "compound",
+      "answer_schema": {
+        "from_partner_best": "",
+        "from_partner_hard": "",
+        "from_ai_best": "",
+        "from_ai_hard": "",
+        "what_helps": "",
+        "what_doesnt": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "from_partner_best",
+          "label": "From my partner, I receive feedback best when it is...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "gentle_direct",
+              "label": "Gentle but direct"
+            },
+            {
+              "value": "very_direct",
+              "label": "Very direct and concise"
+            },
+            {
+              "value": "start_with_appreciation",
+              "label": "Starts with appreciation"
+            },
+            {
+              "value": "collaborative_questions",
+              "label": "Asked as questions (curiosity first)"
+            },
+            {
+              "value": "written_first",
+              "label": "Written first, then talked through"
+            },
+            {
+              "value": "time_to_process",
+              "label": "Given with time to process"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "from_partner_hard",
+          "label": "From my partner, feedback is hardest for me when it is...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "public",
+              "label": "In front of others"
+            },
+            {
+              "value": "during_conflict",
+              "label": "During conflict or high emotion"
+            },
+            {
+              "value": "vague",
+              "label": "Vague or indirect"
+            },
+            {
+              "value": "critical_tone",
+              "label": "In a critical tone"
+            },
+            {
+              "value": "long_lecture",
+              "label": "A long lecture"
+            },
+            {
+              "value": "surprise",
+              "label": "A surprise with no warning"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "from_ai_best",
+          "label": "From the AI, I want guidance that is...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "curious_questions_first",
+              "label": "Mostly questions first"
+            },
+            {
+              "value": "balanced_questions_and_advice",
+              "label": "Balanced: questions, then suggestions"
+            },
+            {
+              "value": "direct_action_steps",
+              "label": "Direct with action steps"
+            },
+            {
+              "value": "gentle_and_reassuring",
+              "label": "Gentle and reassuring"
+            },
+            {
+              "value": "challenge_me",
+              "label": "Challenge me and call out blind spots"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "from_ai_hard",
+          "label": "From the AI, I want it to avoid...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "overly_clinical",
+              "label": "Overly clinical language"
+            },
+            {
+              "value": "generic_advice",
+              "label": "Generic advice"
+            },
+            {
+              "value": "too_much_text",
+              "label": "Too much text"
+            },
+            {
+              "value": "heavy_assumptions",
+              "label": "Strong assumptions"
+            },
+            {
+              "value": "pushy_recommendations",
+              "label": "Pushy recommendations"
+            },
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "what_helps",
+          "label": "One thing that helps me stay open when receiving feedback",
+          "type": "short_text"
+        },
+        {
+          "key": "what_doesnt",
+          "label": "One thing that shuts me down",
+          "type": "short_text"
+        }
+      ],
+      "examples": [
+        "Partner: collaborative questions first. Hardest: during conflict. AI: direct action steps. Avoid: generic advice. Helps: calm tone. Shuts down: sarcasm."
+      ]
+    },
+    "q04": {
+      "id": "q04",
+      "section_id": "s1",
+      "order": 5,
+      "title": "What You Want From This Check-In",
+      "prompt": "Pick and rank what matters most right now. This keeps the check-in focused and calmer.",
+      "type": "compound",
+      "answer_schema": {
+        "focus_ranked": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "focus_ranked",
+          "label": "Select and rank your top goals (top = most important)",
+          "type": "ranked_select",
+          "options": [
+            {
+              "value": "more_closeness",
+              "label": "More closeness"
+            },
+            {
+              "value": "better_communication",
+              "label": "Better communication"
+            },
+            {
+              "value": "less_conflict",
+              "label": "Less conflict"
+            },
+            {
+              "value": "better_repair",
+              "label": "Better repair after conflict"
+            },
+            {
+              "value": "clearer_boundaries",
+              "label": "Clearer boundaries"
+            },
+            {
+              "value": "affection_alignment",
+              "label": "Better affection alignment"
+            },
+            {
+              "value": "sex_boundaries_clarity",
+              "label": "Clearer sex and physical boundaries"
+            },
+            {
+              "value": "money_less_stress",
+              "label": "Less money stress"
+            },
+            {
+              "value": "future_planning",
+              "label": "Better future planning"
+            },
+            {
+              "value": "family_faith_balance",
+              "label": "Family and faith balance"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "other_text",
+          "label": "If 'Other', what is it?",
+          "type": "short_text",
+          "showWhen": {
+            "field": "focus_ranked",
+            "includes": "other"
+          }
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Ranked: Better communication, More closeness, Better repair.",
+        "Ranked: Clearer sex and physical boundaries, Less conflict."
+      ]
+    },
+    "q05": {
+      "id": "q05",
+      "section_id": "s2",
+      "order": 5,
+      "title": "Quick Pulse Check",
+      "prompt": "Quick numbers, no overthinking. This helps the AI calibrate intensity.",
+      "type": "compound",
+      "answer_schema": {
+        "satisfaction_0_10": "",
+        "closeness_0_10": "",
+        "stress_0_10": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "satisfaction_0_10",
+          "label": "Overall relationship satisfaction (0-10)",
+          "type": "number",
+          "min": 0,
+          "max": 10,
+          "layout": "inline"
+        },
+        {
+          "key": "closeness_0_10",
+          "label": "Feeling emotionally close lately (0-10)",
+          "type": "number",
+          "min": 0,
+          "max": 10,
+          "layout": "inline"
+        },
+        {
+          "key": "stress_0_10",
+          "label": "Outside stress affecting us (0-10)",
+          "type": "number",
+          "min": 0,
+          "max": 10,
+          "layout": "inline"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Satisfaction: 8. Closeness: 6. Stress: 7. (Work is heavy.)",
+        "Satisfaction: 5. Closeness: 4. Stress: 3. (We feel disconnected.)"
+      ]
+    },
+    "q06": {
+      "id": "q06",
+      "section_id": "s2",
+      "order": 6,
+      "title": "What’s Working Right Now",
+      "prompt": "Start with what is strong. This makes the rest safer.",
+      "type": "multi_select",
+      "max": 7,
+      "options": [
+        {
+          "value": "friendship",
+          "label": "Friendship and companionship"
+        },
+        {
+          "value": "affection",
+          "label": "Affection and warmth"
+        },
+        {
+          "value": "communication",
+          "label": "Communication is generally good"
+        },
+        {
+          "value": "trust",
+          "label": "Trust feels solid"
+        },
+        {
+          "value": "fun",
+          "label": "We still have fun"
+        },
+        {
+          "value": "support",
+          "label": "We support each other under stress"
+        },
+        {
+          "value": "shared_values",
+          "label": "Shared values feel strong"
+        },
+        {
+          "value": "spiritual_connection",
+          "label": "Spiritual connection (if relevant)"
+        },
+        {
+          "value": "conflict_handling",
+          "label": "We handle conflict better than before"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "examples": [
+        "Friendship + Trust + We still have fun"
+      ]
+    },
+    "q07": {
+      "id": "q07",
+      "section_id": "s2",
+      "order": 7,
+      "title": "Appreciation and Positive Reinforcement",
+      "prompt": "Healthy couples notice and reinforce the good. What is true right now?",
+      "type": "compound",
+      "answer_schema": {
+        "appreciation_frequency": "",
+        "how_i_show": "",
+        "how_i_want_received": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "appreciation_frequency",
+          "label": "How often do we express appreciation (in real life)?",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "daily",
+              "label": "Daily"
+            },
+            {
+              "value": "few_times_week",
+              "label": "A few times a week"
+            },
+            {
+              "value": "weekly",
+              "label": "About weekly"
+            },
+            {
+              "value": "rarely",
+              "label": "Rarely"
+            },
+            {
+              "value": "varies",
+              "label": "Varies"
+            }
+          ]
+        },
+        {
+          "key": "how_i_show",
+          "label": "The main way I show appreciation",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "words",
+              "label": "Words / compliments"
+            },
+            {
+              "value": "touch",
+              "label": "Touch / affection"
+            },
+            {
+              "value": "acts",
+              "label": "Acts of service"
+            },
+            {
+              "value": "time",
+              "label": "Quality time"
+            },
+            {
+              "value": "gifts",
+              "label": "Small gifts"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "how_i_want_received",
+          "label": "The main way I want to receive appreciation",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "words",
+              "label": "Words / reassurance"
+            },
+            {
+              "value": "touch",
+              "label": "Touch / affection"
+            },
+            {
+              "value": "acts",
+              "label": "Acts of service"
+            },
+            {
+              "value": "time",
+              "label": "Quality time"
+            },
+            {
+              "value": "gifts",
+              "label": "Small gestures"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Anything specific you wish your partner noticed more",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Frequency: a few times a week. I show: acts. I want: words. I wish they noticed my effort more."
+      ]
+    },
+    "q08": {
+      "id": "q08",
+      "section_id": "s2",
+      "order": 8,
+      "title": "Fun and Friendship",
+      "prompt": "Rank these from most important to least important for keeping your relationship fun and connected. This helps you focus on what actually matters.",
+      "type": "ranked_select",
+      "options": [
+        {
+          "value": "spontaneous_time",
+          "label": "Spontaneous hangout time"
+        },
+        {
+          "value": "planned_dates",
+          "label": "Planned dates and outings"
+        },
+        {
+          "value": "shared_hobbies",
+          "label": "Shared hobbies or activities"
+        },
+        {
+          "value": "adventures",
+          "label": "New adventures or experiences"
+        },
+        {
+          "value": "just_talking",
+          "label": "Just talking and laughing"
+        },
+        {
+          "value": "low_key_time",
+          "label": "Low-key time at home together"
+        },
+        {
+          "value": "physical_activity",
+          "label": "Physical activity together"
+        },
+        {
+          "value": "creative_projects",
+          "label": "Creative or building projects"
+        }
+      ],
+      "answer_schema": {
+        "ranked_values": [],
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "examples": [
+        "Ranked: Just talking, Spontaneous time, Planned dates, Adventures."
+      ]
+    },
+    "q09": {
+      "id": "q09",
+      "section_id": "s3",
+      "order": 9,
+      "title": "Drift Since the Last Check-In",
+      "prompt": "Drift is normal. The goal is noticing it early.",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "no_drift",
+          "label": "No drift. We feel solid."
+        },
+        {
+          "value": "slight",
+          "label": "Slight drift. It is manageable."
+        },
+        {
+          "value": "moderate",
+          "label": "Moderate drift. It needs attention."
+        },
+        {
+          "value": "significant",
+          "label": "Significant drift. It feels urgent."
+        },
+        {
+          "value": "not_sure",
+          "label": "Not sure"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "examples": [
+        "Slight drift"
+      ]
+    },
+    "q10": {
+      "id": "q10",
+      "section_id": "s3",
+      "order": 10,
+      "title": "Needs That Matter Most Right Now",
+      "prompt": "Select and rank the needs that would improve the relationship most if met consistently.",
+      "type": "compound",
+      "answer_schema": {
+        "needs_ranked": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "needs_ranked",
+          "label": "Select and rank (top = biggest impact)",
+          "type": "ranked_select",
+          "options": [
+            {
+              "value": "quality_time",
+              "label": "Quality time"
+            },
+            {
+              "value": "emotional_openness",
+              "label": "Emotional openness"
+            },
+            {
+              "value": "reassurance",
+              "label": "Reassurance and steadiness"
+            },
+            {
+              "value": "affection",
+              "label": "Affection and touch"
+            },
+            {
+              "value": "communication_clarity",
+              "label": "Clear communication"
+            },
+            {
+              "value": "reliable_follow_through",
+              "label": "Reliable follow-through"
+            },
+            {
+              "value": "less_conflict",
+              "label": "Less conflict"
+            },
+            {
+              "value": "better_repair",
+              "label": "Better repair"
+            },
+            {
+              "value": "autonomy",
+              "label": "More autonomy / space"
+            },
+            {
+              "value": "practical_help",
+              "label": "Practical support"
+            },
+            {
+              "value": "sexual_clarity",
+              "label": "Sex and physical boundaries clarity"
+            },
+            {
+              "value": "future_clarity",
+              "label": "Future planning clarity"
+            },
+            {
+              "value": "spiritual_connection",
+              "label": "Spiritual connection"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "other_text",
+          "label": "If 'Other', what is it?",
+          "type": "short_text",
+          "showWhen": {
+            "field": "needs_ranked",
+            "includes": "other"
+          }
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Ranked: Quality time, Clear communication, Better repair."
+      ]
+    },
+    "q11": {
+      "id": "q11",
+      "section_id": "s3",
+      "order": 11,
+      "title": "Your Cleanest Request",
+      "prompt": "If you could make ONE request that would help the most, what would it be? Make it specific and doable.",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "examples": [
+        "I want one intentional date night each week where phones are put away.",
+        "I want us to do a 15-minute check-in every Sunday evening."
+      ]
+    },
+    "q12": {
+      "id": "q12",
+      "section_id": "s3",
+      "order": 12,
+      "title": "What You Think Your Partner Needs",
+      "prompt": "This is a best guess. The goal is curiosity, not mind-reading.",
+      "type": "compound",
+      "answer_schema": {
+        "my_guess": "",
+        "evidence": "",
+        "ask_this": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "my_guess",
+          "label": "My best guess of what my partner needs more of from me",
+          "type": "free_text"
+        },
+        {
+          "key": "evidence",
+          "label": "What evidence do I have (words, behavior, patterns)?",
+          "type": "free_text"
+        },
+        {
+          "key": "ask_this",
+          "label": "One clean question I can ask them to verify",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Guess: more reassurance. Evidence: they get anxious when plans change. Ask: What helps you feel secure when I'm busy?"
+      ]
+    },
+    "q13": {
+      "id": "q13",
+      "section_id": "s3",
+      "order": 13,
+      "title": "Load and Resentment Check",
+      "prompt": "Resentment often comes from unspoken load. Name it early and gently.",
+      "type": "compound",
+      "answer_schema": {
+        "balance_feels": "",
+        "where_load_shows": "",
+        "resentment_level": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "balance_feels",
+          "label": "Overall, our effort and care feels...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "balanced",
+              "label": "Balanced"
+            },
+            {
+              "value": "slightly_imbalanced_me_more",
+              "label": "Slightly imbalanced (I do more)"
+            },
+            {
+              "value": "slightly_imbalanced_them_more",
+              "label": "Slightly imbalanced (they do more)"
+            },
+            {
+              "value": "very_imbalanced",
+              "label": "Very imbalanced"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "where_load_shows",
+          "label": "Where does the imbalance show up most?",
+          "type": "multi_select",
+          "options": [
+            {
+              "value": "planning",
+              "label": "Planning and scheduling"
+            },
+            {
+              "value": "initiating",
+              "label": "Initiating dates / connection"
+            },
+            {
+              "value": "emotional_support",
+              "label": "Emotional support"
+            },
+            {
+              "value": "money",
+              "label": "Money / paying"
+            },
+            {
+              "value": "family_obligations",
+              "label": "Family obligations"
+            },
+            {
+              "value": "household",
+              "label": "Household tasks"
+            },
+            {
+              "value": "travel",
+              "label": "Driving / travel"
+            },
+            {
+              "value": "communication",
+              "label": "Communication effort"
+            },
+            {
+              "value": "other",
+              "label": "Other"
+            }
+          ]
+        },
+        {
+          "key": "resentment_level",
+          "label": "Resentment level right now",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Slightly imbalanced (I do more). Where: planning + initiating. Resentment: low."
+      ]
+    },
+    "q14": {
+      "id": "q14",
+      "section_id": "s3",
+      "order": 14,
+      "title": "Your Contribution to the Drift",
+      "prompt": "Not blame. Just honesty. Where might you be adding friction or distance?",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "examples": [
+        "I get reactive and push for clarity when I'm anxious.",
+        "I withdraw and stop initiating when I'm stressed."
+      ]
+    },
+    "q15": {
+      "id": "q15",
+      "section_id": "s4",
+      "order": 15,
+      "title": "Communication Rhythm",
+      "prompt": "What is the current rhythm and how does it land for you?",
+      "type": "compound",
+      "answer_schema": {
+        "contact_frequency": "",
+        "in_person_frequency": "",
+        "satisfaction": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "contact_frequency",
+          "label": "Contact between seeing each other (text/calls)",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "throughout_day",
+              "label": "Throughout the day"
+            },
+            {
+              "value": "daily",
+              "label": "Daily"
+            },
+            {
+              "value": "every_other_day",
+              "label": "Every other day"
+            },
+            {
+              "value": "few_times_week",
+              "label": "A few times a week"
+            },
+            {
+              "value": "rare",
+              "label": "Rare"
+            },
+            {
+              "value": "varies",
+              "label": "Varies"
+            }
+          ]
+        },
+        {
+          "key": "in_person_frequency",
+          "label": "In-person time",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "multiple_times_week",
+              "label": "Multiple times/week"
+            },
+            {
+              "value": "weekly",
+              "label": "Weekly"
+            },
+            {
+              "value": "every_other_week",
+              "label": "Every other week"
+            },
+            {
+              "value": "rare_long_distance",
+              "label": "Rare / long-distance"
+            },
+            {
+              "value": "varies",
+              "label": "Varies"
+            }
+          ]
+        },
+        {
+          "key": "satisfaction",
+          "label": "How satisfied are you with the rhythm?",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "very_satisfied",
+              "label": "Very satisfied"
+            },
+            {
+              "value": "mostly_satisfied",
+              "label": "Mostly satisfied"
+            },
+            {
+              "value": "mixed",
+              "label": "Mixed"
+            },
+            {
+              "value": "mostly_unsatisfied",
+              "label": "Mostly unsatisfied"
+            },
+            {
+              "value": "very_unsatisfied",
+              "label": "Very unsatisfied"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Contact: daily. In-person: weekly. Satisfaction: mixed (I want more time together)."
+      ]
+    },
+    "q16": {
+      "id": "q16",
+      "section_id": "s4",
+      "order": 16,
+      "title": "Safety to Bring Up Concerns",
+      "prompt": "How safe do you feel bringing up something hard without it turning into a fight?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "very_safe",
+          "label": "Very safe"
+        },
+        {
+          "value": "mostly_safe",
+          "label": "Mostly safe"
+        },
+        {
+          "value": "mixed",
+          "label": "Mixed"
+        },
+        {
+          "value": "often_unsafe",
+          "label": "Often unsafe"
+        },
+        {
+          "value": "unsafe",
+          "label": "Unsafe"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "examples": [
+        "Mostly safe"
+      ]
+    },
+    "q17": {
+      "id": "q17",
+      "section_id": "s4",
+      "order": 17,
+      "title": "Transparency and Updates",
+      "prompt": "This is not about control. It is about reducing avoidable ambiguity.",
+      "type": "compound",
+      "answer_schema": {
+        "transparency_style": "",
+        "what_i_want_more_of": "",
+        "what_i_respect": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "transparency_style",
+          "label": "Our transparency style is closest to...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "natural_open",
+              "label": "We naturally share plans and context"
+            },
+            {
+              "value": "need_to_ask",
+              "label": "I usually have to ask for updates"
+            },
+            {
+              "value": "minimal",
+              "label": "We keep details minimal"
+            },
+            {
+              "value": "inconsistent",
+              "label": "Inconsistent"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "what_i_want_more_of",
+          "label": "One kind of transparency I want more of (example: plans, friends, schedule)",
+          "type": "short_text"
+        },
+        {
+          "key": "what_i_respect",
+          "label": "One boundary around privacy I respect and want honored",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Style: need to ask. Want: more clarity on weekend plans. Respect: private journaling is off-limits."
+      ]
+    },
+    "q18": {
+      "id": "q18",
+      "section_id": "s4",
+      "order": 18,
+      "title": "When Feedback Happens, What Do You Do?",
+      "prompt": "Pick what usually happens first. This is about awareness, not shame.",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "get_defensive",
+          "label": "I get defensive"
+        },
+        {
+          "value": "explain",
+          "label": "I explain and justify"
+        },
+        {
+          "value": "shut_down",
+          "label": "I shut down"
+        },
+        {
+          "value": "get_emotional",
+          "label": "I get emotional"
+        },
+        {
+          "value": "problem_solve",
+          "label": "I jump into problem-solving"
+        },
+        {
+          "value": "get_curious",
+          "label": "I get curious and ask questions"
+        },
+        {
+          "value": "apologize_fast",
+          "label": "I apologize quickly"
+        },
+        {
+          "value": "need_time",
+          "label": "I need time before responding"
+        },
+        {
+          "value": "other",
+          "label": "Other"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "examples": [
+        "I explain and justify + I need time"
+      ],
+      "max": 5
+    },
+    "q19": {
+      "id": "q19",
+      "section_id": "s5",
+      "order": 19,
+      "title": "Conflict Frequency and Intensity",
+      "prompt": "Keep it simple. This is just to calibrate the guidance.",
+      "type": "compound",
+      "answer_schema": {
+        "frequency": "",
+        "intensity": "",
+        "top_trigger": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "frequency",
+          "label": "Conflicts in the last 4 weeks",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "1_2",
+              "label": "1-2"
+            },
+            {
+              "value": "3_5",
+              "label": "3-5"
+            },
+            {
+              "value": "weekly_or_more",
+              "label": "Weekly or more"
+            },
+            {
+              "value": "constant_tension",
+              "label": "Constant tension"
+            }
+          ]
+        },
+        {
+          "key": "intensity",
+          "label": "Typical intensity",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "moderate",
+              "label": "Moderate"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "volatile",
+              "label": "Volatile"
+            }
+          ]
+        },
+        {
+          "key": "top_trigger",
+          "label": "Most common trigger",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "time_attention",
+              "label": "Time / attention"
+            },
+            {
+              "value": "communication",
+              "label": "Communication"
+            },
+            {
+              "value": "tone",
+              "label": "Tone / disrespect"
+            },
+            {
+              "value": "trust",
+              "label": "Trust / jealousy"
+            },
+            {
+              "value": "money",
+              "label": "Money"
+            },
+            {
+              "value": "family",
+              "label": "Family"
+            },
+            {
+              "value": "physical_boundaries",
+              "label": "Physical boundaries"
+            },
+            {
+              "value": "stress",
+              "label": "Outside stress"
+            },
+            {
+              "value": "other",
+              "label": "Other"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Frequency: 1-2. Intensity: moderate. Trigger: time/attention."
+      ]
+    },
+    "q20": {
+      "id": "q20",
+      "section_id": "s5",
+      "order": 20,
+      "title": "Your Conflict Style",
+      "prompt": "When tension rises, what do you tend to do first?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "pursue",
+          "label": "Pursue (push for clarity right now)"
+        },
+        {
+          "value": "withdraw",
+          "label": "Withdraw (need space, shut down)"
+        },
+        {
+          "value": "problem_solve",
+          "label": "Problem-solve (fix it)"
+        },
+        {
+          "value": "appease",
+          "label": "Appease (smooth it over)"
+        },
+        {
+          "value": "freeze",
+          "label": "Freeze (blank, stuck)"
+        },
+        {
+          "value": "escalate",
+          "label": "Escalate (anger, intensity)"
+        },
+        {
+          "value": "other",
+          "label": "Other"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "examples": [
+        "Pursue"
+      ]
+    },
+    "q21": {
+      "id": "q21",
+      "section_id": "s5",
+      "order": 21,
+      "title": "Repair Reliability",
+      "prompt": "After conflict, do you actually repair or do you just cool down?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "repair_well",
+          "label": "We repair well and reconnect"
+        },
+        {
+          "value": "some_repair",
+          "label": "We repair sometimes"
+        },
+        {
+          "value": "cool_down_only",
+          "label": "We mostly cool down and move on"
+        },
+        {
+          "value": "repeat_same",
+          "label": "We repeat the same fight"
+        },
+        {
+          "value": "avoid_conflict",
+          "label": "We avoid conflict but tension builds"
+        },
+        {
+          "value": "not_sure",
+          "label": "Not sure"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "examples": [
+        "We mostly cool down and move on"
+      ]
+    },
+    "q22": {
+      "id": "q22",
+      "section_id": "s5",
+      "order": 22,
+      "title": "Lines You Don't Want Crossed",
+      "prompt": "When conflict happens, which behaviors feel unacceptable to you?",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "name_calling",
+          "label": "Name-calling or insults"
+        },
+        {
+          "value": "yelling",
+          "label": "Yelling"
+        },
+        {
+          "value": "stonewalling",
+          "label": "Stonewalling (refuse to engage)"
+        },
+        {
+          "value": "threats_breakup",
+          "label": "Threats of breakup as leverage"
+        },
+        {
+          "value": "public_shaming",
+          "label": "Public shaming"
+        },
+        {
+          "value": "silent_treatment",
+          "label": "Silent treatment"
+        },
+        {
+          "value": "sarcasm",
+          "label": "Sarcasm or contempt"
+        },
+        {
+          "value": "physical_intimidation",
+          "label": "Physical intimidation"
+        },
+        {
+          "value": "none",
+          "label": "None of these are happening"
+        },
+        {
+          "value": "prefer_not",
+          "label": "Prefer not to say"
+        },
+        {
+          "value": "other",
+          "label": "Other"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "examples": [
+        "Name-calling + Threats of breakup as leverage"
+      ],
+      "max": 7
+    },
+    "q23": {
+      "id": "q23",
+      "section_id": "s5",
+      "order": 23,
+      "title": "What Repair Needs to Include",
+      "prompt": "If you could design a repair that actually works, what would it include?",
+      "type": "compound",
+      "answer_schema": {
+        "what_i_need_from_them": [],
+        "what_i_will_do": "",
+        "repair_phrase": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "what_i_need_from_them",
+          "label": "From my partner, repair works best when they...",
+          "type": "multi_select",
+          "options": [
+            {
+              "value": "own_part",
+              "label": "Own their part"
+            },
+            {
+              "value": "apologize_specific",
+              "label": "Apologize specifically"
+            },
+            {
+              "value": "validate",
+              "label": "Validate my feelings"
+            },
+            {
+              "value": "follow_through",
+              "label": "Follow through with change"
+            },
+            {
+              "value": "reconnect_touch",
+              "label": "Reconnect with warmth/affection"
+            },
+            {
+              "value": "talk_calm",
+              "label": "Talk calmly"
+            },
+            {
+              "value": "give_time",
+              "label": "Give space then return"
+            },
+            {
+              "value": "other",
+              "label": "Other"
+            }
+          ]
+        },
+        {
+          "key": "what_i_will_do",
+          "label": "One repair behavior I commit to practicing",
+          "type": "short_text"
+        },
+        {
+          "key": "repair_phrase",
+          "label": "A phrase that means: 'I am activated, but I want repair'",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Need: own part + validate + follow through. I will: pause before responding. Phrase: I'm stressed but I'm still here."
+      ]
+    },
+    "q24": {
+      "id": "q24",
+      "section_id": "s6",
+      "order": 24,
+      "title": "How You Receive Affection",
+      "prompt": "Select and rank what makes you feel loved (top = most important).",
+      "type": "compound",
+      "answer_schema": {
+        "affection_ranked": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "affection_ranked",
+          "label": "Select and rank",
+          "type": "ranked_select",
+          "options": [
+            {
+              "value": "touch",
+              "label": "Touch (hugs, cuddling, hand-holding)"
+            },
+            {
+              "value": "words",
+              "label": "Words (compliments, reassurance)"
+            },
+            {
+              "value": "time",
+              "label": "Quality time"
+            },
+            {
+              "value": "acts",
+              "label": "Acts of service"
+            },
+            {
+              "value": "gifts",
+              "label": "Small gifts"
+            },
+            {
+              "value": "play",
+              "label": "Play and humor"
+            },
+            {
+              "value": "spiritual",
+              "label": "Prayer, faith, shared values"
+            },
+            {
+              "value": "other",
+              "label": "Other"
+            }
+          ]
+        },
+        {
+          "key": "other_text",
+          "label": "If 'Other', what is it?",
+          "type": "short_text",
+          "showWhen": {
+            "field": "affection_ranked",
+            "includes": "other"
+          }
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Ranked: Touch, Quality time, Words"
+      ]
+    },
+    "q25": {
+      "id": "q25",
+      "section_id": "s6",
+      "order": 25,
+      "title": "Affection Alignment",
+      "prompt": "How aligned do you feel on affection and closeness right now?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "very_aligned",
+          "label": "Very aligned"
+        },
+        {
+          "value": "mostly_aligned",
+          "label": "Mostly aligned"
+        },
+        {
+          "value": "mixed",
+          "label": "Mixed"
+        },
+        {
+          "value": "often_misaligned",
+          "label": "Often misaligned"
+        },
+        {
+          "value": "very_misaligned",
+          "label": "Very misaligned"
+        },
+        {
+          "value": "not_sure",
+          "label": "Not sure"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "examples": [
+        "Mixed"
+      ]
+    },
+    "q26": {
+      "id": "q26",
+      "section_id": "s6",
+      "order": 26,
+      "title": "Feeling Known",
+      "prompt": "Feeling known is a core ingredient of intimacy.",
+      "type": "compound",
+      "answer_schema": {
+        "feel_known_level": "",
+        "what_makes_me_feel_known": "",
+        "what_makes_me_feel_unseen": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "feel_known_level",
+          "label": "I feel known and understood lately",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "very_true",
+              "label": "Very true"
+            },
+            {
+              "value": "mostly_true",
+              "label": "Mostly true"
+            },
+            {
+              "value": "mixed",
+              "label": "Mixed"
+            },
+            {
+              "value": "mostly_false",
+              "label": "Mostly false"
+            },
+            {
+              "value": "false",
+              "label": "False"
+            }
+          ]
+        },
+        {
+          "key": "what_makes_me_feel_known",
+          "label": "One thing they do that makes me feel known",
+          "type": "short_text"
+        },
+        {
+          "key": "what_makes_me_feel_unseen",
+          "label": "One pattern that makes me feel unseen",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Level: mixed. Known: they ask about my day. Unseen: they dismiss my stress."
+      ]
+    },
+    "q27": {
+      "id": "q27",
+      "section_id": "s6",
+      "order": 27,
+      "title": "Comfort Talking About Sex and Physical Boundaries",
+      "prompt": "Healthy couples can talk about sex without pressure. This is about clarity and respect.",
+      "type": "compound",
+      "answer_schema": {
+        "comfort_with_partner": "",
+        "comfort_with_ai": "",
+        "goal_for_talk": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "comfort_with_partner",
+          "label": "How comfortable am I discussing sex and boundaries with my partner?",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "very_comfortable",
+              "label": "Very comfortable"
+            },
+            {
+              "value": "somewhat",
+              "label": "Somewhat comfortable"
+            },
+            {
+              "value": "awkward",
+              "label": "Awkward"
+            },
+            {
+              "value": "very_hard",
+              "label": "Very hard"
+            },
+            {
+              "value": "avoid",
+              "label": "I avoid it"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "comfort_with_ai",
+          "label": "How comfortable am I exploring this with the AI?",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "very_comfortable",
+              "label": "Very comfortable"
+            },
+            {
+              "value": "somewhat",
+              "label": "Somewhat comfortable"
+            },
+            {
+              "value": "awkward",
+              "label": "Awkward"
+            },
+            {
+              "value": "very_hard",
+              "label": "Very hard"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "goal_for_talk",
+          "label": "My goal for sex and boundaries conversations is...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "reduce_pressure",
+              "label": "Reduce pressure"
+            },
+            {
+              "value": "clarify_boundaries",
+              "label": "Clarify boundaries"
+            },
+            {
+              "value": "align_expectations",
+              "label": "Align expectations"
+            },
+            {
+              "value": "prevent_regret",
+              "label": "Prevent regret"
+            },
+            {
+              "value": "prepare_for_marriage",
+              "label": "Prepare for marriage"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Comfort: awkward. Goal: clarify boundaries and reduce pressure."
+      ]
+    },
+    "q28": {
+      "id": "q28",
+      "section_id": "s6",
+      "order": 28,
+      "title": "Sexual Experience Context (Broad)",
+      "prompt": "This is intentionally broad. It helps the guidance fit your reality without asking details.",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "no_experience",
+          "label": "No sexual experience"
+        },
+        {
+          "value": "limited",
+          "label": "Limited experience"
+        },
+        {
+          "value": "some",
+          "label": "Some experience"
+        },
+        {
+          "value": "significant",
+          "label": "Significant experience"
+        },
+        {
+          "value": "prefer_not",
+          "label": "Prefer not to say"
+        },
+        {
+          "value": "other",
+          "label": "Other"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "examples": [
+        "Limited experience"
+      ]
+    },
+    "q29": {
+      "id": "q29",
+      "section_id": "s6",
+      "order": 29,
+      "title": "Where You Two Are on Physical Boundaries",
+      "prompt": "This is about clarity and helping you succeed, not judging you.",
+      "type": "compound",
+      "answer_schema": {
+        "boundary_alignment": "",
+        "current_boundary_zone": "",
+        "pressure_mismatch": "",
+        "why_boundaries_matter": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "boundary_alignment",
+          "label": "Our boundaries are...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "clear_aligned",
+              "label": "Clear and aligned"
+            },
+            {
+              "value": "mostly_aligned",
+              "label": "Mostly aligned"
+            },
+            {
+              "value": "unclear",
+              "label": "Unclear / not spoken"
+            },
+            {
+              "value": "misaligned",
+              "label": "Misaligned"
+            },
+            {
+              "value": "changing",
+              "label": "Changing / in process"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "current_boundary_zone",
+          "label": "Right now, our physical closeness is closest to...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "affection_only",
+              "label": "Affection only (hugging, cuddling, kissing)"
+            },
+            {
+              "value": "heavier_makeout",
+              "label": "Heavier makeout"
+            },
+            {
+              "value": "sexual_touch",
+              "label": "Sexual touching"
+            },
+            {
+              "value": "sex_happened",
+              "label": "We have had sex"
+            },
+            {
+              "value": "not_applicable",
+              "label": "Not applicable"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "pressure_mismatch",
+          "label": "Do you feel a pressure mismatch?",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "no",
+              "label": "No"
+            },
+            {
+              "value": "a_little",
+              "label": "A little"
+            },
+            {
+              "value": "yes_me_more",
+              "label": "Yes (I want more than they do)"
+            },
+            {
+              "value": "yes_them_more",
+              "label": "Yes (they want more than I do)"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "why_boundaries_matter",
+          "label": "In one sentence, why do healthy boundaries matter to you?",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Aligned: mostly. Zone: affection only. Pressure mismatch: a little. Why: to protect trust and long-term peace."
+      ]
+    },
+    "q30": {
+      "id": "q30",
+      "section_id": "s6",
+      "order": 30,
+      "title": "Sleeping Over and Temptation Risk",
+      "prompt": "For most couples, sleeping over dramatically increases risk and confusion. What is true for you two?",
+      "type": "compound",
+      "answer_schema": {
+        "sleepover_pattern": "",
+        "boundaries_if_sleepover": "",
+        "why": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "sleepover_pattern",
+          "label": "Sleeping over is currently...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "never",
+              "label": "Never"
+            },
+            {
+              "value": "rare_special",
+              "label": "Rare / special circumstances"
+            },
+            {
+              "value": "sometimes_separate",
+              "label": "Sometimes, but separate spaces"
+            },
+            {
+              "value": "sometimes_same_space",
+              "label": "Sometimes, same space"
+            },
+            {
+              "value": "often",
+              "label": "Often"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "boundaries_if_sleepover",
+          "label": "If sleeping over happens, what boundaries do you use to stay safe?",
+          "type": "free_text"
+        },
+        {
+          "key": "why",
+          "label": "Why does sleeping over happen (or why do you avoid it)?",
+          "type": "free_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Pattern: never. Why: we want clean boundaries and less temptation.",
+        "Pattern: sometimes separate. Boundaries: guest room, no cuddling in bed."
+      ]
+    },
+    "q31": {
+      "id": "q31",
+      "section_id": "s6",
+      "order": 31,
+      "title": "Sexual Integrity and Trust (If Relevant)",
+      "prompt": "This is optional. If sexual integrity or secrecy has ever affected trust, naming it gently can protect the relationship.",
+      "type": "compound",
+      "answer_schema": {
+        "integrity_tension": "",
+        "topics": [],
+        "impact_on_trust": "",
+        "want_help_talking": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "integrity_tension",
+          "label": "Right now, sexual integrity feels...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "no_issue",
+              "label": "Not an issue"
+            },
+            {
+              "value": "minor",
+              "label": "Minor tension"
+            },
+            {
+              "value": "moderate",
+              "label": "Moderate tension"
+            },
+            {
+              "value": "serious",
+              "label": "Serious tension"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "topics",
+          "label": "If there is tension, it relates to...",
+          "type": "multi_select",
+          "options": [
+            {
+              "value": "explicit_media",
+              "label": "Explicit media"
+            },
+            {
+              "value": "private_behaviors",
+              "label": "Private sexual behaviors"
+            },
+            {
+              "value": "pushing_boundaries",
+              "label": "Pushing boundaries"
+            },
+            {
+              "value": "guilt_shame",
+              "label": "Guilt or shame"
+            },
+            {
+              "value": "past_experiences",
+              "label": "Past experiences"
+            },
+            {
+              "value": "secrecy",
+              "label": "Secrecy or honesty"
+            },
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "other",
+              "label": "Other"
+            }
+          ]
+        },
+        {
+          "key": "impact_on_trust",
+          "label": "Impact on trust",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "some",
+              "label": "Some"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "want_help_talking",
+          "label": "Do you want help planning a calm, respectful conversation about this?",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "yes",
+              "label": "Yes"
+            },
+            {
+              "value": "maybe",
+              "label": "Maybe"
+            },
+            {
+              "value": "no",
+              "label": "No"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Integrity: minor. Topic: guilt/shame. Trust impact: some. Want help: yes."
+      ]
+    },
+    "q32": {
+      "id": "q32",
+      "section_id": "s6",
+      "order": 32,
+      "title": "Desire Mismatch (If Any)",
+      "prompt": "Mismatched desire is normal. The danger is silence, pressure, or shame.",
+      "type": "compound",
+      "answer_schema": {
+        "mismatch_level": "",
+        "what_i_need": "",
+        "what_i_fear": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "mismatch_level",
+          "label": "Right now, desire feels...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "aligned",
+              "label": "Aligned"
+            },
+            {
+              "value": "slightly_misaligned",
+              "label": "Slightly misaligned"
+            },
+            {
+              "value": "misaligned",
+              "label": "Misaligned"
+            },
+            {
+              "value": "very_misaligned",
+              "label": "Very misaligned"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "what_i_need",
+          "label": "What I need (a clean request, not a demand)",
+          "type": "free_text"
+        },
+        {
+          "key": "what_i_fear",
+          "label": "What I fear if we talk about this honestly",
+          "type": "free_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Mismatch: slightly misaligned. Need: more non-sexual affection. Fear: they will feel pressured."
+      ]
+    },
+    "q33": {
+      "id": "q33",
+      "section_id": "s6",
+      "order": 33,
+      "title": "Physical Affection Boundaries You Want Honored",
+      "prompt": "Name one boundary you want honored without needing to justify it.",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "examples": [
+        "No making out in bed.",
+        "If one of us says stop, we stop immediately and reset."
+      ]
+    },
+    "q34": {
+      "id": "q34",
+      "section_id": "s7",
+      "order": 34,
+      "title": "Time, Priorities, and Presence",
+      "prompt": "Time is a love language. How is time actually going?",
+      "type": "compound",
+      "answer_schema": {
+        "time_enough": "",
+        "distractions": "",
+        "what_i_want": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "time_enough",
+          "label": "Lately, time together feels...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "enough",
+              "label": "Enough"
+            },
+            {
+              "value": "almost_enough",
+              "label": "Almost enough"
+            },
+            {
+              "value": "not_enough",
+              "label": "Not enough"
+            },
+            {
+              "value": "rare",
+              "label": "Rare"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "distractions",
+          "label": "Biggest time stealers",
+          "type": "multi_select",
+          "options": [
+            {
+              "value": "work",
+              "label": "Work"
+            },
+            {
+              "value": "school",
+              "label": "School"
+            },
+            {
+              "value": "family",
+              "label": "Family"
+            },
+            {
+              "value": "phone",
+              "label": "Phones / social media"
+            },
+            {
+              "value": "gaming",
+              "label": "Gaming"
+            },
+            {
+              "value": "church",
+              "label": "Church callings"
+            },
+            {
+              "value": "health",
+              "label": "Health"
+            },
+            {
+              "value": "distance",
+              "label": "Distance / travel"
+            },
+            {
+              "value": "other",
+              "label": "Other"
+            }
+          ]
+        },
+        {
+          "key": "what_i_want",
+          "label": "One change that would improve time together",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Time: almost enough. Distractions: work + phone. Change: phone-free dinner twice a week."
+      ]
+    },
+    "q35": {
+      "id": "q35",
+      "section_id": "s7",
+      "order": 35,
+      "title": "Money Stress Level",
+      "prompt": "Money stress leaks into everything. Where are you right now?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "low",
+          "label": "Low"
+        },
+        {
+          "value": "moderate",
+          "label": "Moderate"
+        },
+        {
+          "value": "high",
+          "label": "High"
+        },
+        {
+          "value": "conflict",
+          "label": "It is a conflict topic"
+        },
+        {
+          "value": "not_applicable",
+          "label": "Not applicable"
+        },
+        {
+          "value": "prefer_not",
+          "label": "Prefer not to say"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "examples": [
+        "Moderate"
+      ]
+    },
+    "q36": {
+      "id": "q36",
+      "section_id": "s7",
+      "order": 36,
+      "title": "Money Operating Style",
+      "prompt": "This is about practical clarity, not control.",
+      "type": "compound",
+      "answer_schema": {
+        "talk_comfort": "",
+        "spending_expectations": "",
+        "debt_transparency": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "talk_comfort",
+          "label": "How comfortable are you talking about money with your partner?",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "very",
+              "label": "Very"
+            },
+            {
+              "value": "somewhat",
+              "label": "Somewhat"
+            },
+            {
+              "value": "awkward",
+              "label": "Awkward"
+            },
+            {
+              "value": "avoid",
+              "label": "I avoid it"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "spending_expectations",
+          "label": "Spending expectations in the relationship",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "we_talk_it_out",
+              "label": "We talk it out and agree"
+            },
+            {
+              "value": "one_pays_more",
+              "label": "One person pays more"
+            },
+            {
+              "value": "split",
+              "label": "We mostly split"
+            },
+            {
+              "value": "unclear",
+              "label": "Unclear"
+            },
+            {
+              "value": "not_applicable",
+              "label": "Not applicable"
+            }
+          ]
+        },
+        {
+          "key": "debt_transparency",
+          "label": "Debt and financial obligations are...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "transparent",
+              "label": "Transparent"
+            },
+            {
+              "value": "partly",
+              "label": "Partly discussed"
+            },
+            {
+              "value": "not_discussed",
+              "label": "Not discussed"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Comfort: somewhat. Spending: we talk it out. Debt: partly discussed."
+      ]
+    },
+    "q37": {
+      "id": "q37",
+      "section_id": "s7",
+      "order": 37,
+      "title": "Life Load (Not Just Chores)",
+      "prompt": "Even if you do not live together, couples carry life load. Where is the load uneven?",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "planning",
+          "label": "Planning and logistics"
+        },
+        {
+          "value": "emotional",
+          "label": "Emotional support"
+        },
+        {
+          "value": "travel",
+          "label": "Driving / travel"
+        },
+        {
+          "value": "family",
+          "label": "Family obligations"
+        },
+        {
+          "value": "health",
+          "label": "Health support"
+        },
+        {
+          "value": "social",
+          "label": "Social planning"
+        },
+        {
+          "value": "spiritual",
+          "label": "Spiritual effort"
+        },
+        {
+          "value": "none",
+          "label": "Feels balanced"
+        },
+        {
+          "value": "not_sure",
+          "label": "Not sure"
+        },
+        {
+          "value": "other",
+          "label": "Other"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "examples": [
+        "Planning and logistics + Driving/travel"
+      ],
+      "max": 7
+    },
+    "q38": {
+      "id": "q38",
+      "section_id": "s7",
+      "order": 38,
+      "title": "Support Under Stress",
+      "prompt": "When stress hits, what kind of support actually helps you?",
+      "type": "compound",
+      "answer_schema": {
+        "what_helps_me": "",
+        "what_doesnt": "",
+        "what_i_offer": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "what_helps_me",
+          "label": "When I'm stressed, I need...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "comfort",
+              "label": "Comfort and empathy"
+            },
+            {
+              "value": "solutions",
+              "label": "Solutions and planning"
+            },
+            {
+              "value": "space",
+              "label": "Space and quiet"
+            },
+            {
+              "value": "touch",
+              "label": "Touch and closeness"
+            },
+            {
+              "value": "prayer",
+              "label": "Prayer and spiritual support"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "what_doesnt",
+          "label": "When I'm stressed, what backfires?",
+          "type": "short_text"
+        },
+        {
+          "key": "what_i_offer",
+          "label": "When my partner is stressed, I usually offer...",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "I need: space. Backfires: pushing for a talk right then. I offer: solutions."
+      ]
+    },
+    "q39": {
+      "id": "q39",
+      "section_id": "s8",
+      "order": 39,
+      "title": "Are You Aligned on Direction?",
+      "prompt": "This is not about pressure. It is about shared reality.",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "yes_clear",
+          "label": "Yes, and it is clear"
+        },
+        {
+          "value": "mostly",
+          "label": "Mostly"
+        },
+        {
+          "value": "uncertain",
+          "label": "Uncertain"
+        },
+        {
+          "value": "misaligned",
+          "label": "Misaligned"
+        },
+        {
+          "value": "not_discussed",
+          "label": "Not discussed"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "examples": [
+        "Mostly"
+      ]
+    },
+    "q40": {
+      "id": "q40",
+      "section_id": "s8",
+      "order": 40,
+      "title": "Next Steps Timeline",
+      "prompt": "What pace feels healthy right now?",
+      "type": "compound",
+      "answer_schema": {
+        "pace_preference": "",
+        "what_makes_it_fast": "",
+        "what_makes_it_slow": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "pace_preference",
+          "label": "A healthy pace for next steps feels like...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "weeks",
+              "label": "Weeks"
+            },
+            {
+              "value": "few_months",
+              "label": "A few months"
+            },
+            {
+              "value": "6_12_months",
+              "label": "6-12 months"
+            },
+            {
+              "value": "year_plus",
+              "label": "A year or more"
+            },
+            {
+              "value": "no_timeline",
+              "label": "No timeline"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "what_makes_it_fast",
+          "label": "What makes you want to speed up?",
+          "type": "short_text"
+        },
+        {
+          "key": "what_makes_it_slow",
+          "label": "What makes you want to slow down?",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Pace: a few months. Fast: strong connection. Slow: want more stability under stress."
+      ]
+    },
+    "q41": {
+      "id": "q41",
+      "section_id": "s8",
+      "order": 41,
+      "title": "Living Arrangements and Lifestyle Fit",
+      "prompt": "Some couples drift because lifestyle assumptions never got spoken.",
+      "type": "compound",
+      "answer_schema": {
+        "current_living": "",
+        "future_preference": "",
+        "nonnegotiable": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "current_living",
+          "label": "Right now, I live...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "alone",
+              "label": "Alone"
+            },
+            {
+              "value": "with_roommates",
+              "label": "With roommates"
+            },
+            {
+              "value": "with_family",
+              "label": "With family"
+            },
+            {
+              "value": "with_kids",
+              "label": "With kids"
+            },
+            {
+              "value": "other",
+              "label": "Other"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "future_preference",
+          "label": "If the relationship progresses, I prefer...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "no_cohab_before_marriage",
+              "label": "No cohabitation before marriage"
+            },
+            {
+              "value": "open_to_cohab",
+              "label": "Open to cohabitation"
+            },
+            {
+              "value": "unsure",
+              "label": "Unsure"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "nonnegotiable",
+          "label": "One lifestyle non-negotiable I need respected",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Current: with family. Future: no cohab before marriage. Non-negotiable: protected quiet time."
+      ]
+    },
+    "q42": {
+      "id": "q42",
+      "section_id": "s8",
+      "order": 42,
+      "title": "Kids and Family Planning (If Relevant)",
+      "prompt": "You do not need to solve everything now. You do need a direction that matches.",
+      "type": "compound",
+      "answer_schema": {
+        "kids_desire": "",
+        "kids_timeline": "",
+        "parenting_values": "",
+        "nonnegotiables": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "kids_desire",
+          "label": "Kids in our future feels...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "yes",
+              "label": "Yes"
+            },
+            {
+              "value": "no",
+              "label": "No"
+            },
+            {
+              "value": "unsure",
+              "label": "Unsure"
+            },
+            {
+              "value": "already_have",
+              "label": "I already have kids"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "kids_timeline",
+          "label": "If yes, rough timeline",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "soon",
+              "label": "Soon"
+            },
+            {
+              "value": "1_3_years",
+              "label": "1-3 years"
+            },
+            {
+              "value": "3_5_years",
+              "label": "3-5 years"
+            },
+            {
+              "value": "later",
+              "label": "Later"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            },
+            {
+              "value": "not_applicable",
+              "label": "Not applicable"
+            }
+          ]
+        },
+        {
+          "key": "parenting_values",
+          "label": "One parenting value that matters a lot to me",
+          "type": "short_text"
+        },
+        {
+          "key": "nonnegotiables",
+          "label": "One family-related non-negotiable (if any)",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Kids: yes. Timeline: 1-3 years. Value: calm teamwork. Non-negotiable: no yelling at kids."
+      ]
+    },
+    "q43": {
+      "id": "q43",
+      "section_id": "s8",
+      "order": 43,
+      "title": "Family, Community, and Faith in Practice",
+      "prompt": "For many couples, this is the hidden operating system. What is true for you?",
+      "type": "compound",
+      "answer_schema": {
+        "faith_relevance": "",
+        "community_expectations": "",
+        "family_boundaries": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "faith_relevance",
+          "label": "Faith and spirituality in our relationship is...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "central",
+              "label": "Central"
+            },
+            {
+              "value": "important",
+              "label": "Important"
+            },
+            {
+              "value": "some",
+              "label": "Somewhat relevant"
+            },
+            {
+              "value": "not_relevant",
+              "label": "Not relevant"
+            },
+            {
+              "value": "misaligned",
+              "label": "A tension point"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "community_expectations",
+          "label": "Community and family expectations feel...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "supportive",
+              "label": "Supportive"
+            },
+            {
+              "value": "neutral",
+              "label": "Neutral"
+            },
+            {
+              "value": "pressuring",
+              "label": "Pressuring"
+            },
+            {
+              "value": "conflicting",
+              "label": "Conflicting"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "family_boundaries",
+          "label": "One boundary with family/community we need to protect us",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Faith: important. Expectations: pressuring. Boundary: we decide timeline privately."
+      ]
+    },
+    "q44": {
+      "id": "q44",
+      "section_id": "s9",
+      "order": 44,
+      "title": "Safety and Respect Check",
+      "prompt": "This is not to judge. It is to protect you. Select anything that applies.",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "fear",
+          "label": "I sometimes feel afraid of my partner"
+        },
+        {
+          "value": "control",
+          "label": "They try to control my choices"
+        },
+        {
+          "value": "monitoring",
+          "label": "They monitor my phone, accounts, or location"
+        },
+        {
+          "value": "isolation",
+          "label": "They isolate me from friends/family"
+        },
+        {
+          "value": "coercion",
+          "label": "I feel pressured into physical or sexual things"
+        },
+        {
+          "value": "contempt",
+          "label": "They use contempt, ridicule, or humiliation"
+        },
+        {
+          "value": "threats",
+          "label": "Threats, intimidation, or breaking things"
+        },
+        {
+          "value": "violence",
+          "label": "Any physical aggression"
+        },
+        {
+          "value": "none",
+          "label": "None of these"
+        },
+        {
+          "value": "prefer_not",
+          "label": "Prefer not to say"
+        },
+        {
+          "value": "other",
+          "label": "Other"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "examples": [
+        "None of these"
+      ],
+      "max": 5
+    },
+    "q45": {
+      "id": "q45",
+      "section_id": "s9",
+      "order": 45,
+      "title": "Support Threshold",
+      "prompt": "When do you think outside support becomes wise?",
+      "type": "compound",
+      "answer_schema": {
+        "support_level": "",
+        "preferred_support": "",
+        "barrier": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "support_level",
+          "label": "Right now, support feels...",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "not_needed",
+              "label": "Not needed"
+            },
+            {
+              "value": "maybe_helpful",
+              "label": "Maybe helpful"
+            },
+            {
+              "value": "should_consider",
+              "label": "We should consider it"
+            },
+            {
+              "value": "needed",
+              "label": "We need it"
+            }
+          ]
+        },
+        {
+          "key": "preferred_support",
+          "label": "What kind of support would you be most open to?",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "trusted_mentor",
+              "label": "Trusted mentor"
+            },
+            {
+              "value": "faith_leader",
+              "label": "Faith leader"
+            },
+            {
+              "value": "couples_counseling",
+              "label": "Couples counseling"
+            },
+            {
+              "value": "individual_therapy",
+              "label": "Individual therapy"
+            },
+            {
+              "value": "skills_book",
+              "label": "Skills book/course"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "barrier",
+          "label": "What is the main barrier (if any)?",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Support: maybe helpful. Preferred: couples counseling. Barrier: cost."
+      ]
+    },
+    "q46": {
+      "id": "q46",
+      "section_id": "s9",
+      "order": 46,
+      "title": "Top Topics for Your Next Conversation",
+      "prompt": "Pick and rank what you want your next check-in conversation to cover.",
+      "type": "compound",
+      "answer_schema": {
+        "topics_ranked": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "topics_ranked",
+          "label": "Select and rank",
+          "type": "ranked_select",
+          "options": [
+            {
+              "value": "time",
+              "label": "Time and presence"
+            },
+            {
+              "value": "communication",
+              "label": "Communication"
+            },
+            {
+              "value": "conflict",
+              "label": "Conflict and repair"
+            },
+            {
+              "value": "affection",
+              "label": "Affection"
+            },
+            {
+              "value": "sex_boundaries",
+              "label": "Sex and physical boundaries"
+            },
+            {
+              "value": "money",
+              "label": "Money"
+            },
+            {
+              "value": "future",
+              "label": "Future planning"
+            },
+            {
+              "value": "family",
+              "label": "Family and community"
+            },
+            {
+              "value": "trust",
+              "label": "Trust"
+            },
+            {
+              "value": "stress",
+              "label": "Stress support"
+            },
+            {
+              "value": "other",
+              "label": "Other"
+            }
+          ]
+        },
+        {
+          "key": "other_text",
+          "label": "If 'Other', what is it?",
+          "type": "short_text",
+          "showWhen": {
+            "field": "topics_ranked",
+            "includes": "other"
+          }
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Ranked: Communication, Time and presence, Conflict and repair"
+      ]
+    },
+    "q47": {
+      "id": "q47",
+      "section_id": "s9",
+      "order": 47,
+      "title": "Next Check-In Plan",
+      "prompt": "A plan reduces anxiety. What does a good next check-in look like?",
+      "type": "compound",
+      "answer_schema": {
+        "when": "",
+        "length": "",
+        "format": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "when",
+          "label": "When should the next check-in happen?",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "this_week",
+              "label": "This week"
+            },
+            {
+              "value": "2_weeks",
+              "label": "In 2 weeks"
+            },
+            {
+              "value": "1_month",
+              "label": "In a month"
+            },
+            {
+              "value": "quarter",
+              "label": "In a quarter"
+            },
+            {
+              "value": "as_needed",
+              "label": "As needed"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "length",
+          "label": "Ideal length",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "15",
+              "label": "15 minutes"
+            },
+            {
+              "value": "25",
+              "label": "25 minutes"
+            },
+            {
+              "value": "45",
+              "label": "45 minutes"
+            },
+            {
+              "value": "60",
+              "label": "60 minutes"
+            }
+          ]
+        },
+        {
+          "key": "format",
+          "label": "Best format",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "walk",
+              "label": "Walk"
+            },
+            {
+              "value": "at_home",
+              "label": "At home"
+            },
+            {
+              "value": "date_night",
+              "label": "Date night"
+            },
+            {
+              "value": "prayer_then_talk",
+              "label": "Prayer then talk"
+            },
+            {
+              "value": "written_then_talk",
+              "label": "Write first, then talk"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "When: in 2 weeks. Length: 25 minutes. Format: walk."
+      ]
+    },
+    "q48": {
+      "id": "q48",
+      "section_id": "s9",
+      "order": 48,
+      "title": "Anything the AI Should Know",
+      "prompt": "Optional. Add anything important that did not fit cleanly above.",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "examples": [
+        "We have a big family event coming up and it is stressing us.",
+        "We are great in person but text misunderstandings cause most conflict."
+      ]
+    },
+    "q01b": {
+      "id": "q01b",
+      "section_id": "s1",
+      "order": 2,
+      "title": "Follow-Through Since Last Check-In",
+      "prompt": "Accountability matters. What did you commit to improving last time, and how did that go? If this is your first check-in, skip or mark as 'first time.'",
+      "type": "compound",
+      "answer_schema": {
+        "last_agreements": "",
+        "follow_through_level": "",
+        "what_helped_or_blocked": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "last_agreements",
+          "label": "Main thing(s) we agreed to work on at our last check-in",
+          "type": "short_text",
+          "placeholder": "Example: Weekly date nights, better repair after conflict, more quality time"
+        },
+        {
+          "key": "follow_through_level",
+          "label": "How well did we actually follow through?",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "very_well",
+              "label": "Very well - we both showed up consistently"
+            },
+            {
+              "value": "okay",
+              "label": "Okay - some effort, but inconsistent"
+            },
+            {
+              "value": "poorly",
+              "label": "Poorly - we didn't really try"
+            },
+            {
+              "value": "forgot",
+              "label": "We forgot about it"
+            },
+            {
+              "value": "first_checkin",
+              "label": "This is our first check-in"
+            },
+            {
+              "value": "no_agreements",
+              "label": "We didn't make specific agreements last time"
+            }
+          ]
+        },
+        {
+          "key": "what_helped_or_blocked",
+          "label": "What made follow-through easy or hard?",
+          "type": "short_text",
+          "placeholder": "Example: Life got busy, we didn't have a clear plan, one person forgot, accountability helped"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Last agreements: Better communication about schedules. Follow-through: Okay. What helped: Calendar sharing. What blocked: Work stress.",
+        "Last agreements: Weekly dates. Follow-through: Very well. We committed and followed through.",
+        "This is our first check-in."
+      ]
+    }
+  },
+  "ui_hints": {
+    "controls": {
+      "mode_switcher": {
+        "default": "lite",
+        "options": [
+          {
+            "id": "lite",
+            "label": "Lite (22)"
+          },
+          {
+            "id": "full",
+            "label": "Full (48)"
+          }
+        ]
+      }
+    }
+  },
+  "manifests": {
+    "lite": {
+      "id": "lite",
+      "title": "Lite",
+      "question_ids": [
+        "q01",
+        "q02",
+        "q03",
+        "q04",
+        "q05",
+        "q06",
+        "q09",
+        "q10",
+        "q11",
+        "q15",
+        "q16",
+        "q19",
+        "q21",
+        "q24",
+        "q25",
+        "q27",
+        "q29",
+        "q30",
+        "q35",
+        "q39",
+        "q44",
+        "q48"
+      ],
+      "timebox_minutes": 30,
+      "post_timebox_activity": "Take a short break, then schedule a calm 20-30 minute check-in conversation."
+    },
+    "full": {
+      "id": "full",
+      "title": "Full",
+      "question_ids": [
+        "q01",
+        "q02",
+        "q03",
+        "q04",
+        "q05",
+        "q06",
+        "q07",
+        "q08",
+        "q09",
+        "q10",
+        "q11",
+        "q12",
+        "q13",
+        "q14",
+        "q15",
+        "q16",
+        "q17",
+        "q18",
+        "q19",
+        "q20",
+        "q21",
+        "q22",
+        "q23",
+        "q24",
+        "q25",
+        "q26",
+        "q27",
+        "q28",
+        "q29",
+        "q30",
+        "q31",
+        "q32",
+        "q33",
+        "q34",
+        "q35",
+        "q36",
+        "q37",
+        "q38",
+        "q39",
+        "q40",
+        "q41",
+        "q42",
+        "q43",
+        "q44",
+        "q45",
+        "q46",
+        "q47",
+        "q48",
+        "q01b"
+      ],
+      "timebox_minutes": 75,
+      "post_timebox_activity": "Take a break, then do a structured check-in together using your top-ranked topics."
+    }
+  },
+  "primary_manifest_id": "lite"
+}

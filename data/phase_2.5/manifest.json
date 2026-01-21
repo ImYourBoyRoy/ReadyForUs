@@ -1,0 +1,88 @@
+{
+    "schema_version": "1.3.0",
+    "display": {
+        "id": "phase_2.5",
+        "title": "Phase 2.5: Defined Relationship Check-In",
+        "short_title": "Stability Check",
+        "description": "A recyclable check-in for defined couples to stabilize expectations, repair patterns, and keep the relationship healthy after DTR.",
+        "icon": "💚",
+        "menu_icon": "≈",
+        "order": 3
+    },
+    "artifact": {
+        "id": "phase_2_5_defined_relationship_checkin",
+        "title": "Defined Relationship Check-In",
+        "subtitle": "A structured space to keep your defined relationship stable, honest, and continuously improving.",
+        "language": "en-US",
+        "stage": {
+            "code": "phase_2.5",
+            "label": "Post-DTR Stabilization",
+            "eligibility": [
+                "You have defined the relationship (exclusive and/or labeled).",
+                "You want to stabilize expectations now that the stakes are higher.",
+                "You want a repeatable check-in cadence (monthly, quarterly, or after major stressors).",
+                "You want to address small issues before they become resentments."
+            ]
+        },
+        "purpose": [
+            "Translate commitment into a workable day-to-day operating system.",
+            "Spot drift early: expectations, effort, boundaries, communication, or emotional safety.",
+            "Strengthen repair: how you handle stress, rupture, and reconnection.",
+            "Keep closeness intentional without relying on mind-reading or guesswork.",
+            "Build a repeatable maintenance rhythm that prevents preventable damage."
+        ]
+    },
+    "intro": {
+        "when_to_use": {
+            "title": "When to Use This Check-In",
+            "items": [
+                "Monthly or quarterly as preventive maintenance (like an oil change for your relationship).",
+                "After a major life stressor: job change, family event, travel, illness, or big decisions.",
+                "When feeling disconnected but not in crisis.",
+                "1-2 months after your DTR conversation (Phase 2) if you want to establish a check-in habit early and catch small drift before it compounds.",
+                "3-6 months after your DTR conversation (Phase 2) to stabilize the commitment.",
+                "Before major relationship milestones: moving in together, engagement, marriage planning."
+            ]
+        },
+        "instructions": {
+            "title": "How to Use This",
+            "items": [
+                "Do this individually first, then share and discuss (unless you both agree to complete it together live).",
+                "Answer from lived reality this month, not from hope, fear, or how you want to be perceived.",
+                "Treat surprises as data, not betrayal. Curiosity first, defensiveness later (if at all).",
+                "If a topic escalates, pause, regulate, then return. This works best when you're both resourced.",
+                "Repeat this regularly. Maintenance is not a sign of weakness; it is how stability is built."
+            ]
+        },
+        "keep_in_mind": {
+            "title": "A Few Truths Worth Remembering",
+            "items": [
+                "Defined relationships raise the emotional cost of ambiguity. Clarity becomes kindness.",
+                "Unmet needs are not proof of failure; they're signals to adjust the system.",
+                "Consistency matters more than intensity. Small, reliable effort beats grand gestures.",
+                "Repair is the skill that predicts long-term health more than chemistry does.",
+                "If safety concerns show up (control, threats, coercion, violence), stop and seek real-world support."
+            ]
+        },
+        "after_completion": {
+            "title": "After You Complete This",
+            "items": [
+                "Schedule a calm 30-60 minute conversation within 3 days while insights are fresh.",
+                "Pick 1-3 top priorities from your responses to address first. Don't try to fix everything at once.",
+                "Make one specific agreement each: a behavior to start, stop, or adjust.",
+                "Set your next check-in date before ending the conversation. Put it on the calendar.",
+                "If safety concerns emerged, seek professional support immediately (therapist, pastor, counselor)."
+            ]
+        }
+    },
+    "prompts_artifact": {
+        "id": "phase_2_5_prompts",
+        "title": "Phase 2.5: Defined Relationship Reflection Prompts",
+        "language": "en-US",
+        "applies_to": "phase_2_5_defined_relationship_checkin"
+    },
+    "privacy_preface": {
+        "title": "Privacy & Sharing Notes",
+        "text": "Your answers are private until you choose to share them. If you use an AI to reflect on your responses, only paste what you both consent to share. Redact names and identifying details. This tool offers reflection and structure, not therapy or diagnosis. If your answers surface harm, coercion, stalking, threats, or violence, pause and seek real-world support now (US: call/text 988; if you are in immediate danger call your local emergency number)."
+    }
+}

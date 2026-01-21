@@ -1,0 +1,2978 @@
+{
+  "sections": [
+    {
+      "id": "s1",
+      "title": "WARM START",
+      "question_ids": [
+        "q01",
+        "q02",
+        "q03",
+        "q04",
+        "q05"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "DEFINING “US”",
+      "question_ids": [
+        "q06",
+        "q07",
+        "q08",
+        "q09",
+        "q10",
+        "q11",
+        "q12"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "CLARITY + BOUNDARIES",
+      "question_ids": [
+        "q13",
+        "q14",
+        "q15",
+        "q16",
+        "q17",
+        "q18"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "SAFETY + TRUST",
+      "question_ids": [
+        "q19",
+        "q20",
+        "q21",
+        "q22"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "CONFLICT + REPAIR",
+      "question_ids": [
+        "q23",
+        "q24",
+        "q25",
+        "q26"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "ALIGNMENT + RED FLAGS",
+      "question_ids": [
+        "q27",
+        "q28",
+        "q29",
+        "q30",
+        "q31"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "DESIRE VS ANXIETY",
+      "question_ids": [
+        "q32",
+        "q33",
+        "q34"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "DECISION READINESS",
+      "question_ids": [
+        "q35",
+        "q36",
+        "q37",
+        "q38",
+        "q39",
+        "q40"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "FAITH + SPIRITUAL ALIGNMENT",
+      "question_ids": [
+        "q41",
+        "q42",
+        "q43"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "SUPPORT PREFERENCES",
+      "question_ids": [
+        "q44",
+        "q45",
+        "q46",
+        "q47",
+        "q48"
+      ]
+    }
+  ],
+  "questions": {
+    "q01": {
+      "id": "q01",
+      "section_id": "s1",
+      "order": 1,
+      "title": "Timeline Snapshot",
+      "prompt": "Before we go deep, give a simple snapshot so we interpret everything in context.",
+      "type": "compound",
+      "answer_schema": {
+        "how_long_have_you": "",
+        "unit": "",
+        "how_long_have_you_2": "",
+        "unit_2": "",
+        "about_how_often_do": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "how_long_have_you",
+          "label": "How long have you known each other total",
+          "type": "number",
+          "layout": "inline"
+        },
+        {
+          "key": "unit",
+          "label": "Unit",
+          "type": "dropdown",
+          "layout": "inline",
+          "options": [
+            {
+              "value": "days",
+              "label": "days"
+            },
+            {
+              "value": "weeks",
+              "label": "weeks"
+            },
+            {
+              "value": "months",
+              "label": "months"
+            },
+            {
+              "value": "years",
+              "label": "years"
+            }
+          ]
+        },
+        {
+          "key": "how_long_have_you_2",
+          "label": "How long have you been intentionally dating/seeing each other?",
+          "type": "number",
+          "layout": "inline"
+        },
+        {
+          "key": "unit_2",
+          "label": "Unit",
+          "type": "dropdown",
+          "layout": "inline",
+          "options": [
+            {
+              "value": "days",
+              "label": "days"
+            },
+            {
+              "value": "weeks",
+              "label": "weeks"
+            },
+            {
+              "value": "months",
+              "label": "months"
+            },
+            {
+              "value": "years",
+              "label": "years"
+            }
+          ]
+        },
+        {
+          "key": "about_how_often_do",
+          "label": "About how often do you see each other right now?",
+          "type": "dropdown",
+          "options": [
+            {
+              "value": "multiple_timesweek",
+              "label": "multiple times/week"
+            },
+            {
+              "value": "weekly",
+              "label": "weekly"
+            },
+            {
+              "value": "every_other_week",
+              "label": "every other week"
+            },
+            {
+              "value": "rarelylong_distance",
+              "label": "rarely/long distance"
+            },
+            {
+              "value": "varies",
+              "label": "varies"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "How long have you known each other: 2 years. Dating: 6 months. Seeing each other: weekly.",
+        "How long have you known each other: 3 months. Dating: 3 months. Seeing each other: multiple times/week."
+      ]
+    },
+    "q02": {
+      "id": "q02",
+      "section_id": "s1",
+      "order": 2,
+      "title": "The Notification Reaction",
+      "prompt": "When their name pops up on your phone, your first micro-reaction is usually:",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "warmth_or_smile",
+          "label": "warmth or smile"
+        },
+        {
+          "value": "calm_and_steady",
+          "label": "calm and steady"
+        },
+        {
+          "value": "anxious_or_tight",
+          "label": "anxious or tight"
+        },
+        {
+          "value": "dread_or_avoidance",
+          "label": "dread or avoidance"
+        },
+        {
+          "value": "neutral_or_flat",
+          "label": "neutral or flat"
+        },
+        {
+          "value": "it_depends_lately",
+          "label": "it depends lately"
+        },
+        {
+          "value": "other",
+          "label": "other (write in)"
+        }
+      ],
+      "examples": [
+        "Warmth or smile (e.g., I feel immediate happiness when their name pops up).",
+        "Anxious or tight (e.g., I worry about what they want or if I'm in trouble).",
+        "Neutral or flat (e.g., it doesn't really change my mood much)."
+      ]
+    },
+    "q03": {
+      "id": "q03",
+      "section_id": "s1",
+      "order": 3,
+      "title": "Post-Date Energy",
+      "prompt": "After a longer stretch together (a date, an evening, or a day), your energy is usually:",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "recharged",
+          "label": "recharged"
+        },
+        {
+          "value": "steady_and_neutral",
+          "label": "steady and neutral"
+        },
+        {
+          "value": "tired_but_happy",
+          "label": "tired but happy"
+        },
+        {
+          "value": "tired_and_stressed",
+          "label": "tired and stressed"
+        },
+        {
+          "value": "varies_a_lot",
+          "label": "varies a lot"
+        },
+        {
+          "value": "not_sure_yet",
+          "label": "not sure yet"
+        },
+        {
+          "value": "other",
+          "label": "other (write in)"
+        }
+      ],
+      "examples": [
+        "Recharged (e.g., I feel more energetic and lighter after hanging out).",
+        "Tired but happy (e.g., it was good, but I need some alone time to recover).",
+        "Tired and stressed (e.g., I feel drained or like I worked hard to keep things going)."
+      ]
+    },
+    "q04": {
+      "id": "q04",
+      "section_id": "s1",
+      "order": 4,
+      "title": "Masking / Filtering",
+      "prompt": "When you're with them for a long stretch, how much do you feel you have to perform or filter yourself?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "none_im_fully",
+          "label": "none, I'm fully myself"
+        },
+        {
+          "value": "light_filtering_mostly",
+          "label": "light filtering, mostly myself"
+        },
+        {
+          "value": "moderate_filtering_im",
+          "label": "moderate filtering, I'm careful about what I say/do"
+        },
+        {
+          "value": "heavy_masking_i",
+          "label": "heavy masking, I feel like I have to be on to be liked"
+        },
+        {
+          "value": "not_sure_yet",
+          "label": "not sure yet"
+        },
+        {
+          "value": "other",
+          "label": "other (write in)"
+        }
+      ],
+      "examples": [
+        "None (e.g., I can be weird, quiet, or loud, and they accept it all).",
+        "Light filtering (e.g., I'm mostly myself but hold back slightly on controversial opinions).",
+        "Heavy masking (e.g., I feel like I'm playing a character to keep them interested)."
+      ]
+    },
+    "q05": {
+      "id": "q05",
+      "section_id": "s1",
+      "order": 5,
+      "title": "What's Feeling Good",
+      "prompt": "Let's start with what's working. This matters.",
+      "type": "compound",
+      "answer_schema": {
+        "f_3_things_that_feel": "",
+        "one_moment_you_felt": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "f_3_things_that_feel",
+          "label": "3 things that feel genuinely good or healthy right now",
+          "type": "free_text"
+        },
+        {
+          "key": "one_moment_you_felt",
+          "label": "One moment you felt especially safe, cared for, or understood",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Examples: consistently planning dates, feeling safe sharing fears, laughing together easily.",
+        "Examples: they respect my boundaries, we have great physical chemistry, they get along with my friends.",
+        "Moment: When I was sick last week, they brought me soup and didn't make a big deal of it."
+      ]
+    },
+    "q06": {
+      "id": "q06",
+      "section_id": "s2",
+      "order": 6,
+      "title": "Pace Comfort",
+      "prompt": "Right now, the pace of the relationship feels:",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "comfortably_paced",
+          "label": "comfortably paced"
+        },
+        {
+          "value": "a_little_fast",
+          "label": "a little fast for my nervous system"
+        },
+        {
+          "value": "too_fast",
+          "label": "too fast"
+        },
+        {
+          "value": "a_little_slow",
+          "label": "a little slow"
+        },
+        {
+          "value": "too_slow",
+          "label": "too slow"
+        },
+        {
+          "value": "it_varies",
+          "label": "it varies"
+        },
+        {
+          "value": "not_sure_yet",
+          "label": "not sure yet"
+        }
+      ],
+      "examples": [
+        "Comfortably paced (e.g., things are moving at a speed that feels right for both of us).",
+        "Too fast (e.g., they are talking about marriage and I'm still figuring out if I like them).",
+        "Too slow (e.g., it feels stagnant and I want more momentum)."
+      ]
+    },
+    "q07": {
+      "id": "q07",
+      "section_id": "s2",
+      "order": 7,
+      "title": "Current Status (Reality vs Label)",
+      "prompt": "If a kind stranger asked What are you two?, the most accurate answer is:",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "exploring__getting",
+          "label": "exploring / getting to know each other"
+        },
+        {
+          "value": "dating_intentionally_still",
+          "label": "dating intentionally, still open to others"
+        },
+        {
+          "value": "functionally_exclusive_not",
+          "label": "functionally exclusive (not seeing others), but undefined"
+        },
+        {
+          "value": "exclusive_and_defined",
+          "label": "exclusive and defined (boyfriend/girlfriend/partner)"
+        },
+        {
+          "value": "its_complicated",
+          "label": "it's complicated"
+        },
+        {
+          "value": "other",
+          "label": "other (write in)"
+        }
+      ],
+      "examples": [
+        "Exploring (e.g., we are just having fun and getting to know each other).",
+        "Functionally exclusive (e.g., we haven't said it, but neither of us is looking elsewhere).",
+        "Exclusive (e.g., we have had the talk and are committed)."
+      ]
+    },
+    "q08": {
+      "id": "q08",
+      "section_id": "s2",
+      "order": 8,
+      "title": "What DTR Means to Me",
+      "prompt": "If you define the relationship, what does that specifically mean to you? Select all that fit.",
+      "type": "multi_select",
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "exclusivity_no_dating",
+          "label": "exclusivity (no dating others)"
+        },
+        {
+          "value": "a_clear_label",
+          "label": "a clear label (boyfriend/girlfriend/partner)"
+        },
+        {
+          "value": "clearer_expectations_and",
+          "label": "clearer expectations and boundaries"
+        },
+        {
+          "value": "increased_consistency_time",
+          "label": "increased consistency (time, communication, follow-through)"
+        },
+        {
+          "value": "deeper_emotional_responsibilit",
+          "label": "deeper emotional responsibility (repair matters more)"
+        },
+        {
+          "value": "integrating_lives_friends",
+          "label": "integrating lives (friends, family, routines)"
+        },
+        {
+          "value": "future_intent_becomes",
+          "label": "future intent becomes more explicit (where this is going)"
+        },
+        {
+          "value": "public_clarity_friendssocial",
+          "label": "public clarity (friends/social media)"
+        },
+        {
+          "value": "other",
+          "label": "other (write in)"
+        }
+      ],
+      "examples": [
+        "Exclusivity (e.g., we agree to close our dating apps and focus only on each other).",
+        "Clear label (e.g., I want to call them my boyfriend/girlfriend/partner).",
+        "Future intent (e.g., I want to know if we are building toward something long-term)."
+      ]
+    },
+    "q09": {
+      "id": "q09",
+      "section_id": "s2",
+      "order": 9,
+      "title": "Exclusivity Definition (Operational)",
+      "prompt": "People mean different things by exclusive. What would exclusivity mean to you right now?",
+      "type": "compound",
+      "answer_schema": {
+        "which_are_part_of": [],
+        "if_other_describe": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "which_are_part_of",
+          "label": "Which are part of exclusivity for you?",
+          "type": "multi_select",
+          "options": [
+            {
+              "value": "no_dating_other",
+              "label": "no dating other people"
+            },
+            {
+              "value": "no_flirtingkeeping_doors",
+              "label": "no flirting/keeping doors open"
+            },
+            {
+              "value": "deletingpausing_dating_apps",
+              "label": "deleting/pausing dating apps"
+            },
+            {
+              "value": "transparency_about_close",
+              "label": "transparency about close friendships that could create confusion"
+            },
+            {
+              "value": "agreement_on_physical",
+              "label": "agreement on physical boundaries"
+            },
+            {
+              "value": "agreement_on_emotional",
+              "label": "agreement on emotional boundaries (what counts as betrayal)"
+            },
+            {
+              "value": "other",
+              "label": "other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "if_other_describe",
+          "label": "If other, describe",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "No dating others: We stop seeing other people entirely.",
+        "No flirting: We stop entertaining interest from others.",
+        "Deleting apps: We remove dating profiles.",
+        "Transparency: We tell each other if an ex reaches out."
+      ]
+    },
+    "q10": {
+      "id": "q10",
+      "section_id": "s2",
+      "order": 10,
+      "title": "Why This Check-In Now",
+      "prompt": "What is driving the urge to define things right now? Select any that fit, then rank the ones that matter most.",
+      "type": "compound",
+      "answer_schema": {
+        "drivers": [],
+        "if_other_describe": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "drivers",
+          "label": "Drivers",
+          "type": "ranked_select",
+          "options": [
+            {
+              "value": "desire",
+              "label": "desire: I genuinely want to move forward"
+            },
+            {
+              "value": "safety",
+              "label": "safety: I need clarity to feel steady"
+            },
+            {
+              "value": "fear",
+              "label": "fear: I'm afraid of losing them or being replaced"
+            },
+            {
+              "value": "logic",
+              "label": "logic: enough time has passed for a decision point"
+            },
+            {
+              "value": "discomfort",
+              "label": "discomfort: the ambiguity is starting to hurt"
+            },
+            {
+              "value": "pressure",
+              "label": "pressure: external pressure (friends, family, age, etc.)"
+            },
+            {
+              "value": "spiritual",
+              "label": "spiritual: I feel spiritual clarity or prompting"
+            },
+            {
+              "value": "other",
+              "label": "other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "if_other_describe",
+          "label": "If other, describe",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Desire (e.g., I really like them and want to secure this connection).",
+        "Safety (e.g., I need to know where I stand so I can stop feeling anxious).",
+        "Logic (e.g., we've been dating 6 months, it's time to decide).",
+        "Fear (e.g., I'm terrified they will meet someone else if I don't lock it down)."
+      ]
+    },
+    "q11": {
+      "id": "q11",
+      "section_id": "s2",
+      "order": 11,
+      "title": "What Should Change After Labeling",
+      "prompt": "If you define the relationship, what do you believe should change (if anything)?",
+      "type": "compound",
+      "answer_schema": {
+        "select_any_that_you": [],
+        "if_other_describe": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "select_any_that_you",
+          "label": "Select any that you expect to change",
+          "type": "multi_select",
+          "options": [
+            {
+              "value": "communication_consistency",
+              "label": "communication consistency"
+            },
+            {
+              "value": "time_together",
+              "label": "time together"
+            },
+            {
+              "value": "emotional_responsibility_and",
+              "label": "emotional responsibility and follow-through"
+            },
+            {
+              "value": "physicalsexual_boundaries",
+              "label": "physical/sexual boundaries"
+            },
+            {
+              "value": "clarity_about_exclusivity",
+              "label": "clarity about exclusivity"
+            },
+            {
+              "value": "social_visibility_friendsfamil",
+              "label": "social visibility (friends/family/social media)"
+            },
+            {
+              "value": "future_planning",
+              "label": "future planning"
+            },
+            {
+              "value": "nothing_major_should",
+              "label": "nothing major should change, just clarity"
+            },
+            {
+              "value": "other",
+              "label": "other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "if_other_describe",
+          "label": "If other, describe",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Communication consistency: I expect us to talk every day.",
+        "Social visibility: I expect to meet their friends soon.",
+        "Emotional responsibility: I expect them to care more about my feelings.",
+        "Nothing major: We are already acting like a couple, I just want the title."
+      ]
+    },
+    "q12": {
+      "id": "q12",
+      "section_id": "s2",
+      "order": 12,
+      "title": "Expectations You're Carrying",
+      "prompt": "Name the expectations you already have, even if you haven't said them out loud.",
+      "type": "compound",
+      "answer_schema": {
+        "f_13_expectations": "",
+        "which_of_these_feel": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "f_13_expectations",
+          "label": "1-3 expectations",
+          "type": "free_text"
+        },
+        {
+          "key": "which_of_these_feel",
+          "label": "Which of these feel fair vs possibly unrealistic?",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Expectation: That I become their priority on weekends.",
+        "Expectation: That they stop talking to their ex.",
+        "Expectation: That we start planning a trip together."
+      ]
+    },
+    "q13": {
+      "id": "q13",
+      "section_id": "s3",
+      "order": 13,
+      "title": "Communication Expectations",
+      "prompt": "In an ideally healthy defined relationship, communication consistency would look like:",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "light_and_flexible",
+          "label": "light and flexible, no pressure"
+        },
+        {
+          "value": "steady_but_simple",
+          "label": "steady but simple (a basic daily touchpoint)"
+        },
+        {
+          "value": "consistent_and_connected",
+          "label": "consistent and connected (regular check-ins, predictable rhythm)"
+        },
+        {
+          "value": "highly_integrated_frequent",
+          "label": "highly integrated (frequent contact, shared planning)"
+        },
+        {
+          "value": "not_sure_yet",
+          "label": "not sure yet"
+        },
+        {
+          "value": "other",
+          "label": "other (write in)"
+        },
+        {
+          "value": "this_avoids_redundancy",
+          "label": "This avoids redundancy with Phase 1.5 channels by focusing on expectation level, not tooling."
+        }
+      ],
+      "examples": [
+        "Steady but simple (e.g., a daily check-in text is enough).",
+        "Consistent and connected (e.g., regular texting throughout the day and goodnight calls).",
+        "Highly integrated (e.g., always knowing where the other person is)."
+      ]
+    },
+    "q14": {
+      "id": "q14",
+      "section_id": "s3",
+      "order": 14,
+      "title": "Exclusivity Reality Check",
+      "prompt": "Right now, are you exclusive?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "yes",
+          "label": "yes"
+        },
+        {
+          "value": "no",
+          "label": "no"
+        },
+        {
+          "value": "not_sure",
+          "label": "not sure"
+        },
+        {
+          "value": "we_havent_defined",
+          "label": "we haven't defined it"
+        },
+        {
+          "value": "its_complicated",
+          "label": "it's complicated"
+        }
+      ],
+      "examples": [
+        "Yes (we have explicitly agreed to be exclusive).",
+        "No (we are still technically free to see others).",
+        "It's complicated (we act exclusive but haven't defined it)."
+      ]
+    },
+    "q15": {
+      "id": "q15",
+      "section_id": "s3",
+      "order": 15,
+      "title": "Exclusivity Safety and Stability",
+      "prompt": "If exclusivity is involved (or hoped for), how steady does it feel right now?",
+      "type": "compound",
+      "answer_schema": {
+        "steadiness": "",
+        "what_makes_it_feel": "",
+        "what_makes_it_feel_2": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "steadiness",
+          "label": "Steadiness",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "very_steady",
+              "label": "very steady"
+            },
+            {
+              "value": "mostly_steady",
+              "label": "mostly steady"
+            },
+            {
+              "value": "unclear",
+              "label": "unclear"
+            },
+            {
+              "value": "not_steady",
+              "label": "not steady"
+            },
+            {
+              "value": "not_applicable",
+              "label": "not applicable"
+            }
+          ]
+        },
+        {
+          "key": "what_makes_it_feel",
+          "label": "What makes it feel clear",
+          "type": "free_text"
+        },
+        {
+          "key": "what_makes_it_feel_2",
+          "label": "What makes it feel unclear",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Very steady (e.g., their actions match their words completely).",
+        "Mostly steady (e.g., usually good, but they sometimes go silent).",
+        "Unclear (e.g., I'm constantly guessing if they are still interested)."
+      ]
+    },
+    "q16": {
+      "id": "q16",
+      "section_id": "s3",
+      "order": 16,
+      "title": "Boundaries and Pace Compatibility",
+      "prompt": "Right now, do your boundaries and pacing feel compatible?",
+      "type": "compound",
+      "answer_schema": {
+        "emotional_pace": "",
+        "physical_pace": "",
+        "communication_pace": "",
+        "timeavailability_pace": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "emotional_pace",
+          "label": "Emotional pace",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "aligned",
+              "label": "aligned"
+            },
+            {
+              "value": "slightly_mismatched",
+              "label": "slightly mismatched"
+            },
+            {
+              "value": "mismatched",
+              "label": "mismatched"
+            },
+            {
+              "value": "not_sure_yet",
+              "label": "not sure yet"
+            }
+          ]
+        },
+        {
+          "key": "physical_pace",
+          "label": "Physical pace",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "aligned",
+              "label": "aligned"
+            },
+            {
+              "value": "slightly_mismatched",
+              "label": "slightly mismatched"
+            },
+            {
+              "value": "mismatched",
+              "label": "mismatched"
+            },
+            {
+              "value": "not_sure_yet",
+              "label": "not sure yet"
+            }
+          ]
+        },
+        {
+          "key": "communication_pace",
+          "label": "Communication pace",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "aligned",
+              "label": "aligned"
+            },
+            {
+              "value": "slightly_mismatched",
+              "label": "slightly mismatched"
+            },
+            {
+              "value": "mismatched",
+              "label": "mismatched"
+            },
+            {
+              "value": "not_sure_yet",
+              "label": "not sure yet"
+            }
+          ]
+        },
+        {
+          "key": "timeavailability_pace",
+          "label": "Time/availability pace",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "aligned",
+              "label": "aligned"
+            },
+            {
+              "value": "slightly_mismatched",
+              "label": "slightly mismatched"
+            },
+            {
+              "value": "mismatched",
+              "label": "mismatched"
+            },
+            {
+              "value": "not_sure_yet",
+              "label": "not sure yet"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Aligned: We both want to see each other twice a week.",
+        "Mismatched on physical pace: They want to move faster sexually than I do.",
+        "Mismatched on emotional pace: I am falling in love, they are still 'seeing how it goes'."
+      ]
+    },
+    "q17": {
+      "id": "q17",
+      "section_id": "s3",
+      "order": 17,
+      "title": "Integration Pace",
+      "prompt": "The pace of integrating lives (friends, family, routines, church/community visibility if applicable) feels:",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "healthy_and_comfortable",
+          "label": "healthy and comfortable"
+        },
+        {
+          "value": "a_little_fast",
+          "label": "a little fast for my nervous system"
+        },
+        {
+          "value": "too_fast",
+          "label": "too fast"
+        },
+        {
+          "value": "a_little_slow",
+          "label": "a little slow"
+        },
+        {
+          "value": "too_slow",
+          "label": "too slow"
+        },
+        {
+          "value": "varies",
+          "label": "varies"
+        },
+        {
+          "value": "not_sure_yet",
+          "label": "not sure yet"
+        }
+      ],
+      "examples": [
+        "Healthy (e.g., meeting friends felt natural and fun).",
+        "Too fast (e.g., meeting parents after 3 weeks felt like too much pressure).",
+        "Too slow (e.g., I feel hidden because I haven't met anyone in their life yet)."
+      ]
+    },
+    "q18": {
+      "id": "q18",
+      "section_id": "s3",
+      "order": 18,
+      "title": "Daily Operating Systems",
+      "prompt": "How do your day-to-day rhythms (sleep, cleanliness, pace, planning vs spontaneity, chaos tolerance) fit?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "seamless_very_similar",
+          "label": "seamless, very similar"
+        },
+        {
+          "value": "different_but_complementary",
+          "label": "different but complementary"
+        },
+        {
+          "value": "workable_with_some",
+          "label": "workable with some coordination"
+        },
+        {
+          "value": "frequent_friction",
+          "label": "frequent friction"
+        },
+        {
+          "value": "likely_a_major",
+          "label": "likely a major clash"
+        },
+        {
+          "value": "not_sure_yet",
+          "label": "not sure yet"
+        },
+        {
+          "value": "other",
+          "label": "other (write in)"
+        }
+      ],
+      "examples": [
+        "Seamless (e.g., we are both morning people and like a tidy house).",
+        "Complementary (e.g., I cook, they clean; I plan, they execute).",
+        "Friction (e.g., their messiness stresses me out constantly)."
+      ]
+    },
+    "q19": {
+      "id": "q19",
+      "section_id": "s4",
+      "order": 19,
+      "title": "The Pink Flag Check (Chemistry Filter)",
+      "prompt": "Is there something you're minimizing because the chemistry is strong? You can keep it high-level.",
+      "type": "compound",
+      "answer_schema": {
+        "are_you_ignoring_a": "",
+        "if_yesunsure": "",
+        "optional_context": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "are_you_ignoring_a",
+          "label": "Are you ignoring a small-but-real concern?",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "no",
+              "label": "no"
+            },
+            {
+              "value": "yes",
+              "label": "yes"
+            },
+            {
+              "value": "unsure",
+              "label": "unsure"
+            }
+          ]
+        },
+        {
+          "key": "if_yesunsure",
+          "label": "If yes/unsure",
+          "type": "short_text",
+          "options": [
+            {
+              "value": "communication_style",
+              "label": "communication style"
+            },
+            {
+              "value": "conflict_behavior",
+              "label": "conflict behavior"
+            },
+            {
+              "value": "faithvalues",
+              "label": "faith/values"
+            },
+            {
+              "value": "boundariessexual_pace",
+              "label": "boundaries/sexual pace"
+            },
+            {
+              "value": "jealousyinsecurity",
+              "label": "jealousy/insecurity"
+            },
+            {
+              "value": "ambitionwork_ethic",
+              "label": "ambition/work ethic"
+            },
+            {
+              "value": "money_habits",
+              "label": "money habits"
+            },
+            {
+              "value": "cleanlinesslifestyle",
+              "label": "cleanliness/lifestyle"
+            },
+            {
+              "value": "exboundaries",
+              "label": "ex-boundaries"
+            },
+            {
+              "value": "family_involvement",
+              "label": "family involvement"
+            },
+            {
+              "value": "other",
+              "label": "other"
+            },
+            {
+              "value": "prefer_not_to",
+              "label": "prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "optional_context",
+          "label": "Optional context",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "No concern: Everything feels green light.",
+        "Yes: Conflict behavior (they shut down and won't talk for days).",
+        "Yes: Money habits (they seem financially irresponsible)."
+      ]
+    },
+    "q20": {
+      "id": "q20",
+      "section_id": "s4",
+      "order": 20,
+      "title": "Emotional Safety",
+      "prompt": "Do you feel emotionally safe being fully honest with this person?",
+      "type": "compound",
+      "answer_schema": {
+        "safety_level": "",
+        "what_makes_it_feel": "",
+        "what_makes_it_feel_2": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "safety_level",
+          "label": "Safety level",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "yes",
+              "label": "yes"
+            },
+            {
+              "value": "mostly",
+              "label": "mostly"
+            },
+            {
+              "value": "sometimes",
+              "label": "sometimes"
+            },
+            {
+              "value": "not_really",
+              "label": "not really"
+            },
+            {
+              "value": "not_sure_yet",
+              "label": "not sure yet"
+            }
+          ]
+        },
+        {
+          "key": "what_makes_it_feel",
+          "label": "What makes it feel safe",
+          "type": "free_text"
+        },
+        {
+          "key": "what_makes_it_feel_2",
+          "label": "What makes it feel less safe",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Yes (e.g., I can share my deepest fears and they listen without judgment).",
+        "Mostly (e.g., I share most things, but hide my anxiety to not look 'needy').",
+        "No (e.g., I worry they will think less of me if I show weakness)."
+      ]
+    },
+    "q21": {
+      "id": "q21",
+      "section_id": "s4",
+      "order": 21,
+      "title": "Eggshel ls Check",
+      "prompt": "Do you feel you have to manage their emotions to keep peace?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "no",
+          "label": "no"
+        },
+        {
+          "value": "sometimes",
+          "label": "sometimes"
+        },
+        {
+          "value": "often",
+          "label": "often"
+        },
+        {
+          "value": "yes_regularly",
+          "label": "yes, regularly"
+        },
+        {
+          "value": "not_sure_yet",
+          "label": "not sure yet"
+        }
+      ],
+      "examples": [
+        "No (e.g., I feel free to bring up issues).",
+        "Sometimes (e.g., I hesitate to bring up needs because they might get annoyed).",
+        "Yes, regularly (e.g., I constantly monitor their mood to avoid conflict)."
+      ]
+    },
+    "q22": {
+      "id": "q22",
+      "section_id": "s4",
+      "order": 22,
+      "title": "Felt Respect",
+      "prompt": "Do you feel consistently respected in tone, effort, honesty, and boundaries?",
+      "type": "compound",
+      "answer_schema": {
+        "respect_level": "",
+        "one_thing_that_feels": "",
+        "one_thing_that_doesnt": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "respect_level",
+          "label": "Respect level",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "yes",
+              "label": "yes"
+            },
+            {
+              "value": "mostly",
+              "label": "mostly"
+            },
+            {
+              "value": "mixed",
+              "label": "mixed"
+            },
+            {
+              "value": "not_really",
+              "label": "not really"
+            },
+            {
+              "value": "not_sure_yet",
+              "label": "not sure yet"
+            }
+          ]
+        },
+        {
+          "key": "one_thing_that_feels",
+          "label": "One thing that feels respectful",
+          "type": "short_text"
+        },
+        {
+          "key": "one_thing_that_doesnt",
+          "label": "One thing that doesn't",
+          "type": "short_text"
+        }
+      ],
+      "examples": [
+        "Yes (e.g., they respect my 'no' always).",
+        "Mixed (e.g., they are mostly respectful, but sometimes pushy about time)."
+      ]
+    },
+    "q23": {
+      "id": "q23",
+      "section_id": "s5",
+      "order": 23,
+      "title": "Emotional Regulation Effect",
+      "prompt": "Overall, this relationship tends to make your nervous system feel:",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "more_regulated_and",
+          "label": "more regulated and grounded"
+        },
+        {
+          "value": "more_open_and",
+          "label": "more open and hopeful"
+        },
+        {
+          "value": "more_anxiousactivated",
+          "label": "more anxious/activated"
+        },
+        {
+          "value": "more_shut_downnumb",
+          "label": "more shut down/numb"
+        },
+        {
+          "value": "mixed",
+          "label": "mixed"
+        },
+        {
+          "value": "not_sure_yet",
+          "label": "not sure yet"
+        }
+      ],
+      "examples": [
+        "Regulated (e.g., I feel calm and safe with them).",
+        "Open and hopeful (e.g., I feel excited about the future context).",
+        "Anxious/activated (e.g., I feel on edge or hyper-vigilant)."
+      ]
+    },
+    "q24": {
+      "id": "q24",
+      "section_id": "s5",
+      "order": 24,
+      "title": "Conflict Pattern",
+      "prompt": "When tension shows up, which pattern is most true right now?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "we_talk_and",
+          "label": "we talk and repair"
+        },
+        {
+          "value": "we_avoid_it",
+          "label": "we avoid it"
+        },
+        {
+          "value": "one_of_us",
+          "label": "one of us shuts down"
+        },
+        {
+          "value": "it_escalates_then",
+          "label": "it escalates then cools off"
+        },
+        {
+          "value": "we_go_distant",
+          "label": "we go distant"
+        },
+        {
+          "value": "not_enough_conflict",
+          "label": "not enough conflict yet to know"
+        },
+        {
+          "value": "other",
+          "label": "other (write in)"
+        }
+      ],
+      "examples": [
+        "We talk and repair (e.g., we can disagree but come back together stronger).",
+        "We avoid it (e.g., we pretend nothing happened and just move on).",
+        "Escalates (e.g., small disagreements turn into big fights)."
+      ]
+    },
+    "q25": {
+      "id": "q25",
+      "section_id": "s5",
+      "order": 25,
+      "title": "Repair Reliability",
+      "prompt": "After a hard moment, you usually feel:",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "more_connected",
+          "label": "more connected"
+        },
+        {
+          "value": "about_the_same",
+          "label": "about the same"
+        },
+        {
+          "value": "a_little_less",
+          "label": "a little less safe"
+        },
+        {
+          "value": "more_distant",
+          "label": "more distant"
+        },
+        {
+          "value": "it_varies",
+          "label": "it varies"
+        },
+        {
+          "value": "not_sure_yet",
+          "label": "not sure yet"
+        }
+      ],
+      "examples": [
+        "More connected (e.g., resolving it made us feel closer).",
+        "About the same (e.g., we got through it).",
+        "Less safe (e.g., I'm afraid to bring it up again)."
+      ]
+    },
+    "q26": {
+      "id": "q26",
+      "section_id": "s5",
+      "order": 26,
+      "title": "Hard Topics Avoidance",
+      "prompt": "Is there anything you're avoiding because it might change the relationship? You don't need to share details, just the category.",
+      "type": "compound",
+      "answer_schema": {
+        "categories": [],
+        "if_other_describe": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "categories",
+          "label": "Categories",
+          "type": "multi_select",
+          "options": [
+            {
+              "value": "values",
+              "label": "values"
+            },
+            {
+              "value": "faithspirituality",
+              "label": "faith/spirituality"
+            },
+            {
+              "value": "sexphysical_boundaries",
+              "label": "sex/physical boundaries"
+            },
+            {
+              "value": "exes",
+              "label": "exes"
+            },
+            {
+              "value": "money",
+              "label": "money"
+            },
+            {
+              "value": "kids",
+              "label": "kids"
+            },
+            {
+              "value": "timelinecommitment",
+              "label": "timeline/commitment"
+            },
+            {
+              "value": "emotional_needs",
+              "label": "emotional needs"
+            },
+            {
+              "value": "mental_health",
+              "label": "mental health"
+            },
+            {
+              "value": "family_involvement",
+              "label": "family involvement"
+            },
+            {
+              "value": "other",
+              "label": "other"
+            },
+            {
+              "value": "none",
+              "label": "none"
+            }
+          ]
+        },
+        {
+          "key": "if_other_describe",
+          "label": "If other, describe",
+          "type": "short_text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "None (e.g., we have discussed everything difficult).",
+        "Money (e.g., I haven't asked about their debt yet).",
+        "Faith (e.g., I'm worried our religious views are too different)."
+      ]
+    },
+    "q27": {
+      "id": "q27",
+      "section_id": "s6",
+      "order": 27,
+      "title": "Not-Okay Conflict Behaviors (and what to do)",
+      "prompt": "Which conflict behaviors are not okay for you, and what should happen if one occurs?",
+      "type": "compound",
+      "answer_schema": {
+        "not_okay": [],
+        "if_other_describe": "",
+        "if_one_happens_what": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "not_okay",
+          "label": "Not okay",
+          "type": "multi_select",
+          "options": [
+            {
+              "value": "yelling",
+              "label": "yelling"
+            },
+            {
+              "value": "insultsnamecalling",
+              "label": "insults/name-calling"
+            },
+            {
+              "value": "stonewalling",
+              "label": "stonewalling"
+            },
+            {
+              "value": "threats",
+              "label": "threats"
+            },
+            {
+              "value": "contemptsarcasm",
+              "label": "contempt/sarcasm"
+            },
+            {
+              "value": "manipulation",
+              "label": "manipulation"
+            },
+            {
+              "value": "jealousy_control",
+              "label": "jealousy control"
+            },
+            {
+              "value": "privacy_violations",
+              "label": "privacy violations"
+            },
+            {
+              "value": "sexual_pressure",
+              "label": "sexual pressure"
+            },
+            {
+              "value": "breaking_objectsintimidation",
+              "label": "breaking objects/intimidation"
+            },
+            {
+              "value": "other",
+              "label": "other"
+            }
+          ]
+        },
+        {
+          "key": "if_other_describe",
+          "label": "If other, describe",
+          "type": "short_text"
+        },
+        {
+          "key": "if_one_happens_what",
+          "label": "If one happens, what should the immediate response be?",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Not okay: Yelling, name-calling, stonewalling.",
+        "Response: 'I can't continue this conversation while you are yelling. Let's take 20 minutes.'"
+      ]
+    },
+    "q28": {
+      "id": "q28",
+      "section_id": "s6",
+      "order": 28,
+      "title": "Values Alignment (Real-Life, Not Theory)",
+      "prompt": "Do your core values feel aligned in real life right now?",
+      "type": "compound",
+      "answer_schema": {
+        "overall_alignment": "",
+        "f_12_values_that_feel": "",
+        "f_12_values_that_feel_2": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "overall_alignment",
+          "label": "Overall alignment",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "aligned",
+              "label": "aligned"
+            },
+            {
+              "value": "mostly_aligned",
+              "label": "mostly aligned"
+            },
+            {
+              "value": "mixed",
+              "label": "mixed"
+            },
+            {
+              "value": "misaligned",
+              "label": "misaligned"
+            },
+            {
+              "value": "not_sure_yet",
+              "label": "not sure yet"
+            }
+          ]
+        },
+        {
+          "key": "f_12_values_that_feel",
+          "label": "1-2 values that feel aligned",
+          "type": "short_text"
+        },
+        {
+          "key": "f_12_values_that_feel_2",
+          "label": "1-2 values that feel uncertain",
+          "type": "short_text"
+        }
+      ],
+      "examples": [
+        "Aligned (e.g., we both value family and honesty deeply).",
+        "Misaligned (e.g., they prioritize work over everything, I prioritize connection).",
+        "Mixed (e.g., we share political views but differ on financial goals)."
+      ]
+    },
+    "q29": {
+      "id": "q29",
+      "section_id": "s6",
+      "order": 29,
+      "title": "The Hope It Changes Check",
+      "prompt": "Are you hoping something important will change if you commit?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "no",
+          "label": "no"
+        },
+        {
+          "value": "yes",
+          "label": "yes"
+        },
+        {
+          "value": "unsure",
+          "label": "unsure"
+        }
+      ],
+      "examples": [
+        "No (e.g., I accept them exactly as they are today).",
+        "Yes (e.g., I hope they become more ambitious/cleaner/more communicative)."
+      ]
+    },
+    "q30": {
+      "id": "q30",
+      "section_id": "s6",
+      "order": 30,
+      "title": "What You Hope Would Change",
+      "prompt": "If yes or unsure: what are you hoping will change? (1-3 sentences)",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "showWhen": {
+        "field": "q29",
+        "in": [
+          "yes",
+          "unsure"
+        ]
+      },
+      "examples": [
+        "I hope they will start planning dates more often once we are 'official'.",
+        "I hope they will be more open about their feelings."
+      ]
+    },
+    "q31": {
+      "id": "q31",
+      "section_id": "s6",
+      "order": 31,
+      "title": "Self-Editing Check",
+      "prompt": "Around them, you feel:",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "more_myself",
+          "label": "more myself"
+        },
+        {
+          "value": "mostly_myself",
+          "label": "mostly myself"
+        },
+        {
+          "value": "somewhat_edited",
+          "label": "somewhat edited"
+        },
+        {
+          "value": "heavily_edited",
+          "label": "heavily edited"
+        },
+        {
+          "value": "not_sure_yet",
+          "label": "not sure yet"
+        }
+      ],
+      "examples": [
+        "More myself (e.g., I feel freer and more authentic with them).",
+        "Edited (e.g., I hold back my true personality to fit what they like)."
+      ]
+    },
+    "q32": {
+      "id": "q32",
+      "section_id": "s7",
+      "order": 32,
+      "title": "The Quiet Dealbreaker",
+      "prompt": "Is there a potential dealbreaker you're trying not to look at yet? You don't have to name details.",
+      "type": "compound",
+      "answer_schema": {
+        "is_there_a_potential": "",
+        "category": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "is_there_a_potential",
+          "label": "Is there a potential dealbreaker?",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "no",
+              "label": "no"
+            },
+            {
+              "value": "yes",
+              "label": "yes"
+            },
+            {
+              "value": "unsure",
+              "label": "unsure"
+            }
+          ]
+        },
+        {
+          "key": "category",
+          "label": "Category",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "values",
+              "label": "values"
+            },
+            {
+              "value": "faith",
+              "label": "faith"
+            },
+            {
+              "value": "sexual_boundaries",
+              "label": "sexual boundaries"
+            },
+            {
+              "value": "honestytrust",
+              "label": "honesty/trust"
+            },
+            {
+              "value": "emotional_availability",
+              "label": "emotional availability"
+            },
+            {
+              "value": "angerconflict_behavior",
+              "label": "anger/conflict behavior"
+            },
+            {
+              "value": "life_direction",
+              "label": "life direction"
+            },
+            {
+              "value": "kids",
+              "label": "kids"
+            },
+            {
+              "value": "other",
+              "label": "other"
+            },
+            {
+              "value": "prefer_not_to",
+              "label": "prefer not to say"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "No potential dealbreakers.",
+        "Yes: Life direction (they want to be nomadic, I want roots).",
+        "Yes: Kids (they are unsure, I definitely want them)."
+      ]
+    },
+    "q33": {
+      "id": "q33",
+      "section_id": "s7",
+      "order": 33,
+      "title": "What's Driving DTR Urgency",
+      "prompt": "Which is most true right now?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "grounded_desire",
+          "label": "grounded desire"
+        },
+        {
+          "value": "anxiety_and_need",
+          "label": "anxiety and need for certainty"
+        },
+        {
+          "value": "both",
+          "label": "both"
+        },
+        {
+          "value": "neither",
+          "label": "neither"
+        },
+        {
+          "value": "not_sure_yet",
+          "label": "not sure yet"
+        }
+      ],
+      "examples": [
+        "Grounded desire (e.g., I want this partnership because it adds to my life).",
+        "Anxiety (e.g., I'm afraid of being alone or losing them).",
+        "Both (e.g., I really like them, but I'm also scared)."
+      ]
+    },
+    "q34": {
+      "id": "q34",
+      "section_id": "s7",
+      "order": 34,
+      "title": "Your Body's Answer",
+      "prompt": "When you imagine being officially committed to them, your body feels:",
+      "type": "compound",
+      "answer_schema": {
+        "body_signal": "",
+        "in_one_sentence_why": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "body_signal",
+          "label": "Body signal",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "calmsettled",
+              "label": "calm/settled"
+            },
+            {
+              "value": "excitedenergized",
+              "label": "excited/energized"
+            },
+            {
+              "value": "tightuneasy",
+              "label": "tight/uneasy"
+            },
+            {
+              "value": "numbflat",
+              "label": "numb/flat"
+            },
+            {
+              "value": "mixed",
+              "label": "mixed"
+            },
+            {
+              "value": "not_sure_yet",
+              "label": "not sure yet"
+            }
+          ]
+        },
+        {
+          "key": "in_one_sentence_why",
+          "label": "In one sentence, why?",
+          "type": "short_text"
+        }
+      ],
+      "examples": [
+        "Calm/settled (e.g., a warm feeling in my chest).",
+        "Excited/energized (e.g., butterflies and smiles).",
+        "Tight/uneasy (e.g., a knot in my stomach)."
+      ]
+    },
+    "q35": {
+      "id": "q35",
+      "section_id": "s8",
+      "order": 35,
+      "title": "If They Wanted to Wait",
+      "prompt": "If they said not yet, you would mostly feel:",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "understanding",
+          "label": "understanding"
+        },
+        {
+          "value": "hurt",
+          "label": "hurt"
+        },
+        {
+          "value": "relief",
+          "label": "relief"
+        },
+        {
+          "value": "anxious",
+          "label": "anxious"
+        },
+        {
+          "value": "angry",
+          "label": "angry"
+        },
+        {
+          "value": "mixed",
+          "label": "mixed"
+        },
+        {
+          "value": "not_sure_yet",
+          "label": "not sure yet"
+        }
+      ],
+      "examples": [
+        "Understanding (e.g., I'm willing to wait if they need time).",
+        "Hurt (e.g., I would feel rejected and sad).",
+        "Relief (e.g., honestly, I'm not ready either)."
+      ]
+    },
+    "q36": {
+      "id": "q36",
+      "section_id": "s8",
+      "order": 36,
+      "title": "Lean Today",
+      "prompt": "If you had to choose today, you would most want to:",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "define_the_relationship",
+          "label": "define the relationship now"
+        },
+        {
+          "value": "move_toward_defining",
+          "label": "move toward defining it, but not yet"
+        },
+        {
+          "value": "keep_it_undefined",
+          "label": "keep it undefined for a while"
+        },
+        {
+          "value": "step_back_or",
+          "label": "step back or end it"
+        },
+        {
+          "value": "unsure",
+          "label": "unsure"
+        }
+      ],
+      "examples": [
+        "Define it now (e.g., I'm ready to commit fully).",
+        "Move toward it (e.g., keep dating exclusively but no label yet).",
+        "Step back (e.g., I need space to think)."
+      ]
+    },
+    "q37": {
+      "id": "q37",
+      "section_id": "s8",
+      "order": 37,
+      "title": "Readiness Score (Now)",
+      "prompt": "On a scale of 1-10, how ready are you to define the relationship?",
+      "type": "compound",
+      "answer_schema": {
+        "readiness_score": "",
+        "why_that_number": "",
+        "what_would_raise_it": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "readiness_score",
+          "label": "Readiness score (1 = not ready at all, 10 = ready and at peace)",
+          "type": "number",
+          "options": [
+            {
+              "value": "1__not",
+              "label": "1 = not ready at all"
+            },
+            {
+              "value": "10__ready",
+              "label": "10 = ready and at peace doing it now"
+            }
+          ]
+        },
+        {
+          "key": "why_that_number",
+          "label": "Why that number?",
+          "type": "short_text"
+        },
+        {
+          "key": "what_would_raise_it",
+          "label": "What would raise it by 1-2 points?",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "8: I feel very good about us, just want to clarify one boundary.",
+        "10: I am completely at peace and excited to define this.",
+        "3: I have too many doubts right now."
+      ]
+    },
+    "q38": {
+      "id": "q38",
+      "section_id": "s8",
+      "order": 38,
+      "title": "What You Still Need",
+      "prompt": "What do you still need to decide cleanly? Select any.",
+      "type": "multi_select",
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "more_time",
+          "label": "more time"
+        },
+        {
+          "value": "a_hard_conversation",
+          "label": "a hard conversation"
+        },
+        {
+          "value": "behavioral_consistency",
+          "label": "behavioral consistency"
+        },
+        {
+          "value": "repair_and_conflict",
+          "label": "repair and conflict stability"
+        },
+        {
+          "value": "emotional_safety",
+          "label": "emotional safety"
+        },
+        {
+          "value": "clarity_about_exclusivity",
+          "label": "clarity about exclusivity"
+        },
+        {
+          "value": "faithspiritual_alignment",
+          "label": "faith/spiritual alignment"
+        },
+        {
+          "value": "meet_friendsfamily",
+          "label": "meet friends/family"
+        },
+        {
+          "value": "time_availability_clarity",
+          "label": "time availability clarity"
+        },
+        {
+          "value": "other",
+          "label": "other (write in)"
+        }
+      ],
+      "examples": [
+        "More time (e.g., I need a few more weeks to see consistency).",
+        "Hard conversation (e.g., we need to talk about finances first).",
+        "Meeting family (e.g., I need to see how they are with my siblings)."
+      ]
+    },
+    "q39": {
+      "id": "q39",
+      "section_id": "s8",
+      "order": 39,
+      "title": "Healthy Yes Requirements",
+      "prompt": "For a healthy yes, what must be true? (Up to 3 bullet points)",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "examples": [
+        "They must be willing to go to therapy if we get stuck.",
+        "We must agree on being exclusive.",
+        "They must be open about their past relationships."
+      ]
+    },
+    "q40": {
+      "id": "q40",
+      "section_id": "s8",
+      "order": 40,
+      "title": "Healthy No / Not Yet Next Step",
+      "prompt": "If the answer is no or not yet, what would the most respectful next step look like for you?",
+      "type": "free_text",
+      "answer_schema": {
+        "text": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "examples": [
+        "We should cool things off and see other people.",
+        "We should keep dating but check in again in 2 weeks.",
+        "We should break up if we aren't on the same page."
+      ]
+    },
+    "q41": {
+      "id": "q41",
+      "section_id": "s9",
+      "order": 41,
+      "title": "The Honesty Check",
+      "prompt": "Is there a part of you that already knows your answer but is afraid to admit it?",
+      "type": "compound",
+      "answer_schema": {
+        "choice": "",
+        "if_yesunsure": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "choice",
+          "label": "Options",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "no",
+              "label": "no"
+            },
+            {
+              "value": "yes",
+              "label": "yes"
+            },
+            {
+              "value": "unsure",
+              "label": "unsure"
+            }
+          ]
+        },
+        {
+          "key": "if_yesunsure",
+          "label": "If yes/unsure",
+          "type": "short_text"
+        }
+      ],
+      "examples": [
+        "No (e.g., I am being totally honest with myself).",
+        "Yes (e.g., deep down I know they aren't 'the one', but I don't want to be lonely)."
+      ]
+    },
+    "q42": {
+      "id": "q42",
+      "section_id": "s9",
+      "order": 42,
+      "title": "Faith Relevance",
+      "prompt": "How relevant is faith/spiritual life to your relationship decisions?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "central",
+          "label": "central"
+        },
+        {
+          "value": "important",
+          "label": "important"
+        },
+        {
+          "value": "somewhat_relevant",
+          "label": "somewhat relevant"
+        },
+        {
+          "value": "not_relevant",
+          "label": "not relevant"
+        }
+      ],
+      "examples": [
+        "Central (e.g., my faith guides all my decisions).",
+        "Important (e.g., it matters but isn't the only factor).",
+        "Not relevant (e.g., I am not religious)."
+      ]
+    },
+    "q43": {
+      "id": "q43",
+      "section_id": "s9",
+      "order": 43,
+      "title": "Spiritual Integrity",
+      "prompt": "If faith matters to you: does this relationship support or strain your spiritual integrity right now?",
+      "type": "compound",
+      "answer_schema": {
+        "choice": "",
+        "in_what_way": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "fields": [
+        {
+          "key": "choice",
+          "label": "Options",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "supports",
+              "label": "supports"
+            },
+            {
+              "value": "strains",
+              "label": "strains"
+            },
+            {
+              "value": "mixed",
+              "label": "mixed"
+            },
+            {
+              "value": "not_sure",
+              "label": "not sure"
+            }
+          ]
+        },
+        {
+          "key": "in_what_way",
+          "label": "In what way?",
+          "type": "free_text"
+        }
+      ],
+      "examples": [
+        "Supports (e.g., we pray together and encourage each other).",
+        "Strains (e.g., we argue about how we spend Sundays)."
+      ]
+    },
+    "q44": {
+      "id": "q44",
+      "section_id": "s10",
+      "order": 44,
+      "title": "Faith-Based Expectations / Standards",
+      "prompt": "If applicable, which faith-based expectations matter for defining the relationship? Select any.",
+      "type": "multi_select",
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "shared_worshipchurch_life",
+          "label": "shared worship/church life"
+        },
+        {
+          "value": "sexual_standardsboundaries_eg",
+          "label": "sexual standards/boundaries (e.g., chastity expectations)"
+        },
+        {
+          "value": "word_of_wisdom",
+          "label": "Word of Wisdom style alignment (substances)"
+        },
+        {
+          "value": "sabbath_day_approach",
+          "label": "Sabbath day approach"
+        },
+        {
+          "value": "templecovenant_direction_if",
+          "label": "temple/covenant direction (if applicable)"
+        },
+        {
+          "value": "tithinggenerosity_and_stewards",
+          "label": "tithing/generosity and stewardship approach"
+        },
+        {
+          "value": "rolesleadership_expectations",
+          "label": "roles/leadership expectations"
+        },
+        {
+          "value": "family_integration_expectation",
+          "label": "family integration expectations"
+        },
+        {
+          "value": "none",
+          "label": "none"
+        },
+        {
+          "value": "other",
+          "label": "other (write in)"
+        }
+      ],
+      "examples": [
+        "Shared worship (e.g., going to church together).",
+        "Sexual standards (e.g., waiting for marriage).",
+        "Tithing (e.g., agreement on charitable giving)."
+      ]
+    },
+    "q45": {
+      "id": "q45",
+      "section_id": "s10",
+      "order": 45,
+      "title": "Guidance Style Preference",
+      "prompt": "When receiving guidance (human or AI), you prefer it to be:",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "gentle_and_validating",
+          "label": "gentle and validating"
+        },
+        {
+          "value": "direct_and_honest",
+          "label": "direct and honest"
+        },
+        {
+          "value": "structured_and_practical",
+          "label": "structured and practical"
+        },
+        {
+          "value": "reflective_and_exploratory",
+          "label": "reflective and exploratory"
+        },
+        {
+          "value": "a_mix",
+          "label": "a mix"
+        },
+        {
+          "value": "not_sure_yet",
+          "label": "not sure yet"
+        }
+      ],
+      "examples": [
+        "Direct and honest (e.g., just tell me the truth).",
+        "Gentle and validating (e.g., be kind and supportive).",
+        "Structured (e.g., give me a plan)."
+      ]
+    },
+    "q46": {
+      "id": "q46",
+      "section_id": "s10",
+      "order": 46,
+      "title": "Challenge vs Comfort Dial",
+      "prompt": "Right now, do you want to be challenged, comforted, or both?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "mostly_challenged",
+          "label": "mostly challenged"
+        },
+        {
+          "value": "mostly_comforted",
+          "label": "mostly comforted"
+        },
+        {
+          "value": "both",
+          "label": "both"
+        },
+        {
+          "value": "not_sure",
+          "label": "not sure"
+        }
+      ],
+      "examples": [
+        "Mostly challenged (e.g., push me to grow).",
+        "Mostly comforted (e.g., tell me it's going to be okay)."
+      ]
+    },
+    "q47": {
+      "id": "q47",
+      "section_id": "s10",
+      "order": 47,
+      "title": "What You Most Want Help With",
+      "prompt": "What do you most want help seeing clearly right now?",
+      "type": "multi_select",
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "my_feelings",
+          "label": "my feelings"
+        },
+        {
+          "value": "their_signals",
+          "label": "their signals"
+        },
+        {
+          "value": "my_readiness",
+          "label": "my readiness"
+        },
+        {
+          "value": "expectations_and_boundaries",
+          "label": "expectations and boundaries"
+        },
+        {
+          "value": "conflictrepair",
+          "label": "conflict/repair"
+        },
+        {
+          "value": "valuesfaith_alignment",
+          "label": "values/faith alignment"
+        },
+        {
+          "value": "making_the_decision",
+          "label": "making the decision"
+        },
+        {
+          "value": "having_the_conversation",
+          "label": "having the conversation"
+        },
+        {
+          "value": "other",
+          "label": "other (write in)"
+        }
+      ],
+      "examples": [
+        "My readiness (e.g., am I seeing this clearly?).",
+        "Their signals (e.g., are they really interested?)."
+      ]
+    },
+    "q48": {
+      "id": "q48",
+      "section_id": "s10",
+      "order": 48,
+      "title": "Privacy Preference for Outputs",
+      "prompt": "How private do you want your results and recommendations to be?",
+      "type": "single_select",
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "options": [
+        {
+          "value": "just_for_me",
+          "label": "just for me"
+        },
+        {
+          "value": "shareable_summary",
+          "label": "shareable summary"
+        },
+        {
+          "value": "shareable_full_output",
+          "label": "shareable full output"
+        },
+        {
+          "value": "not_sure_yet",
+          "label": "not sure yet"
+        }
+      ],
+      "examples": [
+        "Just for me (e.g., I want to process this privately).",
+        "Shareable summary (e.g., I want something I can show my partner or friend)."
+      ]
+    }
+  },
+  "ui_hints": {
+    "controls": {
+      "mode_switcher": {
+        "default": "lite",
+        "options": [
+          {
+            "id": "lite",
+            "label": "Lite (22)"
+          },
+          {
+            "id": "full",
+            "label": "Full (48)"
+          }
+        ]
+      }
+    }
+  },
+  "manifests": {
+    "lite": {
+      "id": "lite",
+      "title": "Lite Check-in",
+      "question_ids": [
+        "q01",
+        "q02",
+        "q03",
+        "q05",
+        "q06",
+        "q07",
+        "q08",
+        "q09",
+        "q10",
+        "q11",
+        "q14",
+        "q16",
+        "q19",
+        "q20",
+        "q22",
+        "q24",
+        "q25",
+        "q28",
+        "q29",
+        "q33",
+        "q37",
+        "q39"
+      ],
+      "timebox_minutes": 30,
+      "post_timebox_activity": "Take a break and do something enjoyable."
+    },
+    "full": {
+      "id": "full",
+      "title": "Full Check-in",
+      "question_ids": [
+        "q01",
+        "q02",
+        "q03",
+        "q04",
+        "q05",
+        "q06",
+        "q07",
+        "q08",
+        "q09",
+        "q10",
+        "q11",
+        "q12",
+        "q13",
+        "q14",
+        "q15",
+        "q16",
+        "q17",
+        "q18",
+        "q19",
+        "q20",
+        "q21",
+        "q22",
+        "q23",
+        "q24",
+        "q25",
+        "q26",
+        "q27",
+        "q28",
+        "q29",
+        "q30",
+        "q31",
+        "q32",
+        "q33",
+        "q34",
+        "q35",
+        "q36",
+        "q37",
+        "q38",
+        "q39",
+        "q40",
+        "q41",
+        "q42",
+        "q43",
+        "q44",
+        "q45",
+        "q46",
+        "q47",
+        "q48"
+      ],
+      "timebox_minutes": 60,
+      "post_timebox_activity": "Rest and reconnect before continuing."
+    }
+  },
+  "primary_manifest_id": "lite"
+}
