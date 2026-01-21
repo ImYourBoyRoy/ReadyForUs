@@ -10,7 +10,7 @@
         "order": 3
     },
     "artifact": {
-        "id": "phase_2_5_defined_relationship_checkin",
+        "id": "phase_2.5_defined_relationship_checkin",
         "title": "Defined Relationship Check-In",
         "subtitle": "A structured space to keep your defined relationship stable, honest, and continuously improving.",
         "language": "en-US",
@@ -76,10 +76,10 @@
         }
     },
     "prompts_artifact": {
-        "id": "phase_2_5_prompts",
+        "id": "phase_2.5_prompts",
         "title": "Phase 2.5: Defined Relationship Reflection Prompts",
         "language": "en-US",
-        "applies_to": "phase_2_5_defined_relationship_checkin"
+        "applies_to": "phase_2.5_defined_relationship_checkin"
     },
     "privacy_preface": {
         "title": "Privacy & Sharing Notes",

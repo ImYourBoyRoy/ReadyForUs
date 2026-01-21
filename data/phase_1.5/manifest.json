@@ -10,7 +10,7 @@
         "order": 2
     },
     "artifact": {
-        "id": "phase1_5_intentional_early_dating",
+        "id": "phase1.5_intentional_early_dating",
         "title": "Slow Build Connection",
         "subtitle": "Growing closer through shared discovery and mutual respect.",
         "language": "en-US",
@@ -52,10 +52,10 @@
         }
     },
     "prompts_artifact": {
-        "id": "phase1_5_prompts",
+        "id": "phase1.5_prompts",
         "title": "Phase 1.5 Early Connection Strategy",
         "language": "en-US",
-        "applies_to": "phase1_5_intentional_early_dating"
+        "applies_to": "phase1.5_intentional_early_dating"
     },
     "privacy_preface": {
         "title": "Optional Privacy Preface (Say Out Loud Before Using AI)",
