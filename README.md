@@ -2,13 +2,13 @@
 
 > *A warm toolkit for healthy relationship building — from pre-dating preparation through intentional partnership.*
 
-![Ready for Us Demo](assets/screenshots/demo.webp)
+![Ready for Us Demo](assets/recordings/slow_build_demo_walkthrough.webp)
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Phases-2-9B89A9?style=for-the-badge" alt="2 Phases">
+  <img src="https://img.shields.io/badge/Phases-3-9B89A9?style=for-the-badge" alt="3 Phases">
   <img src="https://img.shields.io/badge/Stack-HTML%2FCSS%2FJS-F2D7E4?style=for-the-badge" alt="HTML/CSS/JS">
   <img src="https://img.shields.io/badge/Themes-4-E8B4B8?style=for-the-badge" alt="4 Themes">
-  <img src="https://img.shields.io/badge/Questions-18%20Lite%20%7C%2038%20Full-C9B8D4?style=for-the-badge" alt="Questions">
+  <img src="https://img.shields.io/badge/Questions-30%2B%20Lite%20%7C%20100%2B%20Full-C9B8D4?style=for-the-badge" alt="Questions">
 </p>
 
 ---
@@ -39,6 +39,17 @@ For couples in the **slow-build phase** (3+ dates, mutual interest):
 | **Affection** | What feels best, approach consent, overwhelm signs |
 | **Trust** | Group settings, initiative, feeling chosen without pressure |
 
+### 💚 Phase 2.5: Defined Relationship Check-In
+
+For couples in a **committed/defined relationship** (post-DTR) to maintain stability:
+
+| Topic | What It Covers |
+| ------- | ---------------- |
+| **Stability** | Translating commitment into day-to-day operations |
+| **Drift Detection** | Spotting small misalignments before they become resentments |
+| **Repair** | Handling stress, rupture, and reconnection |
+| **Maintenance** | Building a repeatable rhythm for relationship health |
+
 ### ✨ Design Philosophy
 
 - **Warm & Intentional** — Soft colors, gentle language, no clinical terminology
@@ -62,16 +73,12 @@ open index.html
 
 ```bash
 # Python
-python -m http.server 8080
+python -m http.server 8000
 
 # Node.js
-npx serve . -l 8080
+npx serve . -l 8000
 
-# Then visit http://localhost:8080
-```
-
-# Then visit <http://localhost:8080>
-
+# Then visit http://localhost:8000
 ```
 
 ### Deployment & Updates
@@ -80,7 +87,7 @@ When deploying a new version, **always bump the version number** to ensure users
 
 ```bash
 # Update version in all files (sw.js, index.html, loaders)
-python scripts/bump_version.py 2.4.0
+python scripts/bump_version.py 2.5.0
 ```
 
 ---
@@ -89,9 +96,7 @@ python scripts/bump_version.py 2.4.0
 
 The application opens to a **dashboard view** — your home base for all questionnaires:
 
-| Light Theme | Dark Theme |
-|-------------|------------|
-| ![Dashboard Light](assets/screenshots/dashboard_light.webp) | ![Dashboard Dark](assets/screenshots/dashboard_dark.webp) |
+![Dashboard Welcome](assets/screenshots/dashboard_welcome.png)
 
 | Feature | Description |
 | ------- | ----------- |
@@ -130,6 +135,7 @@ Each theme applies cohesive styling across all views: dashboard, welcome screen,
 
 - **Phase 0**: Pre-Dating Readiness (36 Lite / 82 Full questions)
 - **Phase 1.5**: Intentional Early Dating (18 Lite / 38 Full questions)
+- **Phase 2.5**: Defined Relationship Check-In (Stability & Maintenance)
 - Separate progress saved per phase
 - Switch phases anytime from the dashboard
 
@@ -158,6 +164,8 @@ Each theme applies cohesive styling across all views: dashboard, welcome screen,
 - Visual indicators: ✓ answered, ⏭ skipped, ○ unanswered
 - Click any card to jump back and edit
 
+![Review Page](assets/screenshots/review_page.png)
+
 ### 💾 Auto-Save & Long-Term Persistence
 
 - Progress saved to localStorage automatically
@@ -175,6 +183,8 @@ Two import modes (click **📥 Import** in nav or welcome screen):
   - Upload two files for couple's joint prompt
 - Smart parsing handles both JSON and TXT export formats
 - Questions are flagged for review after import
+
+![Import View](assets/screenshots/import_view.png)
 
 ### 📤 Export Options
 
@@ -219,21 +229,7 @@ Two import modes (click **📥 Import** in nav or welcome screen):
 
 ---
 
-## 📸 Screenshots
-
-### Welcome Screen
-
-![Welcome Screen](assets/screenshots/welcome_light.webp)
-
-### Questionnaire View
-
-| Light Theme | Dark Theme |
-|-------------|------------|
-| ![Questionnaire Light](assets/screenshots/questionnaire_light.webp) | ![Questionnaire Dark](assets/screenshots/questionnaire_dark.webp) |
-
----
-
-## 📝 The Questions (Phase 1.5)
+## 📝 The Questions (Phase 1.5 Example)
 
 ### Lite Mode (18 Core Questions)
 
@@ -293,54 +289,6 @@ Two import modes (click **📥 Import** in nav or welcome screen):
 
 ---
 
-### Full Mode (20 Additional Questions)
-
-<details>
-<summary><strong>Section 7: What We Believe and Value</strong></summary>
-
-1. **Top values (choose up to 5)** — What matters most in a relationship?
-2. **Faith and church alignment** — How does faith show up for us?
-3. **Physical boundaries and standards** — How explicit should we be?
-4. **What "defining the relationship" means to me** — Exclusivity, labels, routines?
-5. **Future talk pacing** — How much marriage/kids/life talk feels good?
-6. **Roles and leadership expectations** — Shared, complementary, or one leads?
-
-</details>
-
-<details>
-<summary><strong>Section 8: Repair and Reconnection</strong></summary>
-
-1. **My conflict style under stress** — How I react when hurt
-2. **What helps me de-escalate** — Fastest way to calm down
-3. **Apology and repair language** — What makes an apology meaningful?
-4. **Not-okay conflict behaviors** — Boundaries for disagreements
-5. **Heavy topics boundaries** — Pace for discussing trauma/past
-6. **Preferred repair ritual** — How we reconnect after hard moments
-
-</details>
-
-<details>
-<summary><strong>Section 9: Rhythm and Real Life</strong></summary>
-
-1. **Ideal cadence for seeing each other** — How often right now?
-2. **Communication channel preferences** — Text, calls, in-person?
-3. **Privacy and sharing boundaries** — Friends, social media?
-4. **Pace of integration** — Introducing friends/family when?
-
-</details>
-
-<details>
-<summary><strong>Section 10: Feeling Secure Together</strong></summary>
-
-1. **Jealousy triggers (if any)** — What triggers insecurity?
-2. **What reassurance works best** — How to help when I'm anxious
-3. **Exclusivity boundary preference** — Open, focused, or exclusive?
-4. **Boundaries with other connections** — Dating apps, friendships, etc.
-
-</details>
-
----
-
 ## 📁 Project Structure
 
 ```text
@@ -351,14 +299,19 @@ dating_questionnaire/
 ├── data/
 │   ├── config.json             # Site-wide configuration
 │   ├── SCHEMA.md               # Schema documentation
-│   ├── TEMPLATE_questions.json # Template for new phases
-│   ├── TEMPLATE_prompts.json   # Template for new prompts
-│   ├── phase_0/
-│   │   ├── questions.json      # Phase 0 questions
-│   │   └── prompts.json        # Phase 0 AI prompts
-│   └── phase_1.5/
-│       ├── questions.json      # Phase 1.5 questions
-│       └── prompts.json        # Phase 1.5 AI prompts
+│   ├── phase-registry.json     # Registry of active phases
+│   ├── phase_0/                # Phase 0: Readiness Audit
+│   │   ├── manifest.json
+│   │   ├── questions.txt
+│   │   └── prompts.json
+│   ├── phase_1.5/              # Phase 1.5: Intentional Early Dating
+│   │   ├── manifest.json
+│   │   ├── questions.txt
+│   │   └── prompts.json
+│   └── phase_2.5/              # Phase 2.5: Defined Relationship Check-In
+│       ├── manifest.json
+│       ├── questions.json
+│       └── prompts.json
 │
 ├── css/
 │   ├── variables.css           # Design tokens
@@ -370,44 +323,52 @@ dating_questionnaire/
 │   ├── dashboard.css           # Dashboard styles
 │   ├── toast.css               # Toast notifications
 │   ├── comparison.css          # Comparison view styles
-│   └── themes/
-│       ├── light.css           # Soft blush-lavender (default)
-│       ├── dark.css            # Midnight rose
-│       ├── warm.css            # Peachy blush
-│       └── nature.css          # Sage with rose warmth
+│   └── themes/                 # Theme definitions
+│       ├── light.css
+│       ├── dark.css
+│       ├── warm.css
+│       └── nature.css
 │
 ├── js/
-│   ├── app.js                  # Main entry, initialization
+│   ├── app/                    # Application logic modules
+│   │   ├── init.js             # App initialization
+│   │   ├── nav-menu.js         # Navigation menu logic
+│   │   ├── dashboard.js        # Dashboard rendering
+│   │   ├── questionnaire.js    # Questionnaire logic
+│   │   ├── ai-analysis.js      # AI prompt generation
+│   │   ├── export.js           # Export handling
+│   │   ├── import-modal.js     # Import workflow
+│   │   └── theme-manager.js    # Theme switching
+│   ├── data-loader.js          # JSON loading utility
 │   ├── html-loader.js          # Dynamic HTML loading
-│   ├── data-loader.js          # JSON loading
+│   ├── question-renderer.js    # UI rendering for questions
+│   ├── questionnaire-engine.js # State machine & navigation
 │   ├── storage-manager.js      # LocalStorage persistence
-│   ├── theme-manager.js        # Theme switching + transitions
-│   ├── question-renderer.js    # Question type rendering
-│   ├── questionnaire-engine.js # Navigation, state machine
-│   ├── export-manager.js       # Export functionality
-│   ├── import-manager.js       # File import and parsing
-│   ├── url-router.js           # Hash-based URL routing
-│   └── debug-overlay.js        # Debug mode (?debug=true)
+│   ├── url-router.js           # Hash-based routing
+│   ├── debug-overlay.js        # Debug toolbar
+│   └── sw.js                   # Service Worker (PWA)
 │
 ├── html/
-│   ├── components/
-│   │   ├── footer.html         # Footer with credits
-│   │   ├── loader.html         # Loading spinner
-│   │   ├── navigation.html     # Top navigation bar
-│   │   └── toasts.html         # Toast notifications
-│   ├── modals/
-│   │   ├── import.html         # Import dialog
-│   │   └── save.html           # Save progress dialog
-│   └── views/
-│       ├── dashboard.html      # Phase selection dashboard
-│       ├── welcome.html        # Instructions and mode selection
-│       ├── questionnaire.html  # Question display
-│       ├── review.html         # Answer review grid
-│       ├── complete.html       # Completion and export
-│       └── comparison.html     # Side-by-side comparison
+│   ├── components/             # Reusable UI fragments
+│   │   ├── navigation.html
+│   │   ├── footer.html
+│   │   ├── loader.html
+│   │   └── toasts.html
+│   ├── modals/                 # Dialog contents
+│   │   ├── import.html
+│   │   └── save.html
+│   └── views/                  # Main page views
+│       ├── dashboard.html
+│       ├── welcome.html
+│       ├── questionnaire.html
+│       ├── review.html
+│       ├── complete.html
+│       └── comparison.html
 │
 ├── assets/
-│   └── images/                 # Screenshots and demos
+│   ├── images/                 # Static images
+│   ├── screenshots/            # App screenshots
+│   └── recordings/             # App demo recordings
 │
 └── Results_Examples/           # Sample completed questionnaires
 ```
@@ -432,7 +393,7 @@ For developers and troubleshooting. Append `?debug=true` to the URL to enable de
 
 **How to use:**
 
-1. Navigate to `http://localhost:8080/?debug=true` (or add `?debug=true` to any URL)
+1. Navigate to `http://localhost:8000/?debug=true` (or add `?debug=true` to any URL)
 2. A **🐛 bug button** appears in the **bottom-right corner** of the screen
 3. Click the button or press `Ctrl+D` to show/hide the debug overlay
 
@@ -443,7 +404,7 @@ For developers and troubleshooting. Append `?debug=true` to the URL to enable de
 | **Question Info** | Shows current question ID, type, and title |
 | **Raw Response JSON** | Displays the exact data structure being saved |
 | **Field Status** | For compound questions, shows ✓/✗ for each field |
-| **Import Warnings** | Highlights questions that need review after import |
+| **Import Warnings** | Highlight questions that need review after import |
 | **Copy Button** | 📋 Copies response JSON to clipboard |
 
 **Keyboard shortcut:** `Ctrl+D` toggles the overlay visibility at any time (when debug mode is enabled).
@@ -451,7 +412,7 @@ For developers and troubleshooting. Append `?debug=true` to the URL to enable de
 <details>
 <summary>📸 Debug Overlay Screenshot</summary>
 
-![Debug Overlay](assets/screenshots/debug_overlay.webp)
+![Debug Overlay](assets/screenshots/debug_overlay.png)
 
 </details>
 
@@ -582,13 +543,11 @@ Edit `data/phase_*/questions.json`. The system supports **4 question types**:
 
 ### Creating a New Phase
 
-1. Create a new folder in `data/` matching pattern `phase_X` (e.g., `data/phase_2/`)
+1. Create a new folder in `data/` matching pattern `phase_X` (e.g., `data/phase_3/`)
 2. Copy `TEMPLATE_manifest.json`, `TEMPLATE_questions.json`, and `TEMPLATE_prompts.json` into it
 3. Rename them to `manifest.json`, `questions.json`, and `prompts.json`
 4. Fill in the `display` section in `manifest.json` with id, title, short_title, description, icon, and order
-5. Edit the content following the schema in `data/SCHEMA.md`
-
-> **Note**: Phases are auto-discovered! The app probes for folders matching `phase_0` through `phase_10` (including `.5` sub-versions like `phase_1.5`). No registry file needed.
+5. Ensure the new phase is registered in `data/phase-registry.json`
 
 ### Adding to Lite vs Full Mode
 
