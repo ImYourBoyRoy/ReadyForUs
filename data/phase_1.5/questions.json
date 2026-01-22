@@ -139,10 +139,10 @@
         "notes": ""
       },
       "examples": [
-        "Exploration (e.g., seeing what is out there without pressure).",
-        "Discernment (e.g., dating intentionally to see if we align).",
-        "Long-term potential (e.g., looking for a serious partner).",
-        "Companionship (e.g., enjoy shared time but not rushing)."
+        "Exploration: I'm seeing what is out there without pressure.",
+        "Discernment: I'm dating intentionally to see if we align.",
+        "Long-term potential: I'm looking for a serious partner.",
+        "Companionship: I enjoy shared time but not rushing."
       ],
       "tags": {
         "included_in_manifests": [
@@ -189,9 +189,9 @@
         "notes": ""
       },
       "examples": [
-        "Slow and intentional (e.g., taking time to build trust).",
-        "Playful and light (e.g., enjoying fun over heavy talks).",
-        "Structured (e.g., knowing when we will see each other next)."
+        "Spontaneous and organic: we flow and decide in the moment.",
+        "Slow and intentional: we take time to build trust.",
+        "Structured but flexible: we make a plan and adjust as needed."
       ],
       "tags": {
         "included_in_manifests": [
@@ -215,9 +215,9 @@
         "notes": ""
       },
       "examples": [
-        "No momentum (e.g., weeks between dates).",
-        "Vague plans (e.g., 'let's hang sometime' but no date set).",
-        "Lack of depth (e.g., only small talk after several dates)."
+        "No momentum: Weeks between dates.",
+        "Vague plans: 'Let's hang sometime' but no date set.",
+        "Lack of depth: Only small talk after several dates."
       ],
       "tags": {
         "included_in_manifests": [
@@ -238,9 +238,9 @@
         "notes": ""
       },
       "examples": [
-        "Forced exclusivity (e.g., pressure to label it day one).",
-        "Love bombing (e.g., intense praise/gifts too early).",
-        "Trauma dumping (e.g., sharing deepest wounds on first date)."
+        "Forced exclusivity: Pressure to label it day one.",
+        "Love bombing: Intense praise/gifts too early.",
+        "Trauma dumping: Sharing deepest wounds on first date."
       ],
       "tags": {
         "included_in_manifests": [
@@ -324,7 +324,7 @@
           "key": "milestone_text",
           "label": "What milestone?",
           "type": "short_text",
-          "placeholder": "e.g., first trip together, meeting family",
+          "placeholder": "First trip together, meeting family",
           "showWhen": {
             "field": "review_type",
             "equals": "after_milestone"
@@ -334,7 +334,7 @@
           "key": "natural_sign_text",
           "label": "What sign would you notice?",
           "type": "short_text",
-          "placeholder": "e.g., feeling ready to be more public, wanting more time together",
+          "placeholder": "Feeling ready to be more public, wanting more time together",
           "showWhen": {
             "field": "review_type",
             "equals": "when_natural_sign"
@@ -446,9 +446,9 @@
         "notes": ""
       },
       "examples": [
-        "Weekly (e.g., Sunday night check-in over tea).",
-        "Bi-weekly (e.g., longer deep dive every other week).",
-        "As needed (e.g., we pause whenever one of us feels 'off')."
+        "Weekly: Sunday night check-in over tea.",
+        "Bi-weekly: Longer deep dive every other week.",
+        "As needed: We pause whenever one of us feels 'off'."
       ],
       "tags": {
         "included_in_manifests": [
@@ -514,9 +514,9 @@
         "notes": ""
       },
       "examples": [
-        "I pull inward (e.g., I get quiet). Best response: Gentle presence, don't push.",
-        "I seek reassurance (e.g., I ask 'are we okay?'). Best response: Verbal affirmation.",
-        "I overthink (e.g., I analyze texts). Best response: Clear direct communication."
+        "I pull inward: I go quiet and retreat. Best response: Sit close, stay calm, give me space without disappearing.",
+        "I seek reassurance: I ask 'are we okay?' because I feel uncertain. Best response: Say what you feel and where we stand.",
+        "I overthink: I analyze texts and tone until I spiral. Best response: Be clear and direct, name your intent, and clarify quickly."
       ],
       "tags": {
         "included_in_manifests": [
@@ -571,7 +571,11 @@
         {
           "key": "other_text",
           "label": "Other (if selected)",
-          "type": "short_text"
+          "type": "short_text",
+          "showWhen": {
+            "field": "selected_values",
+            "includes": "other"
+          }
         },
         {
           "key": "plain_language",
@@ -591,9 +595,9 @@
         "notes": ""
       },
       "examples": [
-        "Not rushed (e.g., I have time to process).",
-        "Emotionally seen (e.g., my feelings are validated).",
-        "Free to leave (e.g., I choose to stay because I want to)."
+        "Not rushed + free to change my mind: I can take time, say “not yet,” and you stay kind and steady.",
+        "Emotionally seen: You reflect what you heard before fixing it. I feel understood, not managed.",
+        "Conflict won’t mean abandonment: If we have tension, we pause and return, no threats, no disappearing."
       ],
       "tags": {
         "included_in_manifests": [
@@ -674,9 +678,9 @@
         "notes": ""
       },
       "examples": [
-        "Listen (e.g., just hear me out, don't fix).",
-        "Help (e.g., take a task off my plate).",
-        "Space (e.g., let me decompress alone for an hour)."
+        "Listen: Just hear me out, don't fix.",
+        "Help: Take a task off my plate.",
+        "Space: Let me decompress alone for an hour."
       ],
       "tags": {
         "included_in_manifests": [
@@ -715,9 +719,9 @@
         "notes": ""
       },
       "examples": [
-        "Slowly (e.g., share stories as they become relevant).",
-        "Fully (e.g., lay it all out so there are no surprises).",
-        "Relevance only (e.g., only if it impacts us now)."
+        "Slowly: Share stories as they become relevant.",
+        "Fully: Lay it all out so there are no surprises.",
+        "Relevance only: Only if it impacts us now."
       ],
       "tags": {
         "included_in_manifests": [
@@ -769,9 +773,9 @@
         "notes": ""
       },
       "examples": [
-        "Subtle touch (e.g., hand on back, sitting close).",
-        "holding hands (e.g., connection while walking).",
-        "Verbal affection (e.g., hearing 'I appreciate you')."
+        "Subtle touch: small grounding contact like a hand on the back or a light shoulder touch.",
+        "Hand holding: steady connection while walking or sitting, without escalation.",
+        "Forehead or nose contact: brief, gentle closeness that feels safe and slow."
       ],
       "tags": {
         "included_in_manifests": [
@@ -802,7 +806,7 @@
             },
             {
               "value": "soft_checkin",
-              "label": "Soft check-in (e.g., \"I'd love to kiss you\")"
+              "label": "Soft check-in (\"I'd love to kiss you\")"
             },
             {
               "value": "nonverbal_pause",
@@ -832,9 +836,9 @@
         "notes": ""
       },
       "examples": [
-        "Ask directly (e.g., 'Can I kiss you?').",
-        "Non-verbal (e.g., lean in and wait for signal).",
-        "Soft check-in (e.g., 'I'm thinking about kissing you')."
+        "Ask directly: \"Can I kiss you?\"",
+        "Nonverbal cue / pause: lean in slightly and let me close the gap.",
+        "Soft check-in: \"I'd love to kiss you\" and wait for my signal."
       ],
       "tags": {
         "included_in_manifests": [
@@ -886,7 +890,7 @@
           "key": "other_signs_text",
           "label": "Describe your other signs",
           "type": "short_text",
-          "placeholder": "e.g., I tend to fidget or change the subject",
+          "placeholder": "I tend to fidget or change the subject",
           "showWhen": {
             "field": "signs",
             "includes": "other"
@@ -905,9 +909,9 @@
         "notes": ""
       },
       "examples": [
-        "Private only (e.g., no PDA).",
-        "Subtle public (e.g., holding hands is okay).",
-        "Comfortable (e.g., arm around shoulder at dinner)."
+        "Signs: I get quiet and go still. Best response: pause and ask, \"Want to slow down?\"",
+        "Signs: I smile but seem distant. Best response: gentle check-in and give space without offense.",
+        "Signs: I disconnect afterward. Best response: a calm follow-up like, \"Anything feel too much?\""
       ],
       "tags": {
         "included_in_manifests": [
@@ -951,9 +955,9 @@
         "notes": ""
       },
       "examples": [
-        "Casual group (e.g., meet at a game night).",
-        "One-on-one (e.g., meet my best friend for coffee).",
-        "Wait (e.g., only after we are exclusive)."
+        "Act as a quiet unit: we arrive together, stay mostly together, leave together.",
+        "Subtle check-ins throughout: we mingle, then reconnect every so often.",
+        "Physically subtle but emotionally aligned: you socialize, but we keep contact and touch base."
       ],
       "tags": {
         "included_in_manifests": [
@@ -995,7 +999,7 @@
         },
         {
           "key": "what_it_means",
-          "label": "Explain what you mean (1–2 sentences):",
+          "label": "Explain what you mean (1-2 sentences):",
           "type": "short_text"
         },
         {
@@ -1016,9 +1020,9 @@
         "notes": ""
       },
       "examples": [
-        "Private (e.g., no social media posts yet).",
-        "Stories (e.g., temporal posts are okay).",
-        "Soft launch (e.g., photo of hand/drink, no face)."
+        "You plan/initiate more: you suggest most dates and lead next-step conversations.",
+        "It is 50/50: we alternate planning and follow-up.",
+        "It depends on the moment: whoever has more bandwidth leads that week."
       ],
       "validation": {
         "required_if": [
@@ -1052,9 +1056,9 @@
         "notes": ""
       },
       "examples": [
-        "Wait (e.g., 6 months or serious commitment).",
-        "Casual (e.g., brief hello if we bump into them).",
-        "Intentional (e.g., planned dinner)."
+        "Consistency without demands: You make plans, follow through, and don’t guilt me if I need a slower pace.",
+        "Clear invitation, easy no: “I’d love to see you Friday. If you’re tired, no worries, we can pick another day.”",
+        "Affection without escalation: You show warmth (words, small gestures) without making it mean I owe you more."
       ],
       "tags": {
         "included_in_manifests": [
@@ -1075,9 +1079,9 @@
         "notes": ""
       },
       "examples": [
-        "Partnership (e.g., building a life team).",
-        "Adventure (e.g., exploring the world together).",
-        "Sanctuary (e.g., a safe place to rest)."
+        "I'm afraid of getting attached and then being left.",
+        "I'm afraid of moving too fast and losing my pace or clarity.",
+        "I'm afraid I'm not enough or I'll be compared to someone else."
       ],
       "tags": {
         "included_in_manifests": [
@@ -1098,9 +1102,9 @@
         "notes": ""
       },
       "examples": [
-        "Integrity (e.g., doing what we say).",
-        "Growth (e.g., always learning).",
-        "Fun (e.g., prioritizing play)."
+        "With honesty and gentleness, even when it's awkward.",
+        "With consistency and respect for each other's pace.",
+        "With warmth, playfulness, and real intention."
       ],
       "tags": {
         "included_in_manifests": [
@@ -1197,9 +1201,9 @@
         "notes": ""
       },
       "examples": [
-        "Shared faith (e.g., praying together).",
-        "Shared values (e.g., kindness and service).",
-        "Respect (e.g., honoring different beliefs)."
+        "Ranked: Faith > Integrity > Emotional safety > Family > Growth. Notes: I want spiritual alignment and steady trust before intensity.",
+        "Ranked: Emotional safety > Respect > Play/fun > Stability > Growth. Notes: I do best when home feels calm and kind, then we build.",
+        "Ranked: Family > Service > Faith > Integrity > Stability. Notes: I’m prioritizing a life-team mindset and reliability right now."
       ],
       "tags": {
         "included_in_manifests": [
@@ -1246,9 +1250,9 @@
         "notes": ""
       },
       "examples": [
-        "Agree (e.g., aligned on major issues).",
-        "Respectful debate (e.g., enjoy discussing differences).",
-        "Private (e.g., keep politics out of relationship)."
+        "Mutual support: encourage each other without policing or shaming.",
+        "Shared practice: attend church consistently and pray together sometimes.",
+        "Temple alignment: dating with temple marriage as the target."
       ],
       "tags": {
         "included_in_manifests": [
@@ -1289,9 +1293,9 @@
         "notes": ""
       },
       "examples": [
-        "Rotate (e.g., I get this one, you get next).",
-        "Split (e.g., Venmo or separate checks).",
-        "Income-based (e.g., whoever earns more pays more)."
+        "Very clear boundaries: we talk explicitly about what is and is not okay right now.",
+        "Slow by default: assume slower progression, and check in before changing anything.",
+        "Simple \"not yet\": I can set a boundary and you accept it without debate."
       ],
       "tags": {
         "included_in_manifests": [
@@ -1338,9 +1342,9 @@
         "notes": ""
       },
       "examples": [
-        "Egalitarian (e.g., equal partners in all things).",
-        "Traditional (e.g., distinct gender roles).",
-        "Fluid (e.g., based on strengths/capacity)."
+        "Exclusive and intentional: we are not dating others, and we act like it.",
+        "Focused but not labeled yet: we choose each other and see where it goes.",
+        "Still exploring: we are getting to know each other without promises yet."
       ],
       "tags": {
         "included_in_manifests": [
@@ -1386,9 +1390,9 @@
         "notes": ""
       },
       "examples": [
-        "Yes (e.g., active desire for family).",
-        "No (e.g., happy as a couple).",
-        "Open (e.g., willing to discuss)."
+        "High-level only: values and direction, no timelines yet.",
+        "Some future talk: basics like marriage and kids, but keep it light.",
+        "Early and direct: I like talking about timelines and goals sooner."
       ],
       "tags": {
         "included_in_manifests": [
@@ -1430,9 +1434,9 @@
         "notes": ""
       },
       "examples": [
-        "Dishonesty (e.g., any lying breaks trust).",
-        "Addiction (e.g., untreated substance issues).",
-        "Contempt (e.g., mocking or disrespect)."
+        "Shared leadership: we both initiate, plan, and carry the relationship.",
+        "Complementary roles: one leads logistics, the other leads emotional check-ins.",
+        "Context-dependent: whoever has more capacity leads in that area."
       ],
       "tags": {
         "included_in_manifests": [
@@ -1483,9 +1487,9 @@
         "notes": ""
       },
       "examples": [
-        "Sincere apology (e.g., 'I was wrong, I'm sorry').",
-        "Changed behavior (e.g., showing you learned).",
-        "Listening (e.g., hearing my hurt without defending)."
+        "Withdraw: I go quiet and need a little time before I can talk clearly.",
+        "Analyze + overexplain: I start problem-solving fast and want to talk through every detail to feel stable.",
+        "Seek closeness: I want reassurance first, then I can do the hard conversation."
       ],
       "tags": {
         "included_in_manifests": [
@@ -1539,9 +1543,9 @@
         "notes": ""
       },
       "examples": [
-        "Withdraw (e.g., I go silent).",
-        "Pursue (e.g., I try to fix it immediately).",
-        "Analyze (e.g., I want to talk through every detail)."
+        "Short break + validation first: Give me 15 minutes, then start with “I get why that hurt” before solutions.",
+        "Physical grounding: A slow walk and breathing helps me regulate more than sitting face-to-face.",
+        "Sleep then talk: If it's late, I calm down best by pausing and revisiting after rest."
       ],
       "tags": {
         "included_in_manifests": [
@@ -1617,9 +1621,9 @@
         "notes": ""
       },
       "examples": [
-        "Pause (e.g., 'Can we take 10 mins?').",
-        "Hold hands (e.g., physical touch grounds us).",
-        "Soft tone (e.g., consciously lowering voice)."
+        "Acknowledgment of impact: \"I see how that landed and I'm sorry.\"",
+        "Ownership and responsibility: \"That was on me. I won't do that again.\"",
+        "Specific change plan: \"Next time, I'll pause and ask before assuming.\""
       ],
       "tags": {
         "included_in_manifests": [
@@ -1688,9 +1692,9 @@
         "notes": ""
       },
       "examples": [
-        "Curiosity (e.g., 'Help me understand').",
-        "Ownership (e.g., 'I contributed to this by...').",
-        "Affirmation (e.g., 'We are on the same team')."
+        "Name-calling or insults: stop and reset, then repair before continuing.",
+        "Raised voice or threats: take a break until calm, then return to the topic.",
+        "Stonewalling: agree on a time to reconnect so it doesn't become avoidance."
       ],
       "tags": {
         "included_in_manifests": [
@@ -1763,9 +1767,9 @@
         "notes": ""
       },
       "examples": [
-        "No name calling.",
-        "No leaving without saying when you'll return.",
-        "No bringing up resolved past issues."
+        "1) Time-box it 2) Choose the right moment 3) End with reassurance/connection.",
+        "1) Heads-up first 2) Ask consent to talk 3) Take breaks if flooded.",
+        "1) No surprises in public 2) No late-night spirals 3) Reconnect before bed."
       ],
       "tags": {
         "included_in_manifests": [
@@ -1778,7 +1782,7 @@
       "section_id": "s8",
       "order": 30,
       "title": "Preferred repair ritual",
-      "prompt": "After a tough moment, the best ‘repair ritual' for us would be (choose any):",
+      "prompt": "After a tough moment, the best 'repair ritual' for us would be (choose any):",
       "type": "multi_select",
       "options": [
         {
@@ -1799,7 +1803,7 @@
         },
         {
           "value": "date_reset",
-          "label": "A simple ‘date reset' (walk/dessert)"
+          "label": "A simple 'date reset' (walk/dessert)"
         },
         {
           "value": "humor",
@@ -1816,9 +1820,9 @@
         "notes": ""
       },
       "examples": [
-        "Within 24 hours.",
-        "Before sleep (don't go to bed angry).",
-        "When emotions settle (even if it takes a day)."
+        "Reconnect with gentle touch + one clear next step: Hold hands/hug, then agree on one change for next time.",
+        "Short summary + date reset: “Here's what I learned,” then a simple walk or dessert to reconnect.",
+        "Prayer/spiritual reset (if desired): A short prayer to re-center, then return with a softer tone."
       ],
       "tags": {
         "included_in_manifests": [
@@ -1912,9 +1916,9 @@
         ]
       },
       "examples": [
-        "Early bird (e.g., up at 6am).",
-        "Night owl (e.g., up until 1am).",
-        "Flexible (e.g., adapt to schedule)."
+        "2 times per week: one planned date and one casual hangout.",
+        "3 to 4 times per week: short check-ins plus one longer date.",
+        "It varies: more when life is calm, less when school/work is heavy."
       ],
       "tags": {
         "included_in_manifests": [
@@ -2022,9 +2026,9 @@
         "notes": ""
       },
       "examples": [
-        "Tidy (e.g., clean as I go).",
-        "Cluttered (e.g., disorganized but clean).",
-        "Messy (e.g., struggle to keep up)."
+        "Text for logistics, call for feelings: quick texts, then a phone talk for depth.",
+        "Mostly in-person: keep important topics for face to face.",
+        "Mixed: voice notes during the day, then a nightly check-in."
       ],
       "validation": {
         "required_if": [
@@ -2137,9 +2141,9 @@
         ]
       },
       "examples": [
-        "Homebody (e.g., prefer nights in).",
-        "Social (e.g., out with friends often).",
-        "Balanced (e.g., 1-2 nights out/week)."
+        "Text for logistics, call for feelings: quick texts, then a phone talk for depth.",
+        "Mostly in-person: keep important topics for face to face.",
+        "Mixed: voice notes during the day, then a nightly check-in."
       ],
       "tags": {
         "included_in_manifests": [
@@ -2182,9 +2186,9 @@
         "notes": ""
       },
       "examples": [
-        "Pets are family (e.g., sleep in bed).",
-        "Pets are pets (e.g., kept off furniture).",
-        "No pets."
+        "Slow and gradual: meet close friends/family after trust is built.",
+        "As it naturally happens: integrate as opportunities arise.",
+        "After exclusivity: deeper integration once we have chosen each other."
       ],
       "tags": {
         "included_in_manifests": [
@@ -2249,9 +2253,9 @@
         "notes": ""
       },
       "examples": [
-        "Secure (e.g., rarely jealous).",
-        "Anxious (e.g., need reassurance).",
-        "Protective (e.g., territorial)."
+        "Triggers: ambiguous plans. Helps: clear plans and a quick reassurance. Avoid: \"you're being crazy.\"",
+        "Triggers: social media or mentions of past partners. Helps: transparency and empathy. Avoid: minimizing.",
+        "Triggers: sudden distance. Helps: a check-in and a reconnection plan. Avoid: disappearing."
       ],
       "tags": {
         "included_in_manifests": [
@@ -2320,9 +2324,9 @@
         "notes": ""
       },
       "examples": [
-        "Consistency (e.g., steady communication).",
-        "Transparency (e.g., open phone/schedule).",
-        "Proximity (e.g., spending time together)."
+        "1) Clear words 2) Concrete plans 3) Transparency 4) Gentle touch.",
+        "1) Space then reconnection 2) Clear words 3) Plans/time together.",
+        "1) Transparency 2) Plans 3) Clear words 4) Gentle touch."
       ],
       "tags": {
         "included_in_manifests": [
@@ -2365,9 +2369,9 @@
         "notes": ""
       },
       "examples": [
-        "Open (e.g., know each other's passcodes).",
-        "Private (e.g., phone is personal space).",
-        "Balanced (e.g., use around each other freely)."
+        "Not yet: we keep it open while we get clarity.",
+        "Focus without label: we choose each other even if we do not name it yet.",
+        "Exclusive now: we agree clearly and act accordingly."
       ],
       "tags": {
         "included_in_manifests": [
@@ -2414,9 +2418,9 @@
         "notes": ""
       },
       "examples": [
-        "Closed chapter (e.g., don't discuss much).",
-        "Open book (e.g., comfortable sharing history).",
-        "Friends (e.g., exes are still in life)."
+        "No dating apps and avoid flirty texting with others.",
+        "No 1-on-1 dates with romantic intent, and we keep friendships respectful.",
+        "Transparency if someone pursues us, and we handle it as a team."
       ],
       "tags": {
         "included_in_manifests": [
