@@ -189,9 +189,10 @@
         "notes": ""
       },
       "examples": [
-        "Spontaneous and organic: we flow and decide in the moment.",
-        "Slow and intentional: we take time to build trust.",
-        "Structured but flexible: we make a plan and adjust as needed."
+        "Slow and intentional: we take time to build trust before escalating.",
+        "Warm but not intense: steady interest without pressure or love-bombing.",
+        "Structured but flexible: we make plans ahead of time and adjust as needed.",
+        "Playful and light: low-stakes fun while we learn each other."
       ],
       "tags": {
         "included_in_manifests": [
@@ -1872,7 +1873,7 @@
           "key": "varies_text",
           "label": "Describe your schedule",
           "type": "short_text",
-          "placeholder": "e.g., depends on my work schedule, we plan ahead",
+          "placeholder": "Depends on my work schedule, we plan ahead",
           "showWhen": {
             "field": "selected_value",
             "equals": "varies"
@@ -1994,9 +1995,9 @@
         },
         {
           "key": "mix_details",
-          "label": "What does your mix look like? (1–2 sentences)",
+          "label": "What does your mix look like? (1-2 sentences)",
           "type": "short_text",
-          "placeholder": "e.g., quick texts most days, short call the day before we meet",
+          "placeholder": "Quick texts most days, short call the day before we meet",
           "showWhen": {
             "field": "selected_value",
             "equals": "mix"
@@ -2097,7 +2098,7 @@
           "key": "depends_text",
           "label": "Explain the context",
           "type": "short_text",
-          "placeholder": "e.g., private at work, open with close friends",
+          "placeholder": "Private at work, open with close friends",
           "showWhen": {
             "field": "selected_value",
             "equals": "depends"
@@ -2141,9 +2142,10 @@
         ]
       },
       "examples": [
-        "Text for logistics, call for feelings: quick texts, then a phone talk for depth.",
-        "Mostly in-person: keep important topics for face to face.",
-        "Mixed: voice notes during the day, then a nightly check-in."
+        "Keep it private for now: no posts yet, and only tell a trusted person if needed.",
+        "Friends-only, low-key: tell close friends, no social media.",
+        "Open and normal (no secrecy): fine if it comes up naturally, no hiding.",
+        "Depends on context: private at work, open with close friends."
       ],
       "tags": {
         "included_in_manifests": [
@@ -2453,7 +2455,7 @@
         },
         {
           "key": "label",
-          "label": "Label (optional, e.g., 'Me', 'Partner', 'A', 'B')",
+          "label": "Label (optional: 'Me', 'Partner', 'A', 'B')",
           "type": "short_text",
           "required": false
         },

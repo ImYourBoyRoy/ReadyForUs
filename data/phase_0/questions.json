@@ -302,10 +302,10 @@
         "other_text": ""
       },
       "examples": [
-        "Most ready (e.g., I feel emotionally available).",
-        "Least ready (e.g., My schedule is very full).",
-        "Confidence: High (I trust myself).",
-        "Urgency: Low (I'm not in a rush)."
+        "Reasons ranked: 1) I want companionship and partnership, 2) I want to build a values-based relationship intentionally, 3) I feel emotionally ready and want to grow through real connection.",
+        "How urgent does dating feel right now? (0-10): 4.",
+        "How confident are you that this is a healthy time to date? (0-10): 7.",
+        "Notes: I want to date intentionally and slowly, without rushing big decisions."
       ],
       "tags": {
         "included_in_manifests": [
@@ -720,8 +720,8 @@
         "notes": ""
       },
       "examples": [
-        "Top Reasons: 1) Still healing, 2) Career focus, 3) Financial stress.",
-        "Top Reasons: 1) Fear of vulnerability, 2) Enjoying single life, 3) Health issues."
+        "Top reasons ranked: 1) Financial stress or instability, 2) Emotional instability (mood swings, anxiety, depression), 3) Trouble setting or respecting boundaries.",
+        "Top reasons ranked: 1) Unhealed trauma affecting relationships, 2) Trust issues (giving or receiving), 3) Poor communication skills."
       ],
       "tags": {
         "included_in_manifests": [
@@ -783,8 +783,8 @@
         "notes": ""
       },
       "examples": [
-        "Last relationship: 2 years ago. Duration: 1 year. Ended: Mutual decision.",
-        "Last relationship: 6 months ago. Duration: 3 months. Ended: I ended it."
+        "Months since last major relationship ended: 24. Length of last major relationship (months): 12. Length of longest relationship (months): 18. Your estimate of your average relationship length (months): 10. How many major relationships have you had?: 3.",
+        "Months since last major relationship ended: 6. Length of last major relationship (months): 3. Length of longest relationship (months): 24. Your estimate of your average relationship length (months): 8. How many major relationships have you had?: 4."
       ],
       "tags": {
         "included_in_manifests": [
@@ -1025,10 +1025,10 @@
         "notes": ""
       },
       "examples": [
-        "Clean (e.g., boundaries are clear and respected).",
-        "Mostly clean (e.g., occasional blurriness but mostly okay).",
-        "Messy (e.g., lines are often crossed).",
-        "Complex (e.g., emotional ties linger)."
+        "Very clean (clear purpose, no emotional leakage): boundaries are clear and respected.",
+        "Mostly clean (minor leakage sometimes): occasional blurred moments, but mostly okay.",
+        "Messy (blurred lines): lines are often crossed or emotionally confusing.",
+        "Harmful/unsafe: contact or dynamics feel unsafe or destabilizing."
       ],
       "tags": {
         "included_in_manifests": [
@@ -2050,8 +2050,8 @@
         "notes": ""
       },
       "examples": [
-        "Top Patterns: 1) Over-giving, 2) Ignoring flags, 3) Moving fast.",
-        "Top Patterns: 1) Avoidance, 2) Shutting down, 3) Leaving early."
+        "Top patterns ranked: 1) Over-giving / people-pleasing to earn love, 2) Ignoring red flags or gut feelings, 3) Moving too fast emotionally or physically.",
+        "Top patterns ranked: 1) Avoiding conflict or hard conversations, 2) Shutting down when hurt instead of talking, 3) Leaving at first difficulty."
       ],
       "tags": {
         "included_in_manifests": [
@@ -4213,10 +4213,10 @@
         "notes": ""
       },
       "examples": [
-        "Strict abstinence (e.g., waiting for marriage).",
-        "Abstinence w/ gray (e.g., some affection ok).",
-        "Discerning (e.g., still deciding).",
-        "Open (e.g., physical connection is key)."
+        "Strict abstinence: waiting for marriage.",
+        "Abstinence with some gray zones I need to define: some affection is okay, but I want clear limits.",
+        "Still discerning / not sure: I am still deciding what I believe and what I will hold.",
+        "Other (write in): I will explain my boundaries clearly."
       ],
       "tags": {
         "included_in_manifests": [
