@@ -266,6 +266,15 @@
           ]
         },
         {
+          "key": "time_since_end_other",
+          "label": "If 'Other', describe",
+          "type": "short_text",
+          "showWhen": {
+            "field": "time_since_end",
+            "includes": "other"
+          }
+        },
+        {
           "key": "end_date",
           "label": "If you know it: what date did it end? (or the day you found out)",
           "type": "short_text",
@@ -315,6 +324,15 @@
           ]
         },
         {
+          "key": "relationship_length_other",
+          "label": "If 'Other', describe",
+          "type": "short_text",
+          "showWhen": {
+            "field": "relationship_length",
+            "includes": "other"
+          }
+        },
+        {
           "key": "notes",
           "label": "Notes (optional)",
           "type": "short_text",
@@ -323,8 +341,10 @@
       ],
       "answer_schema": {
         "time_since_end": "",
+        "time_since_end_other": "",
         "end_date": "",
         "relationship_length": "",
+        "relationship_length_other": "",
         "notes": ""
       },
       "examples": [
