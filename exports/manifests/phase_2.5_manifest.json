@@ -5,8 +5,8 @@
         "title": "Phase 2.5: Defined Relationship Check-In",
         "short_title": "Stability Check",
         "description": "A recyclable check-in for defined couples to stabilize expectations, repair patterns, and keep the relationship healthy after DTR.",
-        "icon": "💚",
-        "menu_icon": "≈",
+        "icon": "\ud83d\udc9a",
+        "menu_icon": "\u2248",
         "order": 3
     },
     "artifact": {

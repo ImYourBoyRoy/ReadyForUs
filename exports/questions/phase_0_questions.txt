@@ -1,0 +1,930 @@
+================================================================================
+PHASE: PHASE_0
+================================================================================
+
+
+### SECTION: Readiness Snapshot
+----------------------------------------
+
+Q1 (q01) [single_select]: Overall readiness right now
+PROMPT: As honestly as you can, where are you today?
+OPTIONS:
+    - [not_ready] Not ready (dating would likely make life harder for me or the other person right now)
+    - [mostly_not_ready] Mostly not ready (I need focused prep first)
+    - [cautiously_ready] Cautiously ready (I can date lightly while working on myself)
+    - [ready] Ready (stable, accountable, and able to date with integrity)
+    - [unsure] Unsure
+    - [other] Other (write in)
+
+Q2 (q02) [compound]: Why now?
+PROMPT: What is pulling you toward dating right now? Select all that apply, then drag to rank by priority (top = your main driver today).
+FIELDS:
+    - reasons_ranked (ranked_select): Select and rank your reasons
+      - [I_desire_marriage_family_and_feel_timing_matters] I desire marriage/family and feel timing matters
+      - [I_want_companionship_and_partnership] I want companionship and partnership
+      - [I_want_to_build_a_values_based_relationship_intentionally] I want to build a values-based relationship intentionally
+      - [I_feel_emotionally_ready_and_want_to-grow-through-real-connection] I feel emotionally ready and want to grow through real connection
+      - [I_want_to_practice_healthy_connection_after_a_hard_chapter] I want to practice healthy connection after a hard chapter
+      - [I_feel_lonely_and_want_relief] I feel lonely and want relief
+      - [I_miss_physical_affection_and_closeness] I miss physical affection and closeness
+      - [A_life_change_made_dating_feel_relevant_again_move_new_job_kids_etc] A life change made dating feel relevant again (move, new job, kids, etc.)
+      - [Social_family_church_community_pressure] Social/family/church/community pressure
+      - [Boredom_novelty_curiosity] Boredom/novelty/curiosity
+      - [Validation_or_proving_something_to_self_or_someone_else] Validation or proving something (to self or someone else)
+      - [I_want_distraction_from_pain_stress_grief] I want distraction from pain/stress/grief
+      - [other] Other (write in)
+    - urgency_level_for_dating_now (number): How urgent does dating feel right now? (0-10)
+    - confidence_level_that_this_is_a_healthy_time_to_date (number): How confident are you that this is a healthy time to date? (0-10)
+    - notes_about_urgency_and_confidence (free_text): Anything else to add (1-3 sentences)
+    - other_text (short_text): If 'Other', describe
+
+Q3 (q03) [single_select]: Current emotional baseline
+PROMPT: Most days in the last 2 weeks, your baseline mood has been:
+OPTIONS:
+    - [stable_positive] Stable/positive
+    - [stable_neutral] Stable/neutral
+    - [variable] Up and down (noticeable swings)
+    - [low] Low/flat most days
+    - [anxious] Anxious/on edge most days
+    - [irritable] Irritable/angry most days
+    - [numb] Numb/disconnected most days
+    - [other] Other (write in)
+
+Q4 (q04) [single_select]: Stress load
+PROMPT: Right now, how overloaded is your life?
+OPTIONS:
+    - [light] Light (plenty of bandwidth)
+    - [moderate] Moderate (manageable)
+    - [heavy] Heavy (often stretched thin)
+    - [overwhelmed] Overwhelmed (barely keeping up)
+    - [other] Other (write in)
+
+Q5 (q05) [single_select]: Capacity for mutual responsibility
+PROMPT: When dating, can you reliably show up (time, attention, emotional presence) without neglecting key responsibilities?
+OPTIONS:
+    - [yes_consistently] Yes, consistently
+    - [mostly] Mostly, with occasional strain
+    - [inconsistent] Inconsistent right now
+    - [no] No, not right now
+    - [unsure] Unsure
+    - [other] Other (write in)
+
+Q6 (q06) [single_select]: Active crisis / safety check
+PROMPT: In the last 6 months, have you had thoughts of self-harm or suicide?
+OPTIONS:
+    - [no] No
+    - [passive] Passive thoughts (no plan/intent)
+    - [active] Active thoughts or a plan
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q7 (q07) [single_select]: Substance stability
+PROMPT: In the last 3 months, your relationship with alcohol/drugs has been:
+OPTIONS:
+    - [none] None
+    - [occasional_responsible] Occasional and responsible
+    - [sometimes_problematic] Sometimes problematic
+    - [currently_concern] Currently a concern (I should address it before dating)
+    - [in_recovery_stable] In recovery and stable
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q8 (q08) [single_select]: Integrity with sexuality
+PROMPT: Right now, are you living in a way that you feel is aligned with your values around sexual integrity?
+OPTIONS:
+    - [yes] Yes
+    - [mostly] Mostly, with some struggle
+    - [no] No
+    - [working_on_it] Actively working on it with support
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q9 (q09) [compound]: Top 3 reasons you might not be ready
+PROMPT: Select and rank the top 3 things that could make dating confusing, heavy, or unkind to you or to another person right now. Drag to reorder by importance (top = most significant).
+FIELDS:
+    - reasons_ranked (ranked_select): Select and rank your top 3 (top = most significant)
+      - [ex_thoughts] Still thinking about my ex frequently
+      - [schedule_chaos] Schedule is chaotic/unpredictable
+      - [defensive] I get defensive when corrected
+      - [emotional_instability] Emotional instability (mood swings, anxiety, depression)
+      - [unhealed_trauma] Unhealed trauma affecting relationships
+      - [financial_stress] Financial stress or instability
+      - [addiction_struggle] Active addiction or compulsive behavior
+      - [trust_issues] Trust issues (giving or receiving)
+      - [communication_skills] Poor communication skills
+      - [boundary_issues] Trouble setting or respecting boundaries
+      - [loneliness_driven] Dating from loneliness rather than readiness
+      - [anger_issues] Anger or conflict escalation patterns
+      - [codependency] Codependent tendencies
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): Any context you want to add
+
+
+### SECTION: Relationship History and Closure
+----------------------------------------
+
+Q10 (q10) [compound]: Relationship timeline
+PROMPT: Provide a quick timeline snapshot (estimates are fine).
+FIELDS:
+    - time_since_last_major_end_months (number): Months since last major relationship ended
+    - last_major_length_months (number): Length of last major relationship (months)
+    - longest_relationship_months (number): Length of longest relationship (months)
+    - avg_relationship_months (number): Your estimate of your average relationship length (months)
+    - major_relationship_count (number): How many major relationships have you had?
+
+Q11 (q11) [single_select]: Marital history
+PROMPT: Your current status is:
+OPTIONS:
+    - [never_married] Never married
+    - [divorced] Divorced
+    - [widowed] Widowed
+    - [separated] Separated (not finalized)
+    - [annulled] Annulled
+    - [other] Other (write in)
+
+Q12 (q12) [single_select]: Emotional closure with your ex
+PROMPT: When you think about your most recent ex/partner, what is the dominant emotional charge?
+OPTIONS:
+    - [neutral] Mostly neutral
+    - [warm] Warm/thankful
+    - [sad] Sad/grief
+    - [angry] Angry/resentful
+    - [longing] Longing/attachment
+    - [fear] Fear/unsafe
+    - [shame] Shame/self-blame
+    - [mixed] Mixed
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q13 (q13) [single_select]: Contact with ex
+PROMPT: Is your ex still in your life? (Any contact counts.)
+OPTIONS:
+    - [no_contact] No contact
+    - [rare_logistical] Rare, purely logistical
+    - [coparenting] Co-parenting contact
+    - [friendly] Friendly contact (occasional)
+    - [frequent] Frequent contact
+    - [emotionally_intimate] Emotionally intimate / confiding in each other
+    - [other] Other (write in)
+
+Q14 (q14) [compound]: Ex-boundaries and readiness impact
+PROMPT: If there is any ongoing ex-contact, how clean are your boundaries?
+FIELDS:
+    - boundary_quality (single_select): Boundary quality
+      - [very_clean] Very clean (clear purpose, no emotional leakage)
+      - [mostly_clean] Mostly clean (minor leakage sometimes)
+      - [messy] Messy (blurred lines)
+      - [harmful] Harmful/unsafe
+      - [no_ex_contact] Not applicable (no contact)
+      - [prefer_not] Prefer not to say
+      - [other] Other
+    - explanation (free_text): If not 'very clean', what would need to change before you date seriously?
+
+Q15 (q15) [single_select]: Unfinished business
+PROMPT: Do you feel you have any 'unfinished business' with your last relationship (closure talks, apologies, finances, legal, spiritual)?
+OPTIONS:
+    - [no] No
+    - [minor] Minor
+    - [moderate] Moderate
+    - [major] Major (this should be resolved first)
+    - [unsure] Unsure
+    - [other] Other (write in)
+
+Q16 (q16) [single_select]: Relational safety check
+PROMPT: Right now, do you feel physically and emotionally safe from harassment, threats, or control by a current partner, ex, or anyone you are dating?
+OPTIONS:
+    - [yes] Yes
+    - [mostly] Mostly (some concerns, but I do not feel afraid)
+    - [unsure] Unsure
+    - [no] No (I feel unsafe, pressured, stalked, threatened, or afraid)
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q17 (q17) [single_select]: How relationships typically end for you
+PROMPT: Historically, your relationships most often end because:
+OPTIONS:
+    - [mutual_drift] Mutual drift / mismatch over time
+    - [conflict_unrepaired] Conflict that never gets repaired
+    - [avoidance_distance] Avoidance / emotional distance
+    - [betrayal_trust] Betrayal / trust rupture
+    - [life_logistics] Life logistics (timing, distance, money, work)
+    - [values_faith] Values/faith mismatch
+    - [mental_health] Mental health / addiction / instability issues
+    - [commitment_fear] Commitment fear / pacing mismatch
+    - [other] Other (write in)
+
+Q18 (q18) [free_text]: What did you learn from your last relationship?
+PROMPT: Name 2-5 lessons you want to carry forward (skills, boundaries, patterns to avoid).
+
+Q19 (q19) [free_text]: What would your ex say was hard about being with you?
+PROMPT: Be honest. If you don't know, guess what they would say.
+
+
+### SECTION: Emotional and Mental Stability
+----------------------------------------
+
+Q20 (q20) [single_select]: Therapy/coaching readiness
+PROMPT: Are you currently in therapy/coaching, or open to it if needed?
+OPTIONS:
+    - [in_therapy] Yes, currently in therapy/coaching
+    - [open] Open to it if needed
+    - [maybe] Maybe
+    - [not_open] Not open
+    - [other] Other (write in)
+
+Q21 (q21) [single_select]: Medication stability (if applicable)
+PROMPT: If you take mental health medication, your situation is:
+OPTIONS:
+    - [not_applicable] Not applicable
+    - [stable] Stable and working well
+    - [adjusting] Currently adjusting/changing
+    - [unstable] Unstable / not working well
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q22 (q22) [single_select]: Emotional regulation under stress
+PROMPT: When stressed, you typically:
+OPTIONS:
+    - [self_regulate] Self-regulate and communicate clearly
+    - [need_space_then_return] Need space, then return to resolve
+    - [ruminate] Ruminate / overthink
+    - [shut_down] Shut down / go numb
+    - [pursue] Pursue/press for reassurance
+    - [snap] Snap / get sharp
+    - [avoid] Avoid the issue
+    - [other] Other (write in)
+
+Q23 (q23) [multi_select]: Common dysregulation behaviors
+PROMPT: When you are dysregulated, which show up for you? (Select all that apply.)
+OPTIONS:
+    - [stonewalling] Stonewalling / silent treatment
+    - [defensiveness] Defensiveness
+    - [criticism] Criticism / contempt
+    - [people_pleasing] People-pleasing / losing myself
+    - [jealousy] Jealousy / checking
+    - [impulsivity] Impulsivity (texts, spending, sex, substances)
+    - [rage] Rage / yelling
+    - [withdrawing] Withdrawing / disappearing
+    - [panic] Panic / reassurance loops
+    - [none] None of these are common for me
+    - [other] Other (write in)
+
+Q24 (q24) [single_select]: Sleep consistency
+PROMPT: Your sleep is currently:
+OPTIONS:
+    - [consistent] Consistent and restorative
+    - [somewhat] Somewhat inconsistent
+    - [poor] Poor (often tired, insomnia, irregular)
+    - [other] Other (write in)
+
+Q25 (q25) [single_select]: Anger and aggression risk
+PROMPT: In the last year, have you yelled, threatened, intimidated, or thrown/broken things in conflict with a partner?
+OPTIONS:
+    - [no] No
+    - [yes_once] Yes, once
+    - [yes_multiple] Yes, multiple times
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q26 (q26) [single_select]: Pornography/compulsive sexual behavior impact
+PROMPT: Does pornography or compulsive sexual behavior currently affect your ability to date with integrity?
+OPTIONS:
+    - [no] No
+    - [mild] Mild impact (occasional struggle)
+    - [moderate] Moderate impact (recurring problem)
+    - [severe] Severe impact (secretive, compulsive, or escalating)
+    - [in_recovery] In recovery with supports
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q27 (q27) [free_text]: Support system
+PROMPT: Name the 1-3 people (or supports) you would lean on if dating triggered anxiety, old wounds, or temptation.
+
+Q28 (q28) [single_select]: Emotional availability
+PROMPT: If someone you like gets closer emotionally, your most common response is:
+OPTIONS:
+    - [lean_in] Lean in and connect
+    - [slow_down] Slow down but stay engaged
+    - [pull_back] Pull back / create distance
+    - [test] Test them / look for proof
+    - [overgive] Overgive / try to earn closeness
+    - [other] Other (write in)
+
+
+### SECTION: Attachment, Communication, and Conflict
+----------------------------------------
+
+Q29 (q29) [single_select]: Attachment style (self-estimate)
+PROMPT: Which description fits you best in relationships?
+OPTIONS:
+    - [secure] Mostly secure (comfortable with closeness and independence)
+    - [anxious] More anxious (worry, reassurance-seeking, fear of abandonment)
+    - [avoidant] More avoidant (value space, feel engulfed, shut down under pressure)
+    - [fearful_avoidant] Mixed/fearful (want closeness but also fear it)
+    - [unsure] Unsure
+    - [other] Other (write in)
+
+Q30 (q30) [single_select]: Repair skill
+PROMPT: After conflict, you can usually repair (apologize, own impact, reconnect) within:
+OPTIONS:
+    - [same_day] Same day
+    - [1_2_days] 1-2 days
+    - [week] Within a week
+    - [rarely] Rarely (we stay stuck)
+    - [depends] Depends heavily on the other person
+    - [other] Other (write in)
+
+Q31 (q31) [multi_select]: Conflict style
+PROMPT: In conflict, you tend to do: (Select all that apply.)
+OPTIONS:
+    - [soft_startup] Soft startup (calm, specific)
+    - [harsh_startup] Harsh startup
+    - [listen_reflect] Listen and reflect back
+    - [argue_to_win] Argue to win / prove
+    - [withdraw] Withdraw / shut down
+    - [pursue] Pursue / press
+    - [repair_attempts] Make repair attempts (humor, apology, touch)
+    - [avoid_topics] Avoid key topics
+    - [none] None of these fit well
+    - [other] Other (write in)
+
+Q32 (q32) [single_select]: Honesty under pressure
+PROMPT: When you fear losing someone, you are most likely to:
+OPTIONS:
+    - [stay_honest] Stay honest even if it risks the relationship
+    - [manage_image] Manage my image / hide parts of myself
+    - [overpromise] Overpromise to keep them
+    - [detach] Detach and act like I don't care
+    - [other] Other (write in)
+
+Q33 (q33) [single_select]: Boundaries skill
+PROMPT: Your ability to set and hold boundaries is:
+OPTIONS:
+    - [strong] Strong (clear + kind + consistent)
+    - [ok] Okay (I can do it but it’s uncomfortable)
+    - [weak] Weak (I cave or get rigid/harsh)
+    - [unsure] Unsure
+    - [other] Other (write in)
+
+Q34 (q34) [compound]: Patterns you repeat
+PROMPT: Select and rank the patterns you most want to stop repeating in relationships. Drag to reorder by priority (top = most important to change).
+FIELDS:
+    - patterns_ranked (ranked_select): Select and rank patterns to work on (top = highest priority)
+      - [unavailable_partners] Choosing emotionally unavailable partners
+      - [over_giving] Over-giving / people-pleasing to earn love
+      - [moving_too_fast] Moving too fast emotionally or physically
+      - [ignoring_red_flags] Ignoring red flags or gut feelings
+      - [avoidance] Avoiding conflict or hard conversations
+      - [jealousy_control] Jealousy or controlling behavior
+      - [losing_self] Losing myself in the relationship
+      - [shutting_down] Shutting down when hurt instead of talking
+      - [rescuer_role] Playing the rescuer / fixer
+      - [sabotage] Self-sabotage when things get good
+      - [staying_too_long] Staying too long in bad situations
+      - [leaving_too_fast] Leaving at first difficulty
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): Context about your top pattern
+
+Q35 (q35) [single_select]: Trust calibration
+PROMPT: If someone is slow to text back early on, you usually interpret it as:
+OPTIONS:
+    - [neutral] Neutral (they’re busy)
+    - [mild_worry] Mild worry but I regulate
+    - [rejection] Rejection / loss of interest
+    - [anger] Disrespect
+    - [I_text_more] I text more to get clarity
+    - [other] Other (write in)
+
+
+### SECTION: Values and Spiritual Alignment
+----------------------------------------
+
+Q36 (q36) [compound]: Faith and spirituality profile
+PROMPT: If faith or spirituality matters to you (even a little), what does it look like right now? If it does not, that is okay too.
+FIELDS:
+    - spirituality_importance (single_select): In your life right now, faith/spirituality is
+      - [central] Central (a guiding anchor)
+      - [important] Important (influences my choices)
+      - [somewhat] Somewhat important
+      - [minimal] Minimal right now
+      - [none] Not part of my life right now
+      - [in_transition] In transition / figuring it out
+      - [prefer_not] Prefer not to say
+      - [other] Other (write in)
+    - tradition (single_select): My current spiritual tradition/background is closest to
+      - [lds] Latter-day Saint (LDS)
+      - [christian_other] Christian (non-LDS)
+      - [jewish] Jewish
+      - [muslim] Muslim
+      - [hindu] Hindu
+      - [buddhist] Buddhist
+      - [spiritual_not_religious] Spiritual but not religious
+      - [none] Not religious/spiritual
+      - [in_transition] In transition / exploring
+      - [prefer_not] Prefer not to say
+      - [other] Other (write in)
+    - community_participation (single_select): Participation in a faith/spiritual community is currently
+      - [active] Active / consistent
+      - [occasional] Occasional
+      - [rare] Rare
+      - [rebuilding] Rebuilding / returning
+      - [none] Not participating
+      - [prefer_not] Prefer not to say
+      - [other] Other (write in)
+    - lds_temple_recommend (single_select): If you are LDS: temple recommend status
+      - [current] Current
+      - [expired] Expired
+      - [not_endowed_or_na] Not endowed / not applicable
+      - [not_seeking] Not seeking currently
+      - [prefer_not] Prefer not to say
+      - [other] Other (write in)
+    - notes (free_text): Anything you want noted (optional)
+
+Q37 (q37) [compound]: Faith-based commitments and alignment (if any)
+PROMPT: If your faith/spirituality includes commitments or standards that affect dating (e.g., abstinence, worship, marriage intent, interfaith boundaries), how clear and steady are you with them?
+FIELDS:
+    - clarity (single_select): Clarity + follow-through right now
+      - [clear_aligned] Clear and aligned (I can live what I believe)
+      - [clear_struggling] Clear, but I sometimes struggle
+      - [unclear] Not clear yet (still sorting it out)
+      - [not_applicable] Not applicable to me
+      - [prefer_not] Prefer not to say
+      - [other] Other (write in)
+    - commitments (short_text): If you want, name 1-3 commitments you hope to keep (optional)
+    - support (short_text): Support that helps you live aligned (optional)
+
+Q38 (q38) [compound]: Commitment goal and direction
+PROMPT: What are you dating toward right now? (It is okay if your answer is 'not sure'.)
+FIELDS:
+    - goal (single_select): Primary dating goal right now
+      - [marriage_lifelong] Marriage / lifelong partnership
+      - [committed_partnership] Committed relationship (not sure about marriage yet)
+      - [exploring] Exploring/learning (low pressure, intentional)
+      - [companionship] Companionship/social connection
+      - [not_ready] I am not ready to date seriously
+      - [unsure] Not sure yet
+      - [prefer_not] Prefer not to say
+      - [other] Other (write in)
+    - covenant_commitment (single_select): If your faith includes covenant/sacred marriage (e.g., temple sealing), it is
+      - [central] Central (non-negotiable direction)
+      - [important] Important (but not rushing)
+      - [open] Open / exploring
+      - [not_goal] Not my goal
+      - [not_applicable] Not applicable to my beliefs
+      - [prefer_not] Prefer not to say
+      - [other] Other (write in)
+    - timeline (single_select): My preferred pace/timeline (roughly)
+      - [no_timeline] No fixed timeline
+      - [0_6m] 0-6 months
+      - [6_12m] 6-12 months
+      - [1_2y] 1-2 years
+      - [2y_plus] 2+ years
+      - [prefer_not] Prefer not to say
+      - [other] Other (write in)
+
+Q39 (q39) [single_select]: Lifestyle integrity
+PROMPT: Which best describes your alignment with your core values day-to-day?
+OPTIONS:
+    - [aligned] Aligned (my behavior matches my values)
+    - [mostly] Mostly aligned (minor gaps)
+    - [misaligned] Misaligned (major gaps I’m not addressing)
+    - [repairing] Repairing (actively closing gaps with support)
+    - [unsure] Unsure
+    - [other] Other (write in)
+
+Q40 (q40) [compound]: Non-negotiables (values)
+PROMPT: Select and rank up to 5 non-negotiables for a future relationship. Drag to reorder by priority (top = most important).
+FIELDS:
+    - values_ranked (ranked_select): Select and rank your non-negotiables (top = highest priority)
+      - [faith_alignment] Shared faith/spiritual direction
+      - [sexual_integrity] Sexual integrity / boundaries
+      - [kindness_respect] Kindness and respect
+      - [emotional_maturity] Emotional maturity
+      - [desire_family] Desire for family/parenting alignment
+      - [financial_responsibility] Financial responsibility
+      - [health_lifestyle] Health/lifestyle alignment
+      - [communication_skill] Communication and repair
+      - [service_orientation] Service/community orientation
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): Any context about your priorities
+
+Q41 (q41) [free_text]: Dealbreakers you might be tempted to ignore
+PROMPT: Name 1-3 dealbreakers you have ignored in the past (and why).
+
+
+### SECTION: Dating Intentions, Pacing, and Boundaries
+----------------------------------------
+
+Q42 (q42) [single_select]: Dating intention in the next 90 days
+PROMPT: In the next 90 days, you are aiming for:
+OPTIONS:
+    - [prep_only] Preparation only (no dating yet)
+    - [light_social] Light/social dating (low intensity)
+    - [intentional] Intentional dating (clear path to commitment)
+    - [serious_fast] Serious and fast (focused on marriage soon)
+    - [unsure] Unsure
+    - [other] Other (write in)
+
+Q43 (q43) [compound]: Multi-dating vs focusing
+PROMPT: How do you prefer to date early on?
+FIELDS:
+    - early_stage (single_select): In the first 1-3 dates, I prefer to
+      - [date_one] Date one person at a time
+      - [date_a_few] Date a few people casually (honest about it)
+      - [open_ended] Open-ended; depends
+      - [other] Other
+    - max_simultaneous (number): If dating multiple, what's your comfortable max at once?
+    - exclusivity_trigger (single_select): I usually want exclusivity after
+      - [1_2_dates] 1-2 dates
+      - [3_5_dates] 3-5 dates
+      - [6_10_dates] 6-10 dates
+      - [weeks_2_4] 2-4 weeks
+      - [months_1_3] 1-3 months
+      - [when_defined] When we explicitly define it
+      - [unsure] Unsure
+      - [other] Other
+    - notes (free_text): Notes (optional)
+
+Q44 (q44) [single_select]: First-date style
+PROMPT: Your preferred first-date vibe is:
+OPTIONS:
+    - [low_key] Low-key and simple
+    - [activity] Activity-based (walk, event, game)
+    - [dinner] Dinner/coffee talk
+    - [group] Group setting first
+    - [mixed] Mix
+    - [other] Other (write in)
+
+Q45 (q45) [single_select]: Communication pace early on
+PROMPT: In early dating, you prefer communication to be:
+OPTIONS:
+    - [light_warm] Light and warm (a few touchpoints)
+    - [daily] Daily
+    - [frequent] Frequent throughout the day
+    - [minimal] Minimal until we know it’s a fit
+    - [in_person_best] Mostly in-person; minimal phone
+    - [other] Other (write in)
+
+Q46 (q46) [single_select]: Physical boundaries (high-level)
+PROMPT: Before commitment, your physical boundaries are best described as:
+OPTIONS:
+    - [very_conservative] Very conservative (minimal physical affection)
+    - [moderate] Moderate (affection with clear limits)
+    - [affectionate] Affectionate (touch is important to me)
+    - [needs_clarity] Unclear / I need to define this
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q47 (q47) [compound]: Boundary risk management
+PROMPT: What helps you keep boundaries and integrity when attraction is high?
+FIELDS:
+    - risk_level (single_select): My risk of crossing my own boundaries is
+      - [low] Low
+      - [medium] Medium
+      - [high] High
+      - [unsure] Unsure
+      - [prefer_not] Prefer not to say
+      - [other] Other
+    - supports (multi_select): Supports I will use (select all that apply)
+      - [date_structure] Structured dates (public, timeboxed)
+      - [avoid_late_nights] Avoid late nights/private settings
+      - [accountability] Accountability partner/mentor
+      - [prayer_scripture] Prayer/scripture/worship attendance
+      - [therapy_group] Therapy/support group
+      - [clear_conversation] Clear boundary conversation early
+      - [none] None currently
+      - [other] Other
+    - one_change (short_text): One change I commit to (specific)
+
+Q48 (q48) [single_select]: What you are looking for (trait focus)
+PROMPT: Right now, you are most attracted to:
+OPTIONS:
+    - [kindness_character] Kindness/character
+    - [confidence_strength] Confidence/strength
+    - [chemistry] Chemistry/attraction
+    - [faith_devotion] Faith/devotion
+    - [stability_provider] Stability/provider energy
+    - [fun_adventure] Fun/adventure
+    - [other] Other (write in)
+
+
+### SECTION: Life Logistics and Capacity
+----------------------------------------
+
+Q49 (q49) [single_select]: Kids
+PROMPT: Do you have children?
+OPTIONS:
+    - [no] No
+    - [yes_primary] Yes (primary custody/majority time)
+    - [yes_shared] Yes (shared custody)
+    - [yes_limited] Yes (limited contact)
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q50 (q50) [compound]: Co-parenting quality (if applicable)
+PROMPT: If you co-parent (or have an ex tied to your parenting), what is the current state?
+FIELDS:
+    - coparent_state (single_select): Co-parenting relationship is
+      - [not_applicable] Not applicable
+      - [healthy] Healthy/functional
+      - [tense_manageable] Tense but manageable
+      - [high_conflict] High conflict
+      - [unsafe] Unsafe
+      - [prefer_not] Prefer not to say
+      - [other] Other
+    - impact (free_text): Impact on dating (optional)
+
+Q51 (q51) [single_select]: Time availability
+PROMPT: Realistically, you can date (quality time) about:
+OPTIONS:
+    - [0] 0 times/week (not right now)
+    - [1] 1 time/week
+    - [2] 2 times/week
+    - [3] 3 times/week
+    - [4plus] 4+ times/week
+    - [other] Other (write in)
+
+Q52 (q52) [single_select]: Financial stability (broad)
+PROMPT: Your financial situation is:
+OPTIONS:
+    - [stable] Stable (bills handled, low chaos)
+    - [some_stress] Some stress but manageable
+    - [unstable] Unstable (significant debt/chaos/uncertainty)
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q53 (q53) [single_select]: Work and schedule predictability
+PROMPT: Your schedule predictability is:
+OPTIONS:
+    - [predictable] Predictable
+    - [somewhat] Somewhat predictable
+    - [chaotic] Chaotic/always changing
+    - [other] Other (write in)
+
+Q54 (q54) [single_select]: Health constraints
+PROMPT: Do you have any major health constraints that would significantly affect dating/relationships right now?
+OPTIONS:
+    - [no] No
+    - [yes_managed] Yes, but managed
+    - [yes_unmanaged] Yes, and not well managed
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q55 (q55) [free_text]: Non-negotiable logistics
+PROMPT: List any hard constraints (distance, relocation, work shifts, kids schedules, legal constraints).
+
+
+### SECTION: Growth Plan and Feedback Preferences
+----------------------------------------
+
+Q56 (q56) [single_select]: Accountability
+PROMPT: If this questionnaire surfaces a weakness, you will most likely:
+OPTIONS:
+    - [act] Act on it (plan + support + follow-through)
+    - [think] Think about it but delay action
+    - [defend] Defend/explain it away
+    - [avoid] Avoid looking at it
+    - [other] Other (write in)
+
+Q57 (q57) [compound]: Feedback preferences
+PROMPT: How do you handle feedback best?
+FIELDS:
+    - best_style (single_select): Best feedback style
+      - [direct] Direct and blunt
+      - [gentle] Gentle and careful
+      - [examples] Specific examples and alternatives
+      - [questions] Socratic questions (help me discover it)
+      - [written] Written (so I can process)
+      - [other] Other
+    - triggers (free_text): What makes feedback hard for you? (optional)
+
+Q58 (q58) [compound]: Top growth areas
+PROMPT: Select and rank (up to 5) the areas you want to strengthen before/while dating. Drag to reorder by priority (top = highest priority).
+FIELDS:
+    - growth_areas_ranked (ranked_select): Select and rank your growth priorities (top = highest priority)
+      - [closure] Closure from past relationship
+      - [emotional_regulation] Emotional regulation
+      - [attachment] Attachment security
+      - [communication] Communication skills
+      - [conflict_repair] Conflict + repair
+      - [boundaries] Boundaries
+      - [integrity_sexuality] Sexual integrity
+      - [self_worth] Self-worth / confidence
+      - [social_skills] Social/dating skills
+      - [life_stability] Life stability (sleep, schedule, finances)
+      - [spiritual_practice] Spiritual practice
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): Why these are your top priorities
+
+Q59 (q59) [free_text]: Your 4-week preparation commitment
+PROMPT: Write a 4-week plan: 1-3 actions you will take, with dates. Make it specific.
+
+Q60 (q60) [free_text]: What should a therapist/AI know upfront?
+PROMPT: If you share this with a therapist or AI coach, what context do you want them to know to avoid misreading you?
+
+
+### SECTION: Relationship History and Closure
+----------------------------------------
+
+Q61 (q61) [single_select]: Primary dating pattern historically
+PROMPT: Historically, you have tended to:
+OPTIONS:
+    - [serial_monogamy] Serial monogamy (one relationship to next quickly)
+    - [long_gaps] Long gaps between relationships
+    - [situationships] Situationships (unclear commitment)
+    - [on_off] On/off relationships
+    - [avoid_dating] Avoid dating
+    - [many_short] Many short relationships
+    - [other] Other (write in)
+
+Q62 (q62) [single_select]: Speed of emotional bonding
+PROMPT: You tend to emotionally bond:
+OPTIONS:
+    - [slow] Slowly
+    - [moderate] Moderately
+    - [fast] Fast (I attach quickly)
+    - [varies] Varies by person
+    - [other] Other (write in)
+
+
+### SECTION: Emotional and Mental Stability
+----------------------------------------
+
+Q63 (q63) [single_select]: Anxiety and depression impact
+PROMPT: In the last 6 months, anxiety or depression has impacted your daily functioning:
+OPTIONS:
+    - [not_at_all] Not at all
+    - [mild] Mildly
+    - [moderate] Moderately
+    - [severe] Severely
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q64 (q64) [single_select]: Trauma awareness
+PROMPT: Do you have known trauma history that could be activated in relationships?
+OPTIONS:
+    - [no] No
+    - [yes_addressed] Yes, mostly addressed
+    - [yes_partially] Yes, partially addressed
+    - [yes_unaddressed] Yes, largely unaddressed
+    - [unsure] Unsure
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q65 (q65) [free_text]: Your main triggers and soothing
+PROMPT: List 1-5 relationship triggers and what reliably helps you regulate.
+
+
+### SECTION: Attachment, Communication, and Conflict
+----------------------------------------
+
+Q66 (q66) [single_select]: Communication default
+PROMPT: Your default communication mode is:
+OPTIONS:
+    - [direct] Direct
+    - [indirect] Indirect (hinting, hoping they infer)
+    - [avoidant] Avoidant (delay hard talks)
+    - [overexplain] Overexplain / overprocess
+    - [other] Other (write in)
+
+Q67 (q67) [single_select]: Jealousy management
+PROMPT: Jealousy/possessiveness in dating is:
+OPTIONS:
+    - [rare] Rare
+    - [sometimes] Sometimes
+    - [often] Often
+    - [problematic] Problematic
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q68 (q68) [single_select]: Honesty about needs
+PROMPT: How comfortable are you asking directly for what you need (affection, clarity, time, reassurance)?
+OPTIONS:
+    - [very] Very comfortable
+    - [somewhat] Somewhat comfortable
+    - [hard] Hard for me
+    - [very_hard] Very hard for me
+    - [other] Other (write in)
+
+Q69 (q69) [free_text]: Your apology profile
+PROMPT: When you apologize, what do you tend to do well, and what do you tend to miss?
+
+
+### SECTION: Values and Spiritual Alignment
+----------------------------------------
+
+Q70 (q70) [multi_select]: Spiritual practices that nourish you (if any)
+PROMPT: If you have personal practices that help you stay grounded (spiritual or reflective), which are in your life right now?
+OPTIONS:
+    - [prayer] Prayer
+    - [scripture_or_study] Scripture study / sacred reading
+    - [worship_services] Worship services / community gatherings
+    - [meditation] Meditation / mindfulness
+    - [journaling] Journaling / reflection
+    - [service] Service / volunteering
+    - [nature] Nature time as practice
+    - [breathwork] Breathwork / somatic grounding
+    - [therapy] Therapy/coaching as part of my inner work
+    - [none] None right now
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q71 (q71) [single_select]: Sexual boundaries in dating (high-level)
+PROMPT: Right now, your expectation for sexual boundaries while dating is:
+OPTIONS:
+    - [strict_abstinence] Strict abstinence
+    - [abstinence_with_gray] Abstinence with some gray zones I need to define
+    - [still_discerning] Still discerning / not sure
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q72 (q72) [free_text]: Faith-related dealbreakers (if any)
+PROMPT: List any faith-related dealbreakers (or write 'none').
+
+
+### SECTION: Dating Intentions, Pacing, and Boundaries
+----------------------------------------
+
+Q73 (q73) [single_select]: Early exclusivity pressure
+PROMPT: If someone pushes for exclusivity very fast, you tend to:
+OPTIONS:
+    - [agree] Agree (it feels good)
+    - [slow_down] Slow down and clarify
+    - [walk_away] Walk away
+    - [confused] Feel confused / go along
+    - [other] Other (write in)
+
+Q74 (q74) [single_select]: Early physical escalation pressure
+PROMPT: If someone pushes for physical escalation beyond your comfort, you tend to:
+OPTIONS:
+    - [hold_boundary] Hold boundary clearly
+    - [cave] Cave to keep connection
+    - [freeze] Freeze / go along silently
+    - [end_it] End it
+    - [other] Other (write in)
+
+Q75 (q75) [multi_select]: What you want to be different this time
+PROMPT: Select up to 6 things you want to do differently in dating this time.
+OPTIONS:
+    - [slower_pace] Slower pace
+    - [clearer_intentions] Clearer intentions early
+    - [stronger_boundaries] Stronger boundaries
+    - [better_filters] Better filters (dealbreakers)
+    - [healthier_communication] Healthier communication
+    - [less_caretaking] Less caretaking/rescuing
+    - [less_avoidance] Less avoidance
+    - [choose_available] Choose emotionally available partners
+    - [spiritual_consistency] More spiritual consistency
+    - [therapy_support] Add therapy/support
+    - [other] Other (write in)
+
+
+### SECTION: Life Logistics and Capacity
+----------------------------------------
+
+Q76 (q76) [single_select]: Relocation openness
+PROMPT: Are you open to relocating for the right relationship?
+OPTIONS:
+    - [no] No
+    - [maybe_local] Maybe (within region)
+    - [yes] Yes
+    - [depends] Depends (kids/work)
+    - [other] Other (write in)
+
+Q77 (q77) [single_select]: Debt and obligations
+PROMPT: Your current Debt/Financial obligations are:
+OPTIONS:
+    - [low] Low/manageable
+    - [moderate] Moderate
+    - [high] High/stressful
+    - [prefer_not] Prefer not to say
+    - [other] Other (write in)
+
+Q78 (q78) [free_text]: Your realistic weekly rhythm
+PROMPT: Describe your normal weekly rhythm (work, church, kids, gym, downtime) and where dating fits.
+
+
+### SECTION: Growth Plan and Feedback Preferences
+----------------------------------------
+
+Q79 (q79) [single_select]: Openness to difficult conversations
+PROMPT: How willing are you to have difficult conversations early (values, boundaries, timelines, kids, faith)?
+OPTIONS:
+    - [very_willing] Very willing
+    - [willing] Willing
+    - [reluctant] Reluctant
+    - [avoid] I avoid them
+    - [other] Other (write in)
+
+Q80 (q80) [free_text]: Your personal green flags
+PROMPT: List 5 green flags about you that you bring to a relationship (character, skills, stability, faith, service).
+
+Q81 (q81) [free_text]: Your personal red flags
+PROMPT: List 1-5 red flags you need to be honest about (patterns, temptations, avoidance, anger, secrecy).
+
+Q82 (q82) [free_text]: Your 'ready to date' rules
+PROMPT: Write 3 rules that define what 'ready' means for you (behavior-based, measurable).

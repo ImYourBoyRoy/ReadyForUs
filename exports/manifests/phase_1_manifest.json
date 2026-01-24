@@ -1,0 +1,64 @@
+{
+    "schema_version": "1.3.0",
+    "display": {
+        "id": "phase_1",
+        "title": "Phase 1: Early Connection Check-In",
+        "short_title": "Are We Aligned?",
+        "description": "For exploring if you're on the same page before you commit to committing.",
+        "icon": "\ud83c\udf31",
+        "menu_icon": "\u2766",
+        "order": 1
+    },
+    "artifact": {
+        "id": "phase_1_early_compatibility",
+        "title": "Early Connection Check-In",
+        "subtitle": "A gentle space to explore where you both stand before committing to commit.",
+        "language": "en-US",
+        "stage": {
+            "code": "phase_1",
+            "label": "Initial Compatibility",
+            "eligibility": [
+                "You've matched and conversations feel promising.",
+                "You've been on 1-3 dates and sense potential here.",
+                "You've expressed mutual interest and want to check alignment first."
+            ]
+        },
+        "purpose": [
+            "Surface where you are emotionally, spiritually, and logistically.",
+            "Understand your patterns, triggers, and growth areas.",
+            "Check alignment on values, expectations, and pacing before going deeper.",
+            "Give yourself and this connection a fair, honest starting point."
+        ]
+    },
+    "intro": {
+        "instructions": {
+            "title": "How to Approach This",
+            "items": [
+                "This is for you first, with the option to share with someone you're exploring.",
+                "Answer as you truly are today\u2014not who you're hoping to become.",
+                "If a question stings, that's often where the gold is. Sit with it gently.",
+                "You can complete this alone, then compare answers later if you both choose.",
+                "There's no judgment here. Just clarity, kindness, and a little courage."
+            ]
+        },
+        "keep_in_mind": {
+            "title": "A Few Truths Worth Remembering",
+            "items": [
+                "Compatibility isn't about perfection\u2014it's about honest awareness.",
+                "The goal isn't to 'pass' but to know yourself more clearly.",
+                "Vulnerability now saves heartbreak later.",
+                "You can return to this anytime. Your answers may shift, and that's okay."
+            ]
+        }
+    },
+    "prompts_artifact": {
+        "id": "phase_1_prompts",
+        "title": "Phase 1: Early Connection Analysis Prompts",
+        "language": "en-US",
+        "applies_to": "phase_1_early_compatibility"
+    },
+    "privacy_preface": {
+        "title": "Privacy & Sharing Notes",
+        "text": "Your answers are yours alone until you choose to share them. If you use an AI to reflect on your responses, share only what feels safe. Redact names, omit details, keep it general\u2014whatever helps you feel protected. This is guidance and reflection, not diagnosis. If anything surfaces that feels urgent or unsafe, please pause and seek support from someone who knows you."
+    }
+}

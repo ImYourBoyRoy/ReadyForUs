@@ -1,0 +1,44 @@
+{
+    "schema_version": "str",
+    "display": {
+        "id": "str",
+        "title": "str",
+        "short_title": "str",
+        "description": "str",
+        "icon": "str",
+        "menu_icon": "str",
+        "order": "int"
+    },
+    "artifact": {
+        "id": "str",
+        "title": "str",
+        "subtitle": "str",
+        "language": "str",
+        "stage": {
+            "code": "str",
+            "label": "str",
+            "eligibility": "list(str)"
+        },
+        "purpose": "list(str)"
+    },
+    "intro": {
+        "instructions": {
+            "title": "str",
+            "items": "list(str)"
+        },
+        "keep_in_mind": {
+            "title": "str",
+            "items": "list(str)"
+        }
+    },
+    "prompts_artifact": {
+        "id": "str",
+        "title": "str",
+        "language": "str",
+        "applies_to": "str"
+    },
+    "privacy_preface": {
+        "title": "str",
+        "text": "str"
+    }
+}

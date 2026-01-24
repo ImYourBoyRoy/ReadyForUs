@@ -1,0 +1,1579 @@
+{
+    "root_keys": [
+        "sections",
+        "questions",
+        "ui_hints",
+        "manifests",
+        "primary_manifest_id"
+    ],
+    "answer_schemas_by_type": {
+        "compound": {
+            "how_long_known": "str",
+            "known_unit": "str",
+            "how_long_defined": "str",
+            "defined_unit": "str",
+            "last_checkin_how_long": "str",
+            "last_checkin_unit": "str",
+            "last_checkin_stage": "str",
+            "other_last_stage": "str",
+            "checkin_frequency": "str",
+            "notes": "str",
+            "last_agreements": "str",
+            "follow_through_level": "str",
+            "what_helped_or_blocked": "str",
+            "from_partner_best": "str",
+            "from_partner_hard": "str",
+            "from_ai_best": "str",
+            "from_ai_hard": "str",
+            "what_helps": "str",
+            "what_doesnt": "str",
+            "focus_ranked": "list",
+            "other_text": "str",
+            "satisfaction_0_10": "str",
+            "closeness_0_10": "str",
+            "stress_0_10": "str",
+            "appreciation_frequency": "str",
+            "how_i_show": "str",
+            "how_i_want_received": "str",
+            "needs_ranked": "list",
+            "my_guess": "str",
+            "evidence": "str",
+            "ask_this": "str",
+            "balance_feels": "str",
+            "where_load_shows": "str",
+            "resentment_level": "str",
+            "contact_frequency": "str",
+            "in_person_frequency": "str",
+            "satisfaction": "str",
+            "transparency_style": "str",
+            "what_i_want_more_of": "str",
+            "what_i_respect": "str",
+            "frequency": "str",
+            "intensity": "str",
+            "top_trigger": "str",
+            "what_i_need_from_them": "list",
+            "what_i_will_do": "str",
+            "repair_phrase": "str",
+            "affection_ranked": "list",
+            "feel_known_level": "str",
+            "what_makes_me_feel_known": "str",
+            "what_makes_me_feel_unseen": "str",
+            "comfort_with_partner": "str",
+            "comfort_with_ai": "str",
+            "goal_for_talk": "str",
+            "boundary_alignment": "str",
+            "current_boundary_zone": "str",
+            "pressure_mismatch": "str",
+            "why_boundaries_matter": "str",
+            "sleepover_pattern": "str",
+            "boundaries_if_sleepover": "str",
+            "why": "str",
+            "integrity_tension": "str",
+            "topics": "list",
+            "impact_on_trust": "str",
+            "want_help_talking": "str",
+            "mismatch_level": "str",
+            "what_i_need": "str",
+            "what_i_fear": "str",
+            "time_enough": "str",
+            "distractions": "str",
+            "what_i_want": "str",
+            "talk_comfort": "str",
+            "spending_expectations": "str",
+            "debt_transparency": "str",
+            "what_helps_me": "str",
+            "what_i_offer": "str",
+            "pace_preference": "str",
+            "what_makes_it_fast": "str",
+            "what_makes_it_slow": "str",
+            "current_living": "str",
+            "future_preference": "str",
+            "nonnegotiable": "str",
+            "kids_desire": "str",
+            "kids_timeline": "str",
+            "parenting_values": "str",
+            "nonnegotiables": "str",
+            "faith_relevance": "str",
+            "community_expectations": "str",
+            "family_boundaries": "str",
+            "support_level": "str",
+            "preferred_support": "str",
+            "barrier": "str",
+            "topics_ranked": "list",
+            "when": "str",
+            "length": "str",
+            "format": "str"
+        },
+        "single_select": {
+            "selected_value": "str",
+            "other_text": "str"
+        },
+        "multi_select": {
+            "selected_values": "list",
+            "other_text": "str"
+        },
+        "ranked_select": {
+            "ranked_values": "list",
+            "notes": "str"
+        },
+        "free_text": {
+            "text": "str"
+        }
+    },
+    "full_structure_sample": {
+        "sections": [
+            "list(dict)",
+            {
+                "id": "str",
+                "title": "str",
+                "question_ids": "list(str)"
+            }
+        ],
+        "questions": {
+            "q01": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "how_long_known": "str",
+                    "known_unit": "str",
+                    "how_long_defined": "str",
+                    "defined_unit": "str",
+                    "last_checkin_how_long": "str",
+                    "last_checkin_unit": "str",
+                    "last_checkin_stage": "str",
+                    "other_last_stage": "str",
+                    "checkin_frequency": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "layout": "str",
+                        "min": "int",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ],
+                        "showWhen": {
+                            "field": "str",
+                            "equals": "str"
+                        }
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q01b": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "last_agreements": "str",
+                    "follow_through_level": "str",
+                    "what_helped_or_blocked": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "placeholder": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q02": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "options": [
+                    "list(dict)",
+                    {
+                        "value": "str",
+                        "label": "str"
+                    }
+                ],
+                "answer_schema": {
+                    "selected_value": "str",
+                    "other_text": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)"
+            },
+            "q03": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "from_partner_best": "str",
+                    "from_partner_hard": "str",
+                    "from_ai_best": "str",
+                    "from_ai_hard": "str",
+                    "what_helps": "str",
+                    "what_doesnt": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q04": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "focus_ranked": "list(empty)",
+                    "other_text": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ],
+                        "showWhen": {
+                            "field": "str",
+                            "includes": "str"
+                        }
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q05": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "satisfaction_0_10": "str",
+                    "closeness_0_10": "str",
+                    "stress_0_10": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "min": "int",
+                        "max": "int",
+                        "layout": "str"
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q06": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "max": "int",
+                "options": [
+                    "list(dict)",
+                    {
+                        "value": "str",
+                        "label": "str"
+                    }
+                ],
+                "answer_schema": {
+                    "selected_values": "list(empty)",
+                    "other_text": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)"
+            },
+            "q07": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "appreciation_frequency": "str",
+                    "how_i_show": "str",
+                    "how_i_want_received": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q08": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "options": [
+                    "list(dict)",
+                    {
+                        "value": "str",
+                        "label": "str"
+                    }
+                ],
+                "answer_schema": {
+                    "ranked_values": "list(empty)",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)"
+            },
+            "q09": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "options": [
+                    "list(dict)",
+                    {
+                        "value": "str",
+                        "label": "str"
+                    }
+                ],
+                "answer_schema": {
+                    "selected_value": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)"
+            },
+            "q10": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "needs_ranked": "list(empty)",
+                    "other_text": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ],
+                        "showWhen": {
+                            "field": "str",
+                            "includes": "str"
+                        }
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q11": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "text": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)"
+            },
+            "q12": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "my_guess": "str",
+                    "evidence": "str",
+                    "ask_this": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str"
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q13": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "balance_feels": "str",
+                    "where_load_shows": "str",
+                    "resentment_level": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q14": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "text": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)"
+            },
+            "q15": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "contact_frequency": "str",
+                    "in_person_frequency": "str",
+                    "satisfaction": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q16": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "options": [
+                    "list(dict)",
+                    {
+                        "value": "str",
+                        "label": "str"
+                    }
+                ],
+                "answer_schema": {
+                    "selected_value": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)"
+            },
+            "q17": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "transparency_style": "str",
+                    "what_i_want_more_of": "str",
+                    "what_i_respect": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q18": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "options": [
+                    "list(dict)",
+                    {
+                        "value": "str",
+                        "label": "str"
+                    }
+                ],
+                "answer_schema": {
+                    "selected_values": "list(empty)",
+                    "other_text": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)",
+                "max": "int"
+            },
+            "q19": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "frequency": "str",
+                    "intensity": "str",
+                    "top_trigger": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q20": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "options": [
+                    "list(dict)",
+                    {
+                        "value": "str",
+                        "label": "str"
+                    }
+                ],
+                "answer_schema": {
+                    "selected_value": "str",
+                    "other_text": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)"
+            },
+            "q21": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "options": [
+                    "list(dict)",
+                    {
+                        "value": "str",
+                        "label": "str"
+                    }
+                ],
+                "answer_schema": {
+                    "selected_value": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)"
+            },
+            "q22": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "options": [
+                    "list(dict)",
+                    {
+                        "value": "str",
+                        "label": "str"
+                    }
+                ],
+                "answer_schema": {
+                    "selected_values": "list(empty)",
+                    "other_text": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)",
+                "max": "int"
+            },
+            "q23": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "what_i_need_from_them": "list(empty)",
+                    "what_i_will_do": "str",
+                    "repair_phrase": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q24": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "affection_ranked": "list(empty)",
+                    "other_text": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ],
+                        "showWhen": {
+                            "field": "str",
+                            "includes": "str"
+                        }
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q25": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "options": [
+                    "list(dict)",
+                    {
+                        "value": "str",
+                        "label": "str"
+                    }
+                ],
+                "answer_schema": {
+                    "selected_value": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)"
+            },
+            "q26": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "feel_known_level": "str",
+                    "what_makes_me_feel_known": "str",
+                    "what_makes_me_feel_unseen": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q27": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "comfort_with_partner": "str",
+                    "comfort_with_ai": "str",
+                    "goal_for_talk": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q28": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "options": [
+                    "list(dict)",
+                    {
+                        "value": "str",
+                        "label": "str"
+                    }
+                ],
+                "answer_schema": {
+                    "selected_value": "str",
+                    "other_text": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)"
+            },
+            "q29": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "boundary_alignment": "str",
+                    "current_boundary_zone": "str",
+                    "pressure_mismatch": "str",
+                    "why_boundaries_matter": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q30": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "sleepover_pattern": "str",
+                    "boundaries_if_sleepover": "str",
+                    "why": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q31": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "integrity_tension": "str",
+                    "topics": "list(empty)",
+                    "impact_on_trust": "str",
+                    "want_help_talking": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q32": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "mismatch_level": "str",
+                    "what_i_need": "str",
+                    "what_i_fear": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q33": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "text": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)"
+            },
+            "q34": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "time_enough": "str",
+                    "distractions": "str",
+                    "what_i_want": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q35": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "options": [
+                    "list(dict)",
+                    {
+                        "value": "str",
+                        "label": "str"
+                    }
+                ],
+                "answer_schema": {
+                    "selected_value": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)"
+            },
+            "q36": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "talk_comfort": "str",
+                    "spending_expectations": "str",
+                    "debt_transparency": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q37": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "options": [
+                    "list(dict)",
+                    {
+                        "value": "str",
+                        "label": "str"
+                    }
+                ],
+                "answer_schema": {
+                    "selected_values": "list(empty)",
+                    "other_text": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)",
+                "max": "int"
+            },
+            "q38": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "what_helps_me": "str",
+                    "what_doesnt": "str",
+                    "what_i_offer": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q39": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "options": [
+                    "list(dict)",
+                    {
+                        "value": "str",
+                        "label": "str"
+                    }
+                ],
+                "answer_schema": {
+                    "selected_value": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)"
+            },
+            "q40": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "pace_preference": "str",
+                    "what_makes_it_fast": "str",
+                    "what_makes_it_slow": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q41": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "current_living": "str",
+                    "future_preference": "str",
+                    "nonnegotiable": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q42": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "kids_desire": "str",
+                    "kids_timeline": "str",
+                    "parenting_values": "str",
+                    "nonnegotiables": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q43": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "faith_relevance": "str",
+                    "community_expectations": "str",
+                    "family_boundaries": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q44": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "options": [
+                    "list(dict)",
+                    {
+                        "value": "str",
+                        "label": "str"
+                    }
+                ],
+                "answer_schema": {
+                    "selected_values": "list(empty)",
+                    "other_text": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)",
+                "max": "int"
+            },
+            "q45": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "support_level": "str",
+                    "preferred_support": "str",
+                    "barrier": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q46": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "topics_ranked": "list(empty)",
+                    "other_text": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ],
+                        "showWhen": {
+                            "field": "str",
+                            "includes": "str"
+                        }
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q47": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "when": "str",
+                    "length": "str",
+                    "format": "str",
+                    "notes": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "fields": [
+                    "list(dict)",
+                    {
+                        "key": "str",
+                        "label": "str",
+                        "type": "str",
+                        "options": [
+                            "list(dict)",
+                            {
+                                "value": "str",
+                                "label": "str"
+                            }
+                        ]
+                    }
+                ],
+                "examples": "list(str)"
+            },
+            "q48": {
+                "id": "str",
+                "section_id": "str",
+                "order": "int",
+                "title": "str",
+                "prompt": "str",
+                "type": "str",
+                "answer_schema": {
+                    "text": "str"
+                },
+                "tags": {
+                    "included_in_manifests": "list(str)"
+                },
+                "examples": "list(str)"
+            }
+        },
+        "ui_hints": {
+            "controls": {
+                "mode_switcher": {
+                    "default": "str",
+                    "options": [
+                        "list(dict)",
+                        {
+                            "id": "str",
+                            "label": "str"
+                        }
+                    ]
+                }
+            }
+        },
+        "manifests": {
+            "lite": {
+                "id": "str",
+                "title": "str",
+                "question_ids": "list(str)",
+                "timebox_minutes": "int",
+                "post_timebox_activity": "str"
+            },
+            "full": {
+                "id": "str",
+                "title": "str",
+                "question_ids": "list(str)",
+                "timebox_minutes": "int",
+                "post_timebox_activity": "str"
+            }
+        },
+        "primary_manifest_id": "str"
+    }
+}

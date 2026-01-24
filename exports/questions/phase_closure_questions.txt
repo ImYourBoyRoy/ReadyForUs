@@ -1,0 +1,809 @@
+================================================================================
+PHASE: PHASE_CLOSURE
+================================================================================
+
+
+### SECTION: Snapshot and Grounding
+----------------------------------------
+
+Q1 (q01) [compound]: Where You Are in the Timeline
+PROMPT: First, a few grounding facts so this can meet you where you are. What is the timing of the ending and how long was the relationship?
+FIELDS:
+    - time_since_end (single_select): How long ago did it end (or change) for real?
+      - [minutes] Minutes ago
+      - [hours] Hours ago
+      - [days] Days ago
+      - [weeks] Weeks ago
+      - [months] Months ago
+      - [years] Years ago
+      - [unclear] It is complicated or unclear
+      - [other] Other (write in)
+    - end_date (short_text): If you know it: what date did it end? (or the day you found out)
+    - relationship_length (single_select): How long were you together (roughly)?
+      - [under_2_weeks] Under 2 weeks
+      - [2_6_weeks] 2 to 6 weeks
+      - [2_6_months] 2 to 6 months
+      - [6_12_months] 6 to 12 months
+      - [1_3_years] 1 to 3 years
+      - [3_7_years] 3 to 7 years
+      - [7_plus_years] 7+ years
+      - [unclear] Not sure
+      - [other] Other (write in)
+    - notes (short_text): Notes (optional)
+
+Q2 (q02) [single_select]: What Kind of Ending Was This
+PROMPT: What best describes the ending you are navigating?
+OPTIONS:
+    - [breakup] Breakup (dating relationship ended)
+    - [separation] Separation (not divorced yet)
+    - [divorce] Divorce (legally finalized)
+    - [called_off_engagement] Engagement called off
+    - [ghosted] Ghosted or slow-faded
+    - [situationship_ended] Situationship ended (no clear label)
+    - [widowed] Widowed (death)
+    - [open_to_closed] Relationship structure changed (open to closed, etc.)
+    - [other] Other (write in)
+
+Q3 (q03) [single_select]: What It Was Right Before It Ended
+PROMPT: Right before it ended, what was the relationship status or structure?
+OPTIONS:
+    - [casually_dating] Casually dating
+    - [exclusive] Exclusive (not engaged/married)
+    - [defined_labeled] Defined and labeled (boyfriend/girlfriend, partners)
+    - [long_distance] Long-distance relationship
+    - [engaged] Engaged
+    - [married] Married
+    - [separated] Separated but still legally married
+    - [open_or_poly] Open relationship / poly
+    - [unclear] Unclear
+    - [other] Other (write in)
+
+Q4 (q04) [multi_select]: Practical Entanglements
+PROMPT: Were there any practical entanglements that make this harder to unwind? (Select any that apply.)
+OPTIONS:
+    - [lived_together] Lived together
+    - [shared_lease_mortgage] Shared lease or mortgage
+    - [shared_finances] Shared finances or debt
+    - [shared_business] Shared business or major project
+    - [kids] Children together or co-parenting
+    - [stepkids] Step-kids or blended family
+    - [pets] Pets together
+    - [social_circle] Shared social circle/community
+    - [faith_community] Shared faith community
+    - [legal_process] Legal process involved (divorce, restraining order, custody)
+    - [none] None of these
+    - [other] Other (write in)
+
+Q5 (q05) [single_select]: Physical Intimacy Level
+PROMPT: Only if you are comfortable: what best describes the physical side of the relationship?
+OPTIONS:
+    - [no_physical] No physical intimacy
+    - [light_affection] Light affection only (hand-holding, hugs, brief kisses)
+    - [making_out] Making out / sexual touching (clothes on/off)
+    - [sex] Sex (intercourse)
+    - [living_as_partners] Living as partners (shared bed, frequent sex)
+    - [variable] It varied a lot
+    - [prefer_not_to_say] Prefer not to say
+    - [other] Other (write in)
+
+Q6 (q06) [single_select]: Current Contact Status
+PROMPT: What is your current contact situation with them?
+OPTIONS:
+    - [no_contact] No contact
+    - [limited_logistics] Limited contact for logistics only
+    - [co_parenting] Regular contact because of kids/co-parenting
+    - [still_living_together] Still living together (for now)
+    - [on_off_contact] On and off contact (hard to keep boundaries)
+    - [actively_talking] We are actively talking or trying to repair
+    - [blocked] I blocked them or they blocked me
+    - [unknown] Not sure
+    - [other] Other (write in)
+
+Q7 (q07) [multi_select]: What You Need Most Right Now
+PROMPT: If this could help you with just one thing today, what would you choose? (Select up to 3.)
+OPTIONS:
+    - [calm_body] Calm my body (less panic, less tightness)
+    - [stop_ruminating] Stop the rumination loop
+    - [sleep] Sleep or rest better
+    - [clarity] Clarity about what happened
+    - [closure] Closure so I can let go
+    - [boundaries] A boundary plan (no contact, social media, etc.)
+    - [self_worth] Stabilize my self-worth
+    - [coping_tools] Better coping tools for waves
+    - [faith_support] Spiritual support (if that fits me)
+    - [move_forward] A simple plan to move forward
+    - [other] Other (write in)
+
+
+### SECTION: The Relationship Context
+----------------------------------------
+
+Q8 (q08) [number]: Overall Emotional Intensity
+PROMPT: On a 0 to 10 scale, how emotionally intense has this been for you overall? (0 = barely, 10 = consuming)
+
+Q9 (q09) [multi_select]: How It Felt Inside the Relationship
+PROMPT: When you think back, what words describe how it felt most of the time? (Select up to 5.)
+OPTIONS:
+    - [safe] Safe
+    - [seen] Seen and understood
+    - [steady] Steady
+    - [joyful] Joyful
+    - [exciting] Exciting
+    - [anxious] Anxious
+    - [walking_on_eggshells] Walking on eggshells
+    - [lonely_together] Lonely even together
+    - [unpredictable] Unpredictable
+    - [controlled] Controlled or pressured
+    - [emotionally_distant] Emotionally distant
+    - [confusing] Confusing
+    - [other] Other (write in)
+
+Q10 (q10) [multi_select]: What Was Good About It
+PROMPT: What felt genuinely good or healthy about the relationship? (Select up to 4.)
+OPTIONS:
+    - [friendship] Friendship and fun
+    - [shared_values] Shared values
+    - [emotional_support] Emotional support
+    - [communication] Good communication
+    - [chemistry] Strong chemistry
+    - [teamwork] Teamwork and reliability
+    - [faith_alignment] Faith/spiritual alignment
+    - [growth] Personal growth
+    - [family_fit] Family/community fit
+    - [none] It is hard to name right now
+    - [other] Other (write in)
+
+Q11 (q11) [ranked_select]: What Was Hard About It (Ranked)
+PROMPT: What were the biggest pain points? Select the ones that fit and drag to rank the top ones.
+OPTIONS:
+    - [communication] Communication breakdown
+    - [conflict] Conflict cycles
+    - [trust] Trust issues or betrayal
+    - [avoidance] Avoidance or emotional shutdown
+    - [jealousy] Jealousy or insecurity
+    - [values] Values or life direction mismatch
+    - [pressure] Pressure around pace, intimacy, or commitment
+    - [mental_health] Mental health strain
+    - [substance] Substance use
+    - [family] Family/community interference
+    - [finances] Financial stress
+    - [distance] Distance/logistics
+    - [other] Other (write in)
+
+Q12 (q12) [single_select]: Overall Pattern
+PROMPT: Looking back, what was the overall pattern?
+OPTIONS:
+    - [steady] Mostly steady and consistent
+    - [rollercoaster] Rollercoaster (high highs, low lows)
+    - [on_off] On and off (breakups and reunions)
+    - [pursue_withdraw] Pursue-withdraw cycle (one chased, one distanced)
+    - [slow_burn] Slow burn that grew over time
+    - [fast_intense] Fast and intense early on
+    - [mostly_long_distance] Mostly long-distance
+    - [hard_to_label] Hard to label
+    - [other] Other (write in)
+
+Q13 (q13) [multi_select]: Markers of Integration
+PROMPT: Which of these were true at any point? (This helps gauge how intertwined your lives became.)
+OPTIONS:
+    - [met_family] Met each other's family
+    - [met_friends] Integrated into friend groups
+    - [traveled] Traveled together
+    - [talked_future] Talked seriously about the future
+    - [talked_marriage] Talked about marriage
+    - [planned_move] Planned moving in or relocating
+    - [shared_holidays] Shared holidays/traditions
+    - [shared_church] Attended the same church/community events
+    - [shared_money_plans] Made money plans together
+    - [none] None of these
+    - [other] Other (write in)
+
+Q14 (q14) [multi_select]: Your Stress Pattern in Relationships
+PROMPT: When the relationship felt uncertain, what did you tend to do? (Select what fits, no shame.)
+OPTIONS:
+    - [seek_reassurance] Seek reassurance or closeness
+    - [overthink] Overthink and scan for signs
+    - [withdraw] Withdraw or go quiet
+    - [people_please] People-please to keep the peace
+    - [get_angry] Get reactive or angry
+    - [avoid_talks] Avoid hard conversations
+    - [try_fix] Try to fix it fast
+    - [numb_out] Numb out (work, screens, substances)
+    - [stay_centered] Stay relatively centered
+    - [other] Other (write in)
+
+Q15 (q15) [free_text]: What You Were Hoping For
+PROMPT: In your most honest words, what were you hoping this would become?
+
+Q16 (q16) [free_text]: What You Were Afraid Of
+PROMPT: What were you afraid might happen, even if you did not say it out loud?
+
+
+### SECTION: The Ending and Entanglements
+----------------------------------------
+
+Q17 (q17) [single_select]: Who Ended It
+PROMPT: Who initiated the ending (or the big shift) most directly?
+OPTIONS:
+    - [me] I ended it
+    - [them] They ended it
+    - [mutual] It was mutual
+    - [external] Something external forced it (distance, family, health, legal)
+    - [unclear] Unclear
+    - [other] Other (write in)
+
+Q18 (q18) [single_select]: How It Ended
+PROMPT: How did it end (or how did you find out it was ending)?
+OPTIONS:
+    - [in_person_convo] In-person conversation
+    - [phone_call] Phone call
+    - [text_message] Text message
+    - [ghosted] Ghosted / disappeared
+    - [slow_fade] Slow fade (less and less until it died)
+    - [third_party] Through someone else
+    - [legal_process] Legal process (papers, court, restraining order)
+    - [death] Death
+    - [other] Other (write in)
+
+Q19 (q19) [single_select]: How Sudden Was It
+PROMPT: Did it feel sudden, or did it build over time?
+OPTIONS:
+    - [sudden] Sudden (felt like it came out of nowhere)
+    - [some_signs] Some signs, but I still hoped it would work
+    - [long_time] Long time coming
+    - [on_off] It was part of an on/off pattern
+    - [unclear] Unclear
+    - [other] Other (write in)
+
+Q20 (q20) [ranked_select]: Primary Reasons (Ranked)
+PROMPT: What do you believe were the main reasons it ended? Select what fits and rank the top ones.
+OPTIONS:
+    - [values_incompatibility] Values or life direction mismatch
+    - [trust_betrayal] Trust rupture or betrayal
+    - [communication_breakdown] Communication breakdown
+    - [conflict_cycle] Conflict cycle that would not repair
+    - [emotional_unavailability] Emotional unavailability or distancing
+    - [boundary_violations] Boundary violations or pressure
+    - [intimacy_mismatch] Affection or intimacy mismatch
+    - [commitment_timing] Commitment timing mismatch
+    - [mental_health_strain] Mental health strain (either person)
+    - [substance_use] Substance use or relapse
+    - [finances] Financial incompatibility or stress
+    - [logistics_distance] Distance or logistics
+    - [family_pressure] Family or community pressure
+    - [other] Other (write in)
+
+Q21 (q21) [single_select]: How Much Closure You Got
+PROMPT: How clear was the explanation or conversation around the ending?
+OPTIONS:
+    - [clear] Clear and respectful (I understand the why)
+    - [partial] Somewhat clear (still gaps)
+    - [confusing] Confusing or mixed messages
+    - [none] No explanation
+    - [it_keeps_changing] It keeps changing
+    - [other] Other (write in)
+
+Q22 (q22) [free_text]: Unanswered Questions
+PROMPT: What questions are still looping in your mind?
+
+Q23 (q23) [free_text]: What You Wish You Had Said or Done
+PROMPT: If you could go back to the last conversation with more calm and clarity, what would you say or do differently?
+
+Q24 (q24) [multi_select]: What Is Still Unresolved
+PROMPT: What is still unresolved or actively stressful right now? (Select any.)
+OPTIONS:
+    - [belongings] Belongings to return or retrieve
+    - [housing] Housing transition
+    - [money] Money, debt, or financial disentangling
+    - [legal] Legal or custody process
+    - [co_parenting_schedule] Co-parenting schedule or communication
+    - [pets] Pet custody or care
+    - [social_fallout] Social fallout (friends/community)
+    - [work_overlap] Work overlap or professional impact
+    - [health] Health or medical entanglement
+    - [none] Nothing major unresolved
+    - [other] Other (write in)
+
+Q25 (q25) [free_text]: Logistics Details (Optional)
+PROMPT: If there are unresolved logistics, what are they? (Short version is fine.)
+
+Q26 (q26) [single_select]: Safety and Respect Inside the Relationship
+PROMPT: Only if you feel comfortable: were there any patterns that felt unsafe, coercive, or abusive?
+OPTIONS:
+    - [no] No
+    - [maybe] Maybe or not sure
+    - [emotional] Yes: emotional manipulation, intimidation, or control
+    - [sexual] Yes: sexual pressure or coercion
+    - [physical] Yes: physical aggression or threats
+    - [financial] Yes: financial control
+    - [stalking] Yes: stalking, monitoring, or harassment
+    - [prefer_not_to_say] Prefer not to say
+    - [other] Other (write in)
+
+Q27 (q27) [single_select]: How Safe You Feel Right Now
+PROMPT: Right now, how safe do you feel in your day-to-day life (emotionally and physically)? If you are in danger, please prioritize real-world help first.
+OPTIONS:
+    - [safe] Safe
+    - [mostly_safe] Mostly safe, but shaken
+    - [not_safe] Not safe
+    - [urgent] Urgent danger right now
+    - [prefer_not_to_say] Prefer not to say
+    - [other] Other (write in)
+
+Q28 (q28) [compound]: If You Need Support, Where Can It Come From
+PROMPT: If you feel unsafe or close to your edge, what supports are available to you? If you feel safe, you can leave this blank.
+FIELDS:
+    - support_people (multi_select): Who could you reach out to today?
+      - [friend] Friend
+      - [family] Family
+      - [neighbor] Neighbor
+      - [faith_leader] Faith leader or community support
+      - [therapist] Therapist/coach
+      - [hotline] Crisis line
+      - [none] No one comes to mind
+      - [other] Other (write in)
+    - safe_place (single_select): Do you have a safe place you can go if needed?
+      - [yes_home] Yes, my home feels safe
+      - [yes_other] Yes, somewhere else
+      - [not_really] Not really
+      - [unsure] Not sure
+    - notes (short_text): Notes (optional)
+
+
+### SECTION: Grief Waves Right Now
+----------------------------------------
+
+Q29 (q29) [multi_select]: What You Are Feeling Most
+PROMPT: What emotions are most present lately? (Select up to 6.)
+OPTIONS:
+    - [sadness] Sadness
+    - [grief] Grief
+    - [anger] Anger
+    - [relief] Relief
+    - [shame] Shame
+    - [guilt] Guilt
+    - [loneliness] Loneliness
+    - [anxiety] Anxiety
+    - [panic] Panic
+    - [numb] Numbness
+    - [confusion] Confusion
+    - [hope] Hope
+    - [yearning] Yearning
+    - [jealousy] Jealousy
+    - [other] Other (write in)
+
+Q30 (q30) [number]: Intensity Right Now
+PROMPT: Right now in this moment, how intense is it? (0 to 10)
+
+Q31 (q31) [multi_select]: How It Shows Up in Your Body
+PROMPT: When a wave hits, what do you notice in your body? (Select any that fit.)
+OPTIONS:
+    - [tight_chest] Tight chest or heart ache
+    - [stomach_drop] Stomach drop or nausea
+    - [throat_lump] Lump in throat
+    - [restless] Restlessness or agitation
+    - [fatigue] Heavy fatigue
+    - [shaking] Shaking or trembling
+    - [head_pressure] Head pressure or headache
+    - [sleepy] Sleepiness or shutdown
+    - [appetite_change] Appetite changes
+    - [none] None of these
+    - [other] Other (write in)
+
+Q32 (q32) [free_text]: Recent Triggers
+PROMPT: What has triggered the hardest waves recently?
+
+Q33 (q33) [multi_select]: What Your Mind Keeps Replaying
+PROMPT: What does your mind keep replaying or looping on? (Select up to 5.)
+OPTIONS:
+    - [what_if] What if I did something different
+    - [why_not_enough] Why I was not enough
+    - [they_moved_on] Imagining them moving on
+    - [good_memories] Only the good memories
+    - [the_breakup_scene] The breakup conversation
+    - [betrayal_details] Details of betrayal or lies
+    - [comparison] Comparing myself to others
+    - [future_without_them] Future without them
+    - [justice] Wanting justice or closure
+    - [self_criticism] Self-criticism
+    - [none] None of these
+    - [other] Other (write in)
+
+Q34 (q34) [ranked_select]: What You Miss (Ranked)
+PROMPT: What do you miss most? Select what fits and rank the top ones.
+OPTIONS:
+    - [companionship] Companionship / having a person
+    - [touch] Physical affection
+    - [routines] Shared routines
+    - [future_story] The future story I had in my head
+    - [their_traits] Specific traits (humor, warmth, etc.)
+    - [sex] Sex
+    - [validation] Feeling chosen/validated
+    - [family] Their family or community
+    - [security] Security or stability
+    - [unknown] I do not know, it is just pain
+    - [other] Other (write in)
+
+Q35 (q35) [ranked_select]: What Hurt the Most (Ranked)
+PROMPT: What part hurt the most? Select what fits and rank the top ones.
+OPTIONS:
+    - [rejection] Rejection or feeling replaced
+    - [betrayal] Betrayal or lies
+    - [abandonment] Abandonment (especially sudden)
+    - [disrespect] Disrespect or being dismissed
+    - [loss_future] Loss of the future we planned
+    - [self_betrayal] Feeling like I betrayed myself
+    - [public_loss] Public loss or embarrassment
+    - [faith_conflict] Faith or values conflict
+    - [logistics] Logistics and disruption
+    - [other] Other (write in)
+
+Q36 (q36) [single_select]: Sleep Lately
+PROMPT: How has sleep been since the ending?
+OPTIONS:
+    - [good] Pretty good
+    - [light] Light or restless
+    - [hard_fall_asleep] Hard to fall asleep
+    - [wake_up] Waking up early or during the night
+    - [sleep_too_much] Sleeping too much
+    - [nightmares] Nightmares
+    - [all_over] All over the place
+    - [other] Other (write in)
+
+Q37 (q37) [single_select]: Eating and Appetite
+PROMPT: How has eating been?
+OPTIONS:
+    - [normal] Normal
+    - [less] Less appetite
+    - [more] More appetite
+    - [forget] Forgetting to eat
+    - [comfort_eating] Comfort eating
+    - [nausea] Nausea makes eating hard
+    - [disordered] Old patterns around food are coming back
+    - [other] Other (write in)
+
+Q38 (q38) [single_select]: Movement and Energy
+PROMPT: How has your movement or exercise been?
+OPTIONS:
+    - [steady] Steady
+    - [less] Less than usual
+    - [more] More than usual (to cope)
+    - [none] Almost none
+    - [stuck] I feel stuck in my body
+    - [overtraining] Overtraining or pushing too hard
+    - [other] Other (write in)
+
+Q39 (q39) [multi_select]: Alcohol and Substances
+PROMPT: Since the ending, has your relationship with alcohol or substances changed? (Select any that fit.)
+OPTIONS:
+    - [no_change] No change
+    - [none] I do not use alcohol/substances
+    - [increased_alcohol] Increased alcohol use
+    - [increased_weed] Increased cannabis use
+    - [increased_nicotine] Increased nicotine use
+    - [increased_prescription] Increased use of prescription meds (as prescribed or not)
+    - [increased_other] Increased other substances
+    - [decreased] Decreased use
+    - [relapse] Relapse after a period of sobriety
+    - [concerned] I feel concerned about it
+    - [prefer_not_to_say] Prefer not to say
+    - [other] Other (write in)
+
+Q40 (q40) [single_select]: Sex, Porn, or Validation Coping
+PROMPT: Only if you are comfortable: has any part of this pushed you toward sex, porn, or chasing validation as a coping strategy?
+OPTIONS:
+    - [no] No
+    - [a_little] A little
+    - [yes] Yes, noticeably
+    - [compulsive] Yes, it feels compulsive or out of control
+    - [avoidant] I am avoiding all intimacy out of fear
+    - [prefer_not_to_say] Prefer not to say
+    - [other] Other (write in)
+
+
+### SECTION: Coping, Risk, and Inputs
+----------------------------------------
+
+Q41 (q41) [single_select]: Safety Check: Self-Harm Thoughts
+PROMPT: Have you had thoughts of hurting yourself since this ended? If you are in immediate danger, call your local emergency number or a crisis line right now.
+OPTIONS:
+    - [no] No
+    - [passive] Yes: passive thoughts (I wish I could disappear, but no plan)
+    - [active] Yes: active thoughts (I have thought about a plan)
+    - [recent_attempt] Yes: I have acted on it recently
+    - [prefer_not_to_say] Prefer not to say
+    - [other] Other (write in)
+
+Q42 (q42) [single_select]: Safety Check: Risky Behavior
+PROMPT: Since the ending, have you done anything that scared you (reckless driving, unsafe mixing, unsafe situations, etc.)?
+OPTIONS:
+    - [no] No
+    - [a_little] A little
+    - [yes] Yes
+    - [ongoing] Yes, and it is ongoing
+    - [prefer_not_to_say] Prefer not to say
+    - [other] Other (write in)
+
+Q43 (q43) [multi_select]: Unhelpful Coping Patterns
+PROMPT: Which coping patterns are showing up (even if you wish they were not)? Select any. This is for awareness, not judgment.
+OPTIONS:
+    - [doomscroll] Doomscrolling or excessive phone time
+    - [checking_ex] Checking their social media or location
+    - [begging] Begging, pleading, or repeated texting
+    - [isolation] Isolating from people
+    - [workaholic] Overworking to avoid feeling
+    - [spending] Overspending
+    - [binge_eating] Binge eating
+    - [not_eating] Not eating
+    - [porn] Porn as a numbing tool
+    - [hookups] Hookups or validation-seeking
+    - [substances] Alcohol/substances to numb
+    - [self_attack] Self-attack/self-hate spirals
+    - [none] None of these
+    - [other] Other (write in)
+
+Q44 (q44) [multi_select]: Support Around You
+PROMPT: Who is actually in your corner right now? (Select any that apply.)
+OPTIONS:
+    - [one_friend] At least one friend I can talk to
+    - [family] Family support
+    - [faith_community] Faith community support
+    - [coworker] Coworker or mentor
+    - [therapist] Therapist
+    - [coach] Coach
+    - [support_group] Support group
+    - [online_friend] Online community/friend
+    - [no_one] No one I trust with this
+    - [other] Other (write in)
+
+Q45 (q45) [compound]: Professional Support
+PROMPT: Are you getting support from a professional right now? If yes, what kind? If no, that is okay too.
+FIELDS:
+    - support_types (multi_select): What kind of support?
+      - [therapist] Therapist (licensed)
+      - [coach] Coach
+      - [doctor] Doctor/psychiatrist
+      - [clergy] Clergy/faith counseling
+      - [group] Group therapy/support group
+      - [none] None right now
+      - [other] Other (write in)
+    - frequency (single_select): If applicable, how often?
+      - [na] Not applicable
+      - [weekly] Weekly
+      - [biweekly] Every other week
+      - [monthly] Monthly
+      - [as_needed] As needed
+      - [starting_soon] Starting soon
+      - [other] Other (write in)
+    - notes (short_text): Notes (optional)
+
+Q46 (q46) [single_select]: Medication Changes
+PROMPT: Only if relevant: have there been any recent changes in mental health medication (starting, stopping, dosage changes)?
+OPTIONS:
+    - [na] Not applicable
+    - [no_change] No change
+    - [started] Started a medication
+    - [stopped] Stopped a medication
+    - [dose_change] Dose change
+    - [missed_doses] Missed doses frequently
+    - [prefer_not_to_say] Prefer not to say
+    - [other] Other (write in)
+
+Q47 (q47) [compound]: What Helps and What Tools You Use
+PROMPT: What tools or actions actually give you even a little relief? (We are looking for what works, not what you think you should do.)
+FIELDS:
+    - helps_now (multi_select): What helps right now?
+      - [walks] Walking / movement
+      - [gym] Exercise or lifting
+      - [sunlight] Sunlight / getting outside
+      - [friends] Talking with a friend
+      - [therapy] Therapy or coaching
+      - [journaling] Journaling
+      - [prayer] Prayer / spiritual practice
+      - [breathwork] Breathwork / grounding
+      - [music] Music
+      - [creative] Creative outlet (art, writing, building)
+      - [sleep_routine] Sleep routine
+      - [learning] Learning (books, podcasts, classes)
+      - [none] Nothing feels helpful yet
+      - [other] Other (write in)
+    - journaling_style (single_select): If you journal, what style fits you best?
+      - [na] I do not journal
+      - [free_writing] Free writing / brain dump
+      - [unsent_letters] Unsent letters to them
+      - [prompt_based] Structured prompts (CBT-style)
+      - [evidence_log] Reality log: facts vs fantasy
+      - [gratitude] Gratitude journal
+      - [prayer_journal] Prayer / spiritual journal
+      - [voice_notes] Voice notes
+      - [other] Other (write in)
+    - tracking_tools (multi_select): Do you use any tracking tools?
+      - [none] No
+      - [mood_tracker] Mood tracker
+      - [sleep_tracker] Sleep tracker
+      - [habit_tracker] Habit tracker
+      - [trigger_log] Trigger log
+      - [exercise_tracker] Exercise tracker
+      - [other] Other (write in)
+    - resources (short_text): Name any specific book, podcast, therapist style, or creator you are leaning on (optional)
+    - notes (short_text): Notes (optional)
+
+Q48 (q48) [multi_select]: Your Information Diet
+PROMPT: What are you feeding your brain right now? (Select all that apply. This helps us filter the noise.)
+OPTIONS:
+    - [get_ex_back] "How to get your ex back" or strategy content
+    - [psychology_diagnosing] Attachment theory or diagnosing them/me (avoidant, narcissist, etc.)
+    - [grief_processing] Structured grief/healing content
+    - [faith_healing] Faith-based healing (scripture, sermons, grief talks)
+    - [tarot_manifesting] Tarot, astrology, manifestation, looking for signs
+    - [stoicism_mindset] Stoicism / toughness mindset content
+    - [relationship_coaching] Relationship coaching content (general)
+    - [distraction] Pure distraction (comedy, gaming, unrelated topics)
+    - [avoiding] I am avoiding relationship content completely
+    - [none] None of the above
+    - [other] Other (write in)
+
+Q49 (q49) [single_select]: Social Media and Checking Behaviors
+PROMPT: How often are you checking on them (social media, mutual friends, old photos, messages)?
+OPTIONS:
+    - [not_checking] Not checking
+    - [rarely] Rarely
+    - [sometimes] Sometimes
+    - [daily] Daily
+    - [many_times_day] Many times a day
+    - [i_keep_trying_not_to] I keep trying not to, but I slip
+    - [blocked_or_removed] Blocked/removed to protect myself
+    - [other] Other (write in)
+
+Q50 (q50) [multi_select]: Boundaries You Are Willing to Try
+PROMPT: Which boundaries feel doable for you right now? (Select any. Even one is progress.)
+OPTIONS:
+    - [no_contact_30] No contact for 30 days
+    - [logistics_only] Logistics-only messaging (short, neutral, necessary)
+    - [unfollow_mute] Unfollow/mute/block on social media
+    - [delete_threads] Archive/delete message threads
+    - [photo_boundary] Move photos to a hidden folder
+    - [avoid_places] Avoid certain places for a bit
+    - [friend_buffer] Ask a friend to be a buffer/accountability
+    - [schedule_waves] Schedule a daily grief window (so it does not own the whole day)
+    - [none_ready] None feel doable yet
+    - [other] Other (write in)
+
+Q51 (q51) [multi_select]: Daily Life Impact
+PROMPT: Which daily-life areas are taking a hit right now? (Select any.)
+OPTIONS:
+    - [work] Work or school performance
+    - [parenting] Parenting duties
+    - [sleep] Sleep routine
+    - [eating] Eating and hydration
+    - [hygiene] Hygiene/self-care (shower, grooming)
+    - [home] Home upkeep
+    - [social] Social life
+    - [spiritual] Spiritual habits
+    - [exercise] Movement/exercise
+    - [hobbies] Hobbies or joy
+    - [none] I am functioning mostly okay
+    - [other] Other (write in)
+
+Q52 (q52) [free_text]: Anything You Need to Say Out Loud
+PROMPT: If you want a place to unload: what do you most need to say about this right now?
+
+
+### SECTION: Reality, Meaning, and Closure
+----------------------------------------
+
+Q53 (q53) [compound]: Reality Check
+PROMPT: When your mind idealizes them, this helps balance the picture. You can keep it simple.
+FIELDS:
+    - what_i_miss (free_text): What I miss (or what I wish was true)
+    - what_it_cost (free_text): What it cost me (or what was not okay)
+    - anchor (short_text): One grounding sentence I can repeat
+
+Q54 (q54) [multi_select]: Red Flags You May Have Minimized
+PROMPT: Looking back gently, which red flags did you minimize or excuse?
+OPTIONS:
+    - [inconsistent] Inconsistency
+    - [stonewalling] Stonewalling or silent treatment
+    - [lying] Lying or half-truths
+    - [hot_cold] Hot and cold behavior
+    - [disrespect] Disrespect in conflict
+    - [boundary_push] Pushing my boundaries
+    - [jealous_control] Jealousy or control
+    - [substance] Substance problems
+    - [cruelty] Cruelty or humiliation
+    - [love_bombing] Love-bombing then withdrawal
+    - [none] None stand out
+    - [other] Other (write in)
+
+Q55 (q55) [compound]: Ownership vs Release
+PROMPT: This is one of the most healing distinctions. No self-attack. Just clarity.
+FIELDS:
+    - what_i_own (free_text): What I own (my part)
+    - what_i_release (free_text): What I release (what is not mine)
+    - next_time (short_text): One thing I will do differently next time
+
+Q56 (q56) [compound]: If They Came Back Tomorrow
+PROMPT: If they came back tomorrow wanting you again, what would be true for you?
+FIELDS:
+    - openness (single_select): My honest openness to reconciling
+      - [no] No, I would not go back
+      - [probably_no] Probably not
+      - [unsure] Not sure
+      - [maybe] Maybe, with major change
+      - [yes] Yes, I would want to try
+      - [other] Other (write in)
+    - would_require (multi_select): If reconciliation were ever on the table, what would it require?
+      - [real_apology] A real apology and ownership
+      - [consistent_actions] Consistent actions over time
+      - [therapy] Therapy (individual or couples)
+      - [sobriety] Sobriety or treatment if relevant
+      - [boundaries] Clear boundaries honored
+      - [truth] Full truth and transparency
+      - [pace] Slower pace and healthier pacing
+      - [values_alignment] Values alignment
+      - [not_applicable] Not applicable
+      - [other] Other (write in)
+    - notes (free_text): Notes (optional)
+
+Q57 (q57) [compound]: Spiritual and Faith Impact
+PROMPT: Some people are supported by faith, and others are triggered by it right now. Either is okay. What fits you?
+FIELDS:
+    - spiritual_baseline (single_select): My baseline
+      - [not_spiritual] Not spiritual or religious
+      - [spiritual_not_religious] Spiritual but not religious
+      - [religious] Religious (community-based)
+      - [both] Both spiritual and religious
+      - [unsure] Not sure
+      - [other] Other (write in)
+    - faith_impact (single_select): How is this experience affecting your faith/spiritual view?
+      - [na] Not applicable
+      - [anchor] It is an anchor for me right now
+      - [stronger] It feels stronger than before
+      - [anger_doubt] I feel angry at God or full of doubt
+      - [bypassing] I am trying to 'just have faith' so I do not have to feel the pain
+      - [transactional] I am praying for a specific outcome (bring them back, fix it, etc.)
+      - [community_strain] My community/faith setting feels tense, judging, or unhelpful right now
+      - [neutral] No major impact
+      - [other] Other (write in)
+    - notes (short_text): Notes (optional)
+
+Q58 (q58) [compound]: Closure Actions
+PROMPT: What closure actions feel realistic this week? (Small is fine. We are building traction.)
+FIELDS:
+    - actions (multi_select): Select any actions you are willing to take
+      - [return_items] Return or retrieve belongings
+      - [remove_triggers] Remove or reduce triggers (photos, reminders)
+      - [social_boundary] Adjust social media boundaries
+      - [write_letter] Write an unsent letter
+      - [talk_friend] Talk with a friend (real conversation)
+      - [therapy_session] Schedule or attend a session
+      - [move_body] Move my body (walk, gym, stretch)
+      - [sleep_plan] Set a simple sleep plan
+      - [prayer_ritual] Prayer/ritual (if that fits me)
+      - [no_contact_start] Start or reset no-contact
+      - [none] None this week
+      - [other] Other (write in)
+    - when (short_text): When do you plan to do the first one?
+    - notes (short_text): Notes (optional)
+
+Q59 (q59) [free_text]: A Note to Future You
+PROMPT: Write a short note to your future self for the next wave. What do you want to remember?
+
+Q60 (q60) [compound]: Thirty-Day Target
+PROMPT: If you could fast-forward 30 days and feel meaningfully better, what would be different?
+FIELDS:
+    - goals (multi_select): Select what you want to be true in 30 days
+      - [sleep_stable] Sleep is steadier
+      - [less_rumination] Rumination is reduced
+      - [no_contact_kept] I kept my boundary/no-contact plan
+      - [functioning] I am functioning better day-to-day
+      - [self_worth] My self-worth feels steadier
+      - [joy_returns] Joy is returning
+      - [social_reconnect] I reconnected socially
+      - [faith_stable] My faith/spiritual footing feels steadier (if relevant)
+      - [closure] I feel clearer about why it ended
+      - [ready_date] I feel ready to date again (if that is a goal)
+      - [not_sure] Not sure yet
+      - [other] Other (write in)
+    - one_sign (short_text): One clear sign I am healing is...
+    - notes (short_text): Notes (optional)

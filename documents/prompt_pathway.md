@@ -1,5 +1,7 @@
 # AI Prompt Generation Pathway
 
+![Prompt Data Flow](prompt_waterfall.png)
+
 This document visualizes the "waterfall" data flow of how a single question from `questions.json` is transformed into the final context provided to the AI model.
 
 ## 1. The Data Flow Waterfall
@@ -40,9 +42,12 @@ The system uses **Hydration Logic** to ensure that while `value` is stored, the 
 
 ### Transformation: `ImportManager.js`
 
-1. **Detect Phase**: Reads `artifact.id` to identify the source phase (e.g., Phase 1.5).
-2. **Fetch Questions**: Dynamically loads the `questions.json` for that phase.
-3. **Hydrate**: Matches the stored `value` (`biweekly_20`) with the fetched `option` to extract the `label` ("Bi-weekly...").
+ 1. **Detect Phase**: Reads `artifact.id` to identify the source phase (e.g., Phase 1.5).
+ 2. **Hydration Cascade**: Attempts to load the full question definition to retrieve human-readable Labels.
+     * **Primary**: `externalQuestions` (if passed explicitly).
+     * **Secondary**: `DataLoader.getQuestions()` (uses currently loaded phase).
+     * **Fallback**: `QuestionnaireEngine.questions` (active session data).
+ 3. **Hydrate**: Matches the stored `value` (`biweekly_20`) with the fetched `option` to extract the `label` ("Bi-weekly...").
 
 The system constructs a text block for each answered question using this specific template:
 

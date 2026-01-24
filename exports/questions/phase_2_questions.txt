@@ -1,0 +1,589 @@
+================================================================================
+PHASE: PHASE_2
+================================================================================
+
+
+### SECTION: WARM START
+----------------------------------------
+
+Q1 (q01) [compound]: Timeline Snapshot
+PROMPT: Before we go deep, give a simple snapshot so we interpret everything in context.
+FIELDS:
+    - how_long_have_you (number): How long have you known each other total
+    - unit (dropdown): Unit
+      - [days] days
+      - [weeks] weeks
+      - [months] months
+      - [years] years
+    - how_long_have_you_been_intentionally_dating_seeing_each_other (number): How long have you been intentionally dating/seeing each other?
+    - unit_2 (dropdown): Unit
+      - [days] days
+      - [weeks] weeks
+      - [months] months
+      - [years] years
+    - about_how_often_do_you_see_each_other_right_now (dropdown): About how often do you see each other right now?
+      - [multiple_timesweek] multiple times/week
+      - [weekly] weekly
+      - [every_other_week] every other week
+      - [rarely_long_distance] rarely/long distance
+      - [varies] varies
+    - notes (free_text): Notes
+
+Q2 (q02) [single_select]: The Notification Reaction
+PROMPT: When their name pops up on your phone, your first micro-reaction is usually:
+OPTIONS:
+    - [warmth_or_smile] warmth or smile
+    - [calm_and_steady] calm and steady
+    - [anxious_or_tight] anxious or tight
+    - [dread_or_avoidance] dread or avoidance
+    - [neutral_or_flat] neutral or flat
+    - [it_depends_lately] it depends lately
+    - [other] other (write in)
+
+Q3 (q03) [single_select]: Post-Date Energy
+PROMPT: After a longer stretch together (a date, an evening, or a day), your energy is usually:
+OPTIONS:
+    - [recharged] recharged
+    - [steady_and_neutral] steady and neutral
+    - [tired_but_happy] tired but happy
+    - [tired_and_stressed] tired and stressed
+    - [varies_a_lot] varies a lot
+    - [not_sure_yet] not sure yet
+    - [other] other (write in)
+
+Q4 (q04) [single_select]: Masking / Filtering
+PROMPT: When you're with them for a long stretch, how much do you feel you have to perform or filter yourself?
+OPTIONS:
+    - [none_im_fully_myself] none, I'm fully myself
+    - [light_filtering_mostly_myself] light filtering, mostly myself
+    - [moderate_filtering_im_careful_about_what_i_say_do] moderate filtering, I'm careful about what I say/do
+    - [heavy_masking_i_feel_like_i_have_to_be_on_to_be_liked] heavy masking, I feel like I have to be on to be liked
+    - [not_sure_yet] not sure yet
+    - [other] other (write in)
+
+Q5 (q05) [compound]: What's Feeling Good
+PROMPT: Let's start with what's working. This matters.
+FIELDS:
+    - 3_things_that_feel_genuinely_good_or_healthy_right_now (free_text): 3 things that feel genuinely good or healthy right now
+    - one_moment_you_felt_especially_safe_cared_for_or_understood (free_text): One moment you felt especially safe, cared for, or understood
+
+
+### SECTION: DEFINING “US”
+----------------------------------------
+
+Q6 (q06) [single_select]: Pace Comfort
+PROMPT: Right now, the pace of the relationship feels:
+OPTIONS:
+    - [comfortably_paced] comfortably paced
+    - [a_little_fast_for_my_nervous_system] a little fast for my nervous system
+    - [too_fast] too fast
+    - [a_little_slow] a little slow
+    - [too_slow] too slow
+    - [it_varies] it varies
+    - [not_sure_yet] not sure yet
+
+Q7 (q07) [single_select]: Current Status (Reality vs Label)
+PROMPT: If a kind stranger asked What are you two?, the most accurate answer is:
+OPTIONS:
+    - [exploring_getting_to_know_each_other] Exploring / getting to know each other
+    - [dating_intentionally_still_open_to_others] Dating intentionally, still open to others
+    - [functionally_exclusive_not_seeing_others_but_undefined] Functionally exclusive (not seeing others), but undefined
+    - [exclusive_and_defined_boyfriend_girlfriend_partner] Exclusive and defined (boyfriend/girlfriend/partner)
+    - [its_complicated] It's complicated
+    - [other] Other (write in)
+
+Q8 (q08) [multi_select]: What DTR Means to Me
+PROMPT: If you define the relationship, what does that specifically mean to you? Select all that fit.
+OPTIONS:
+    - [exclusivity_no_dating_others] Exclusivity (no dating others)
+    - [a_clear_label_boyfriend_girlfriend_partner] A clear label (boyfriend/girlfriend/partner)
+    - [clearer_expectations_and_boundaries] Clearer expectations and boundaries
+    - [increased_consistency_time_communication_follow_through] Increased consistency (time, communication, follow-through)
+    - [deeper_emotional_responsibility_repair_matters_more] Deeper emotional responsibility (repair matters more)
+    - [integrating_lives_friends_family_routines] Integrating lives (friends, family, routines)
+    - [future_intent_becomes_more_explicit] Future intent becomes more explicit (where this is going)
+    - [public_clarity_friends_social_media] Public clarity (friends/social media)
+    - [other] Other (write in)
+
+Q9 (q09) [compound]: Exclusivity Definition (Operational)
+PROMPT: People mean different things by exclusive. What would exclusivity mean to you right now?
+FIELDS:
+    - which_are_part_of_exclusivity_for_you (multi_select): Which are part of exclusivity for you?
+      - [no_dating_other_people] no dating other people
+      - [no_flirtingkeeping_doors_open] no flirting/keeping doors open
+      - [deletingpausing_dating_apps] deleting/pausing dating apps
+      - [transparency_about_close_friendships_that_could_create_confusion] transparency about close friendships that could create confusion
+      - [agreement_on_physical_boundaries] agreement on physical boundaries
+      - [agreement_on_emotional_boundaries_what_counts_as_betrayal] agreement on emotional boundaries (what counts as betrayal)
+      - [other] other (write in)
+    - if_other_describe (short_text): If other, describe
+    - notes (free_text): Notes
+
+Q10 (q10) [compound]: Why This Check-In Now
+PROMPT: What is driving the urge to define things right now? Select any that fit, then rank the ones that matter most.
+FIELDS:
+    - drivers (ranked_select): Drivers
+      - [desire_to_move_forward] desire: I genuinely want to move forward
+      - [safety_need_clarity_to_feel_steady] safety: I need clarity to feel steady
+      - [fear_of_losing_them_or_being_replaced] fear: I'm afraid of losing them or being replaced
+      - [logic_enough_time_has_passed_for_a_decision_point] logic: enough time has passed for a decision point
+      - [discomfort_ambiguity_is_starting_to_hurt] discomfort: the ambiguity is starting to hurt
+      - [pressure_external_pressure_friends_family_age_etc] pressure: external pressure (friends, family, age, etc.)
+      - [spiritual_clarity_or_prompting] spiritual: I feel spiritual clarity or prompting
+      - [other] other (write in)
+    - if_other_describe (short_text): If other, describe
+    - notes (free_text): Notes
+
+Q11 (q11) [compound]: What Should Change After Labeling
+PROMPT: If you define the relationship, what do you believe should change (if anything)?
+FIELDS:
+    - select_any_that_you_expect_to_change (multi_select): Select any that you expect to change
+      - [communication_consistency] communication consistency
+      - [time_together] time together
+      - [emotional_responsibility_and_follow_through] emotional responsibility and follow-through
+      - [physical_sexual_boundaries] physical/sexual boundaries
+      - [clarity_about_exclusivity] clarity about exclusivity
+      - [social_visibility_friends_family_social_media] social visibility (friends/family/social media)
+      - [future_planning] future planning
+      - [nothing_major_should_change_just_clarity] nothing major should change, just clarity
+      - [other] other (write in)
+    - if_other_describe (short_text): If other, describe
+    - notes (free_text): Notes
+
+Q12 (q12) [compound]: Expectations You're Carrying
+PROMPT: Name the expectations you already have, even if you haven't said them out loud.
+FIELDS:
+    - 1-3_expectations (free_text): 1-3 expectations
+    - which_of_these_feel_fair_vs_possibly_unrealistic (free_text): Which of these feel fair vs possibly unrealistic?
+
+
+### SECTION: CLARITY + BOUNDARIES
+----------------------------------------
+
+Q13 (q13) [single_select]: Communication Expectations
+PROMPT: In an ideally healthy defined relationship, communication consistency would look like:
+OPTIONS:
+    - [light_and_flexible_communication] light and flexible, no pressure
+    - [steady_but_simple_communication_a_basic_daily_touchpoint] steady but simple (a basic daily touchpoint)
+    - [consistent_and_connected_communication_regular_check_ins_predictable_rhythm] consistent and connected (regular check-ins, predictable rhythm)
+    - [highly_integrated_communication_frequent_contact_shared_planning] highly integrated (frequent contact, shared planning)
+    - [not_sure_yet] not sure yet
+    - [other] other (write in)
+
+Q14 (q14) [single_select]: Exclusivity Reality Check
+PROMPT: Right now, are you exclusive?
+OPTIONS:
+    - [yes] yes
+    - [no] no
+    - [not_sure] not sure
+    - [we_havent_defined_it] we haven't defined it
+    - [its_complicated] it's complicated
+
+Q15 (q15) [compound]: Exclusivity Safety and Stability
+PROMPT: If exclusivity is involved (or hoped for), how steady does it feel right now?
+FIELDS:
+    - steadiness (single_select): Steadiness
+      - [very_steady] very steady
+      - [mostly_steady] mostly steady
+      - [unclear] unclear
+      - [not_steady] not steady
+      - [not_applicable] not applicable
+    - what_makes_it_feel_clear (free_text): What makes it feel clear
+    - what_makes_it_feel_unclear (free_text): What makes it feel unclear
+
+Q16 (q16) [compound]: Boundaries and Pace Compatibility
+PROMPT: Right now, do your boundaries and pacing feel compatible?
+FIELDS:
+    - emotional_pace (single_select): Emotional pace
+      - [aligned] aligned
+      - [slightly_mismatched] slightly mismatched
+      - [mismatched] mismatched
+      - [not_sure_yet] not sure yet
+    - physical_pace (single_select): Physical pace
+      - [aligned] aligned
+      - [slightly_mismatched] slightly mismatched
+      - [mismatched] mismatched
+      - [not_sure_yet] not sure yet
+    - communication_pace (single_select): Communication pace
+      - [aligned] aligned
+      - [slightly_mismatched] slightly mismatched
+      - [mismatched] mismatched
+      - [not_sure_yet] not sure yet
+    - time_availability_pace (single_select): Time/availability pace
+      - [aligned] aligned
+      - [slightly_mismatched] slightly mismatched
+      - [mismatched] mismatched
+      - [not_sure_yet] not sure yet
+    - notes (free_text): Notes
+
+Q17 (q17) [single_select]: Integration Pace
+PROMPT: The pace of integrating lives (friends, family, routines, church/community visibility if applicable) feels:
+OPTIONS:
+    - [healthy_and_comfortable] healthy and comfortable
+    - [a_little_fast_for_my_nervous_system] a little fast for my nervous system
+    - [too_fast] too fast
+    - [a_little_slow] a little slow
+    - [too_slow] too slow
+    - [varies] varies
+    - [not_sure_yet] not sure yet
+
+Q18 (q18) [single_select]: Daily Operating Systems
+PROMPT: How do your day-to-day rhythms (sleep, cleanliness, pace, planning vs spontaneity, chaos tolerance) fit?
+OPTIONS:
+    - [seamless_very_similar] seamless, very similar
+    - [different_but_complementary] different but complementary
+    - [workable_with_some_coordination] workable with some coordination
+    - [frequent_friction] frequent friction
+    - [likely_a_major_clash] likely a major clash
+    - [not_sure_yet] not sure yet
+    - [other] other (write in)
+
+
+### SECTION: SAFETY + TRUST
+----------------------------------------
+
+Q19 (q19) [compound]: The Pink Flag Check (Chemistry Filter)
+PROMPT: Is there something you're minimizing because the chemistry is strong? You can keep it high-level.
+FIELDS:
+    - are_you_ignoring_a_small_but_real_concern (single_select): Are you ignoring a small-but-real concern?
+      - [no] no
+      - [yes] yes
+      - [unsure] unsure
+    - if_yesunsure (single_select): If yes/unsure
+      - [communication_style] communication style
+      - [conflict_behavior] conflict behavior
+      - [faith_values] faith/values
+      - [boundaries_sexual_pace] boundaries/sexual pace
+      - [jealousy_insecurity] jealousy/insecurity
+      - [ambition_work_ethic] ambition/work ethic
+      - [money_habits] money habits
+      - [cleanliness_lifestyle] cleanliness/lifestyle
+      - [ex_boundaries] ex-boundaries
+      - [family_involvement] family involvement
+      - [other] other
+      - [prefer_not_to_say] prefer not to say
+    - optional_context (free_text): Optional context
+
+Q20 (q20) [compound]: Emotional Safety
+PROMPT: Do you feel emotionally safe being fully honest with this person?
+FIELDS:
+    - safety_level (single_select): Safety level
+      - [yes] yes
+      - [mostly] mostly
+      - [sometimes] sometimes
+      - [not_really] not really
+      - [not_sure_yet] not sure yet
+    - what_makes_it_feel_safe (free_text): What makes it feel safe
+    - what_makes_it_feel_less_safe (free_text): What makes it feel less safe
+
+Q21 (q21) [single_select]: Eggshells Check
+PROMPT: Do you feel you have to manage their emotions to keep peace?
+OPTIONS:
+    - [no] no
+    - [sometimes] sometimes
+    - [often] often
+    - [yes_regularly] yes, regularly
+    - [not_sure_yet] not sure yet
+
+Q22 (q22) [compound]: Felt Respect
+PROMPT: Do you feel consistently respected in tone, effort, honesty, and boundaries?
+FIELDS:
+    - respect_level (single_select): Respect level
+      - [yes] yes
+      - [mostly] mostly
+      - [mixed] mixed
+      - [not_really] not really
+      - [not_sure_yet] not sure yet
+    - one_thing_that_feels_respectful (short_text): One thing that feels respectful
+    - one_thing_that_doesnt_feel_respectful (short_text): One thing that doesn't
+
+
+### SECTION: CONFLICT + REPAIR
+----------------------------------------
+
+Q23 (q23) [single_select]: Emotional Regulation Effect
+PROMPT: Overall, this relationship tends to make your nervous system feel:
+OPTIONS:
+    - [more_regulated_and_grounded] more regulated and grounded
+    - [more_open_and_hopeful] more open and hopeful
+    - [more_anxious_activated] more anxious/activated
+    - [more_shut_down_numb] more shut down/numb
+    - [mixed] mixed
+    - [not_sure_yet] not sure yet
+
+Q24 (q24) [single_select]: Conflict Pattern
+PROMPT: When tension shows up, which pattern is most true right now?
+OPTIONS:
+    - [we_talk_and_repair] we talk and repair
+    - [we_avoid_it] we avoid it
+    - [one_of_us_shuts_down] one of us shuts down
+    - [it_escalates_then_cools_off] it escalates then cools off
+    - [we_go_distant] we go distant
+    - [not_enough_conflict_yet_to_know] not enough conflict yet to know
+    - [other] other (write in)
+
+Q25 (q25) [single_select]: Repair Reliability
+PROMPT: After a hard moment, you usually feel:
+OPTIONS:
+    - [more_connected] more connected
+    - [about_the_same] about the same
+    - [a_little_less_safe] a little less safe
+    - [more_distant] more distant
+    - [it_varies] it varies
+    - [not_sure_yet] not sure yet
+
+Q26 (q26) [compound]: Hard Topics Avoidance
+PROMPT: Is there anything you're avoiding because it might change the relationship? You don't need to share details, just the category.
+FIELDS:
+    - categories (multi_select): Categories
+      - [values] values
+      - [faith_spirituality] faith/spirituality
+      - [sex_physical_boundaries] sex/physical boundaries
+      - [exes] exes
+      - [money] money
+      - [kids] kids
+      - [timeline_commitment] timeline/commitment
+      - [emotional_needs] emotional needs
+      - [mental_health] mental health
+      - [family_involvement] family involvement
+      - [other] other
+      - [none] none
+    - if_other_describe (short_text): If other, describe
+    - notes (free_text): Notes
+
+
+### SECTION: ALIGNMENT + RED FLAGS
+----------------------------------------
+
+Q27 (q27) [compound]: Not-Okay Conflict Behaviors (and what to do)
+PROMPT: Which conflict behaviors are not okay for you, and what should happen if one occurs?
+FIELDS:
+    - not_okay (multi_select): Not okay
+      - [yelling] yelling
+      - [insults_namecalling] insults/name-calling
+      - [stonewalling] stonewalling
+      - [threats] threats
+      - [contempt_sarcasm] contempt/sarcasm
+      - [manipulation] manipulation
+      - [jealousy_control] jealousy control
+      - [privacy_violations] privacy violations
+      - [sexual_pressure] sexual pressure
+      - [breaking_objects_intimidation] breaking objects/intimidation
+      - [other] other
+    - if_other_describe (short_text): If other, describe
+    - if_one_happens_what_should_the_immediate_response_be (free_text): If one happens, what should the immediate response be?
+
+Q28 (q28) [compound]: Values Alignment (Real-Life, Not Theory)
+PROMPT: Do your core values feel aligned in real life right now?
+FIELDS:
+    - overall_alignment (single_select): Overall alignment
+      - [aligned] aligned
+      - [mostly_aligned] mostly aligned
+      - [mixed] mixed
+      - [misaligned] misaligned
+      - [not_sure_yet] not sure yet
+    - 1-2_values_that_feel_aligned (short_text): 1-2 values that feel aligned
+    - 1-2_values_that_feel_uncertain (short_text): 1-2 values that feel uncertain
+
+Q29 (q29) [single_select]: The Hope It Changes Check
+PROMPT: Are you hoping something important will change if you commit?
+OPTIONS:
+    - [no] no
+    - [yes] yes
+    - [unsure] unsure
+
+Q30 (q30) [free_text]: What You Hope Would Change
+PROMPT: If yes or unsure: what are you hoping will change? (1-3 sentences)
+
+Q31 (q31) [single_select]: Self-Editing Check
+PROMPT: Around them, you feel:
+OPTIONS:
+    - [more_myself] more myself
+    - [mostly_myself] mostly myself
+    - [somewhat_edited] somewhat edited
+    - [heavily_edited] heavily edited
+    - [not_sure_yet] not sure yet
+
+
+### SECTION: DESIRE VS ANXIETY
+----------------------------------------
+
+Q32 (q32) [compound]: The Quiet Dealbreaker
+PROMPT: Is there a potential dealbreaker you're trying not to look at yet? You don't have to name details.
+FIELDS:
+    - is_there_a_potential_dealbreaker (single_select): Is there a potential dealbreaker?
+      - [no] no
+      - [yes] yes
+      - [unsure] unsure
+    - category (single_select): Category
+      - [values] values
+      - [faith] faith
+      - [sexual_boundaries] sexual boundaries
+      - [honesty_and_trust] honesty and trust
+      - [emotional_availability] emotional availability
+      - [anger_conflict_behavior] anger/conflict behavior
+      - [life_direction] life direction
+      - [kids] kids
+      - [other] other
+      - [prefer_not_to] prefer not to say
+    - notes (free_text): Notes
+
+Q33 (q33) [single_select]: What's Driving DTR Urgency
+PROMPT: Which is most true right now?
+OPTIONS:
+    - [grounded_desire] grounded desire
+    - [anxiety_and_need_for_certainty] anxiety and need for certainty
+    - [both] both
+    - [neither] neither
+    - [not_sure_yet] not sure yet
+
+Q34 (q34) [compound]: Your Body's Answer
+PROMPT: When you imagine being officially committed to them, your body feels:
+FIELDS:
+    - body_signal (single_select): Body signal
+      - [calm_settled] calm/settled
+      - [excited_energized] excited/energized
+      - [tight_uneasy] tight/uneasy
+      - [numb_flat] numb/flat
+      - [mixed] mixed
+      - [not_sure_yet] not sure yet
+    - in_one_sentence_why (short_text): In one sentence, why?
+
+
+### SECTION: DECISION READINESS
+----------------------------------------
+
+Q35 (q35) [single_select]: If They Wanted to Wait
+PROMPT: If they said not yet, you would mostly feel:
+OPTIONS:
+    - [understanding] understanding
+    - [hurt] hurt
+    - [relief] relief
+    - [anxious] anxious
+    - [angry] angry
+    - [mixed] mixed
+    - [not_sure_yet] not sure yet
+
+Q36 (q36) [single_select]: Lean Today
+PROMPT: If you had to choose today, you would most want to:
+OPTIONS:
+    - [define_the_relationship_now] define the relationship now
+    - [move_toward_defining_it_but_not_yet] move toward defining it, but not yet
+    - [keep_it_undefined_for_a_while] keep it undefined for a while
+    - [step_back_or_end_it] step back or end it
+    - [unsure] unsure
+
+Q37 (q37) [compound]: Readiness Score (Now)
+PROMPT: On a scale of 1-10, how ready are you to define the relationship?
+FIELDS:
+    - readiness_score_1_not_ready_10_is_ready (number): Readiness score (1 = not ready at all, 10 = ready and at peace)
+    - why_that_number (short_text): Why that number?
+    - what_would_raise_it (free_text): What would raise it by 1-2 points?
+
+Q38 (q38) [multi_select]: What You Still Need
+PROMPT: What do you still need to decide cleanly? Select any.
+OPTIONS:
+    - [more_time] more time
+    - [a_hard_conversation] a hard conversation
+    - [behavioral_consistency] behavioral consistency
+    - [repair_and_conflict_stability] repair and conflict stability
+    - [emotional_safety] emotional safety
+    - [clarity_about_exclusivity] clarity about exclusivity
+    - [faith_spiritual_alignment] faith/spiritual alignment
+    - [meet_friends_family] meet friends/family
+    - [time_availability_clarity] time availability clarity
+    - [other] other (write in)
+
+Q39 (q39) [free_text]: Healthy Yes Requirements
+PROMPT: For a healthy yes, what must be true? (Up to 3 bullet points)
+
+Q40 (q40) [free_text]: Healthy No / Not Yet Next Step
+PROMPT: If the answer is no or not yet, what would the most respectful next step look like for you?
+
+
+### SECTION: FAITH + SPIRITUAL ALIGNMENT
+----------------------------------------
+
+Q41 (q41) [compound]: The Honesty Check
+PROMPT: Is there a part of you that already knows your answer but is afraid to admit it?
+FIELDS:
+    - choice (single_select): Options
+      - [no] no
+      - [yes] yes
+      - [unsure] unsure
+    - if_yes_unsure (short_text): If yes/unsure
+
+Q42 (q42) [single_select]: Faith Relevance
+PROMPT: How relevant is faith/spiritual life to your relationship decisions?
+OPTIONS:
+    - [central] central
+    - [important] important
+    - [somewhat_relevant] somewhat relevant
+    - [not_relevant] not relevant
+
+Q43 (q43) [compound]: Spiritual Integrity
+PROMPT: If faith matters to you: does this relationship support or strain your spiritual integrity right now?
+FIELDS:
+    - choice (single_select): Options
+      - [supports] supports
+      - [strains] strains
+      - [mixed] mixed
+      - [not_sure] not sure
+    - in_what_way (free_text): In what way?
+
+
+### SECTION: SUPPORT PREFERENCES
+----------------------------------------
+
+Q44 (q44) [multi_select]: Faith-Based Expectations / Standards
+PROMPT: If applicable, which faith-based expectations matter for defining the relationship? Select any.
+OPTIONS:
+    - [shared_worship_church_life] shared worship/church life
+    - [sexual_standards_boundaries_eg_chastity_expectations] sexual standards/boundaries (e.g., chastity expectations)
+    - [word_of_wisdom_style_alignment_substances] Word of Wisdom style alignment (substances)
+    - [sabbath_day_approach] Sabbath day approach
+    - [temple_covenant_direction_if_applicable] temple/covenant direction (if applicable)
+    - [tithing_generosity_and_stewardship_approach] tithing/generosity and stewardship approach
+    - [roles_leadership_expectations] roles/leadership expectations
+    - [family_integration_expectation] family integration expectations
+    - [none] none
+    - [other] other (write in)
+
+Q45 (q45) [single_select]: Guidance Style Preference
+PROMPT: When receiving guidance (human or AI), you prefer it to be:
+OPTIONS:
+    - [gentle_and_validating] gentle and validating
+    - [direct_and_honest] direct and honest
+    - [structured_and_practical] structured and practical
+    - [reflective_and_exploratory] reflective and exploratory
+    - [a_mix] a mix
+    - [not_sure_yet] not sure yet
+
+Q46 (q46) [single_select]: Challenge vs Comfort Dial
+PROMPT: Right now, do you want to be challenged, comforted, or both?
+OPTIONS:
+    - [mostly_challenged] mostly challenged
+    - [mostly_comforted] mostly comforted
+    - [both] both
+    - [not_sure] not sure
+
+Q47 (q47) [multi_select]: What You Most Want Help With
+PROMPT: What do you most want help seeing clearly right now?
+OPTIONS:
+    - [my_feelings] my feelings
+    - [their_signals] their signals
+    - [my_readiness] my readiness
+    - [expectations_and_boundaries] expectations and boundaries
+    - [conflict_repair] conflict/repair
+    - [values_faith_alignment] values/faith alignment
+    - [making_the_decision] making the decision
+    - [having_the_conversation] having the conversation
+    - [other] other (write in)
+
+Q48 (q48) [single_select]: Privacy Preference for Outputs
+PROMPT: How private do you want your results and recommendations to be?
+OPTIONS:
+    - [just_for_me] just for me
+    - [shareable_summary] shareable summary
+    - [shareable_full_output] shareable full output
+    - [not_sure_yet] not sure yet

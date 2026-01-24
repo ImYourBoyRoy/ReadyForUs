@@ -1,0 +1,459 @@
+================================================================================
+PHASE: PHASE_1.5
+================================================================================
+
+
+### SECTION: How We Want This To Feel
+----------------------------------------
+
+Q1 (q01) [multi_select]: Why I'm dating (right now)
+PROMPT: At this phase, I am dating because (choose any):
+OPTIONS:
+    - [exploration] Exploration
+    - [discernment] Discernment
+    - [emotional_connection] Emotional connection
+    - [long_term_potential] Long-term potential
+    - [companionship] Companionship
+    - [other] Other (write in)
+
+Q2 (q02) [multi_select]: What feels comfortable right now
+PROMPT: Right now, I feel most comfortable when dating feels (choose any):
+OPTIONS:
+    - [slow_intentional] Slow and intentional
+    - [warm_not_intense] Warm but not intense
+    - [structured_flexible] Structured but flexible
+    - [playful_light] Playful and light
+    - [clear_predictable] Clear and predictable
+
+Q3 (q03) [free_text]: Too slow (for me)
+PROMPT: A pace that would feel too slow for me right now would look like:
+
+Q4 (q04) [free_text]: Too fast (for me)
+PROMPT: A pace that would feel too fast for me right now would look like:
+
+Q5 (q05) [compound]: Review point for clarity
+PROMPT: A healthy review point to revisit clarity (expectations, pacing, and whether we want a label) would be:
+FIELDS:
+    - scope (multi_select): What do you want this review to cover? (choose any)
+      - [expectations] Expectations (communication, time, affection)
+      - [focus_agreement] Confirm or adjust our “focused on each other” agreement
+      - [labels] Labels (boyfriend/girlfriend, etc.)
+      - [publicness] Public-ness / PDA around friends
+      - [future_talk] How much future-talk feels good
+    - review_type (single_select): Choose one
+      - [after_more_dates] After ___ more dates
+      - [after_weeks] After ___ weeks
+      - [after_milestone] After a milestone
+      - [when_natural_sign] When it feels natural and I notice a sign
+    - number_value (number): How many?
+    - milestone_text (short_text): What milestone?
+    - natural_sign_text (short_text): What sign would you notice?
+
+
+### SECTION: How We Stay Connected
+----------------------------------------
+
+Q6 (q06) [compound]: Check-in cadence
+PROMPT: Ideal cadence and format for intentional check-ins:
+FIELDS:
+    - frequency (single_select): How often?
+      - [weekly_10] Weekly (10 minutes)
+      - [biweekly_20] Bi-weekly (15-20 minutes)
+      - [as_needed] As needed / organic
+    - format (single_select): Preferred format (choose one)
+      - [in_person] In person
+      - [call] Phone/voice
+      - [text_then_talk] Text first, then talk
+      - [walk_and_talk] Walk/drive + talk
+      - [flexible] Flexible
+    - trigger_rule (single_select): If something feels off, when do we talk about it? (choose one)
+      - [same_day] Same day (brief)
+      - [within_24h] Within 24 hours
+      - [within_48h] Within 48 hours
+      - [next_checkin] At the next check-in (unless urgent)
+
+Q7 (q07) [compound]: Overwhelm pattern
+PROMPT: When I feel unsure or overwhelmed, I tend to (choose any) AND the best way to respond is:
+FIELDS:
+    - patterns (multi_select): What I tend to do (choose any)
+      - [pull_inward] Pull inward
+      - [ask_questions] Ask questions
+      - [get_quiet] Get quiet
+      - [seek_reassurance] Seek reassurance
+      - [act_normal_anxious] Act normal while feeling anxious
+      - [overthink] Overthink and analyze
+    - best_response (short_text): Best response from you (1-2 sentences)
+    - do_not_assume (short_text): Please do NOT assume this means (optional)
+
+Q8 (q08) [compound]: What safety means
+PROMPT: When I feel safe with you, it usually means (choose any) AND in my own words:
+FIELDS:
+    - selected_values (multi_select): Choose any that fit
+      - [not_rushed] I do not feel rushed
+      - [emotionally_seen] I feel emotionally seen
+      - [physically_respected] I feel physically respected
+      - [chosen_no_pressure] I feel chosen without pressure
+      - [free_change_mind] I feel free to change my mind
+      - [conflict_not_abandonment] Conflict or discomfort won’t mean sudden abandonment
+      - [other] Other (write in)
+    - other_text (short_text): Other (if selected)
+    - plain_language (short_text): In my own words, “safe” means:
+    - notes (free_text): Notes (optional)
+
+
+### SECTION: How We Care For Each Other
+----------------------------------------
+
+Q9 (q09) [compound]: Support when stressed
+PROMPT: When I'm stressed, what helps most from you is:
+FIELDS:
+    - selected_values (multi_select): Choose any that fit
+      - [listen_no_fix] Listen without fixing
+      - [offer_help] Offer help
+      - [ask_need] Ask what I need
+      - [give_space] Give space
+      - [provide_reassurance] Provide reassurance
+      - [light_grounding] Shift to something light and grounding
+      - [other] Other (write in)
+    - other_text (short_text): Other (if selected)
+    - one_thing (short_text): If you only do one thing, do this:
+    - do_not (short_text): When I'm stressed, please avoid:
+    - notes (free_text): Notes (optional)
+
+Q10 (q10) [single_select]: How to share the past
+PROMPT: When we talk about past relationships, I prefer:
+OPTIONS:
+    - [full_transparency] Full transparency
+    - [high_level] High-level summaries
+    - [only_relevant] Only if relevant to the present
+    - [slow_over_time] Slowly over time as trust builds
+
+
+### SECTION: Affection That Feels Good
+----------------------------------------
+
+Q11 (q11) [multi_select]: Affection that feels best right now
+PROMPT: Right now, the forms of affection that feel best to my nervous system are (choose any):
+OPTIONS:
+    - [subtle_touch] Subtle touch
+    - [hand_holding] Hand holding
+    - [forehead_nose] Forehead or nose contact
+    - [cuddling] Cuddling
+    - [kissing] Kissing
+    - [verbal_affection] Verbal affection
+    - [other] Other (write in)
+
+Q12 (q12) [compound]: Approach for a kiss
+PROMPT: If you want to kiss me, the best approach is (choose one) plus what helps me feel safe in the moment:
+FIELDS:
+    - approach (single_select): Choose one
+      - [ask_directly] Ask directly
+      - [soft_checkin] Soft check-in ("I'd love to kiss you")
+      - [nonverbal_pause] Nonverbal cue / pause and let me close the gap
+      - [other] Other (write in)
+    - preferred_words (short_text): Words that land well for me (optional)
+    - if_not_yet (short_text): If I say 'not yet', the best next move is (optional)
+
+Q13 (q13) [compound]: Overwhelm signs and best response
+PROMPT: If I start feeling overwhelmed during affection, my likely signs are (choose any). Then write the best response from you:
+FIELDS:
+    - signs (multi_select): Likely signs (choose any)
+      - [quiet] I get quiet
+      - [stiff] I go still or stiff
+      - [smile_distant] I smile but seem distant
+      - [disconnect_after] I disconnect afterward
+      - [overly_agreeable] I become overly agreeable
+      - [other] Other (write in)
+    - other_signs_text (short_text): Describe your other signs
+    - best_response_text (free_text): Best response from you
+
+
+### SECTION: In Public and In Private
+----------------------------------------
+
+Q14 (q14) [single_select]: Group settings preference
+PROMPT: In group settings (friends, etc.), I prefer we:
+OPTIONS:
+    - [quiet_unit] Act as a quiet unit
+    - [separate_reconnect_end] Mostly socialize separately and reconnect at the end
+    - [subtle_checkins] Subtle check-ins throughout
+    - [physically_subtle_emotionally_aligned] Physically subtle but emotionally aligned
+    - [other] Other (write in)
+
+Q15 (q15) [compound]: Initiative and leadership
+PROMPT: Initiative feels best when (choose one), then add a short explanation so I can do it the way you actually mean it:
+FIELDS:
+    - selected_value (single_select): Choose one
+      - [you_more] You plan/initiate more
+      - [me_more] I plan/initiate more
+      - [fifty_fifty] It is 50/50
+      - [context_dependent] It depends on the moment
+    - what_it_means (short_text): Explain what you mean (1-2 sentences):
+    - examples_in_practice (short_text): One example that would feel great (optional):
+    - notes (free_text): Notes or nuances (optional):
+
+Q16 (q16) [free_text]: Chosen without pressure
+PROMPT: Something that helps me feel chosen without feeling pressured is:
+
+
+### SECTION: What We're Building
+----------------------------------------
+
+Q17 (q17) [free_text]: A fear I'm willing to name
+PROMPT: A fear I have about dating right now (that I'm willing to name) is:
+
+Q18 (q18) [free_text]: How we treat this connection
+PROMPT: One sentence that describes how I want us to treat this connection is:
+
+
+### SECTION: What We Believe and Value
+----------------------------------------
+
+Q19 (q19) [compound]: Top values (choose up to 5)
+PROMPT: Select and rank the values that feel most important to you in a relationship right now (up to 5). Drag to reorder by priority (top = most important).
+FIELDS:
+    - values_ranked (ranked_select): Select and rank your top values (top = most important)
+      - [faith] Faith
+      - [family] Family
+      - [growth] Growth / learning
+      - [service] Service
+      - [stability] Stability
+      - [adventure] Adventure
+      - [humor] Humor
+      - [emotional_safety] Emotional safety
+      - [integrity] Integrity
+      - [play] Play / fun
+      - [respect] Respect
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): Why these values matter most right now
+
+Q20 (q20) [multi_select]: Faith and church alignment
+PROMPT: At this stage, faith/church shows up best for me as (choose any):
+OPTIONS:
+    - [mutual_support] Mutual support (no pressure, just encouragement)
+    - [shared_practices] Shared practices (prayer, scripture, church activities)
+    - [talk_about_it_lightly] Light conversation, keep it warm and simple
+    - [separate_but_respectful] Separate practices but respectful
+    - [temple_alignment] Temple alignment matters to me
+    - [other] Other (write in)
+
+Q21 (q21) [single_select]: Physical boundaries and standards (right now)
+PROMPT: Right now, I want our physical boundaries to feel:
+OPTIONS:
+    - [very_clear] Very clear and explicitly discussed
+    - [clear_enough] Clear enough with gentle check-ins
+    - [slow_by_default] Slow by default; revisit if/when needed
+    - [prefer_not_to_detail] I prefer not to detail everything, but I will say 'not yet' when needed
+
+Q22 (q22) [multi_select]: What “defining the relationship” means to me
+PROMPT: When we eventually define the relationship, for me that mainly means (choose any):
+OPTIONS:
+    - [exclusive] We're exclusive (not dating others)
+    - [public_label] We use a public label (boyfriend/girlfriend, etc.)
+    - [future_intent] We're intentionally exploring long-term potential
+    - [routine_integration] We're building routines and consistency
+    - [family_introductions] We start introducing family intentionally
+    - [other] Other (write in)
+
+Q23 (q23) [single_select]: Future talk pacing
+PROMPT: Future talk (marriage/kids/life plans) feels best to me when:
+OPTIONS:
+    - [almost_none_now] Almost none right now; keep it present-focused
+    - [high_level_only] High-level only (values and direction, not timelines)
+    - [as_it_comes] As it naturally comes up, with no pressure
+    - [structured_checkpoint] At a structured checkpoint (after X weeks/dates)
+    - [other] Other (write in)
+
+Q24 (q24) [single_select]: Roles and leadership expectations
+PROMPT: In a healthy relationship, I'm happiest when leadership looks like:
+OPTIONS:
+    - [shared] Shared leadership (both initiate, both carry load)
+    - [complementary] Complementary leadership (each leads where strong)
+    - [one_leads_more] One tends to lead more, the other supports more
+    - [depends_on_context] It depends on context (workload, season of life, stress)
+    - [unsure] Not sure yet; I want to learn this slowly
+
+
+### SECTION: Repair and Reconnection
+----------------------------------------
+
+Q25 (q25) [multi_select]: My conflict style under stress
+PROMPT: When I'm stressed or hurt, I tend to (choose any):
+OPTIONS:
+    - [withdraw] Withdraw / go quiet
+    - [analyze] Analyze / problem-solve
+    - [seek_closeness] Seek closeness and reassurance
+    - [get_defensive] Get defensive
+    - [overexplain] Over-explain
+    - [cry] Cry / get emotional
+    - [other] Other (write in)
+
+Q26 (q26) [multi_select]: What helps me de-escalate
+PROMPT: If we feel tension, the fastest way for me to calm down is (choose any):
+OPTIONS:
+    - [short_break] A short break (10-30 minutes)
+    - [physical_grounding] Physical grounding (walk, breathe, hold hands if safe)
+    - [validation_first] Validation first, then problem-solving
+    - [facts_only] Facts-only for a moment (no big emotions)
+    - [humor_lightness] A little humor/lightness
+    - [sleep_then_talk] Sleep, then talk
+    - [other] Other (write in)
+
+Q27 (q27) [compound]: Apology and repair language
+PROMPT: Select and rank what makes an apology most meaningful to you. Drag to reorder by importance (top = most important).
+FIELDS:
+    - apology_preferences_ranked (ranked_select): Select and rank (top = most important)
+      - [acknowledgment] Clear acknowledgment of impact
+      - [ownership] Ownership without excuses
+      - [reassurance] Reassurance of care/commitment
+      - [plan] A plan to do better next time
+      - [action] A corrective action (small behavior change)
+      - [time] Time and patience
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): What makes an apology feel genuine to you?
+
+Q28 (q28) [compound]: Not-okay conflict behaviors
+PROMPT: Conflict behaviors that are NOT okay for me (choose any) AND what I want us to do if one happens:
+FIELDS:
+    - not_okay (multi_select): Not okay (choose any)
+      - [name_calling] Name-calling or contempt
+      - [silent_treatment] Silent treatment / stonewalling
+      - [threatening_breakup] Threatening breakup to win an argument
+      - [public_shaming] Public shaming
+      - [yelling] Yelling
+      - [bringing_up_past] Using the past as a weapon
+      - [other] Other (write in)
+    - in_the_moment_boundary (short_text): In the moment, I want us to (optional)
+    - repair_preference (short_text): Repair preference after (optional)
+
+Q29 (q29) [compound]: Heavy topics boundaries
+PROMPT: When discussing heavy topics (past, trauma, sensitive history), select and rank your preferences. Drag to reorder by importance (top = most important).
+FIELDS:
+    - boundaries_ranked (ranked_select): Select and rank (top = most important)
+      - [slow_with_checkins] Slow with frequent check-ins
+      - [structured_window] Structured window (time box), then stop
+      - [only_when_stable] Only when we're both stable/rested
+      - [as_needed] As needed, but pause at first overwhelm
+      - [prep_time] I need heads-up before heavy topics
+      - [debrief_after] Debrief/reconnect after hard conversations
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): What helps you stay regulated during hard conversations?
+
+Q30 (q30) [multi_select]: Preferred repair ritual
+PROMPT: After a tough moment, the best 'repair ritual' for us would be (choose any):
+OPTIONS:
+    - [reconnect_touch] Reconnect with gentle touch (if both want)
+    - [short_summary] A short summary of what we learned
+    - [clear_next_step] One clear next step
+    - [prayer] Prayer or spiritual reset (if desired)
+    - [date_reset] A simple 'date reset' (walk/dessert)
+    - [humor] Light humor when appropriate
+    - [other] Other (write in)
+
+
+### SECTION: Rhythm and Real Life
+----------------------------------------
+
+Q31 (q31) [compound]: Ideal cadence for seeing each other (right now)
+PROMPT: Right now, a healthy cadence for seeing each other would be:
+FIELDS:
+    - selected_value (single_select): Choose one
+      - [1x_week] About 1x/week
+      - [2x_week] About 2x/week
+      - [3x_week] About 3x/week
+      - [varies] Varies week to week (schedule-based)
+      - [other] Other (write in)
+    - varies_text (short_text): Describe your schedule
+    - other_text (short_text): Please describe
+
+Q32 (q32) [compound]: Communication channel preferences
+PROMPT: At this stage, I prefer communication to be mostly:
+FIELDS:
+    - selected_value (single_select): Choose one
+      - [text_light] Texting (light and warm)
+      - [calls] Calls/voice notes
+      - [in_person_best] Mostly in-person; minimal phone
+      - [mix] A mix
+      - [other] Other (write in)
+    - mix_template (single_select): Pick a starting template (optional)
+      - [texts_plus_call_before_date] Light texts + one call before dates
+      - [texts_daily_calls_weekly] Texts most days + one call weekly
+      - [texts_only_between_dates] Mostly in-person; texts only to coordinate
+      - [voice_notes_over_calls] Voice notes > calls
+      - [varies] Varies week to week
+    - mix_details (short_text): What does your mix look like? (1-2 sentences)
+    - other_text (short_text): Please describe
+    - notes (free_text): Notes (optional)
+
+Q33 (q33) [compound]: Privacy and sharing boundaries
+PROMPT: Regarding sharing our relationship with friends/social media, I prefer:
+FIELDS:
+    - selected_value (single_select): Choose one
+      - [private] Keep it private for now
+      - [friends_only] Friends-only, low-key
+      - [open] Open and normal (no secrecy)
+      - [depends] Depends on context
+      - [other] Other (write in)
+    - depends_text (short_text): Explain the context
+    - other_text (short_text): Please describe
+
+Q34 (q34) [single_select]: Pace of integration (friends/family)
+PROMPT: Introducing deeper parts of life (close friends, family, routines) feels best when:
+OPTIONS:
+    - [slow] Slow and gradual
+    - [as_natural] As it naturally happens
+    - [after_exclusive] After exclusivity
+    - [after_time] After a bit of time (weeks/months)
+    - [other] Other (write in)
+
+Q35 (q35) [compound]: Jealousy triggers (if any)
+PROMPT: When I feel jealousy or insecurity, it's usually triggered by (choose any) AND what helps me most is:
+FIELDS:
+    - triggers (multi_select): Triggers (choose any)
+      - [ambiguous_plans] Ambiguous plans or mixed signals
+      - [friend_closeness] Seeing closeness with a friend
+      - [past_partners] Mentions of past partners
+      - [social_media] Social media interactions
+      - [sudden_distance] Sudden emotional distance
+      - [other] Other (write in)
+    - what_helps (short_text): What helps most from you (1-2 sentences)
+    - what_to_avoid (short_text): What to avoid (optional)
+
+
+### SECTION: Feeling Secure Together
+----------------------------------------
+
+Q36 (q36) [compound]: What reassurance works best
+PROMPT: Select and rank what helps most when you're feeling insecure. Drag to reorder by importance (top = helps most).
+FIELDS:
+    - reassurance_ranked (ranked_select): Select and rank (top = helps most)
+      - [clear_words] Clear words ("I like you, I'm here")
+      - [plans] Concrete plans/time together
+      - [gentle_touch] Gentle touch/affection (if safe)
+      - [transparency] Transparency (what's going on, no ambiguity)
+      - [space_then_return] Space, then re-connection
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): Context about what helps vs. what doesn't
+
+Q37 (q37) [single_select]: Exclusivity boundary preference
+PROMPT: At this stage, exclusivity feels healthiest when:
+OPTIONS:
+    - [not_yet] Not yet; we keep it open while exploring
+    - [focus_without_label] We focus on each other without a formal label
+    - [exclusive_now] We explicitly agree to be exclusive now
+    - [at_checkpoint] We decide at the review point (from earlier)
+    - [other] Other (write in)
+
+Q38 (q38) [multi_select]: Boundaries with other connections
+PROMPT: While we're exploring this, healthy boundaries with other people look like (choose any):
+OPTIONS:
+    - [no_dating_apps] No dating apps
+    - [no_1on1_dates] No 1-on-1 dates with romantic intent
+    - [transparent_if_contacted] Transparency if someone pursues us
+    - [friends_ok] Friendships are fine; we keep them respectful
+    - [avoid_flirty_texting] Avoid flirty texting with others
+    - [other] Other (write in)

@@ -1,0 +1,26 @@
+graph TD
+    subgraph File System
+        MF[manifest.json]
+    end
+
+    subgraph DataLoader
+        LP["loadPhases()"]
+        L["load()"]
+        Cache[state.manifest]
+    end
+
+    subgraph UI Components
+        Dash[Dashboard Card]
+        Welcome[Welcome Page]
+        AI[AI Privacy Warning]
+    end
+
+    MF -- "Display Info" --> LP
+    MF -- "Full Content" --> L
+    L --> Cache
+
+    Cache -- ".intro (instructions, keep_in_mind)" --> Welcome
+    Cache -- ".artifact (title, subtitle)" --> Welcome
+    Cache -- ".display (title, icon)" --> Dash
+    Cache -- ".artifact.stage (label, eligibility)" --> Dash
+    Cache -- ".privacy_preface" --> AI

@@ -1,0 +1,826 @@
+================================================================================
+PHASE: PHASE_2.5
+================================================================================
+
+
+### SECTION: CONTEXT SNAPSHOT
+----------------------------------------
+
+Q1 (q01) [compound]: Timeline Snapshot
+PROMPT: Before we go deep, give a simple snapshot so we interpret everything in context.
+FIELDS:
+    - how_long_known (number): How long have you known each other total?
+    - known_unit (dropdown): Unit
+      - [days] days
+      - [weeks] weeks
+      - [months] months
+      - [years] years
+    - how_long_defined (number): How long have you been in a defined relationship?
+    - defined_unit (dropdown): Unit
+      - [days] days
+      - [weeks] weeks
+      - [months] months
+      - [years] years
+    - last_checkin_how_long (number): About how long ago was your last intentional check-in?
+    - last_checkin_unit (dropdown): Unit
+      - [days] days
+      - [weeks] weeks
+      - [months] months
+      - [years] years
+      - [never] never
+    - last_checkin_stage (dropdown): Which kind of check-in was it?
+      - [none_first_time] None (this is our first real check-in)
+      - [phase2_dtr] Phase 2 (DTR / defining us)
+      - [phase25_lite] Phase 2.5 Lite
+      - [phase25_full] Phase 2.5 Full
+      - [therapy_or_coaching] Therapy / coaching session
+      - [informal_talk] Informal check-in talk
+      - [other] Other
+    - other_last_stage (short_text): If other, what was it?
+    - checkin_frequency (dropdown): How often do you want check-ins to happen (ideally)?
+      - [weekly] Weekly
+      - [every_2_weeks] Every 2 weeks
+      - [monthly] Monthly
+      - [quarterly] Quarterly
+      - [as_needed] Only when something feels off
+      - [not_sure] Not sure
+    - notes (free_text): Notes (optional)
+
+Q2 (q01b) [compound]: Follow-Through Since Last Check-In
+PROMPT: Accountability matters. What did you commit to improving last time, and how did that go? If this is your first check-in, skip or mark as 'first time.'
+FIELDS:
+    - last_agreements (short_text): Main thing(s) we agreed to work on at our last check-in
+    - follow_through_level (dropdown): How well did we actually follow through?
+      - [very_well] Very well - we both showed up consistently
+      - [okay] Okay - some effort, but inconsistent
+      - [poorly] Poorly - we didn't really try
+      - [forgot] We forgot about it
+      - [first_checkin] This is our first check-in
+      - [no_agreements] We didn't make specific agreements last time
+    - what_helped_or_blocked (short_text): What made follow-through easy or hard?
+    - notes (free_text): Notes (optional)
+
+Q3 (q02) [single_select]: What "Defined" Means for You Two
+PROMPT: Pick the closest match. This helps later questions stay accurate.
+OPTIONS:
+    - [exclusive_no_label] Exclusive, but we do not use labels
+    - [bf_gf] Boyfriend/Girlfriend
+    - [engaged] Engaged
+    - [married] Married
+    - [exclusive_long_distance] Exclusive long-distance
+    - [defined_other] Defined in another way
+    - [not_sure] Not sure / unclear
+    - [other] Other (write in)
+
+Q4 (q03) [compound]: How You Best Receive Feedback
+PROMPT: Different people hear feedback differently. This helps your partner and the AI deliver it in a way you can actually receive.
+FIELDS:
+    - from_partner_best (dropdown): From my partner, I receive feedback best when it is...
+      - [gentle_direct] Gentle but direct
+      - [very_direct] Very direct and concise
+      - [start_with_appreciation] Starts with appreciation
+      - [collaborative_questions] Asked as questions (curiosity first)
+      - [written_first] Written first, then talked through
+      - [time_to_process] Given with time to process
+      - [not_sure] Not sure
+    - from_partner_hard (dropdown): From my partner, feedback is hardest for me when it is...
+      - [public] In front of others
+      - [during_conflict] During conflict or high emotion
+      - [vague] Vague or indirect
+      - [critical_tone] In a critical tone
+      - [long_lecture] A long lecture
+      - [surprise] A surprise with no warning
+      - [not_sure] Not sure
+    - from_ai_best (dropdown): From the AI, I want guidance that is...
+      - [curious_questions_first] Mostly questions first
+      - [balanced_questions_and_advice] Balanced: questions, then suggestions
+      - [direct_action_steps] Direct with action steps
+      - [gentle_and_reassuring] Gentle and reassuring
+      - [challenge_me] Challenge me and call out blind spots
+      - [not_sure] Not sure
+    - from_ai_hard (dropdown): From the AI, I want it to avoid...
+      - [overly_clinical] Overly clinical language
+      - [generic_advice] Generic advice
+      - [too_much_text] Too much text
+      - [heavy_assumptions] Strong assumptions
+      - [pushy_recommendations] Pushy recommendations
+      - [none] None
+      - [not_sure] Not sure
+    - what_helps (short_text): One thing that helps me stay open when receiving feedback
+    - what_doesnt (short_text): One thing that shuts me down
+
+Q5 (q04) [compound]: What You Want From This Check-In
+PROMPT: Pick and rank what matters most right now. This keeps the check-in focused and calmer.
+FIELDS:
+    - focus_ranked (ranked_select): Select and rank your top goals (top = most important)
+      - [more_closeness] More closeness
+      - [better_communication] Better communication
+      - [less_conflict] Less conflict
+      - [better_repair] Better repair after conflict
+      - [clearer_boundaries] Clearer boundaries
+      - [affection_alignment] Better affection alignment
+      - [sex_boundaries_clarity] Clearer sex and physical boundaries
+      - [money_less_stress] Less money stress
+      - [future_planning] Better future planning
+      - [family_faith_balance] Family and faith balance
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', what is it?
+    - notes (free_text): Notes (optional)
+
+
+### SECTION: WHAT'S WORKING
+----------------------------------------
+
+Q5 (q05) [compound]: Quick Pulse Check
+PROMPT: Quick numbers, no overthinking. This helps the AI calibrate intensity.
+FIELDS:
+    - satisfaction_0_10 (number): Overall relationship satisfaction (0-10)
+    - closeness_0_10 (number): Feeling emotionally close lately (0-10)
+    - stress_0_10 (number): Outside stress affecting us (0-10)
+    - notes (free_text): Notes (optional)
+
+Q6 (q06) [multi_select]: What’s Working Right Now
+PROMPT: Start with what is strong. This makes the rest safer.
+OPTIONS:
+    - [friendship] Friendship and companionship
+    - [affection] Affection and warmth
+    - [communication] Communication is generally good
+    - [trust] Trust feels solid
+    - [fun] We still have fun
+    - [support] We support each other under stress
+    - [shared_values] Shared values feel strong
+    - [spiritual_connection] Spiritual connection (if relevant)
+    - [conflict_handling] We handle conflict better than before
+    - [other] Other (write in)
+
+Q7 (q07) [compound]: Appreciation and Positive Reinforcement
+PROMPT: Healthy couples notice and reinforce the good. What is true right now?
+FIELDS:
+    - appreciation_frequency (dropdown): How often do we express appreciation (in real life)?
+      - [daily] Daily
+      - [few_times_week] A few times a week
+      - [weekly] About weekly
+      - [rarely] Rarely
+      - [varies] Varies
+    - how_i_show (dropdown): The main way I show appreciation
+      - [words] Words / compliments
+      - [touch] Touch / affection
+      - [acts] Acts of service
+      - [time] Quality time
+      - [gifts] Small gifts
+      - [not_sure] Not sure
+    - how_i_want_received (dropdown): The main way I want to receive appreciation
+      - [words] Words / reassurance
+      - [touch] Touch / affection
+      - [acts] Acts of service
+      - [time] Quality time
+      - [gifts] Small gestures
+      - [not_sure] Not sure
+    - notes (free_text): Anything specific you wish your partner noticed more
+
+Q8 (q08) [ranked_select]: Fun and Friendship
+PROMPT: Rank these from most important to least important for keeping your relationship fun and connected. This helps you focus on what actually matters.
+OPTIONS:
+    - [spontaneous_time] Spontaneous hangout time
+    - [planned_dates] Planned dates and outings
+    - [shared_hobbies] Shared hobbies or activities
+    - [adventures] New adventures or experiences
+    - [just_talking] Just talking and laughing
+    - [low_key_time] Low-key time at home together
+    - [physical_activity] Physical activity together
+    - [creative_projects] Creative or building projects
+
+
+### SECTION: NEEDS + DRIFT
+----------------------------------------
+
+Q9 (q09) [single_select]: Drift Since the Last Check-In
+PROMPT: Drift is normal. The goal is noticing it early.
+OPTIONS:
+    - [no_drift] No drift. We feel solid.
+    - [slight_drift] Slight drift. It is manageable.
+    - [moderate_drift] Moderate drift. It needs attention.
+    - [significant_drift] Significant drift. It feels urgent.
+    - [not_sure] Not sure
+
+Q10 (q10) [compound]: Needs That Matter Most Right Now
+PROMPT: Select and rank the needs that would improve the relationship most if met consistently.
+FIELDS:
+    - needs_ranked (ranked_select): Select and rank (top = biggest impact)
+      - [quality_time] Quality time
+      - [emotional_openness] Emotional openness
+      - [reassurance] Reassurance and steadiness
+      - [affection] Affection and touch
+      - [communication_clarity] Clear communication
+      - [reliable_follow_through] Reliable follow-through
+      - [less_conflict] Less conflict
+      - [better_repair] Better repair
+      - [autonomy] More autonomy / space
+      - [practical_help] Practical support
+      - [sexual_clarity] Sex and physical boundaries clarity
+      - [future_clarity] Future planning clarity
+      - [spiritual_connection] Spiritual connection
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', what is it?
+    - notes (free_text): Notes (optional)
+
+Q11 (q11) [free_text]: Your Cleanest Request
+PROMPT: If you could make ONE request that would help the most, what would it be? Make it specific and doable.
+
+Q12 (q12) [compound]: What You Think Your Partner Needs
+PROMPT: This is a best guess. The goal is curiosity, not mind-reading.
+FIELDS:
+    - my_guess (free_text): My best guess of what my partner needs more of from me
+    - evidence (free_text): What evidence do I have (words, behavior, patterns)?
+    - ask_this (short_text): One clean question I can ask them to verify
+    - notes (free_text): Notes (optional)
+
+Q13 (q13) [compound]: Load and Resentment Check
+PROMPT: Resentment often comes from unspoken load. Name it early and gently.
+FIELDS:
+    - balance_feels (dropdown): Overall, our effort and care feels...
+      - [balanced] Balanced
+      - [slightly_imbalanced_me_more] Slightly imbalanced (I do more)
+      - [slightly_imbalanced_them_more] Slightly imbalanced (they do more)
+      - [very_imbalanced] Very imbalanced
+      - [not_sure] Not sure
+    - where_load_shows (multi_select): Where does the imbalance show up most?
+      - [planning] Planning and scheduling
+      - [initiating] Initiating dates / connection
+      - [emotional_support] Emotional support
+      - [money] Money / paying
+      - [family_obligations] Family obligations
+      - [household] Household tasks
+      - [travel] Driving / travel
+      - [communication] Communication effort
+      - [other] Other
+    - resentment_level (dropdown): Resentment level right now
+      - [none] None
+      - [low] Low
+      - [medium] Medium
+      - [high] High
+    - notes (free_text): Notes (optional)
+
+Q14 (q14) [free_text]: Your Contribution to the Drift
+PROMPT: Not blame. Just honesty. Where might you be adding friction or distance?
+
+
+### SECTION: COMMUNICATION
+----------------------------------------
+
+Q15 (q15) [compound]: Communication Rhythm
+PROMPT: What is the current rhythm and how does it land for you?
+FIELDS:
+    - contact_frequency (dropdown): Contact between seeing each other (text/calls)
+      - [throughout_day] Throughout the day
+      - [daily] Daily
+      - [every_other_day] Every other day
+      - [few_times_week] A few times a week
+      - [rare] Rare
+      - [varies] Varies
+    - in_person_frequency (dropdown): In-person time
+      - [multiple_times_week] Multiple times/week
+      - [weekly] Weekly
+      - [every_other_week] Every other week
+      - [rare_long_distance] Rare / long-distance
+      - [varies] Varies
+    - satisfaction (dropdown): How satisfied are you with the rhythm?
+      - [very_satisfied] Very satisfied
+      - [mostly_satisfied] Mostly satisfied
+      - [mixed] Mixed
+      - [mostly_unsatisfied] Mostly unsatisfied
+      - [very_unsatisfied] Very unsatisfied
+    - notes (free_text): Notes (optional)
+
+Q16 (q16) [single_select]: Safety to Bring Up Concerns
+PROMPT: How safe do you feel bringing up something hard without it turning into a fight?
+OPTIONS:
+    - [very_safe] Very safe
+    - [mostly_safe] Mostly safe
+    - [mixed] Mixed
+    - [often_unsafe] Often unsafe
+    - [unsafe] Unsafe
+
+Q17 (q17) [compound]: Transparency and Updates
+PROMPT: This is not about control. It is about reducing avoidable ambiguity.
+FIELDS:
+    - transparency_style (dropdown): Our transparency style is closest to...
+      - [natural_open] We naturally share plans and context
+      - [need_to_ask] I usually have to ask for updates
+      - [minimal] We keep details minimal
+      - [inconsistent] Inconsistent
+      - [not_sure] Not sure
+    - what_i_want_more_of (short_text): One kind of transparency I want more of (example: plans, friends, schedule)
+    - what_i_respect (short_text): One boundary around privacy I respect and want honored
+    - notes (free_text): Notes (optional)
+
+Q18 (q18) [multi_select]: When Feedback Happens, What Do You Do?
+PROMPT: Pick what usually happens first. This is about awareness, not shame.
+OPTIONS:
+    - [get_defensive] I get defensive
+    - [explain] I explain and justify
+    - [shut_down] I shut down
+    - [get_emotional] I get emotional
+    - [problem_solve] I jump into problem-solving
+    - [get_curious] I get curious and ask questions
+    - [apologize_fast] I apologize quickly
+    - [need_time] I need time before responding
+    - [other] Other
+
+
+### SECTION: CONFLICT + REPAIR
+----------------------------------------
+
+Q19 (q19) [compound]: Conflict Frequency and Intensity
+PROMPT: Keep it simple. This is just to calibrate the guidance.
+FIELDS:
+    - frequency (dropdown): Conflicts in the last 4 weeks
+      - [none] None
+      - [1_2] 1-2
+      - [3_5] 3-5
+      - [weekly_or_more] Weekly or more
+      - [constant_tension] Constant tension
+    - intensity (dropdown): Typical intensity
+      - [low] Low
+      - [moderate] Moderate
+      - [high] High
+      - [volatile] Volatile
+    - top_trigger (dropdown): Most common trigger
+      - [time_attention] Time / attention
+      - [communication] Communication
+      - [tone] Tone / disrespect
+      - [trust] Trust / jealousy
+      - [money] Money
+      - [family] Family
+      - [physical_boundaries] Physical boundaries
+      - [stress] Outside stress
+      - [other] Other
+    - notes (free_text): Notes (optional)
+
+Q20 (q20) [single_select]: Your Conflict Style
+PROMPT: When tension rises, what do you tend to do first?
+OPTIONS:
+    - [pursue] Pursue (push for clarity right now)
+    - [withdraw] Withdraw (need space, shut down)
+    - [problem_solve] Problem-solve (fix it)
+    - [appease] Appease (smooth it over)
+    - [freeze] Freeze (blank, stuck)
+    - [escalate] Escalate (anger, intensity)
+    - [other] Other
+
+Q21 (q21) [single_select]: Repair Reliability
+PROMPT: After conflict, do you actually repair or do you just cool down?
+OPTIONS:
+    - [repair_well] We repair well and reconnect
+    - [some_repair] We repair sometimes
+    - [cool_down_only] We mostly cool down and move on
+    - [repeat_same] We repeat the same fight
+    - [avoid_conflict] We avoid conflict but tension builds
+    - [not_sure] Not sure
+
+Q22 (q22) [multi_select]: Lines You Don't Want Crossed
+PROMPT: When conflict happens, which behaviors feel unacceptable to you?
+OPTIONS:
+    - [name_calling] Name-calling or insults
+    - [yelling] Yelling
+    - [stonewalling] Stonewalling (refuse to engage)
+    - [threats_breakup] Threats of breakup as leverage
+    - [public_shaming] Public shaming
+    - [silent_treatment] Silent treatment
+    - [sarcasm] Sarcasm or contempt
+    - [physical_intimidation] Physical intimidation
+    - [none] None of these are happening
+    - [prefer_not] Prefer not to say
+    - [other] Other
+
+Q23 (q23) [compound]: What Repair Needs to Include
+PROMPT: If you could design a repair that actually works, what would it include?
+FIELDS:
+    - what_i_need_from_them (multi_select): From my partner, repair works best when they...
+      - [own_part] Own their part
+      - [apologize_specific] Apologize specifically
+      - [validate] Validate my feelings
+      - [follow_through] Follow through with change
+      - [reconnect_touch] Reconnect with warmth/affection
+      - [talk_calm] Talk calmly
+      - [give_time] Give space then return
+      - [other] Other
+    - what_i_will_do (short_text): One repair behavior I commit to practicing
+    - repair_phrase (short_text): A phrase that means: 'I am activated, but I want repair'
+    - notes (free_text): Notes (optional)
+
+
+### SECTION: AFFECTION + INTIMACY
+----------------------------------------
+
+Q24 (q24) [compound]: How You Receive Affection
+PROMPT: Select and rank what makes you feel loved (top = most important).
+FIELDS:
+    - affection_ranked (ranked_select): Select and rank
+      - [touch] Touch (hugs, cuddling, hand-holding)
+      - [words] Words (compliments, reassurance)
+      - [time] Quality time
+      - [acts] Acts of service
+      - [gifts] Small gifts
+      - [play] Play and humor
+      - [spiritual] Prayer, faith, shared values
+      - [other] Other
+    - other_text (short_text): If 'Other', what is it?
+    - notes (free_text): Notes (optional)
+
+Q25 (q25) [single_select]: Affection Alignment
+PROMPT: How aligned do you feel on affection and closeness right now?
+OPTIONS:
+    - [very_aligned] Very aligned
+    - [mostly_aligned] Mostly aligned
+    - [mixed] Mixed
+    - [often_misaligned] Often misaligned
+    - [very_misaligned] Very misaligned
+    - [not_sure] Not sure
+
+Q26 (q26) [compound]: Feeling Known
+PROMPT: Feeling known is a core ingredient of intimacy.
+FIELDS:
+    - feel_known_level (dropdown): I feel known and understood lately
+      - [very_true] Very true
+      - [mostly_true] Mostly true
+      - [mixed] Mixed
+      - [mostly_false] Mostly false
+      - [false] False
+    - what_makes_me_feel_known (short_text): One thing they do that makes me feel known
+    - what_makes_me_feel_unseen (short_text): One pattern that makes me feel unseen
+    - notes (free_text): Notes (optional)
+
+Q27 (q27) [compound]: Comfort Talking About Sex and Physical Boundaries
+PROMPT: Healthy couples can talk about sex without pressure. This is about clarity and respect.
+FIELDS:
+    - comfort_with_partner (dropdown): How comfortable am I discussing sex and boundaries with my partner?
+      - [very_comfortable] Very comfortable
+      - [somewhat] Somewhat comfortable
+      - [awkward] Awkward
+      - [very_hard] Very hard
+      - [avoid] I avoid it
+      - [prefer_not] Prefer not to say
+    - comfort_with_ai (dropdown): How comfortable am I exploring this with the AI?
+      - [very_comfortable] Very comfortable
+      - [somewhat] Somewhat comfortable
+      - [awkward] Awkward
+      - [very_hard] Very hard
+      - [prefer_not] Prefer not to say
+    - goal_for_talk (dropdown): My goal for sex and boundaries conversations is...
+      - [reduce_pressure] Reduce pressure
+      - [clarify_boundaries] Clarify boundaries
+      - [align_expectations] Align expectations
+      - [prevent_regret] Prevent regret
+      - [prepare_for_marriage] Prepare for marriage
+      - [not_sure] Not sure
+    - notes (free_text): Notes (optional)
+
+Q28 (q28) [single_select]: Sexual Experience Context (Broad)
+PROMPT: This is intentionally broad. It helps the guidance fit your reality without asking details.
+OPTIONS:
+    - [no_experience] No sexual experience
+    - [limited_experience] Limited experience
+    - [some_experience] Some experience
+    - [significant_experience] Significant experience
+    - [prefer_not] Prefer not to say
+    - [other] Other
+
+Q29 (q29) [compound]: Where You Two Are on Physical Boundaries
+PROMPT: This is about clarity and helping you succeed, not judging you.
+FIELDS:
+    - boundary_alignment (dropdown): Our boundaries are...
+      - [clear_aligned] Clear and aligned
+      - [mostly_aligned] Mostly aligned
+      - [unclear] Unclear / not spoken
+      - [misaligned] Misaligned
+      - [changing] Changing / in process
+      - [prefer_not] Prefer not to say
+    - current_boundary_zone (dropdown): Right now, our physical closeness is closest to...
+      - [affection_only] Affection only (hugging, cuddling, kissing)
+      - [heavier_makeout] Heavier makeout
+      - [sexual_touch] Sexual touching
+      - [sex_happened] We have had sex
+      - [not_applicable] Not applicable
+      - [prefer_not] Prefer not to say
+    - pressure_mismatch (dropdown): Do you feel a pressure mismatch?
+      - [no] No
+      - [a_little] A little
+      - [yes_me_more] Yes (I want more than they do)
+      - [yes_them_more] Yes (they want more than I do)
+      - [not_sure] Not sure
+    - why_boundaries_matter (short_text): In one sentence, why do healthy boundaries matter to you?
+    - notes (free_text): Notes (optional)
+
+Q30 (q30) [compound]: Sleeping Over and Temptation Risk
+PROMPT: For most couples, sleeping over dramatically increases risk and confusion. What is true for you two?
+FIELDS:
+    - sleepover_pattern (dropdown): Sleeping over is currently...
+      - [never] Never
+      - [rare_special] Rare / special circumstances
+      - [sometimes_separate] Sometimes, but separate spaces
+      - [sometimes_same_space] Sometimes, same space
+      - [often] Often
+      - [prefer_not] Prefer not to say
+    - boundaries_if_sleepover (free_text): If sleeping over happens, what boundaries do you use to stay safe?
+    - why (free_text): Why does sleeping over happen (or why do you avoid it)?
+    - notes (free_text): Notes (optional)
+
+Q31 (q31) [compound]: Sexual Integrity and Trust (If Relevant)
+PROMPT: This is optional. If sexual integrity or secrecy has ever affected trust, naming it gently can protect the relationship.
+FIELDS:
+    - integrity_tension (dropdown): Right now, sexual integrity feels...
+      - [no_issue] Not an issue
+      - [minor] Minor tension
+      - [moderate] Moderate tension
+      - [serious] Serious tension
+      - [prefer_not] Prefer not to say
+    - topics (multi_select): If there is tension, it relates to...
+      - [explicit_media] Explicit media
+      - [private_behaviors] Private sexual behaviors
+      - [pushing_boundaries] Pushing boundaries
+      - [guilt_shame] Guilt or shame
+      - [past_experiences] Past experiences
+      - [secrecy] Secrecy or honesty
+      - [none] None
+      - [other] Other
+    - impact_on_trust (dropdown): Impact on trust
+      - [none] None
+      - [some] Some
+      - [high] High
+      - [not_sure] Not sure
+    - want_help_talking (dropdown): Do you want help planning a calm, respectful conversation about this?
+      - [yes] Yes
+      - [maybe] Maybe
+      - [no] No
+      - [prefer_not] Prefer not to say
+    - notes (free_text): Notes (optional)
+
+Q32 (q32) [compound]: Desire Mismatch (If Any)
+PROMPT: Mismatched desire is normal. The danger is silence, pressure, or shame.
+FIELDS:
+    - mismatch_level (dropdown): Right now, desire feels...
+      - [aligned] Aligned
+      - [slightly_misaligned] Slightly misaligned
+      - [misaligned] Misaligned
+      - [very_misaligned] Very misaligned
+      - [not_sure] Not sure
+      - [prefer_not] Prefer not to say
+    - what_i_need (free_text): What I need (a clean request, not a demand)
+    - what_i_fear (free_text): What I fear if we talk about this honestly
+    - notes (free_text): Notes (optional)
+
+Q33 (q33) [free_text]: Physical Affection Boundaries You Want Honored
+PROMPT: Name one boundary you want honored without needing to justify it.
+
+
+### SECTION: LIFE LOGISTICS + MONEY
+----------------------------------------
+
+Q34 (q34) [compound]: Time, Priorities, and Presence
+PROMPT: Time is a love language. How is time actually going?
+FIELDS:
+    - time_enough (dropdown): Lately, time together feels...
+      - [enough] Enough
+      - [almost_enough] Almost enough
+      - [not_enough] Not enough
+      - [rare] Rare
+      - [not_sure] Not sure
+    - distractions (multi_select): Biggest time stealers
+      - [work] Work
+      - [school] School
+      - [family] Family
+      - [phone] Phones / social media
+      - [gaming] Gaming
+      - [church] Church callings
+      - [health] Health
+      - [distance] Distance / travel
+      - [other] Other
+    - what_i_want (short_text): One change that would improve time together
+    - notes (free_text): Notes (optional)
+
+Q35 (q35) [single_select]: Money Stress Level
+PROMPT: Money stress leaks into everything. Where are you right now?
+OPTIONS:
+    - [low] Low
+    - [moderate] Moderate
+    - [high] High
+    - [conflict] It is a conflict topic
+    - [not_applicable] Not applicable
+    - [prefer_not] Prefer not to say
+
+Q36 (q36) [compound]: Money Operating Style
+PROMPT: This is about practical clarity, not control.
+FIELDS:
+    - talk_comfort (dropdown): How comfortable are you talking about money with your partner?
+      - [very] Very
+      - [somewhat] Somewhat
+      - [awkward] Awkward
+      - [avoid] I avoid it
+      - [prefer_not] Prefer not to say
+    - spending_expectations (dropdown): Spending expectations in the relationship
+      - [we_talk_it_out] We talk it out and agree
+      - [one_pays_more] One person pays more
+      - [split] We mostly split
+      - [unclear] Unclear
+      - [not_applicable] Not applicable
+    - debt_transparency (dropdown): Debt and financial obligations are...
+      - [transparent] Transparent
+      - [partly] Partly discussed
+      - [not_discussed] Not discussed
+      - [prefer_not] Prefer not to say
+    - notes (free_text): Notes (optional)
+
+Q37 (q37) [multi_select]: Life Load (Not Just Chores)
+PROMPT: Even if you do not live together, couples carry life load. Where is the load uneven?
+OPTIONS:
+    - [planning] Planning and logistics
+    - [emotional] Emotional support
+    - [travel] Driving / travel
+    - [family] Family obligations
+    - [health] Health support
+    - [social] Social planning
+    - [spiritual] Spiritual effort
+    - [none] Feels balanced
+    - [not_sure] Not sure
+    - [other] Other
+
+Q38 (q38) [compound]: Support Under Stress
+PROMPT: When stress hits, what kind of support actually helps you?
+FIELDS:
+    - what_helps_me (dropdown): When I'm stressed, I need...
+      - [comfort_and_empathy] Comfort and empathy
+      - [solutions_and_planning] Solutions and planning
+      - [space_and_quiet] Space and quiet
+      - [touch_and_closeness] Touch and closeness
+      - [prayer_and_spiritual_support] Prayer and spiritual support
+      - [not_sure] Not sure
+    - what_doesnt (short_text): When I'm stressed, what backfires?
+    - what_i_offer (short_text): When my partner is stressed, I usually offer...
+    - notes (free_text): Notes (optional)
+
+
+### SECTION: FUTURE + FAMILY + FAITH
+----------------------------------------
+
+Q39 (q39) [single_select]: Are You Aligned on Direction?
+PROMPT: This is not about pressure. It is about shared reality.
+OPTIONS:
+    - [yes_clear] Yes, and it is clear
+    - [mostly] Mostly
+    - [uncertain] Uncertain
+    - [misaligned] Misaligned
+    - [not_discussed] Not discussed
+
+Q40 (q40) [compound]: Next Steps Timeline
+PROMPT: What pace feels healthy right now?
+FIELDS:
+    - pace_preference (dropdown): A healthy pace for next steps feels like...
+      - [weeks] Weeks
+      - [few_months] A few months
+      - [6_12_months] 6-12 months
+      - [year_plus] A year or more
+      - [no_timeline] No timeline
+      - [not_sure] Not sure
+    - what_makes_it_fast (short_text): What makes you want to speed up?
+    - what_makes_it_slow (short_text): What makes you want to slow down?
+    - notes (free_text): Notes (optional)
+
+Q41 (q41) [compound]: Living Arrangements and Lifestyle Fit
+PROMPT: Some couples drift because lifestyle assumptions never got spoken.
+FIELDS:
+    - current_living (dropdown): Right now, I live...
+      - [alone] Alone
+      - [with_roommates] With roommates
+      - [with_family] With family
+      - [with_kids] With kids
+      - [other] Other
+      - [prefer_not] Prefer not to say
+    - future_preference (dropdown): If the relationship progresses, I prefer...
+      - [no_cohab_before_marriage] No cohabitation before marriage
+      - [open_to_cohab] Open to cohabitation
+      - [unsure] Unsure
+      - [prefer_not] Prefer not to say
+    - nonnegotiable (short_text): One lifestyle non-negotiable I need respected
+    - notes (free_text): Notes (optional)
+
+Q42 (q42) [compound]: Kids and Family Planning (If Relevant)
+PROMPT: You do not need to solve everything now. You do need a direction that matches.
+FIELDS:
+    - kids_desire (dropdown): Kids in our future feels...
+      - [yes] Yes
+      - [no] No
+      - [unsure] Unsure
+      - [already_have] I already have kids
+      - [prefer_not] Prefer not to say
+    - kids_timeline (dropdown): If yes, rough timeline
+      - [soon] Soon
+      - [1_3_years] 1-3 years
+      - [3_5_years] 3-5 years
+      - [later] Later
+      - [not_sure] Not sure
+      - [not_applicable] Not applicable
+    - parenting_values (short_text): One parenting value that matters a lot to me
+    - nonnegotiables (short_text): One family-related non-negotiable (if any)
+    - notes (free_text): Notes (optional)
+
+Q43 (q43) [compound]: Family, Community, and Faith in Practice
+PROMPT: For many couples, this is the hidden operating system. What is true for you?
+FIELDS:
+    - faith_relevance (dropdown): Faith and spirituality in our relationship is...
+      - [central] Central
+      - [important] Important
+      - [some] Somewhat relevant
+      - [not_relevant] Not relevant
+      - [misaligned] A tension point
+      - [prefer_not] Prefer not to say
+    - community_expectations (dropdown): Community and family expectations feel...
+      - [supportive] Supportive
+      - [neutral] Neutral
+      - [pressuring] Pressuring
+      - [conflicting] Conflicting
+      - [not_sure] Not sure
+    - family_boundaries (short_text): One boundary with family/community we need to protect us
+    - notes (free_text): Notes (optional)
+
+
+### SECTION: SAFETY + SUPPORT
+----------------------------------------
+
+Q44 (q44) [multi_select]: Safety and Respect Check
+PROMPT: This is not to judge. It is to protect you. Select anything that applies.
+OPTIONS:
+    - [fear_of_my_partner] I sometimes feel afraid of my partner
+    - [control_of_my_choices] They try to control my choices
+    - [monitoring_me] They monitor my phone, accounts, or location
+    - [isolation_from_friends_and_family] They isolate me from friends/family
+    - [coercion_into_physical_or_sexual_things] I feel pressured into physical or sexual things
+    - [they_use_contempt_ridicule_or_humiliation] They use contempt, ridicule, or humiliation
+    - [threats_intimidation_or_breaking_things] Threats, intimidation, or breaking things
+    - [physical_aggression] Any physical aggression
+    - [none_of_these] None of these
+    - [prefer_not_to_say] Prefer not to say
+    - [other] Other
+
+Q45 (q45) [compound]: Support Threshold
+PROMPT: When do you think outside support becomes wise?
+FIELDS:
+    - support_level (dropdown): Right now, support feels...
+      - [not_needed] Not needed
+      - [maybe_helpful] Maybe helpful
+      - [should_consider] We should consider it
+      - [needed] We need it
+    - preferred_support (dropdown): What kind of support would you be most open to?
+      - [trusted_mentor] Trusted mentor
+      - [faith_leader] Faith leader
+      - [couples_counseling] Couples counseling
+      - [individual_therapy] Individual therapy
+      - [skills_book] Skills book/course
+      - [not_sure] Not sure
+    - barrier (short_text): What is the main barrier (if any)?
+    - notes (free_text): Notes (optional)
+
+Q46 (q46) [compound]: Top Topics for Your Next Conversation
+PROMPT: Pick and rank what you want your next check-in conversation to cover.
+FIELDS:
+    - topics_ranked (ranked_select): Select and rank
+      - [time] Time and presence
+      - [communication] Communication
+      - [conflict_and_repair] Conflict and repair
+      - [affection] Affection
+      - [sex_and_physical_boundaries] Sex and physical boundaries
+      - [money] Money
+      - [future_planning] Future planning
+      - [family_and_community] Family and community
+      - [trust] Trust
+      - [stress_support] Stress support
+      - [other] Other
+    - other_text (short_text): If 'Other', what is it?
+    - notes (free_text): Notes (optional)
+
+Q47 (q47) [compound]: Next Check-In Plan
+PROMPT: A plan reduces anxiety. What does a good next check-in look like?
+FIELDS:
+    - when (dropdown): When should the next check-in happen?
+      - [this_week] This week
+      - [2_weeks] In 2 weeks
+      - [1_month] In a month
+      - [quarterly ] In a quarter
+      - [as_needed] As needed
+      - [not_sure] Not sure
+    - length (dropdown): Ideal length
+      - [15] 15 minutes
+      - [25] 25 minutes
+      - [45] 45 minutes
+      - [60] 60 minutes
+    - format (dropdown): Best format
+      - [walk] Walk
+      - [at_home] At home
+      - [date_night] Date night
+      - [prayer_then_talk] Prayer then talk
+      - [written_then_talk] Write first, then talk
+      - [not_sure] Not sure
+    - notes (free_text): Notes (optional)
+
+Q48 (q48) [free_text]: Anything the AI Should Know
+PROMPT: Optional. Add anything important that did not fit cleanly above.

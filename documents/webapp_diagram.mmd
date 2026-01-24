@@ -1,0 +1,54 @@
+graph TD
+    %% Nodes
+    Index((Start / index.html))
+    Dash[Dashboard View]
+    
+    subgraph "Phase Experience"
+        P_Welcome[Welcome View]
+        P_Quest[Questionnaire View]
+        P_Review[Review Grid View]
+        P_Comp[Complete View]
+    end
+    
+    subgraph "Global Tools & Info"
+        T_AI[AI Analysis]
+        T_Prompts[AI Prompts]
+        T_Compare[Comparison Tool]
+        Info_About[About Page]
+        Info_HowTo[How To Use]
+    end
+
+    %% Routing Logic
+    Index -->|#/| Dash
+    Index -->|#/dashboard| Dash
+    
+    %% Dashboard Outbound
+    Dash -->|Select Phase| P_Welcome
+    Dash -->|Resume| P_Quest
+    Dash -->|Nav Menu| Info_About
+    Dash -->|Nav Menu| Info_HowTo
+    Dash -->|Nav Menu| T_AI
+    
+    %% Phase Flow
+    P_Welcome -->|"Start"| P_Quest
+    P_Quest -->|"Next/Prev"| P_Quest
+    P_Quest -->|"Finish (Last Q) / Skip All"| P_Comp
+    P_Comp -->|"Back Home"| Dash
+    
+    %% Review/Edit Flows (Logic Triggered)
+    P_Comp -.->|"Go to Skipped"| P_Quest
+    P_Comp -.->|"Review Flagged (Import)"| P_Quest
+    P_Review -.->|"Edit Answer"| P_Quest
+    
+    %% Direct Links (Router)
+    Index -.->|#/phase_X/welcome| P_Welcome
+    Index -.->|#/phase_X/qXX| P_Quest
+    Index -.->|#/phase_X/review| P_Review
+    Index -.->|#/phase_X/complete| P_Comp
+    
+    %% Global Links
+    Index -.->|#/ai-analysis| T_AI
+    Index -.->|#/ai-prompts| T_Prompts
+    Index -.->|#/comparison| T_Compare
+    Index -.->|#/about| Info_About
+    Index -.->|#/howto| Info_HowTo

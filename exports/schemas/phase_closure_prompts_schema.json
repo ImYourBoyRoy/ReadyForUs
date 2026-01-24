@@ -1,0 +1,96 @@
+{
+    "prompts": {
+        "individual_reflection_lite": {
+            "id": "str",
+            "title": "str",
+            "description": "str",
+            "role": "str",
+            "inputs": [
+                "list(dict)",
+                {
+                    "key": "str",
+                    "label": "str",
+                    "placeholder": "str"
+                }
+            ],
+            "context": "list(str)",
+            "output_format": [
+                "list(dict)",
+                {
+                    "section": "str",
+                    "requirements": "list(str)"
+                }
+            ],
+            "constraints": "list(str)"
+        },
+        "individual_reflection_full": {
+            "id": "str",
+            "title": "str",
+            "description": "str",
+            "role": "str",
+            "inputs": [
+                "list(dict)",
+                {
+                    "key": "str",
+                    "label": "str",
+                    "placeholder": "str"
+                }
+            ],
+            "context": "list(str)",
+            "output_format": [
+                "list(dict)",
+                {
+                    "section": "str",
+                    "requirements": "list(str)"
+                }
+            ],
+            "constraints": "list(str)"
+        },
+        "couple_reflection_lite": {
+            "id": "str",
+            "title": "str",
+            "description": "str",
+            "role": "str",
+            "inputs": [
+                "list(dict)",
+                {
+                    "key": "str",
+                    "label": "str",
+                    "placeholder": "str"
+                }
+            ],
+            "context": "list(str)",
+            "output_format": [
+                "list(dict)",
+                {
+                    "section": "str",
+                    "requirements": "list(str)"
+                }
+            ],
+            "constraints": "list(str)"
+        },
+        "couple_reflection_full": {
+            "id": "str",
+            "title": "str",
+            "description": "str",
+            "role": "str",
+            "inputs": [
+                "list(dict)",
+                {
+                    "key": "str",
+                    "label": "str",
+                    "placeholder": "str"
+                }
+            ],
+            "context": "list(str)",
+            "output_format": [
+                "list(dict)",
+                {
+                    "section": "str",
+                    "requirements": "list(str)"
+                }
+            ],
+            "constraints": "list(str)"
+        }
+    }
+}

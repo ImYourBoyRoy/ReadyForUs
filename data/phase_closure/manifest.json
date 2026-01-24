@@ -1,0 +1,63 @@
+{
+    "schema_version": "1.3.0",
+    "display": {
+        "id": "phase_closure",
+        "title": "Phase Closure: Heart Recovery",
+        "short_title": "Closure",
+        "description": "A guided breakup recovery flow to stabilize your nervous system, assess risk, and rebuild clarity. Built for real grief waves, not platitudes.",
+        "icon": "🕊️",
+        "menu_icon": "~",
+        "order": -1
+    },
+    "artifact": {
+        "id": "phase_closure",
+        "title": "Heart Recovery",
+        "subtitle": "A structured space to grieve, stabilize, reality-check, and choose your next steps with dignity.",
+        "language": "en-US",
+        "stage": {
+            "code": "phase_closure",
+            "label": "Post-Ending Closure",
+            "eligibility": [
+                "A relationship has ended (breakup, separation, divorce, ghosting, or widowhood).",
+                "You are experiencing grief waves, rumination, anxiety, or confusion.",
+                "You want clarity, safe coping tools, and a grounded plan for healing."
+            ]
+        },
+        "purpose": [
+            "Timeline & Context: Capture the intensity and facts so you stop guessing your own feelings.",
+            "Safety & Risk: Assess coping mechanisms (including unsafe ones) with compassion.",
+            "Reality-Testing: Weigh what you miss vs. what it cost you, grounding your next choices.",
+            "Action Plan: Build a closure strategy with boundaries and supports you can actually maintain.",
+            "Inputs & Tools: Map what helps (journaling, therapy) vs. what hurts (doomscrolling, obsessing).",
+            "Faith Check: Include spiritual impact only if it fits your baseline, avoiding assumptions."
+        ]
+    },
+    "intro": {
+        "instructions": {
+            "title": "Instructions",
+            "items": [
+                "**Lite vs. Full:** Start with Lite if you feel flooded. Use Full when you want deeper nuance and pattern clarity.",
+                "**Honesty:** Answer what you can. Skipping is allowed, but frequent skipping may signal a topic to explore later.",
+                "**Safety First:** If you are in immediate danger or risk of self-harm, please use real-world emergency support first."
+            ]
+        },
+        "keep_in_mind": {
+            "title": "Keep in Mind",
+            "items": [
+                "Healing is non-linear. Waves are normal, even when you are doing everything right.",
+                "Warm and honest beats perfect. Short answers count.",
+                "This tool is for clarity and forward motion, not medical diagnosis."
+            ]
+        }
+    },
+    "prompts_artifact": {
+        "id": "prompts_phase_closure",
+        "title": "Closure Prompts",
+        "language": "en-US",
+        "applies_to": "phase_closure"
+    },
+    "privacy_preface": {
+        "title": "Privacy Reflection",
+        "text": "Your reflections here are personal. Share only what you are comfortable sharing. If you use AI, avoid including identifying details you would not want stored. The goal is your healing and clarity."
+    }
+}

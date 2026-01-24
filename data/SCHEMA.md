@@ -22,6 +22,7 @@ data/phase_x/
 ```json
 {
   "schema_version": "1.3.0",
+  "display": { /* Dashboard metadata: id, title, icon, order */ },
   "artifact": { /* Phase metadata: id, title, subtitle, stage, purpose */ },
   "intro": { /* Instructions and keep_in_mind items */ },
   "prompts_artifact": { /* Prompts file metadata: id, title, applies_to */ },
@@ -35,7 +36,7 @@ data/phase_x/
 {
   "sections": [ /* Question groupings */ ],
   "questions": { /* All questions by ID */ },
-  "ui_hints": { /* Optional UI configuration */ },
+  "ui_hints": { /* UI configuration: controls, mode_switcher */ },
   "manifests": { /* Mode definitions (lite/full) */ },
   "primary_manifest_id": "lite"
 }
@@ -52,6 +53,21 @@ data/phase_x/
 ---
 
 ## manifest.json Fields
+
+### display (required)
+
+Used for the main dashboard card presentation.
+
+```json
+{
+  "id": "phase_id",
+  "title": "Phase Title",
+  "short_title": "Short Title",
+  "description": "Brief description for dashboard card",
+  "icon": "📋",
+  "order": 0
+}
+```
 
 ### artifact (required)
 
@@ -119,6 +135,24 @@ data/phase_x/
     "question_ids": ["q01", "q02", "q03"]
   }
 ]
+```
+
+### ui_hints (optional)
+
+Configuration for UI controls.
+
+```json
+{
+  "controls": {
+    "mode_switcher": {
+      "default": "lite",
+      "options": [
+        { "id": "lite", "label": "Lite (3)" },
+        { "id": "full", "label": "Full (6)" }
+      ]
+    }
+  }
+}
 ```
 
 ### manifests (required)

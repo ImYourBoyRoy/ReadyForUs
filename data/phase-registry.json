@@ -1,5 +1,6 @@
 {
     "phases": [
+        "phase_closure",
         "phase_0",
         "phase_1",
         "phase_1.5",

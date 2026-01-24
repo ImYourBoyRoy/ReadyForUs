@@ -1,0 +1,13 @@
+graph TD
+    A["data/phase_X/questions.json"] -->|Loads Definition| B("js/data-loader.js")
+    subgraph "Display & Interaction"
+        B -->|Renders Label| C[User Interface]
+        C -->|User Selects Option| D[User Input]
+    end
+    D -->|Captures Value| E["js/app/questionnaire-engine.js\n(Response State)"]
+    E -->|Raw Response| F["js/import-manager.js\n(formatJSONResponses)"]
+    B -->|Provides Title, Prompt, ID| F
+    F -->|Constructs Text Block| G[Formatted Prompt Segment]
+    H["data/phase_X/prompts.json"] -->|Provides Template| I["js/import-manager.js\n(Final Assembly)"]
+    G -->|Injects into Template| I
+    I -->|Clipboard| J[Final AI Input]

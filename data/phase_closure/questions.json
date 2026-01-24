@@ -1,0 +1,4149 @@
+{
+  "schema_version": "1.3.0",
+  "primary_manifest_id": "lite",
+  "ui_hints": {
+    "estimated_minutes": {
+      "lite": 10,
+      "full": 22
+    },
+    "progress_style": "steps",
+    "save_style": "auto",
+    "mode_switcher": {
+      "enabled": true,
+      "default": "lite",
+      "options": [
+        "lite",
+        "full"
+      ]
+    }
+  },
+  "manifests": {
+    "lite": {
+      "title": "Closure Lite",
+      "description": "A shorter version that captures the essentials for safety, stabilization, and next steps.",
+      "question_ids": [
+        "q01",
+        "q02",
+        "q03",
+        "q04",
+        "q05",
+        "q06",
+        "q07",
+        "q08",
+        "q12",
+        "q17",
+        "q18",
+        "q19",
+        "q20",
+        "q21",
+        "q27",
+        "q29",
+        "q30",
+        "q31",
+        "q36",
+        "q39",
+        "q41",
+        "q44",
+        "q47",
+        "q48",
+        "q50",
+        "q52",
+        "q53",
+        "q57",
+        "q58",
+        "q60"
+      ]
+    },
+    "full": {
+      "title": "Closure Full",
+      "description": "A deeper version for nuance, patterns, and longer-term healing support.",
+      "question_ids": [
+        "q01",
+        "q02",
+        "q03",
+        "q04",
+        "q05",
+        "q06",
+        "q07",
+        "q08",
+        "q09",
+        "q10",
+        "q11",
+        "q12",
+        "q13",
+        "q14",
+        "q15",
+        "q16",
+        "q17",
+        "q18",
+        "q19",
+        "q20",
+        "q21",
+        "q22",
+        "q23",
+        "q24",
+        "q25",
+        "q26",
+        "q27",
+        "q28",
+        "q29",
+        "q30",
+        "q31",
+        "q32",
+        "q33",
+        "q34",
+        "q35",
+        "q36",
+        "q37",
+        "q38",
+        "q39",
+        "q40",
+        "q41",
+        "q42",
+        "q43",
+        "q44",
+        "q45",
+        "q46",
+        "q47",
+        "q48",
+        "q49",
+        "q50",
+        "q51",
+        "q52",
+        "q53",
+        "q54",
+        "q55",
+        "q56",
+        "q57",
+        "q58",
+        "q59",
+        "q60"
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Snapshot and Grounding",
+      "question_ids": [
+        "q01",
+        "q02",
+        "q03",
+        "q04",
+        "q05",
+        "q06",
+        "q07"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "The Relationship Context",
+      "question_ids": [
+        "q08",
+        "q09",
+        "q10",
+        "q11",
+        "q12",
+        "q13",
+        "q14",
+        "q15",
+        "q16"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "The Ending and Entanglements",
+      "question_ids": [
+        "q17",
+        "q18",
+        "q19",
+        "q20",
+        "q21",
+        "q22",
+        "q23",
+        "q24",
+        "q25",
+        "q26",
+        "q27",
+        "q28"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Grief Waves Right Now",
+      "question_ids": [
+        "q29",
+        "q30",
+        "q31",
+        "q32",
+        "q33",
+        "q34",
+        "q35",
+        "q36",
+        "q37",
+        "q38",
+        "q39",
+        "q40"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Coping, Risk, and Inputs",
+      "question_ids": [
+        "q41",
+        "q42",
+        "q43",
+        "q44",
+        "q45",
+        "q46",
+        "q47",
+        "q48",
+        "q49",
+        "q50",
+        "q51",
+        "q52"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Reality, Meaning, and Closure",
+      "question_ids": [
+        "q53",
+        "q54",
+        "q55",
+        "q56",
+        "q57",
+        "q58",
+        "q59",
+        "q60"
+      ]
+    }
+  ],
+  "questions": {
+    "q01": {
+      "id": "q01",
+      "section_id": "s1",
+      "order": 1,
+      "title": "Where You Are in the Timeline",
+      "prompt": "First, a few grounding facts so this can meet you where you are. What is the timing of the ending and how long was the relationship?",
+      "type": "compound",
+      "fields": [
+        {
+          "key": "time_since_end",
+          "label": "How long ago did it end (or change) for real?",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "minutes",
+              "label": "Minutes ago"
+            },
+            {
+              "value": "hours",
+              "label": "Hours ago"
+            },
+            {
+              "value": "days",
+              "label": "Days ago"
+            },
+            {
+              "value": "weeks",
+              "label": "Weeks ago"
+            },
+            {
+              "value": "months",
+              "label": "Months ago"
+            },
+            {
+              "value": "years",
+              "label": "Years ago"
+            },
+            {
+              "value": "unclear",
+              "label": "It is complicated or unclear"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "end_date",
+          "label": "If you know it: what date did it end? (or the day you found out)",
+          "type": "short_text",
+          "placeholder": "Example: Jan 20, 2026"
+        },
+        {
+          "key": "relationship_length",
+          "label": "How long were you together (roughly)?",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "under_2_weeks",
+              "label": "Under 2 weeks"
+            },
+            {
+              "value": "2_6_weeks",
+              "label": "2 to 6 weeks"
+            },
+            {
+              "value": "2_6_months",
+              "label": "2 to 6 months"
+            },
+            {
+              "value": "6_12_months",
+              "label": "6 to 12 months"
+            },
+            {
+              "value": "1_3_years",
+              "label": "1 to 3 years"
+            },
+            {
+              "value": "3_7_years",
+              "label": "3 to 7 years"
+            },
+            {
+              "value": "7_plus_years",
+              "label": "7+ years"
+            },
+            {
+              "value": "unclear",
+              "label": "Not sure"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "short_text",
+          "placeholder": "Anything about the timing that matters."
+        }
+      ],
+      "answer_schema": {
+        "time_since_end": "",
+        "end_date": "",
+        "relationship_length": "",
+        "notes": ""
+      },
+      "examples": [
+        "Days ago. End date: Jan 20, 2026. Length: 6 to 12 months.",
+        "Weeks ago. End date: early December. Length: 2 to 6 months.",
+        "It is complicated or unclear. End date: (blank). Length: 3 to 7 years."
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q02": {
+      "id": "q02",
+      "section_id": "s1",
+      "order": 2,
+      "title": "What Kind of Ending Was This",
+      "prompt": "What best describes the ending you are navigating?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "breakup",
+          "label": "Breakup (dating relationship ended)"
+        },
+        {
+          "value": "separation",
+          "label": "Separation (not divorced yet)"
+        },
+        {
+          "value": "divorce",
+          "label": "Divorce (legally finalized)"
+        },
+        {
+          "value": "called_off_engagement",
+          "label": "Engagement called off"
+        },
+        {
+          "value": "ghosted",
+          "label": "Ghosted or slow-faded"
+        },
+        {
+          "value": "situationship_ended",
+          "label": "Situationship ended (no clear label)"
+        },
+        {
+          "value": "widowed",
+          "label": "Widowed (death)"
+        },
+        {
+          "value": "open_to_closed",
+          "label": "Relationship structure changed (open to closed, etc.)"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Breakup (dating relationship ended)",
+        "Separation (not divorced yet)",
+        "Ghosted or slow-faded"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q03": {
+      "id": "q03",
+      "section_id": "s1",
+      "order": 3,
+      "title": "What It Was Right Before It Ended",
+      "prompt": "Right before it ended, what was the relationship status or structure?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "casually_dating",
+          "label": "Casually dating"
+        },
+        {
+          "value": "exclusive",
+          "label": "Exclusive (not engaged/married)"
+        },
+        {
+          "value": "defined_labeled",
+          "label": "Defined and labeled (boyfriend/girlfriend, partners)"
+        },
+        {
+          "value": "long_distance",
+          "label": "Long-distance relationship"
+        },
+        {
+          "value": "engaged",
+          "label": "Engaged"
+        },
+        {
+          "value": "married",
+          "label": "Married"
+        },
+        {
+          "value": "separated",
+          "label": "Separated but still legally married"
+        },
+        {
+          "value": "open_or_poly",
+          "label": "Open relationship / poly"
+        },
+        {
+          "value": "unclear",
+          "label": "Unclear"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Exclusive (not engaged/married)",
+        "Engaged",
+        "Casually dating"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q04": {
+      "id": "q04",
+      "section_id": "s1",
+      "order": 4,
+      "title": "Practical Entanglements",
+      "prompt": "Were there any practical entanglements that make this harder to unwind? (Select any that apply.)",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "lived_together",
+          "label": "Lived together"
+        },
+        {
+          "value": "shared_lease_mortgage",
+          "label": "Shared lease or mortgage"
+        },
+        {
+          "value": "shared_finances",
+          "label": "Shared finances or debt"
+        },
+        {
+          "value": "shared_business",
+          "label": "Shared business or major project"
+        },
+        {
+          "value": "kids",
+          "label": "Children together or co-parenting"
+        },
+        {
+          "value": "stepkids",
+          "label": "Step-kids or blended family"
+        },
+        {
+          "value": "pets",
+          "label": "Pets together"
+        },
+        {
+          "value": "social_circle",
+          "label": "Shared social circle/community"
+        },
+        {
+          "value": "faith_community",
+          "label": "Shared faith community"
+        },
+        {
+          "value": "legal_process",
+          "label": "Legal process involved (divorce, restraining order, custody)"
+        },
+        {
+          "value": "none",
+          "label": "None of these"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "ranking": [],
+        "notes": ""
+      },
+      "examples": [
+        "Lived together + Shared finances or debt + Pets together",
+        "Children together or co-parenting + Legal process involved (divorce, restraining order, custody)",
+        "None of these"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 7
+      }
+    },
+    "q05": {
+      "id": "q05",
+      "section_id": "s1",
+      "order": 5,
+      "title": "Physical Intimacy Level",
+      "prompt": "Only if you are comfortable: what best describes the physical side of the relationship?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "no_physical",
+          "label": "No physical intimacy"
+        },
+        {
+          "value": "light_affection",
+          "label": "Light affection only (hand-holding, hugs, brief kisses)"
+        },
+        {
+          "value": "making_out",
+          "label": "Making out / sexual touching (clothes on/off)"
+        },
+        {
+          "value": "sex",
+          "label": "Sex (intercourse)"
+        },
+        {
+          "value": "living_as_partners",
+          "label": "Living as partners (shared bed, frequent sex)"
+        },
+        {
+          "value": "variable",
+          "label": "It varied a lot"
+        },
+        {
+          "value": "prefer_not_to_say",
+          "label": "Prefer not to say"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Light affection only (hand-holding, hugs, brief kisses)",
+        "Sex (intercourse)",
+        "Prefer not to say"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q06": {
+      "id": "q06",
+      "section_id": "s1",
+      "order": 6,
+      "title": "Current Contact Status",
+      "prompt": "What is your current contact situation with them?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "no_contact",
+          "label": "No contact"
+        },
+        {
+          "value": "limited_logistics",
+          "label": "Limited contact for logistics only"
+        },
+        {
+          "value": "co_parenting",
+          "label": "Regular contact because of kids/co-parenting"
+        },
+        {
+          "value": "still_living_together",
+          "label": "Still living together (for now)"
+        },
+        {
+          "value": "on_off_contact",
+          "label": "On and off contact (hard to keep boundaries)"
+        },
+        {
+          "value": "actively_talking",
+          "label": "We are actively talking or trying to repair"
+        },
+        {
+          "value": "blocked",
+          "label": "I blocked them or they blocked me"
+        },
+        {
+          "value": "unknown",
+          "label": "Not sure"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "No contact",
+        "Limited contact for logistics only",
+        "On and off contact (hard to keep boundaries)"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q07": {
+      "id": "q07",
+      "section_id": "s1",
+      "order": 7,
+      "title": "What You Need Most Right Now",
+      "prompt": "If this could help you with just one thing today, what would you choose? (Select up to 3.)",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "calm_body",
+          "label": "Calm my body (less panic, less tightness)"
+        },
+        {
+          "value": "stop_ruminating",
+          "label": "Stop the rumination loop"
+        },
+        {
+          "value": "sleep",
+          "label": "Sleep or rest better"
+        },
+        {
+          "value": "clarity",
+          "label": "Clarity about what happened"
+        },
+        {
+          "value": "closure",
+          "label": "Closure so I can let go"
+        },
+        {
+          "value": "boundaries",
+          "label": "A boundary plan (no contact, social media, etc.)"
+        },
+        {
+          "value": "self_worth",
+          "label": "Stabilize my self-worth"
+        },
+        {
+          "value": "coping_tools",
+          "label": "Better coping tools for waves"
+        },
+        {
+          "value": "faith_support",
+          "label": "Spiritual support (if that fits me)"
+        },
+        {
+          "value": "move_forward",
+          "label": "A simple plan to move forward"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "ranking": [],
+        "notes": ""
+      },
+      "examples": [
+        "Calm my body (less panic, less tightness) + Sleep or rest better",
+        "Stop the rumination loop + A boundary plan (no contact, social media, etc.) + Stabilize my self-worth",
+        "Closure so I can let go"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 3
+      }
+    },
+    "q08": {
+      "id": "q08",
+      "section_id": "s2",
+      "order": 8,
+      "title": "Overall Emotional Intensity",
+      "prompt": "On a 0 to 10 scale, how emotionally intense has this been for you overall? (0 = barely, 10 = consuming)",
+      "type": "number",
+      "min": 0,
+      "max": 10,
+      "answer_schema": {
+        "value": null,
+        "notes": ""
+      },
+      "examples": [
+        "8",
+        "5",
+        "10"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q09": {
+      "id": "q09",
+      "section_id": "s2",
+      "order": 9,
+      "title": "How It Felt Inside the Relationship",
+      "prompt": "When you think back, what words describe how it felt most of the time? (Select up to 5.)",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "safe",
+          "label": "Safe"
+        },
+        {
+          "value": "seen",
+          "label": "Seen and understood"
+        },
+        {
+          "value": "steady",
+          "label": "Steady"
+        },
+        {
+          "value": "joyful",
+          "label": "Joyful"
+        },
+        {
+          "value": "exciting",
+          "label": "Exciting"
+        },
+        {
+          "value": "anxious",
+          "label": "Anxious"
+        },
+        {
+          "value": "walking_on_eggshells",
+          "label": "Walking on eggshells"
+        },
+        {
+          "value": "lonely_together",
+          "label": "Lonely even together"
+        },
+        {
+          "value": "unpredictable",
+          "label": "Unpredictable"
+        },
+        {
+          "value": "controlled",
+          "label": "Controlled or pressured"
+        },
+        {
+          "value": "emotionally_distant",
+          "label": "Emotionally distant"
+        },
+        {
+          "value": "confusing",
+          "label": "Confusing"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "ranking": [],
+        "notes": ""
+      },
+      "examples": [
+        "Safe + Joyful + Steady",
+        "Exciting + Anxious + Unpredictable",
+        "Confusing + Emotionally distant + Lonely even together"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 5
+      }
+    },
+    "q10": {
+      "id": "q10",
+      "section_id": "s2",
+      "order": 10,
+      "title": "What Was Good About It",
+      "prompt": "What felt genuinely good or healthy about the relationship? (Select up to 4.)",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "friendship",
+          "label": "Friendship and fun"
+        },
+        {
+          "value": "shared_values",
+          "label": "Shared values"
+        },
+        {
+          "value": "emotional_support",
+          "label": "Emotional support"
+        },
+        {
+          "value": "communication",
+          "label": "Good communication"
+        },
+        {
+          "value": "chemistry",
+          "label": "Strong chemistry"
+        },
+        {
+          "value": "teamwork",
+          "label": "Teamwork and reliability"
+        },
+        {
+          "value": "faith_alignment",
+          "label": "Faith/spiritual alignment"
+        },
+        {
+          "value": "growth",
+          "label": "Personal growth"
+        },
+        {
+          "value": "family_fit",
+          "label": "Family/community fit"
+        },
+        {
+          "value": "none",
+          "label": "It is hard to name right now"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "ranking": [],
+        "notes": ""
+      },
+      "examples": [
+        "Friendship and fun + Shared values",
+        "Strong chemistry + Personal growth",
+        "It is hard to name right now"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 4
+      }
+    },
+    "q11": {
+      "id": "q11",
+      "section_id": "s2",
+      "order": 11,
+      "title": "What Was Hard About It (Ranked)",
+      "prompt": "What were the biggest pain points? Select the ones that fit and drag to rank the top ones.",
+      "type": "ranked_select",
+      "options": [
+        {
+          "value": "communication",
+          "label": "Communication breakdown"
+        },
+        {
+          "value": "conflict",
+          "label": "Conflict cycles"
+        },
+        {
+          "value": "trust",
+          "label": "Trust issues or betrayal"
+        },
+        {
+          "value": "avoidance",
+          "label": "Avoidance or emotional shutdown"
+        },
+        {
+          "value": "jealousy",
+          "label": "Jealousy or insecurity"
+        },
+        {
+          "value": "values",
+          "label": "Values or life direction mismatch"
+        },
+        {
+          "value": "pressure",
+          "label": "Pressure around pace, intimacy, or commitment"
+        },
+        {
+          "value": "mental_health",
+          "label": "Mental health strain"
+        },
+        {
+          "value": "substance",
+          "label": "Substance use"
+        },
+        {
+          "value": "family",
+          "label": "Family/community interference"
+        },
+        {
+          "value": "finances",
+          "label": "Financial stress"
+        },
+        {
+          "value": "distance",
+          "label": "Distance/logistics"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Conflict cycles, Communication breakdown, Avoidance or emotional shutdown",
+        "Trust issues or betrayal, Pressure around pace, intimacy, or commitment",
+        "Values or life direction mismatch, Distance/logistics"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 6
+      }
+    },
+    "q12": {
+      "id": "q12",
+      "section_id": "s2",
+      "order": 12,
+      "title": "Overall Pattern",
+      "prompt": "Looking back, what was the overall pattern?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "steady",
+          "label": "Mostly steady and consistent"
+        },
+        {
+          "value": "rollercoaster",
+          "label": "Rollercoaster (high highs, low lows)"
+        },
+        {
+          "value": "on_off",
+          "label": "On and off (breakups and reunions)"
+        },
+        {
+          "value": "pursue_withdraw",
+          "label": "Pursue-withdraw cycle (one chased, one distanced)"
+        },
+        {
+          "value": "slow_burn",
+          "label": "Slow burn that grew over time"
+        },
+        {
+          "value": "fast_intense",
+          "label": "Fast and intense early on"
+        },
+        {
+          "value": "mostly_long_distance",
+          "label": "Mostly long-distance"
+        },
+        {
+          "value": "hard_to_label",
+          "label": "Hard to label"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Rollercoaster (high highs, low lows)",
+        "Fast and intense early on",
+        "Mostly steady and consistent"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q13": {
+      "id": "q13",
+      "section_id": "s2",
+      "order": 13,
+      "title": "Markers of Integration",
+      "prompt": "Which of these were true at any point? (This helps gauge how intertwined your lives became.)",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "met_family",
+          "label": "Met each other's family"
+        },
+        {
+          "value": "met_friends",
+          "label": "Integrated into friend groups"
+        },
+        {
+          "value": "traveled",
+          "label": "Traveled together"
+        },
+        {
+          "value": "talked_future",
+          "label": "Talked seriously about the future"
+        },
+        {
+          "value": "talked_marriage",
+          "label": "Talked about marriage"
+        },
+        {
+          "value": "planned_move",
+          "label": "Planned moving in or relocating"
+        },
+        {
+          "value": "shared_holidays",
+          "label": "Shared holidays/traditions"
+        },
+        {
+          "value": "shared_church",
+          "label": "Attended the same church/community events"
+        },
+        {
+          "value": "shared_money_plans",
+          "label": "Made money plans together"
+        },
+        {
+          "value": "none",
+          "label": "None of these"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "ranking": [],
+        "notes": ""
+      },
+      "examples": [
+        "Met each other's family + Traveled together + Talked seriously about the future",
+        "Shared holidays/traditions + Attended the same church/community events",
+        "None of these"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 7
+      }
+    },
+    "q14": {
+      "id": "q14",
+      "section_id": "s2",
+      "order": 14,
+      "title": "Your Stress Pattern in Relationships",
+      "prompt": "When the relationship felt uncertain, what did you tend to do? (Select what fits, no shame.)",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "seek_reassurance",
+          "label": "Seek reassurance or closeness"
+        },
+        {
+          "value": "overthink",
+          "label": "Overthink and scan for signs"
+        },
+        {
+          "value": "withdraw",
+          "label": "Withdraw or go quiet"
+        },
+        {
+          "value": "people_please",
+          "label": "People-please to keep the peace"
+        },
+        {
+          "value": "get_angry",
+          "label": "Get reactive or angry"
+        },
+        {
+          "value": "avoid_talks",
+          "label": "Avoid hard conversations"
+        },
+        {
+          "value": "try_fix",
+          "label": "Try to fix it fast"
+        },
+        {
+          "value": "numb_out",
+          "label": "Numb out (work, screens, substances)"
+        },
+        {
+          "value": "stay_centered",
+          "label": "Stay relatively centered"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "ranking": [],
+        "notes": ""
+      },
+      "examples": [
+        "Overthink and scan for signs + Seek reassurance or closeness",
+        "Withdraw or go quiet + Avoid hard conversations",
+        "Stay relatively centered"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 4
+      }
+    },
+    "q15": {
+      "id": "q15",
+      "section_id": "s2",
+      "order": 15,
+      "title": "What You Were Hoping For",
+      "prompt": "In your most honest words, what were you hoping this would become?",
+      "type": "free_text",
+      "placeholder": "A few sentences is enough.",
+      "answer_schema": {
+        "text": "",
+        "notes": ""
+      },
+      "examples": [
+        "I wanted a calm, committed partnership where we build a life together.",
+        "I hoped we would keep dating and see if the foundation was real.",
+        "I thought this might become marriage, and I was letting myself believe it."
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q16": {
+      "id": "q16",
+      "section_id": "s2",
+      "order": 16,
+      "title": "What You Were Afraid Of",
+      "prompt": "What were you afraid might happen, even if you did not say it out loud?",
+      "type": "free_text",
+      "placeholder": "If this feels tender, go gentle. A few lines is enough.",
+      "answer_schema": {
+        "text": "",
+        "notes": ""
+      },
+      "examples": [
+        "That I would get attached and they would leave anyway.",
+        "That I would lose myself trying to make it work.",
+        "That the red flags were real and I was ignoring them."
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q17": {
+      "id": "q17",
+      "section_id": "s3",
+      "order": 17,
+      "title": "Who Ended It",
+      "prompt": "Who initiated the ending (or the big shift) most directly?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "me",
+          "label": "I ended it"
+        },
+        {
+          "value": "them",
+          "label": "They ended it"
+        },
+        {
+          "value": "mutual",
+          "label": "It was mutual"
+        },
+        {
+          "value": "external",
+          "label": "Something external forced it (distance, family, health, legal)"
+        },
+        {
+          "value": "unclear",
+          "label": "Unclear"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "They ended it",
+        "It was mutual",
+        "Something external forced it (distance, family, health, legal)"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q18": {
+      "id": "q18",
+      "section_id": "s3",
+      "order": 18,
+      "title": "How It Ended",
+      "prompt": "How did it end (or how did you find out it was ending)?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "in_person_convo",
+          "label": "In-person conversation"
+        },
+        {
+          "value": "phone_call",
+          "label": "Phone call"
+        },
+        {
+          "value": "text_message",
+          "label": "Text message"
+        },
+        {
+          "value": "ghosted",
+          "label": "Ghosted / disappeared"
+        },
+        {
+          "value": "slow_fade",
+          "label": "Slow fade (less and less until it died)"
+        },
+        {
+          "value": "third_party",
+          "label": "Through someone else"
+        },
+        {
+          "value": "legal_process",
+          "label": "Legal process (papers, court, restraining order)"
+        },
+        {
+          "value": "death",
+          "label": "Death"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "In-person conversation",
+        "Text message",
+        "Ghosted / disappeared"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q19": {
+      "id": "q19",
+      "section_id": "s3",
+      "order": 19,
+      "title": "How Sudden Was It",
+      "prompt": "Did it feel sudden, or did it build over time?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "sudden",
+          "label": "Sudden (felt like it came out of nowhere)"
+        },
+        {
+          "value": "some_signs",
+          "label": "Some signs, but I still hoped it would work"
+        },
+        {
+          "value": "long_time",
+          "label": "Long time coming"
+        },
+        {
+          "value": "on_off",
+          "label": "It was part of an on/off pattern"
+        },
+        {
+          "value": "unclear",
+          "label": "Unclear"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Some signs, but I still hoped it would work",
+        "Sudden (felt like it came out of nowhere)",
+        "Long time coming"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q20": {
+      "id": "q20",
+      "section_id": "s3",
+      "order": 20,
+      "title": "Primary Reasons (Ranked)",
+      "prompt": "What do you believe were the main reasons it ended? Select what fits and rank the top ones.",
+      "type": "ranked_select",
+      "options": [
+        {
+          "value": "values_incompatibility",
+          "label": "Values or life direction mismatch"
+        },
+        {
+          "value": "trust_betrayal",
+          "label": "Trust rupture or betrayal"
+        },
+        {
+          "value": "communication_breakdown",
+          "label": "Communication breakdown"
+        },
+        {
+          "value": "conflict_cycle",
+          "label": "Conflict cycle that would not repair"
+        },
+        {
+          "value": "emotional_unavailability",
+          "label": "Emotional unavailability or distancing"
+        },
+        {
+          "value": "boundary_violations",
+          "label": "Boundary violations or pressure"
+        },
+        {
+          "value": "intimacy_mismatch",
+          "label": "Affection or intimacy mismatch"
+        },
+        {
+          "value": "commitment_timing",
+          "label": "Commitment timing mismatch"
+        },
+        {
+          "value": "mental_health_strain",
+          "label": "Mental health strain (either person)"
+        },
+        {
+          "value": "substance_use",
+          "label": "Substance use or relapse"
+        },
+        {
+          "value": "finances",
+          "label": "Financial incompatibility or stress"
+        },
+        {
+          "value": "logistics_distance",
+          "label": "Distance or logistics"
+        },
+        {
+          "value": "family_pressure",
+          "label": "Family or community pressure"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Values or life direction mismatch, Emotional unavailability or distancing, Communication breakdown",
+        "Trust rupture or betrayal, Conflict cycle that would not repair",
+        "Commitment timing mismatch, Distance or logistics"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 6
+      }
+    },
+    "q21": {
+      "id": "q21",
+      "section_id": "s3",
+      "order": 21,
+      "title": "How Much Closure You Got",
+      "prompt": "How clear was the explanation or conversation around the ending?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "clear",
+          "label": "Clear and respectful (I understand the why)"
+        },
+        {
+          "value": "partial",
+          "label": "Somewhat clear (still gaps)"
+        },
+        {
+          "value": "confusing",
+          "label": "Confusing or mixed messages"
+        },
+        {
+          "value": "none",
+          "label": "No explanation"
+        },
+        {
+          "value": "it_keeps_changing",
+          "label": "It keeps changing"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Somewhat clear (still gaps)",
+        "No explanation",
+        "Clear and respectful (I understand the why)"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q22": {
+      "id": "q22",
+      "section_id": "s3",
+      "order": 22,
+      "title": "Unanswered Questions",
+      "prompt": "What questions are still looping in your mind?",
+      "type": "free_text",
+      "placeholder": "Example: 'Was I not enough?' 'Were they telling the truth?' 'What changed?'",
+      "answer_schema": {
+        "text": "",
+        "notes": ""
+      },
+      "examples": [
+        "What changed for them so fast, and when did it start?",
+        "Did I miss obvious signs that this was not safe for me?",
+        "Was there someone else, or was it really just timing?"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q23": {
+      "id": "q23",
+      "section_id": "s3",
+      "order": 23,
+      "title": "What You Wish You Had Said or Done",
+      "prompt": "If you could go back to the last conversation with more calm and clarity, what would you say or do differently?",
+      "type": "free_text",
+      "placeholder": "This is not for self-punishment. It is for learning.",
+      "answer_schema": {
+        "text": "",
+        "notes": ""
+      },
+      "examples": [
+        "I would have stayed calm and asked direct questions instead of pleading.",
+        "I would have set a boundary and left sooner when the disrespect showed up.",
+        "I would have asked for a real conversation instead of trying to fix it by text."
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q24": {
+      "id": "q24",
+      "section_id": "s3",
+      "order": 24,
+      "title": "What Is Still Unresolved",
+      "prompt": "What is still unresolved or actively stressful right now? (Select any.)",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "belongings",
+          "label": "Belongings to return or retrieve"
+        },
+        {
+          "value": "housing",
+          "label": "Housing transition"
+        },
+        {
+          "value": "money",
+          "label": "Money, debt, or financial disentangling"
+        },
+        {
+          "value": "legal",
+          "label": "Legal or custody process"
+        },
+        {
+          "value": "co_parenting_schedule",
+          "label": "Co-parenting schedule or communication"
+        },
+        {
+          "value": "pets",
+          "label": "Pet custody or care"
+        },
+        {
+          "value": "social_fallout",
+          "label": "Social fallout (friends/community)"
+        },
+        {
+          "value": "work_overlap",
+          "label": "Work overlap or professional impact"
+        },
+        {
+          "value": "health",
+          "label": "Health or medical entanglement"
+        },
+        {
+          "value": "none",
+          "label": "Nothing major unresolved"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "ranking": [],
+        "notes": ""
+      },
+      "examples": [
+        "Belongings to return or retrieve + Social fallout (friends/community)",
+        "Money, debt, or financial disentangling + Housing transition",
+        "Nothing major unresolved"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 7
+      }
+    },
+    "q25": {
+      "id": "q25",
+      "section_id": "s3",
+      "order": 25,
+      "title": "Logistics Details (Optional)",
+      "prompt": "If there are unresolved logistics, what are they? (Short version is fine.)",
+      "type": "free_text",
+      "placeholder": "Example: 'I need to pick up my things next week and I am anxious about seeing them.'",
+      "answer_schema": {
+        "text": "",
+        "notes": ""
+      },
+      "examples": [
+        "We are separating finances and I do not know who is paying what this month.",
+        "I have to see them weekly for kid handoffs and it spikes my anxiety.",
+        "I still have items at their place and I am avoiding the pickup."
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      }
+    },
+    "q26": {
+      "id": "q26",
+      "section_id": "s3",
+      "order": 26,
+      "title": "Safety and Respect Inside the Relationship",
+      "prompt": "Only if you feel comfortable: were there any patterns that felt unsafe, coercive, or abusive?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "no",
+          "label": "No"
+        },
+        {
+          "value": "maybe",
+          "label": "Maybe or not sure"
+        },
+        {
+          "value": "emotional",
+          "label": "Yes: emotional manipulation, intimidation, or control"
+        },
+        {
+          "value": "sexual",
+          "label": "Yes: sexual pressure or coercion"
+        },
+        {
+          "value": "physical",
+          "label": "Yes: physical aggression or threats"
+        },
+        {
+          "value": "financial",
+          "label": "Yes: financial control"
+        },
+        {
+          "value": "stalking",
+          "label": "Yes: stalking, monitoring, or harassment"
+        },
+        {
+          "value": "prefer_not_to_say",
+          "label": "Prefer not to say"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "No",
+        "Maybe or not sure",
+        "Yes: emotional manipulation, intimidation, or control"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q27": {
+      "id": "q27",
+      "section_id": "s3",
+      "order": 27,
+      "title": "How Safe You Feel Right Now",
+      "prompt": "Right now, how safe do you feel in your day-to-day life (emotionally and physically)? If you are in danger, please prioritize real-world help first.",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "safe",
+          "label": "Safe"
+        },
+        {
+          "value": "mostly_safe",
+          "label": "Mostly safe, but shaken"
+        },
+        {
+          "value": "not_safe",
+          "label": "Not safe"
+        },
+        {
+          "value": "urgent",
+          "label": "Urgent danger right now"
+        },
+        {
+          "value": "prefer_not_to_say",
+          "label": "Prefer not to say"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Mostly safe, but shaken",
+        "Safe",
+        "Not safe"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q28": {
+      "id": "q28",
+      "section_id": "s3",
+      "order": 28,
+      "title": "If You Need Support, Where Can It Come From",
+      "prompt": "If you feel unsafe or close to your edge, what supports are available to you? If you feel safe, you can leave this blank.",
+      "type": "compound",
+      "fields": [
+        {
+          "key": "support_people",
+          "label": "Who could you reach out to today?",
+          "type": "multi_select",
+          "options": [
+            {
+              "value": "friend",
+              "label": "Friend"
+            },
+            {
+              "value": "family",
+              "label": "Family"
+            },
+            {
+              "value": "neighbor",
+              "label": "Neighbor"
+            },
+            {
+              "value": "faith_leader",
+              "label": "Faith leader or community support"
+            },
+            {
+              "value": "therapist",
+              "label": "Therapist/coach"
+            },
+            {
+              "value": "hotline",
+              "label": "Crisis line"
+            },
+            {
+              "value": "none",
+              "label": "No one comes to mind"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ],
+          "validation": {
+            "max_selected": 4
+          }
+        },
+        {
+          "key": "safe_place",
+          "label": "Do you have a safe place you can go if needed?",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "yes_home",
+              "label": "Yes, my home feels safe"
+            },
+            {
+              "value": "yes_other",
+              "label": "Yes, somewhere else"
+            },
+            {
+              "value": "not_really",
+              "label": "Not really"
+            },
+            {
+              "value": "unsure",
+              "label": "Not sure"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "short_text",
+          "placeholder": "Example: who, where, or what would help right now."
+        }
+      ],
+      "answer_schema": {
+        "support_people": [],
+        "safe_place": "",
+        "notes": ""
+      },
+      "examples": [
+        "Support: Friend + Family. Safe place: Yes, somewhere else.",
+        "Support: Therapist/coach. Safe place: Yes, my home feels safe.",
+        "Support: No one comes to mind. Safe place: Not really."
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      }
+    },
+    "q29": {
+      "id": "q29",
+      "section_id": "s4",
+      "order": 29,
+      "title": "What You Are Feeling Most",
+      "prompt": "What emotions are most present lately? (Select up to 6.)",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "sadness",
+          "label": "Sadness"
+        },
+        {
+          "value": "grief",
+          "label": "Grief"
+        },
+        {
+          "value": "anger",
+          "label": "Anger"
+        },
+        {
+          "value": "relief",
+          "label": "Relief"
+        },
+        {
+          "value": "shame",
+          "label": "Shame"
+        },
+        {
+          "value": "guilt",
+          "label": "Guilt"
+        },
+        {
+          "value": "loneliness",
+          "label": "Loneliness"
+        },
+        {
+          "value": "anxiety",
+          "label": "Anxiety"
+        },
+        {
+          "value": "panic",
+          "label": "Panic"
+        },
+        {
+          "value": "numb",
+          "label": "Numbness"
+        },
+        {
+          "value": "confusion",
+          "label": "Confusion"
+        },
+        {
+          "value": "hope",
+          "label": "Hope"
+        },
+        {
+          "value": "yearning",
+          "label": "Yearning"
+        },
+        {
+          "value": "jealousy",
+          "label": "Jealousy"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "ranking": [],
+        "notes": ""
+      },
+      "examples": [
+        "Grief + Loneliness + Yearning",
+        "Anger + Confusion + Anxiety",
+        "Relief + Sadness"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 6
+      }
+    },
+    "q30": {
+      "id": "q30",
+      "section_id": "s4",
+      "order": 30,
+      "title": "Intensity Right Now",
+      "prompt": "Right now in this moment, how intense is it? (0 to 10)",
+      "type": "number",
+      "min": 0,
+      "max": 10,
+      "answer_schema": {
+        "value": null,
+        "notes": ""
+      },
+      "examples": [
+        "7",
+        "3",
+        "9"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q31": {
+      "id": "q31",
+      "section_id": "s4",
+      "order": 31,
+      "title": "How It Shows Up in Your Body",
+      "prompt": "When a wave hits, what do you notice in your body? (Select any that fit.)",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "tight_chest",
+          "label": "Tight chest or heart ache"
+        },
+        {
+          "value": "stomach_drop",
+          "label": "Stomach drop or nausea"
+        },
+        {
+          "value": "throat_lump",
+          "label": "Lump in throat"
+        },
+        {
+          "value": "restless",
+          "label": "Restlessness or agitation"
+        },
+        {
+          "value": "fatigue",
+          "label": "Heavy fatigue"
+        },
+        {
+          "value": "shaking",
+          "label": "Shaking or trembling"
+        },
+        {
+          "value": "head_pressure",
+          "label": "Head pressure or headache"
+        },
+        {
+          "value": "sleepy",
+          "label": "Sleepiness or shutdown"
+        },
+        {
+          "value": "appetite_change",
+          "label": "Appetite changes"
+        },
+        {
+          "value": "none",
+          "label": "None of these"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "ranking": [],
+        "notes": ""
+      },
+      "examples": [
+        "Tight chest or heart ache + Lump in throat",
+        "Restlessness or agitation + Stomach drop or nausea",
+        "Heavy fatigue + Sleepiness or shutdown"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 7
+      }
+    },
+    "q32": {
+      "id": "q32",
+      "section_id": "s4",
+      "order": 32,
+      "title": "Recent Triggers",
+      "prompt": "What has triggered the hardest waves recently?",
+      "type": "free_text",
+      "placeholder": "Examples: seeing their name, certain places, nights, social media, anniversaries, loneliness.",
+      "answer_schema": {
+        "text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Seeing their social media and imagining them happy without me.",
+        "Driving past a place we used to go together.",
+        "Night time and weekends when I am alone."
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q33": {
+      "id": "q33",
+      "section_id": "s4",
+      "order": 33,
+      "title": "What Your Mind Keeps Replaying",
+      "prompt": "What does your mind keep replaying or looping on? (Select up to 5.)",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "what_if",
+          "label": "What if I did something different"
+        },
+        {
+          "value": "why_not_enough",
+          "label": "Why I was not enough"
+        },
+        {
+          "value": "they_moved_on",
+          "label": "Imagining them moving on"
+        },
+        {
+          "value": "good_memories",
+          "label": "Only the good memories"
+        },
+        {
+          "value": "the_breakup_scene",
+          "label": "The breakup conversation"
+        },
+        {
+          "value": "betrayal_details",
+          "label": "Details of betrayal or lies"
+        },
+        {
+          "value": "comparison",
+          "label": "Comparing myself to others"
+        },
+        {
+          "value": "future_without_them",
+          "label": "Future without them"
+        },
+        {
+          "value": "justice",
+          "label": "Wanting justice or closure"
+        },
+        {
+          "value": "self_criticism",
+          "label": "Self-criticism"
+        },
+        {
+          "value": "none",
+          "label": "None of these"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "ranking": [],
+        "notes": ""
+      },
+      "examples": [
+        "Only the good memories + Imagining them moving on",
+        "The breakup conversation + Self-criticism",
+        "What if I did something different + Why I was not enough"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 5
+      }
+    },
+    "q34": {
+      "id": "q34",
+      "section_id": "s4",
+      "order": 34,
+      "title": "What You Miss (Ranked)",
+      "prompt": "What do you miss most? Select what fits and rank the top ones.",
+      "type": "ranked_select",
+      "options": [
+        {
+          "value": "companionship",
+          "label": "Companionship / having a person"
+        },
+        {
+          "value": "touch",
+          "label": "Physical affection"
+        },
+        {
+          "value": "routines",
+          "label": "Shared routines"
+        },
+        {
+          "value": "future_story",
+          "label": "The future story I had in my head"
+        },
+        {
+          "value": "their_traits",
+          "label": "Specific traits (humor, warmth, etc.)"
+        },
+        {
+          "value": "sex",
+          "label": "Sex"
+        },
+        {
+          "value": "validation",
+          "label": "Feeling chosen/validated"
+        },
+        {
+          "value": "family",
+          "label": "Their family or community"
+        },
+        {
+          "value": "security",
+          "label": "Security or stability"
+        },
+        {
+          "value": "unknown",
+          "label": "I do not know, it is just pain"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "The future story I had in my head, Companionship / having a person",
+        "Physical affection, Feeling chosen/validated",
+        "Shared routines, Specific traits (humor, warmth, etc.)"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 5
+      }
+    },
+    "q35": {
+      "id": "q35",
+      "section_id": "s4",
+      "order": 35,
+      "title": "What Hurt the Most (Ranked)",
+      "prompt": "What part hurt the most? Select what fits and rank the top ones.",
+      "type": "ranked_select",
+      "options": [
+        {
+          "value": "rejection",
+          "label": "Rejection or feeling replaced"
+        },
+        {
+          "value": "betrayal",
+          "label": "Betrayal or lies"
+        },
+        {
+          "value": "abandonment",
+          "label": "Abandonment (especially sudden)"
+        },
+        {
+          "value": "disrespect",
+          "label": "Disrespect or being dismissed"
+        },
+        {
+          "value": "loss_future",
+          "label": "Loss of the future we planned"
+        },
+        {
+          "value": "self_betrayal",
+          "label": "Feeling like I betrayed myself"
+        },
+        {
+          "value": "public_loss",
+          "label": "Public loss or embarrassment"
+        },
+        {
+          "value": "faith_conflict",
+          "label": "Faith or values conflict"
+        },
+        {
+          "value": "logistics",
+          "label": "Logistics and disruption"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Loss of the future we planned, Rejection or feeling replaced",
+        "Betrayal or lies, Disrespect or being dismissed",
+        "Feeling like I betrayed myself, Abandonment (especially sudden)"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 5
+      }
+    },
+    "q36": {
+      "id": "q36",
+      "section_id": "s4",
+      "order": 36,
+      "title": "Sleep Lately",
+      "prompt": "How has sleep been since the ending?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "good",
+          "label": "Pretty good"
+        },
+        {
+          "value": "light",
+          "label": "Light or restless"
+        },
+        {
+          "value": "hard_fall_asleep",
+          "label": "Hard to fall asleep"
+        },
+        {
+          "value": "wake_up",
+          "label": "Waking up early or during the night"
+        },
+        {
+          "value": "sleep_too_much",
+          "label": "Sleeping too much"
+        },
+        {
+          "value": "nightmares",
+          "label": "Nightmares"
+        },
+        {
+          "value": "all_over",
+          "label": "All over the place"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Hard to fall asleep",
+        "Waking up early or during the night",
+        "All over the place"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q37": {
+      "id": "q37",
+      "section_id": "s4",
+      "order": 37,
+      "title": "Eating and Appetite",
+      "prompt": "How has eating been?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "less",
+          "label": "Less appetite"
+        },
+        {
+          "value": "more",
+          "label": "More appetite"
+        },
+        {
+          "value": "forget",
+          "label": "Forgetting to eat"
+        },
+        {
+          "value": "comfort_eating",
+          "label": "Comfort eating"
+        },
+        {
+          "value": "nausea",
+          "label": "Nausea makes eating hard"
+        },
+        {
+          "value": "disordered",
+          "label": "Old patterns around food are coming back"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Less appetite",
+        "Comfort eating",
+        "Forgetting to eat"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q38": {
+      "id": "q38",
+      "section_id": "s4",
+      "order": 38,
+      "title": "Movement and Energy",
+      "prompt": "How has your movement or exercise been?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "steady",
+          "label": "Steady"
+        },
+        {
+          "value": "less",
+          "label": "Less than usual"
+        },
+        {
+          "value": "more",
+          "label": "More than usual (to cope)"
+        },
+        {
+          "value": "none",
+          "label": "Almost none"
+        },
+        {
+          "value": "stuck",
+          "label": "I feel stuck in my body"
+        },
+        {
+          "value": "overtraining",
+          "label": "Overtraining or pushing too hard"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Less than usual",
+        "More than usual (to cope)",
+        "Almost none"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q39": {
+      "id": "q39",
+      "section_id": "s4",
+      "order": 39,
+      "title": "Alcohol and Substances",
+      "prompt": "Since the ending, has your relationship with alcohol or substances changed? (Select any that fit.)",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "no_change",
+          "label": "No change"
+        },
+        {
+          "value": "none",
+          "label": "I do not use alcohol/substances"
+        },
+        {
+          "value": "increased_alcohol",
+          "label": "Increased alcohol use"
+        },
+        {
+          "value": "increased_weed",
+          "label": "Increased cannabis use"
+        },
+        {
+          "value": "increased_nicotine",
+          "label": "Increased nicotine use"
+        },
+        {
+          "value": "increased_prescription",
+          "label": "Increased use of prescription meds (as prescribed or not)"
+        },
+        {
+          "value": "increased_other",
+          "label": "Increased other substances"
+        },
+        {
+          "value": "decreased",
+          "label": "Decreased use"
+        },
+        {
+          "value": "relapse",
+          "label": "Relapse after a period of sobriety"
+        },
+        {
+          "value": "concerned",
+          "label": "I feel concerned about it"
+        },
+        {
+          "value": "prefer_not_to_say",
+          "label": "Prefer not to say"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "ranking": [],
+        "notes": ""
+      },
+      "examples": [
+        "No change",
+        "Increased alcohol use + I feel concerned about it",
+        "Relapse after a period of sobriety"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 7
+      }
+    },
+    "q40": {
+      "id": "q40",
+      "section_id": "s4",
+      "order": 40,
+      "title": "Sex, Porn, or Validation Coping",
+      "prompt": "Only if you are comfortable: has any part of this pushed you toward sex, porn, or chasing validation as a coping strategy?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "no",
+          "label": "No"
+        },
+        {
+          "value": "a_little",
+          "label": "A little"
+        },
+        {
+          "value": "yes",
+          "label": "Yes, noticeably"
+        },
+        {
+          "value": "compulsive",
+          "label": "Yes, it feels compulsive or out of control"
+        },
+        {
+          "value": "avoidant",
+          "label": "I am avoiding all intimacy out of fear"
+        },
+        {
+          "value": "prefer_not_to_say",
+          "label": "Prefer not to say"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "A little",
+        "I am avoiding all intimacy out of fear",
+        "Prefer not to say"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      }
+    },
+    "q41": {
+      "id": "q41",
+      "section_id": "s5",
+      "order": 41,
+      "title": "Safety Check: Self-Harm Thoughts",
+      "prompt": "Have you had thoughts of hurting yourself since this ended? If you are in immediate danger, call your local emergency number or a crisis line right now.",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "no",
+          "label": "No"
+        },
+        {
+          "value": "passive",
+          "label": "Yes: passive thoughts (I wish I could disappear, but no plan)"
+        },
+        {
+          "value": "active",
+          "label": "Yes: active thoughts (I have thought about a plan)"
+        },
+        {
+          "value": "recent_attempt",
+          "label": "Yes: I have acted on it recently"
+        },
+        {
+          "value": "prefer_not_to_say",
+          "label": "Prefer not to say"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "No",
+        "Yes: passive thoughts (I wish I could disappear, but no plan)",
+        "Prefer not to say"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q42": {
+      "id": "q42",
+      "section_id": "s5",
+      "order": 42,
+      "title": "Safety Check: Risky Behavior",
+      "prompt": "Since the ending, have you done anything that scared you (reckless driving, unsafe mixing, unsafe situations, etc.)?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "no",
+          "label": "No"
+        },
+        {
+          "value": "a_little",
+          "label": "A little"
+        },
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "ongoing",
+          "label": "Yes, and it is ongoing"
+        },
+        {
+          "value": "prefer_not_to_say",
+          "label": "Prefer not to say"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "No",
+        "A little",
+        "Prefer not to say"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      }
+    },
+    "q43": {
+      "id": "q43",
+      "section_id": "s5",
+      "order": 43,
+      "title": "Unhelpful Coping Patterns",
+      "prompt": "Which coping patterns are showing up (even if you wish they were not)? Select any. This is for awareness, not judgment.",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "doomscroll",
+          "label": "Doomscrolling or excessive phone time"
+        },
+        {
+          "value": "checking_ex",
+          "label": "Checking their social media or location"
+        },
+        {
+          "value": "begging",
+          "label": "Begging, pleading, or repeated texting"
+        },
+        {
+          "value": "isolation",
+          "label": "Isolating from people"
+        },
+        {
+          "value": "workaholic",
+          "label": "Overworking to avoid feeling"
+        },
+        {
+          "value": "spending",
+          "label": "Overspending"
+        },
+        {
+          "value": "binge_eating",
+          "label": "Binge eating"
+        },
+        {
+          "value": "not_eating",
+          "label": "Not eating"
+        },
+        {
+          "value": "porn",
+          "label": "Porn as a numbing tool"
+        },
+        {
+          "value": "hookups",
+          "label": "Hookups or validation-seeking"
+        },
+        {
+          "value": "substances",
+          "label": "Alcohol/substances to numb"
+        },
+        {
+          "value": "self_attack",
+          "label": "Self-attack/self-hate spirals"
+        },
+        {
+          "value": "none",
+          "label": "None of these"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "ranking": [],
+        "notes": ""
+      },
+      "examples": [
+        "Doomscrolling or excessive phone time + Checking their social media or location",
+        "Isolating from people + Self-attack/self-hate spirals",
+        "None of these"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 8
+      }
+    },
+    "q44": {
+      "id": "q44",
+      "section_id": "s5",
+      "order": 44,
+      "title": "Support Around You",
+      "prompt": "Who is actually in your corner right now? (Select any that apply.)",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "one_friend",
+          "label": "At least one friend I can talk to"
+        },
+        {
+          "value": "family",
+          "label": "Family support"
+        },
+        {
+          "value": "faith_community",
+          "label": "Faith community support"
+        },
+        {
+          "value": "coworker",
+          "label": "Coworker or mentor"
+        },
+        {
+          "value": "therapist",
+          "label": "Therapist"
+        },
+        {
+          "value": "coach",
+          "label": "Coach"
+        },
+        {
+          "value": "support_group",
+          "label": "Support group"
+        },
+        {
+          "value": "online_friend",
+          "label": "Online community/friend"
+        },
+        {
+          "value": "no_one",
+          "label": "No one I trust with this"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "ranking": [],
+        "notes": ""
+      },
+      "examples": [
+        "At least one friend I can talk to + Family support",
+        "Therapist + Support group",
+        "No one I trust with this"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 6
+      }
+    },
+    "q45": {
+      "id": "q45",
+      "section_id": "s5",
+      "order": 45,
+      "title": "Professional Support",
+      "prompt": "Are you getting support from a professional right now? If yes, what kind? If no, that is okay too.",
+      "type": "compound",
+      "fields": [
+        {
+          "key": "support_types",
+          "label": "What kind of support?",
+          "type": "multi_select",
+          "options": [
+            {
+              "value": "therapist",
+              "label": "Therapist (licensed)"
+            },
+            {
+              "value": "coach",
+              "label": "Coach"
+            },
+            {
+              "value": "doctor",
+              "label": "Doctor/psychiatrist"
+            },
+            {
+              "value": "clergy",
+              "label": "Clergy/faith counseling"
+            },
+            {
+              "value": "group",
+              "label": "Group therapy/support group"
+            },
+            {
+              "value": "none",
+              "label": "None right now"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ],
+          "validation": {
+            "max_selected": 4
+          }
+        },
+        {
+          "key": "frequency",
+          "label": "If applicable, how often?",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "na",
+              "label": "Not applicable"
+            },
+            {
+              "value": "weekly",
+              "label": "Weekly"
+            },
+            {
+              "value": "biweekly",
+              "label": "Every other week"
+            },
+            {
+              "value": "monthly",
+              "label": "Monthly"
+            },
+            {
+              "value": "as_needed",
+              "label": "As needed"
+            },
+            {
+              "value": "starting_soon",
+              "label": "Starting soon"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "short_text",
+          "placeholder": "Example: modality (CBT/IFS/EMDR), what helps, what does not."
+        }
+      ],
+      "answer_schema": {
+        "support_types": [],
+        "frequency": "",
+        "notes": ""
+      },
+      "examples": [
+        "Support: Therapist (licensed). Frequency: Weekly. Notes: CBT, helpful with thought spirals.",
+        "Support: None right now. Frequency: Not applicable.",
+        "Support: Clergy/faith counseling + Coach. Frequency: As needed."
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q46": {
+      "id": "q46",
+      "section_id": "s5",
+      "order": 46,
+      "title": "Medication Changes",
+      "prompt": "Only if relevant: have there been any recent changes in mental health medication (starting, stopping, dosage changes)?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "na",
+          "label": "Not applicable"
+        },
+        {
+          "value": "no_change",
+          "label": "No change"
+        },
+        {
+          "value": "started",
+          "label": "Started a medication"
+        },
+        {
+          "value": "stopped",
+          "label": "Stopped a medication"
+        },
+        {
+          "value": "dose_change",
+          "label": "Dose change"
+        },
+        {
+          "value": "missed_doses",
+          "label": "Missed doses frequently"
+        },
+        {
+          "value": "prefer_not_to_say",
+          "label": "Prefer not to say"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "Not applicable",
+        "No change",
+        "Dose change"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      }
+    },
+    "q47": {
+      "id": "q47",
+      "section_id": "s5",
+      "order": 47,
+      "title": "What Helps and What Tools You Use",
+      "prompt": "What tools or actions actually give you even a little relief? (We are looking for what works, not what you think you should do.)",
+      "type": "compound",
+      "fields": [
+        {
+          "key": "helps_now",
+          "label": "What helps right now?",
+          "type": "multi_select",
+          "options": [
+            {
+              "value": "walks",
+              "label": "Walking / movement"
+            },
+            {
+              "value": "gym",
+              "label": "Exercise or lifting"
+            },
+            {
+              "value": "sunlight",
+              "label": "Sunlight / getting outside"
+            },
+            {
+              "value": "friends",
+              "label": "Talking with a friend"
+            },
+            {
+              "value": "therapy",
+              "label": "Therapy or coaching"
+            },
+            {
+              "value": "journaling",
+              "label": "Journaling"
+            },
+            {
+              "value": "prayer",
+              "label": "Prayer / spiritual practice"
+            },
+            {
+              "value": "breathwork",
+              "label": "Breathwork / grounding"
+            },
+            {
+              "value": "music",
+              "label": "Music"
+            },
+            {
+              "value": "creative",
+              "label": "Creative outlet (art, writing, building)"
+            },
+            {
+              "value": "sleep_routine",
+              "label": "Sleep routine"
+            },
+            {
+              "value": "learning",
+              "label": "Learning (books, podcasts, classes)"
+            },
+            {
+              "value": "none",
+              "label": "Nothing feels helpful yet"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ],
+          "validation": {
+            "max_selected": 7
+          }
+        },
+        {
+          "key": "journaling_style",
+          "label": "If you journal, what style fits you best?",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "na",
+              "label": "I do not journal"
+            },
+            {
+              "value": "free_writing",
+              "label": "Free writing / brain dump"
+            },
+            {
+              "value": "unsent_letters",
+              "label": "Unsent letters to them"
+            },
+            {
+              "value": "prompt_based",
+              "label": "Structured prompts (CBT-style)"
+            },
+            {
+              "value": "evidence_log",
+              "label": "Reality log: facts vs fantasy"
+            },
+            {
+              "value": "gratitude",
+              "label": "Gratitude journal"
+            },
+            {
+              "value": "prayer_journal",
+              "label": "Prayer / spiritual journal"
+            },
+            {
+              "value": "voice_notes",
+              "label": "Voice notes"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "tracking_tools",
+          "label": "Do you use any tracking tools?",
+          "type": "multi_select",
+          "options": [
+            {
+              "value": "none",
+              "label": "No"
+            },
+            {
+              "value": "mood_tracker",
+              "label": "Mood tracker"
+            },
+            {
+              "value": "sleep_tracker",
+              "label": "Sleep tracker"
+            },
+            {
+              "value": "habit_tracker",
+              "label": "Habit tracker"
+            },
+            {
+              "value": "trigger_log",
+              "label": "Trigger log"
+            },
+            {
+              "value": "exercise_tracker",
+              "label": "Exercise tracker"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ],
+          "validation": {
+            "max_selected": 3
+          }
+        },
+        {
+          "key": "resources",
+          "label": "Name any specific book, podcast, therapist style, or creator you are leaning on (optional)",
+          "type": "short_text",
+          "placeholder": "Example: 'Attached', 'CBT worksheets', 'IFS therapy', a podcast name."
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "short_text",
+          "placeholder": "What helps most, what makes it worse, what you want to try next."
+        }
+      ],
+      "answer_schema": {
+        "helps_now": [],
+        "journaling_style": "",
+        "tracking_tools": [],
+        "resources": "",
+        "notes": ""
+      },
+      "examples": [
+        "Helps: Walking / movement + Talking with a friend + Journaling. Journaling: Reality log. Tracking: Mood tracker. Resources: 'Attached'.",
+        "Helps: Prayer / spiritual practice + Breathwork / grounding. Journaling: Prayer / spiritual journal. Tracking: No. Resources: (blank).",
+        "Helps: Nothing feels helpful yet. Journaling: I do not journal. Tracking: No."
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q48": {
+      "id": "q48",
+      "section_id": "s5",
+      "order": 48,
+      "title": "Your Information Diet",
+      "prompt": "What are you feeding your brain right now? (Select all that apply. This helps us filter the noise.)",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "get_ex_back",
+          "label": "\"How to get your ex back\" or strategy content"
+        },
+        {
+          "value": "psychology_diagnosing",
+          "label": "Attachment theory or diagnosing them/me (avoidant, narcissist, etc.)"
+        },
+        {
+          "value": "grief_processing",
+          "label": "Structured grief/healing content"
+        },
+        {
+          "value": "faith_healing",
+          "label": "Faith-based healing (scripture, sermons, grief talks)"
+        },
+        {
+          "value": "tarot_manifesting",
+          "label": "Tarot, astrology, manifestation, looking for signs"
+        },
+        {
+          "value": "stoicism_mindset",
+          "label": "Stoicism / toughness mindset content"
+        },
+        {
+          "value": "relationship_coaching",
+          "label": "Relationship coaching content (general)"
+        },
+        {
+          "value": "distraction",
+          "label": "Pure distraction (comedy, gaming, unrelated topics)"
+        },
+        {
+          "value": "avoiding",
+          "label": "I am avoiding relationship content completely"
+        },
+        {
+          "value": "none",
+          "label": "None of the above"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "ranking": [],
+        "notes": ""
+      },
+      "examples": [
+        "Structured grief/healing content + Pure distraction (comedy, gaming, unrelated topics)",
+        "\"How to get your ex back\" or strategy content + Attachment theory or diagnosing them/me (avoidant, narcissist, etc.)",
+        "I am avoiding relationship content completely"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 7
+      }
+    },
+    "q49": {
+      "id": "q49",
+      "section_id": "s5",
+      "order": 49,
+      "title": "Social Media and Checking Behaviors",
+      "prompt": "How often are you checking on them (social media, mutual friends, old photos, messages)?",
+      "type": "single_select",
+      "options": [
+        {
+          "value": "not_checking",
+          "label": "Not checking"
+        },
+        {
+          "value": "rarely",
+          "label": "Rarely"
+        },
+        {
+          "value": "sometimes",
+          "label": "Sometimes"
+        },
+        {
+          "value": "daily",
+          "label": "Daily"
+        },
+        {
+          "value": "many_times_day",
+          "label": "Many times a day"
+        },
+        {
+          "value": "i_keep_trying_not_to",
+          "label": "I keep trying not to, but I slip"
+        },
+        {
+          "value": "blocked_or_removed",
+          "label": "Blocked/removed to protect myself"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_value": "",
+        "other_text": "",
+        "notes": ""
+      },
+      "examples": [
+        "I keep trying not to, but I slip",
+        "Blocked/removed to protect myself",
+        "Many times a day"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q50": {
+      "id": "q50",
+      "section_id": "s5",
+      "order": 50,
+      "title": "Boundaries You Are Willing to Try",
+      "prompt": "Which boundaries feel doable for you right now? (Select any. Even one is progress.)",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "no_contact_30",
+          "label": "No contact for 30 days"
+        },
+        {
+          "value": "logistics_only",
+          "label": "Logistics-only messaging (short, neutral, necessary)"
+        },
+        {
+          "value": "unfollow_mute",
+          "label": "Unfollow/mute/block on social media"
+        },
+        {
+          "value": "delete_threads",
+          "label": "Archive/delete message threads"
+        },
+        {
+          "value": "photo_boundary",
+          "label": "Move photos to a hidden folder"
+        },
+        {
+          "value": "avoid_places",
+          "label": "Avoid certain places for a bit"
+        },
+        {
+          "value": "friend_buffer",
+          "label": "Ask a friend to be a buffer/accountability"
+        },
+        {
+          "value": "schedule_waves",
+          "label": "Schedule a daily grief window (so it does not own the whole day)"
+        },
+        {
+          "value": "none_ready",
+          "label": "None feel doable yet"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "ranking": [],
+        "notes": ""
+      },
+      "examples": [
+        "Unfollow/mute/block on social media + Move photos to a hidden folder",
+        "Logistics-only messaging (short, neutral, necessary) + Ask a friend to be a buffer/accountability",
+        "None feel doable yet"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 6
+      }
+    },
+    "q51": {
+      "id": "q51",
+      "section_id": "s5",
+      "order": 51,
+      "title": "Daily Life Impact",
+      "prompt": "Which daily-life areas are taking a hit right now? (Select any.)",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "work",
+          "label": "Work or school performance"
+        },
+        {
+          "value": "parenting",
+          "label": "Parenting duties"
+        },
+        {
+          "value": "sleep",
+          "label": "Sleep routine"
+        },
+        {
+          "value": "eating",
+          "label": "Eating and hydration"
+        },
+        {
+          "value": "hygiene",
+          "label": "Hygiene/self-care (shower, grooming)"
+        },
+        {
+          "value": "home",
+          "label": "Home upkeep"
+        },
+        {
+          "value": "social",
+          "label": "Social life"
+        },
+        {
+          "value": "spiritual",
+          "label": "Spiritual habits"
+        },
+        {
+          "value": "exercise",
+          "label": "Movement/exercise"
+        },
+        {
+          "value": "hobbies",
+          "label": "Hobbies or joy"
+        },
+        {
+          "value": "none",
+          "label": "I am functioning mostly okay"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "ranking": [],
+        "notes": ""
+      },
+      "examples": [
+        "Sleep routine + Work or school performance + Social life",
+        "Eating and hydration + Hygiene/self-care (shower, grooming)",
+        "I am functioning mostly okay"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 7
+      }
+    },
+    "q52": {
+      "id": "q52",
+      "section_id": "s5",
+      "order": 52,
+      "title": "Anything You Need to Say Out Loud",
+      "prompt": "If you want a place to unload: what do you most need to say about this right now?",
+      "type": "free_text",
+      "placeholder": "You can vent. You can be messy. You can be short.",
+      "answer_schema": {
+        "text": "",
+        "notes": ""
+      },
+      "examples": [
+        "I keep blaming myself and I am exhausted from it.",
+        "I feel replaced and it is humiliating, even though I know it is not logical.",
+        "I miss them, but I also know I was shrinking to make it work."
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q53": {
+      "id": "q53",
+      "section_id": "s6",
+      "order": 53,
+      "title": "Reality Check",
+      "prompt": "When your mind idealizes them, this helps balance the picture. You can keep it simple.",
+      "type": "compound",
+      "fields": [
+        {
+          "key": "what_i_miss",
+          "label": "What I miss (or what I wish was true)",
+          "type": "free_text",
+          "placeholder": "A few lines."
+        },
+        {
+          "key": "what_it_cost",
+          "label": "What it cost me (or what was not okay)",
+          "type": "free_text",
+          "placeholder": "A few lines."
+        },
+        {
+          "key": "anchor",
+          "label": "One grounding sentence I can repeat",
+          "type": "short_text",
+          "placeholder": "Example: 'Missing them does not mean going back is wise.'"
+        }
+      ],
+      "answer_schema": {
+        "what_i_miss": "",
+        "what_it_cost": "",
+        "anchor": ""
+      },
+      "examples": [
+        "Miss: their warmth at night. Cost: constant anxiety and mixed signals. Anchor: Missing them does not mean this was safe.",
+        "Miss: the future story. Cost: I kept abandoning my needs. Anchor: I can grieve and still choose myself.",
+        "Miss: the friendship. Cost: disrespect in conflict. Anchor: Love without respect is not love I want."
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q54": {
+      "id": "q54",
+      "section_id": "s6",
+      "order": 54,
+      "title": "Red Flags You May Have Minimized",
+      "prompt": "Looking back gently, which red flags did you minimize or excuse?",
+      "type": "multi_select",
+      "options": [
+        {
+          "value": "inconsistent",
+          "label": "Inconsistency"
+        },
+        {
+          "value": "stonewalling",
+          "label": "Stonewalling or silent treatment"
+        },
+        {
+          "value": "lying",
+          "label": "Lying or half-truths"
+        },
+        {
+          "value": "hot_cold",
+          "label": "Hot and cold behavior"
+        },
+        {
+          "value": "disrespect",
+          "label": "Disrespect in conflict"
+        },
+        {
+          "value": "boundary_push",
+          "label": "Pushing my boundaries"
+        },
+        {
+          "value": "jealous_control",
+          "label": "Jealousy or control"
+        },
+        {
+          "value": "substance",
+          "label": "Substance problems"
+        },
+        {
+          "value": "cruelty",
+          "label": "Cruelty or humiliation"
+        },
+        {
+          "value": "love_bombing",
+          "label": "Love-bombing then withdrawal"
+        },
+        {
+          "value": "none",
+          "label": "None stand out"
+        },
+        {
+          "value": "other",
+          "label": "Other (write in)"
+        }
+      ],
+      "answer_schema": {
+        "selected_values": [],
+        "other_text": "",
+        "ranking": [],
+        "notes": ""
+      },
+      "examples": [
+        "Inconsistency + Hot and cold behavior + Love-bombing then withdrawal",
+        "Disrespect in conflict + Stonewalling or silent treatment",
+        "None stand out"
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "full"
+        ]
+      },
+      "validation": {
+        "max_selected": 7
+      }
+    },
+    "q55": {
+      "id": "q55",
+      "section_id": "s6",
+      "order": 55,
+      "title": "Ownership vs Release",
+      "prompt": "This is one of the most healing distinctions. No self-attack. Just clarity.",
+      "type": "compound",
+      "fields": [
+        {
+          "key": "what_i_own",
+          "label": "What I own (my part)",
+          "type": "free_text",
+          "placeholder": "Example: 'I ignored my needs.'"
+        },
+        {
+          "key": "what_i_release",
+          "label": "What I release (what is not mine)",
+          "type": "free_text",
+          "placeholder": "Example: 'Their inability to show up.'"
+        },
+        {
+          "key": "next_time",
+          "label": "One thing I will do differently next time",
+          "type": "short_text",
+          "placeholder": "Example: 'Ask directly and set boundaries early.'"
+        }
+      ],
+      "answer_schema": {
+        "what_i_own": "",
+        "what_i_release": "",
+        "next_time": ""
+      },
+      "examples": [
+        "Own: I stayed when I felt small. Release: their mixed signals. Next time: I will ask for clarity early.",
+        "Own: I avoided hard talks. Release: their choices. Next time: I will speak up sooner.",
+        "Own: I chased reassurance. Release: their inability to commit. Next time: I will pace myself."
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q56": {
+      "id": "q56",
+      "section_id": "s6",
+      "order": 56,
+      "title": "If They Came Back Tomorrow",
+      "prompt": "If they came back tomorrow wanting you again, what would be true for you?",
+      "type": "compound",
+      "fields": [
+        {
+          "key": "openness",
+          "label": "My honest openness to reconciling",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "no",
+              "label": "No, I would not go back"
+            },
+            {
+              "value": "probably_no",
+              "label": "Probably not"
+            },
+            {
+              "value": "unsure",
+              "label": "Not sure"
+            },
+            {
+              "value": "maybe",
+              "label": "Maybe, with major change"
+            },
+            {
+              "value": "yes",
+              "label": "Yes, I would want to try"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "would_require",
+          "label": "If reconciliation were ever on the table, what would it require?",
+          "type": "multi_select",
+          "options": [
+            {
+              "value": "real_apology",
+              "label": "A real apology and ownership"
+            },
+            {
+              "value": "consistent_actions",
+              "label": "Consistent actions over time"
+            },
+            {
+              "value": "therapy",
+              "label": "Therapy (individual or couples)"
+            },
+            {
+              "value": "sobriety",
+              "label": "Sobriety or treatment if relevant"
+            },
+            {
+              "value": "boundaries",
+              "label": "Clear boundaries honored"
+            },
+            {
+              "value": "truth",
+              "label": "Full truth and transparency"
+            },
+            {
+              "value": "pace",
+              "label": "Slower pace and healthier pacing"
+            },
+            {
+              "value": "values_alignment",
+              "label": "Values alignment"
+            },
+            {
+              "value": "not_applicable",
+              "label": "Not applicable"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ],
+          "validation": {
+            "max_selected": 6
+          }
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text",
+          "placeholder": "Anything you want your future self to remember here."
+        }
+      ],
+      "answer_schema": {
+        "openness": "",
+        "would_require": [],
+        "notes": ""
+      },
+      "examples": [
+        "Open: Maybe, with major change. Require: Consistent actions over time + Therapy + Clear boundaries honored.",
+        "Open: No, I would not go back. Require: Not applicable.",
+        "Open: Not sure. Require: Full truth and transparency + A real apology and ownership."
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q57": {
+      "id": "q57",
+      "section_id": "s6",
+      "order": 57,
+      "title": "Spiritual and Faith Impact",
+      "prompt": "Some people are supported by faith, and others are triggered by it right now. Either is okay. What fits you?",
+      "type": "compound",
+      "fields": [
+        {
+          "key": "spiritual_baseline",
+          "label": "My baseline",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "not_spiritual",
+              "label": "Not spiritual or religious"
+            },
+            {
+              "value": "spiritual_not_religious",
+              "label": "Spiritual but not religious"
+            },
+            {
+              "value": "religious",
+              "label": "Religious (community-based)"
+            },
+            {
+              "value": "both",
+              "label": "Both spiritual and religious"
+            },
+            {
+              "value": "unsure",
+              "label": "Not sure"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "faith_impact",
+          "label": "How is this experience affecting your faith/spiritual view?",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "na",
+              "label": "Not applicable"
+            },
+            {
+              "value": "anchor",
+              "label": "It is an anchor for me right now"
+            },
+            {
+              "value": "stronger",
+              "label": "It feels stronger than before"
+            },
+            {
+              "value": "anger_doubt",
+              "label": "I feel angry at God or full of doubt"
+            },
+            {
+              "value": "bypassing",
+              "label": "I am trying to 'just have faith' so I do not have to feel the pain"
+            },
+            {
+              "value": "transactional",
+              "label": "I am praying for a specific outcome (bring them back, fix it, etc.)"
+            },
+            {
+              "value": "community_strain",
+              "label": "My community/faith setting feels tense, judging, or unhelpful right now"
+            },
+            {
+              "value": "neutral",
+              "label": "No major impact"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "short_text",
+          "placeholder": "Example: what helps spiritually, what hurts, what you need from faith/community."
+        }
+      ],
+      "answer_schema": {
+        "spiritual_baseline": "",
+        "faith_impact": "",
+        "notes": ""
+      },
+      "examples": [
+        "Baseline: Religious (community-based). Impact: It is an anchor for me right now. Notes: Prayer calms my body.",
+        "Baseline: Spiritual but not religious. Impact: I feel angry at God or full of doubt. Notes: I feel abandoned.",
+        "Baseline: Both spiritual and religious. Impact: I am trying to 'just have faith' so I do not have to feel the pain."
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q58": {
+      "id": "q58",
+      "section_id": "s6",
+      "order": 58,
+      "title": "Closure Actions",
+      "prompt": "What closure actions feel realistic this week? (Small is fine. We are building traction.)",
+      "type": "compound",
+      "fields": [
+        {
+          "key": "actions",
+          "label": "Select any actions you are willing to take",
+          "type": "multi_select",
+          "options": [
+            {
+              "value": "return_items",
+              "label": "Return or retrieve belongings"
+            },
+            {
+              "value": "remove_triggers",
+              "label": "Remove or reduce triggers (photos, reminders)"
+            },
+            {
+              "value": "social_boundary",
+              "label": "Adjust social media boundaries"
+            },
+            {
+              "value": "write_letter",
+              "label": "Write an unsent letter"
+            },
+            {
+              "value": "talk_friend",
+              "label": "Talk with a friend (real conversation)"
+            },
+            {
+              "value": "therapy_session",
+              "label": "Schedule or attend a session"
+            },
+            {
+              "value": "move_body",
+              "label": "Move my body (walk, gym, stretch)"
+            },
+            {
+              "value": "sleep_plan",
+              "label": "Set a simple sleep plan"
+            },
+            {
+              "value": "prayer_ritual",
+              "label": "Prayer/ritual (if that fits me)"
+            },
+            {
+              "value": "no_contact_start",
+              "label": "Start or reset no-contact"
+            },
+            {
+              "value": "none",
+              "label": "None this week"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ],
+          "validation": {
+            "max_selected": 6
+          }
+        },
+        {
+          "key": "when",
+          "label": "When do you plan to do the first one?",
+          "type": "short_text",
+          "placeholder": "Example: 'Tonight', 'Saturday afternoon', 'Next week'"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "short_text",
+          "placeholder": "What might get in the way, and what would help you follow through."
+        }
+      ],
+      "answer_schema": {
+        "actions": [],
+        "when": "",
+        "notes": ""
+      },
+      "examples": [
+        "Actions: Remove or reduce triggers + Start or reset no-contact. When: Tonight.",
+        "Actions: Write an unsent letter + Talk with a friend. When: Saturday afternoon.",
+        "Actions: Move my body + Set a simple sleep plan. When: Tomorrow morning."
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q59": {
+      "id": "q59",
+      "section_id": "s6",
+      "order": 59,
+      "title": "A Note to Future You",
+      "prompt": "Write a short note to your future self for the next wave. What do you want to remember?",
+      "type": "free_text",
+      "placeholder": "Example: what is true, what you learned, what you deserve.",
+      "answer_schema": {
+        "text": "",
+        "notes": ""
+      },
+      "examples": [
+        "This pain will pass in waves. Do not text them in a spike. Breathe first.",
+        "Missing them is not proof it was right. Choose peace over intensity.",
+        "You are allowed to grieve and still protect your boundaries."
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    },
+    "q60": {
+      "id": "q60",
+      "section_id": "s6",
+      "order": 60,
+      "title": "Thirty-Day Target",
+      "prompt": "If you could fast-forward 30 days and feel meaningfully better, what would be different?",
+      "type": "compound",
+      "fields": [
+        {
+          "key": "goals",
+          "label": "Select what you want to be true in 30 days",
+          "type": "multi_select",
+          "options": [
+            {
+              "value": "sleep_stable",
+              "label": "Sleep is steadier"
+            },
+            {
+              "value": "less_rumination",
+              "label": "Rumination is reduced"
+            },
+            {
+              "value": "no_contact_kept",
+              "label": "I kept my boundary/no-contact plan"
+            },
+            {
+              "value": "functioning",
+              "label": "I am functioning better day-to-day"
+            },
+            {
+              "value": "self_worth",
+              "label": "My self-worth feels steadier"
+            },
+            {
+              "value": "joy_returns",
+              "label": "Joy is returning"
+            },
+            {
+              "value": "social_reconnect",
+              "label": "I reconnected socially"
+            },
+            {
+              "value": "faith_stable",
+              "label": "My faith/spiritual footing feels steadier (if relevant)"
+            },
+            {
+              "value": "closure",
+              "label": "I feel clearer about why it ended"
+            },
+            {
+              "value": "ready_date",
+              "label": "I feel ready to date again (if that is a goal)"
+            },
+            {
+              "value": "not_sure",
+              "label": "Not sure yet"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ],
+          "validation": {
+            "max_selected": 6
+          }
+        },
+        {
+          "key": "one_sign",
+          "label": "One clear sign I am healing is...",
+          "type": "short_text",
+          "placeholder": "Example: 'I can go a day without checking.'"
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "short_text",
+          "placeholder": "Anything you want to add."
+        }
+      ],
+      "answer_schema": {
+        "goals": [],
+        "one_sign": "",
+        "notes": ""
+      },
+      "examples": [
+        "Goals: Sleep is steadier + Rumination is reduced + I kept my boundary/no-contact plan. Sign: I stop checking their profile.",
+        "Goals: My self-worth feels steadier + Joy is returning. Sign: I laugh without it feeling fake.",
+        "Goals: Not sure yet. Sign: I can breathe through a wave without panicking."
+      ],
+      "tags": {
+        "included_in_manifests": [
+          "lite",
+          "full"
+        ]
+      }
+    }
+  }
+}
