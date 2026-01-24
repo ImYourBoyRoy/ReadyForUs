@@ -75,7 +75,8 @@ class SchemaValidator:
         'duplicates',
         'orphans',
         'best_practices',
-        'syntax'
+        'syntax',
+        'manifest_tags'
     ]
     
     def __init__(self, enabled_checks: List[str] = None, strict: bool = False, verbose: bool = False):
@@ -130,6 +131,9 @@ class SchemaValidator:
         
         if 'fields' in self.enabled_checks:
             errors.extend(self._check_fields(data))
+        
+        if 'manifest_tags' in self.enabled_checks:
+            errors.extend(self._check_manifest_tags(data))
         
         if 'duplicates' in self.enabled_checks:
             errors.extend(self._check_duplicates(data))
@@ -217,6 +221,35 @@ class SchemaValidator:
             for qid in manifest.get('question_ids', []):
                 if qid not in question_ids:
                     errors.append(f"Manifest '{manifest_name}': References non-existent question '{qid}'")
+        
+        return errors
+    
+    def _check_manifest_tags(self, data: Dict) -> List[str]:
+        """Validate consistency between manifest lists and question tags."""
+        errors = []
+        questions = data.get('questions', {})
+        manifests = data.get('manifests', {})
+        
+        # Check for each known manifest type
+        for manifest_id in ['lite', 'full']:
+            if manifest_id not in manifests:
+                continue
+                
+            manifest_q_ids = set(manifests[manifest_id].get('question_ids', []))
+            
+            # 1. Check if questions in manifest have the tag
+            for qid in manifest_q_ids:
+                if qid in questions:
+                    tags = questions[qid].get('tags', {}).get('included_in_manifests', [])
+                    if manifest_id not in tags:
+                        errors.append(f"Question '{qid}' is in '{manifest_id}' manifest but missing '{manifest_id}' tag")
+            
+            # 2. Check if questions with tag are in manifest
+            for qid, q in questions.items():
+                tags = q.get('tags', {}).get('included_in_manifests', [])
+                if manifest_id in tags:
+                    if qid not in manifest_q_ids:
+                        errors.append(f"Question '{qid}' has '{manifest_id}' tag but is missing from '{manifest_id}' manifest")
         
         return errors
     

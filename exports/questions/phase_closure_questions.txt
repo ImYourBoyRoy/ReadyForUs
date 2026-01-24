@@ -99,27 +99,33 @@ OPTIONS:
     - [unknown] Not sure
     - [other] Other (write in)
 
-Q7 (q07) [multi_select]: What You Need Most Right Now
-PROMPT: If this could help you with just one thing today, what would you choose? (Select up to 3.)
-OPTIONS:
-    - [calm_body] Calm my body (less panic, less tightness)
-    - [stop_ruminating] Stop the rumination loop
-    - [sleep] Sleep or rest better
-    - [clarity] Clarity about what happened
-    - [closure] Closure so I can let go
-    - [boundaries] A boundary plan (no contact, social media, etc.)
-    - [self_worth] Stabilize my self-worth
-    - [coping_tools] Better coping tools for waves
-    - [faith_support] Spiritual support (if that fits me)
-    - [move_forward] A simple plan to move forward
-    - [other] Other (write in)
+Q7 (q07) [compound]: What You Need Most Right Now
+PROMPT: If this could help you with just one thing today, what would you choose? (Select and rank your top 3 needs.)
+FIELDS:
+    - needs_ranked (ranked_select): Select and rank your top 3 needs
+      - [calm_body] Calm my body (less panic, less tightness)
+      - [stop_ruminating] Stop the rumination loop
+      - [sleep] Sleep or rest better
+      - [clarity] Clarity about what happened
+      - [closure] Closure so I can let go
+      - [boundaries] A boundary plan (no contact, social media, etc.)
+      - [self_worth] Stabilize my self-worth
+      - [coping_tools] Better coping tools for waves
+      - [faith_support] Spiritual support (if that fits me)
+      - [move_forward] A simple plan to move forward
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): Any notes on this?
 
 
 ### SECTION: The Relationship Context
 ----------------------------------------
 
-Q8 (q08) [number]: Overall Emotional Intensity
+Q8 (q08) [compound]: Overall Emotional Intensity
 PROMPT: On a 0 to 10 scale, how emotionally intense has this been for you overall? (0 = barely, 10 = consuming)
+FIELDS:
+    - intensity (number): Intensity (0-10)
+    - notes (free_text): Notes (optional)
 
 Q9 (q09) [multi_select]: How It Felt Inside the Relationship
 PROMPT: When you think back, what words describe how it felt most of the time? (Select up to 5.)
@@ -153,22 +159,25 @@ OPTIONS:
     - [none] It is hard to name right now
     - [other] Other (write in)
 
-Q11 (q11) [ranked_select]: What Was Hard About It (Ranked)
+Q11 (q11) [compound]: What Was Hard About It (Ranked)
 PROMPT: What were the biggest pain points? Select the ones that fit and drag to rank the top ones.
-OPTIONS:
-    - [communication] Communication breakdown
-    - [conflict] Conflict cycles
-    - [trust] Trust issues or betrayal
-    - [avoidance] Avoidance or emotional shutdown
-    - [jealousy] Jealousy or insecurity
-    - [values] Values or life direction mismatch
-    - [pressure] Pressure around pace, intimacy, or commitment
-    - [mental_health] Mental health strain
-    - [substance] Substance use
-    - [family] Family/community interference
-    - [finances] Financial stress
-    - [distance] Distance/logistics
-    - [other] Other (write in)
+FIELDS:
+    - pain_points_ranked (ranked_select): Select and rank your top pain points
+      - [communication] Communication breakdown
+      - [conflict] Conflict cycles
+      - [trust] Trust issues or betrayal
+      - [avoidance] Avoidance or emotional shutdown
+      - [jealousy] Jealousy or insecurity
+      - [values] Values or life direction mismatch
+      - [pressure] Pressure around pace, intimacy, or commitment
+      - [mental_health] Mental health strain
+      - [substance] Substance use
+      - [family] Family/community interference
+      - [finances] Financial stress
+      - [distance] Distance/logistics
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): Any context?
 
 Q12 (q12) [single_select]: Overall Pattern
 PROMPT: Looking back, what was the overall pattern?
@@ -212,11 +221,32 @@ OPTIONS:
     - [stay_centered] Stay relatively centered
     - [other] Other (write in)
 
-Q15 (q15) [free_text]: What You Were Hoping For
+Q15 (q15) [compound]: What You Were Hoping For
 PROMPT: In your most honest words, what were you hoping this would become?
+FIELDS:
+    - hope_type (single_select): What was the hope?
+      - [marriage] Marriage / Life Partner
+      - [long_term] Long-term partnership
+      - [see_where_it_goes] Just seeing where it went
+      - [casual] Casual fun
+      - [unsure] Unsure / Mixed
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): Say more (optional)
 
-Q16 (q16) [free_text]: What You Were Afraid Of
+Q16 (q16) [compound]: What You Were Afraid Of
 PROMPT: What were you afraid might happen, even if you did not say it out loud?
+FIELDS:
+    - fear_type (single_select): What was the core fear?
+      - [abandonment] Abandonment / They would leave
+      - [trapped] Being trapped or controlled
+      - [losing_self] Losing myself
+      - [betrayal] Being betrayed again
+      - [wasting_time] Wasting time
+      - [being_alone] Being alone forever
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): Say more (optional)
 
 
 ### SECTION: The Ending and Entanglements
@@ -255,23 +285,26 @@ OPTIONS:
     - [unclear] Unclear
     - [other] Other (write in)
 
-Q20 (q20) [ranked_select]: Primary Reasons (Ranked)
+Q20 (q20) [compound]: Primary Reasons (Ranked)
 PROMPT: What do you believe were the main reasons it ended? Select what fits and rank the top ones.
-OPTIONS:
-    - [values_incompatibility] Values or life direction mismatch
-    - [trust_betrayal] Trust rupture or betrayal
-    - [communication_breakdown] Communication breakdown
-    - [conflict_cycle] Conflict cycle that would not repair
-    - [emotional_unavailability] Emotional unavailability or distancing
-    - [boundary_violations] Boundary violations or pressure
-    - [intimacy_mismatch] Affection or intimacy mismatch
-    - [commitment_timing] Commitment timing mismatch
-    - [mental_health_strain] Mental health strain (either person)
-    - [substance_use] Substance use or relapse
-    - [finances] Financial incompatibility or stress
-    - [logistics_distance] Distance or logistics
-    - [family_pressure] Family or community pressure
-    - [other] Other (write in)
+FIELDS:
+    - reasons_ranked (ranked_select): Select and rank the main reasons
+      - [values_incompatibility] Values or life direction mismatch
+      - [trust_betrayal] Trust rupture or betrayal
+      - [communication_breakdown] Communication breakdown
+      - [conflict_cycle] Conflict cycle that would not repair
+      - [emotional_unavailability] Emotional unavailability or distancing
+      - [boundary_violations] Boundary violations or pressure
+      - [intimacy_mismatch] Affection or intimacy mismatch
+      - [commitment_timing] Commitment timing mismatch
+      - [mental_health_strain] Mental health strain (either person)
+      - [substance_use] Substance use or relapse
+      - [finances] Financial incompatibility or stress
+      - [logistics_distance] Distance or logistics
+      - [family_pressure] Family or community pressure
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): Any extra context?
 
 Q21 (q21) [single_select]: How Much Closure You Got
 PROMPT: How clear was the explanation or conversation around the ending?
@@ -304,8 +337,20 @@ OPTIONS:
     - [none] Nothing major unresolved
     - [other] Other (write in)
 
-Q25 (q25) [free_text]: Logistics Details (Optional)
-PROMPT: If there are unresolved logistics, what are they? (Short version is fine.)
+Q25 (q25) [compound]: Logistics Details (Optional)
+PROMPT: If there are unresolved logistics, what are they?
+FIELDS:
+    - logistics_type (single_select): What kind of logistics?
+      - [none] None
+      - [housing] Housing / Living arrangements
+      - [financial] Financial separation
+      - [belongings] Belongings
+      - [children] Child custody / care
+      - [pets] Pet custody
+      - [legal] Legal steps (divorce/separation)
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): Details (optional)
 
 Q26 (q26) [single_select]: Safety and Respect Inside the Relationship
 PROMPT: Only if you feel comfortable: were there any patterns that felt unsafe, coercive, or abusive?
@@ -330,52 +375,39 @@ OPTIONS:
     - [prefer_not_to_say] Prefer not to say
     - [other] Other (write in)
 
-Q28 (q28) [compound]: If You Need Support, Where Can It Come From
-PROMPT: If you feel unsafe or close to your edge, what supports are available to you? If you feel safe, you can leave this blank.
-FIELDS:
-    - support_people (multi_select): Who could you reach out to today?
-      - [friend] Friend
-      - [family] Family
-      - [neighbor] Neighbor
-      - [faith_leader] Faith leader or community support
-      - [therapist] Therapist/coach
-      - [hotline] Crisis line
-      - [none] No one comes to mind
-      - [other] Other (write in)
-    - safe_place (single_select): Do you have a safe place you can go if needed?
-      - [yes_home] Yes, my home feels safe
-      - [yes_other] Yes, somewhere else
-      - [not_really] Not really
-      - [unsure] Not sure
-    - notes (short_text): Notes (optional)
-
 
 ### SECTION: Grief Waves Right Now
 ----------------------------------------
 
-Q29 (q29) [multi_select]: What You Are Feeling Most
-PROMPT: What emotions are most present lately? (Select up to 6.)
-OPTIONS:
-    - [sadness] Sadness
-    - [grief] Grief
-    - [anger] Anger
-    - [relief] Relief
-    - [shame] Shame
-    - [guilt] Guilt
-    - [loneliness] Loneliness
-    - [anxiety] Anxiety
-    - [panic] Panic
-    - [numb] Numbness
-    - [confusion] Confusion
-    - [hope] Hope
-    - [yearning] Yearning
-    - [jealousy] Jealousy
-    - [other] Other (write in)
+Q28 (q29) [compound]: What You Are Feeling Most
+PROMPT: What emotions are most present lately? (Select and rank the top ones.)
+FIELDS:
+    - emotions_ranked (ranked_select): Select and rank your top emotions
+      - [sadness] Sadness
+      - [grief] Grief
+      - [anger] Anger
+      - [relief] Relief
+      - [shame] Shame
+      - [guilt] Guilt
+      - [loneliness] Loneliness
+      - [anxiety] Anxiety
+      - [panic] Panic
+      - [numb] Numbness
+      - [confusion] Confusion
+      - [hope] Hope
+      - [yearning] Yearning
+      - [jealousy] Jealousy
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): Notes (optional)
 
-Q30 (q30) [number]: Intensity Right Now
+Q29 (q30) [compound]: Intensity Right Now
 PROMPT: Right now in this moment, how intense is it? (0 to 10)
+FIELDS:
+    - current_intensity (number): Intensity (0-10)
+    - notes (free_text): Notes (optional)
 
-Q31 (q31) [multi_select]: How It Shows Up in Your Body
+Q30 (q31) [multi_select]: How It Shows Up in Your Body
 PROMPT: When a wave hits, what do you notice in your body? (Select any that fit.)
 OPTIONS:
     - [tight_chest] Tight chest or heart ache
@@ -390,55 +422,72 @@ OPTIONS:
     - [none] None of these
     - [other] Other (write in)
 
-Q32 (q32) [free_text]: Recent Triggers
+Q31 (q32) [compound]: Recent Triggers
 PROMPT: What has triggered the hardest waves recently?
+FIELDS:
+    - trigger_type (single_select): Primary trigger type
+      - [seeing_them] Seeing them (person/pics)
+      - [places] Specific places
+      - [loneliness] Lonely times (nights/weekends)
+      - [dates] Dates / Anniversaries
+      - [news] Hearing news about them
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): Details (optional)
 
-Q33 (q33) [multi_select]: What Your Mind Keeps Replaying
-PROMPT: What does your mind keep replaying or looping on? (Select up to 5.)
-OPTIONS:
-    - [what_if] What if I did something different
-    - [why_not_enough] Why I was not enough
-    - [they_moved_on] Imagining them moving on
-    - [good_memories] Only the good memories
-    - [the_breakup_scene] The breakup conversation
-    - [betrayal_details] Details of betrayal or lies
-    - [comparison] Comparing myself to others
-    - [future_without_them] Future without them
-    - [justice] Wanting justice or closure
-    - [self_criticism] Self-criticism
-    - [none] None of these
-    - [other] Other (write in)
+Q32 (q33) [compound]: What Your Mind Keeps Replaying
+PROMPT: What does your mind keep replaying or looping on? (Select the loudest ones and rank them.)
+FIELDS:
+    - loops_ranked (ranked_select): Select and rank your top mental loops
+      - [what_if] What if I did something different
+      - [why_not_enough] Why I was not enough
+      - [they_moved_on] Imagining them moving on
+      - [good_memories] Only the good memories
+      - [the_breakup_scene] The breakup conversation
+      - [betrayal_details] Details of betrayal or lies
+      - [comparison] Comparing myself to others
+      - [future_without_them] Future without them
+      - [justice] Wanting justice or closure
+      - [self_criticism] Self-criticism
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): Notes (optional)
 
-Q34 (q34) [ranked_select]: What You Miss (Ranked)
+Q33 (q34) [compound]: What You Miss (Ranked)
 PROMPT: What do you miss most? Select what fits and rank the top ones.
-OPTIONS:
-    - [companionship] Companionship / having a person
-    - [touch] Physical affection
-    - [routines] Shared routines
-    - [future_story] The future story I had in my head
-    - [their_traits] Specific traits (humor, warmth, etc.)
-    - [sex] Sex
-    - [validation] Feeling chosen/validated
-    - [family] Their family or community
-    - [security] Security or stability
-    - [unknown] I do not know, it is just pain
-    - [other] Other (write in)
+FIELDS:
+    - miss_ranked (ranked_select): Select and rank what you miss most
+      - [companionship] Companionship / having a person
+      - [touch] Physical affection
+      - [routines] Shared routines
+      - [future_story] The future story I had in my head
+      - [their_traits] Specific traits (humor, warmth, etc.)
+      - [sex] Sex
+      - [validation] Feeling chosen/validated
+      - [family] Their family or community
+      - [security] Security or stability
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): Notes (optional)
 
-Q35 (q35) [ranked_select]: What Hurt the Most (Ranked)
+Q34 (q35) [compound]: What Hurt the Most (Ranked)
 PROMPT: What part hurt the most? Select what fits and rank the top ones.
-OPTIONS:
-    - [rejection] Rejection or feeling replaced
-    - [betrayal] Betrayal or lies
-    - [abandonment] Abandonment (especially sudden)
-    - [disrespect] Disrespect or being dismissed
-    - [loss_future] Loss of the future we planned
-    - [self_betrayal] Feeling like I betrayed myself
-    - [public_loss] Public loss or embarrassment
-    - [faith_conflict] Faith or values conflict
-    - [logistics] Logistics and disruption
-    - [other] Other (write in)
+FIELDS:
+    - hurt_ranked (ranked_select): Select and rank the most painful parts
+      - [rejection] Rejection or feeling replaced
+      - [betrayal] Betrayal or lies
+      - [abandonment] Abandonment (especially sudden)
+      - [disrespect] Disrespect or being dismissed
+      - [loss_future] Loss of the future we planned
+      - [self_betrayal] Feeling like I betrayed myself
+      - [public_loss] Public loss or embarrassment
+      - [faith_conflict] Faith or values conflict
+      - [logistics] Logistics and disruption
+      - [other] Other (write in)
+    - other_text (short_text): If 'Other', describe
+    - notes (free_text): Notes (optional)
 
-Q36 (q36) [single_select]: Sleep Lately
+Q35 (q36) [single_select]: Sleep Lately
 PROMPT: How has sleep been since the ending?
 OPTIONS:
     - [good] Pretty good
@@ -450,7 +499,7 @@ OPTIONS:
     - [all_over] All over the place
     - [other] Other (write in)
 
-Q37 (q37) [single_select]: Eating and Appetite
+Q36 (q37) [single_select]: Eating and Appetite
 PROMPT: How has eating been?
 OPTIONS:
     - [normal] Normal
@@ -462,7 +511,7 @@ OPTIONS:
     - [disordered] Old patterns around food are coming back
     - [other] Other (write in)
 
-Q38 (q38) [single_select]: Movement and Energy
+Q37 (q38) [single_select]: Movement and Energy
 PROMPT: How has your movement or exercise been?
 OPTIONS:
     - [steady] Steady
@@ -473,7 +522,7 @@ OPTIONS:
     - [overtraining] Overtraining or pushing too hard
     - [other] Other (write in)
 
-Q39 (q39) [multi_select]: Alcohol and Substances
+Q38 (q39) [multi_select]: Alcohol and Substances
 PROMPT: Since the ending, has your relationship with alcohol or substances changed? (Select any that fit.)
 OPTIONS:
     - [no_change] No change
@@ -489,7 +538,7 @@ OPTIONS:
     - [prefer_not_to_say] Prefer not to say
     - [other] Other (write in)
 
-Q40 (q40) [single_select]: Sex, Porn, or Validation Coping
+Q39 (q40) [single_select]: Sex, Porn, or Validation Coping
 PROMPT: Only if you are comfortable: has any part of this pushed you toward sex, porn, or chasing validation as a coping strategy?
 OPTIONS:
     - [no] No
@@ -504,7 +553,7 @@ OPTIONS:
 ### SECTION: Coping, Risk, and Inputs
 ----------------------------------------
 
-Q41 (q41) [single_select]: Safety Check: Self-Harm Thoughts
+Q40 (q41) [single_select]: Safety Check: Self-Harm Thoughts
 PROMPT: Have you had thoughts of hurting yourself since this ended? If you are in immediate danger, call your local emergency number or a crisis line right now.
 OPTIONS:
     - [no] No
@@ -514,7 +563,7 @@ OPTIONS:
     - [prefer_not_to_say] Prefer not to say
     - [other] Other (write in)
 
-Q42 (q42) [single_select]: Safety Check: Risky Behavior
+Q41 (q42) [single_select]: Safety Check: Risky Behavior
 PROMPT: Since the ending, have you done anything that scared you (reckless driving, unsafe mixing, unsafe situations, etc.)?
 OPTIONS:
     - [no] No
@@ -524,7 +573,7 @@ OPTIONS:
     - [prefer_not_to_say] Prefer not to say
     - [other] Other (write in)
 
-Q43 (q43) [multi_select]: Unhelpful Coping Patterns
+Q42 (q43) [multi_select]: Unhelpful Coping Patterns
 PROMPT: Which coping patterns are showing up (even if you wish they were not)? Select any. This is for awareness, not judgment.
 OPTIONS:
     - [doomscroll] Doomscrolling or excessive phone time
@@ -542,8 +591,27 @@ OPTIONS:
     - [none] None of these
     - [other] Other (write in)
 
-Q44 (q44) [multi_select]: Support Around You
-PROMPT: Who is actually in your corner right now? (Select any that apply.)
+Q43 (q28) [compound]: Emergency Support Plan
+PROMPT: If you feel unsafe or close to your edge, what supports are available to you? If you feel safe, you can leave this blank.
+FIELDS:
+    - support_people (multi_select): Who could you reach out to in a crisis?
+      - [friend] Friend
+      - [family] Family
+      - [neighbor] Neighbor
+      - [faith_leader] Faith leader or community support
+      - [therapist] Therapist/coach
+      - [hotline] Crisis line
+      - [none] No one comes to mind
+      - [other] Other (write in)
+    - safe_place (single_select): Do you have a safe place you can go if needed?
+      - [yes_home] Yes, my home feels safe
+      - [yes_other] Yes, somewhere else
+      - [not_really] Not really
+      - [unsure] Not sure
+    - notes (short_text): Notes (optional)
+
+Q44 (q44) [multi_select]: Ongoing Support System
+PROMPT: Who is helping you carry this in your day-to-day life? (Select any that apply.)
 OPTIONS:
     - [one_friend] At least one friend I can talk to
     - [family] Family support

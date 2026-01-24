@@ -37,21 +37,21 @@
         "q20",
         "q21",
         "q27",
+        "q28",
         "q29",
         "q30",
-        "q31",
-        "q36",
-        "q39",
-        "q41",
-        "q44",
+        "q35",
+        "q38",
+        "q40",
+        "q43",
+        "q46",
         "q47",
-        "q48",
-        "q50",
+        "q49",
+        "q51",
         "q52",
-        "q53",
+        "q56",
         "q57",
-        "q58",
-        "q60"
+        "q59"
       ]
     },
     "full": {
@@ -116,8 +116,7 @@
         "q56",
         "q57",
         "q58",
-        "q59",
-        "q60"
+        "q59"
       ]
     }
   },
@@ -164,14 +163,14 @@
         "q24",
         "q25",
         "q26",
-        "q27",
-        "q28"
+        "q27"
       ]
     },
     {
       "id": "s4",
       "title": "Grief Waves Right Now",
       "question_ids": [
+        "q28",
         "q29",
         "q30",
         "q31",
@@ -182,14 +181,14 @@
         "q36",
         "q37",
         "q38",
-        "q39",
-        "q40"
+        "q39"
       ]
     },
     {
       "id": "s5",
       "title": "Coping, Risk, and Inputs",
       "question_ids": [
+        "q40",
         "q41",
         "q42",
         "q43",
@@ -200,22 +199,21 @@
         "q48",
         "q49",
         "q50",
-        "q51",
-        "q52"
+        "q51"
       ]
     },
     {
       "id": "s6",
       "title": "Reality, Meaning, and Closure",
       "question_ids": [
+        "q52",
         "q53",
         "q54",
         "q55",
         "q56",
         "q57",
         "q58",
-        "q59",
-        "q60"
+        "q59"
       ]
     }
   ],
@@ -2037,104 +2035,8 @@
     },
     "q28": {
       "id": "q28",
-      "section_id": "s3",
-      "order": 28,
-      "title": "If You Need Support, Where Can It Come From",
-      "prompt": "If you feel unsafe or close to your edge, what supports are available to you? If you feel safe, you can leave this blank.",
-      "type": "compound",
-      "fields": [
-        {
-          "key": "support_people",
-          "label": "Who could you reach out to today?",
-          "type": "multi_select",
-          "options": [
-            {
-              "value": "friend",
-              "label": "Friend"
-            },
-            {
-              "value": "family",
-              "label": "Family"
-            },
-            {
-              "value": "neighbor",
-              "label": "Neighbor"
-            },
-            {
-              "value": "faith_leader",
-              "label": "Faith leader or community support"
-            },
-            {
-              "value": "therapist",
-              "label": "Therapist/coach"
-            },
-            {
-              "value": "hotline",
-              "label": "Crisis line"
-            },
-            {
-              "value": "none",
-              "label": "No one comes to mind"
-            },
-            {
-              "value": "other",
-              "label": "Other (write in)"
-            }
-          ],
-          "validation": {
-            "max_selected": 4
-          }
-        },
-        {
-          "key": "safe_place",
-          "label": "Do you have a safe place you can go if needed?",
-          "type": "single_select",
-          "options": [
-            {
-              "value": "yes_home",
-              "label": "Yes, my home feels safe"
-            },
-            {
-              "value": "yes_other",
-              "label": "Yes, somewhere else"
-            },
-            {
-              "value": "not_really",
-              "label": "Not really"
-            },
-            {
-              "value": "unsure",
-              "label": "Not sure"
-            }
-          ]
-        },
-        {
-          "key": "notes",
-          "label": "Notes (optional)",
-          "type": "short_text",
-          "placeholder": "Example: who, where, or what would help right now."
-        }
-      ],
-      "answer_schema": {
-        "support_people": [],
-        "safe_place": "",
-        "notes": ""
-      },
-      "examples": [
-        "Support: Friend + Family. Safe place: Yes, somewhere else.",
-        "Support: Therapist/coach. Safe place: Yes, my home feels safe.",
-        "Support: No one comes to mind. Safe place: Not really."
-      ],
-      "tags": {
-        "included_in_manifests": [
-          "full"
-        ]
-      }
-    },
-    "q29": {
-      "id": "q29",
       "section_id": "s4",
-      "order": 29,
+      "order": 28,
       "title": "What You Are Feeling Most",
       "prompt": "What emotions are most present lately? (Select and rank the top ones.)",
       "type": "compound",
@@ -2242,10 +2144,10 @@
         ]
       }
     },
-    "q30": {
-      "id": "q30",
+    "q29": {
+      "id": "q29",
       "section_id": "s4",
-      "order": 30,
+      "order": 29,
       "title": "Intensity Right Now",
       "prompt": "Right now in this moment, how intense is it? (0 to 10)",
       "type": "compound",
@@ -2280,10 +2182,10 @@
         ]
       }
     },
-    "q31": {
-      "id": "q31",
+    "q30": {
+      "id": "q30",
       "section_id": "s4",
-      "order": 31,
+      "order": 30,
       "title": "How It Shows Up in Your Body",
       "prompt": "When a wave hits, what do you notice in your body? (Select any that fit.)",
       "type": "multi_select",
@@ -2354,10 +2256,10 @@
         "max_selected": 7
       }
     },
-    "q32": {
-      "id": "q32",
+    "q31": {
+      "id": "q31",
       "section_id": "s4",
-      "order": 32,
+      "order": 31,
       "title": "Recent Triggers",
       "prompt": "What has triggered the hardest waves recently?",
       "type": "compound",
@@ -2425,10 +2327,10 @@
         ]
       }
     },
-    "q33": {
-      "id": "q33",
+    "q32": {
+      "id": "q32",
       "section_id": "s4",
-      "order": 33,
+      "order": 32,
       "title": "What Your Mind Keeps Replaying",
       "prompt": "What does your mind keep replaying or looping on? (Select the loudest ones and rank them.)",
       "type": "compound",
@@ -2519,10 +2421,10 @@
         ]
       }
     },
-    "q34": {
-      "id": "q34",
+    "q33": {
+      "id": "q33",
       "section_id": "s4",
-      "order": 34,
+      "order": 33,
       "title": "What You Miss (Ranked)",
       "prompt": "What do you miss most? Select what fits and rank the top ones.",
       "type": "compound",
@@ -2609,10 +2511,10 @@
         ]
       }
     },
-    "q35": {
-      "id": "q35",
+    "q34": {
+      "id": "q34",
       "section_id": "s4",
-      "order": 35,
+      "order": 34,
       "title": "What Hurt the Most (Ranked)",
       "prompt": "What part hurt the most? Select what fits and rank the top ones.",
       "type": "compound",
@@ -2699,10 +2601,10 @@
         ]
       }
     },
-    "q36": {
-      "id": "q36",
+    "q35": {
+      "id": "q35",
       "section_id": "s4",
-      "order": 36,
+      "order": 35,
       "title": "Sleep Lately",
       "prompt": "How has sleep been since the ending?",
       "type": "single_select",
@@ -2757,10 +2659,10 @@
         ]
       }
     },
-    "q37": {
-      "id": "q37",
+    "q36": {
+      "id": "q36",
       "section_id": "s4",
-      "order": 37,
+      "order": 36,
       "title": "Eating and Appetite",
       "prompt": "How has eating been?",
       "type": "single_select",
@@ -2814,10 +2716,10 @@
         ]
       }
     },
-    "q38": {
-      "id": "q38",
+    "q37": {
+      "id": "q37",
       "section_id": "s4",
-      "order": 38,
+      "order": 37,
       "title": "Movement and Energy",
       "prompt": "How has your movement or exercise been?",
       "type": "single_select",
@@ -2867,10 +2769,10 @@
         ]
       }
     },
-    "q39": {
-      "id": "q39",
+    "q38": {
+      "id": "q38",
       "section_id": "s4",
-      "order": 39,
+      "order": 38,
       "title": "Alcohol and Substances",
       "prompt": "Since the ending, has your relationship with alcohol or substances changed? (Select any that fit.)",
       "type": "multi_select",
@@ -2945,10 +2847,10 @@
         "max_selected": 7
       }
     },
-    "q40": {
-      "id": "q40",
+    "q39": {
+      "id": "q39",
       "section_id": "s4",
-      "order": 40,
+      "order": 39,
       "title": "Sex, Porn, or Validation Coping",
       "prompt": "Only if you are comfortable: has any part of this pushed you toward sex, porn, or chasing validation as a coping strategy?",
       "type": "single_select",
@@ -2998,10 +2900,10 @@
         ]
       }
     },
-    "q41": {
-      "id": "q41",
+    "q40": {
+      "id": "q40",
       "section_id": "s5",
-      "order": 41,
+      "order": 40,
       "title": "Safety Check: Self-Harm Thoughts",
       "prompt": "Have you had thoughts of hurting yourself since this ended? If you are in immediate danger, call your local emergency number or a crisis line right now.",
       "type": "single_select",
@@ -3048,10 +2950,10 @@
         ]
       }
     },
-    "q42": {
-      "id": "q42",
+    "q41": {
+      "id": "q41",
       "section_id": "s5",
-      "order": 42,
+      "order": 41,
       "title": "Safety Check: Risky Behavior",
       "prompt": "Since the ending, have you done anything that scared you (reckless driving, unsafe mixing, unsafe situations, etc.)?",
       "type": "single_select",
@@ -3097,10 +2999,10 @@
         ]
       }
     },
-    "q43": {
-      "id": "q43",
+    "q42": {
+      "id": "q42",
       "section_id": "s5",
-      "order": 43,
+      "order": 42,
       "title": "Unhelpful Coping Patterns",
       "prompt": "Which coping patterns are showing up (even if you wish they were not)? Select any. This is for awareness, not judgment.",
       "type": "multi_select",
@@ -3182,80 +3084,205 @@
         "max_selected": 8
       }
     },
-    "q44": {
-      "id": "q44",
+    "q43": {
+      "id": "q43",
       "section_id": "s5",
-      "order": 44,
-      "title": "Support Around You",
-      "prompt": "Who is actually in your corner right now? (Select any that apply.)",
-      "type": "multi_select",
-      "options": [
+      "order": 43,
+      "title": "Support and Safety Check",
+      "prompt": "If things got emotionally heavy this week, would you have someone or somewhere to lean on? This is not about being perfect. It is about knowing your options.",
+      "type": "compound",
+      "fields": [
         {
-          "value": "one_friend",
-          "label": "At least one friend I can talk to"
+          "key": "support_status",
+          "label": "Do you have at least one person you could reach out to if needed?",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "yes",
+              "label": "Yes"
+            },
+            {
+              "value": "maybe",
+              "label": "Maybe or not sure who"
+            },
+            {
+              "value": "not_really",
+              "label": "Not really"
+            },
+            {
+              "value": "prefer_not",
+              "label": "Prefer not to say"
+            }
+          ]
         },
         {
-          "value": "family",
-          "label": "Family support"
+          "key": "support_people",
+          "label": "Who could you reach out to? (Select any that fit.)",
+          "type": "multi_select",
+          "options": [
+            {
+              "value": "friend",
+              "label": "Friend"
+            },
+            {
+              "value": "family",
+              "label": "Family"
+            },
+            {
+              "value": "faith_community",
+              "label": "Faith or community support"
+            },
+            {
+              "value": "coworker_mentor",
+              "label": "Coworker or mentor"
+            },
+            {
+              "value": "therapist_coach",
+              "label": "Therapist or coach"
+            },
+            {
+              "value": "support_group",
+              "label": "Support group"
+            },
+            {
+              "value": "online_friend",
+              "label": "Online community or friend"
+            },
+            {
+              "value": "crisis_line",
+              "label": "Crisis line"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            },
+            {
+              "value": "none",
+              "label": "No one comes to mind"
+            }
+          ],
+          "validation": {
+            "max_selected": 6
+          },
+          "showWhen": {
+            "field": "support_status",
+            "in": [
+              "yes",
+              "maybe",
+              "not_really"
+            ]
+          }
         },
         {
-          "value": "faith_community",
-          "label": "Faith community support"
+          "key": "one_person_label",
+          "label": "Optional: name one person or relationship label (kept private on your device)",
+          "type": "short_text",
+          "placeholder": "Example: my sister, Ben from work, my bishop, my therapist",
+          "showWhen": {
+            "field": "support_people",
+            "includes": "friend"
+          }
         },
         {
-          "value": "coworker",
-          "label": "Coworker or mentor"
+          "key": "safe_place",
+          "label": "Do you have a safe place you can go if needed?",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "yes_home",
+              "label": "Yes, my home feels safe"
+            },
+            {
+              "value": "yes_other",
+              "label": "Yes, somewhere else"
+            },
+            {
+              "value": "not_really",
+              "label": "Not really"
+            },
+            {
+              "value": "unsure",
+              "label": "Not sure"
+            }
+          ],
+          "showWhen": {
+            "field": "support_status",
+            "in": [
+              "yes",
+              "maybe",
+              "not_really"
+            ]
+          }
         },
         {
-          "value": "therapist",
-          "label": "Therapist"
+          "key": "next_step",
+          "label": "If support feels thin, what is one realistic next step?",
+          "type": "single_select",
+          "options": [
+            {
+              "value": "reach_out_one",
+              "label": "Reach out to one person this week"
+            },
+            {
+              "value": "join_group",
+              "label": "Try a group or community space"
+            },
+            {
+              "value": "find_therapist",
+              "label": "Look for a therapist or coach"
+            },
+            {
+              "value": "talk_faith_leader",
+              "label": "Talk to a faith leader or trusted mentor"
+            },
+            {
+              "value": "save_crisis_info",
+              "label": "Save a crisis line number just in case"
+            },
+            {
+              "value": "other",
+              "label": "Other (write in)"
+            }
+          ],
+          "showWhen": {
+            "field": "support_status",
+            "in": [
+              "maybe",
+              "not_really"
+            ]
+          }
         },
         {
-          "value": "coach",
-          "label": "Coach"
-        },
-        {
-          "value": "support_group",
-          "label": "Support group"
-        },
-        {
-          "value": "online_friend",
-          "label": "Online community/friend"
-        },
-        {
-          "value": "no_one",
-          "label": "No one I trust with this"
-        },
-        {
-          "value": "other",
-          "label": "Other (write in)"
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "short_text",
+          "placeholder": "Example: who, where, or what would help right now."
         }
       ],
       "answer_schema": {
-        "selected_values": [],
-        "other_text": "",
-        "ranking": [],
+        "support_status": "",
+        "support_people": [],
+        "one_person_label": "",
+        "safe_place": "",
+        "next_step": "",
         "notes": ""
       },
       "examples": [
-        "At least one friend I can talk to + Family support",
-        "Therapist + Support group",
-        "No one I trust with this"
+        "Support status: Yes. Support people: Friend + Family. Safe place: Yes, my home feels safe.",
+        "Support status: Maybe. Support people: Therapist or coach. Next step: Reach out to one person this week.",
+        "Support status: Not really. Support people: No one comes to mind. Safe place: Not really. Next step: Save a crisis line number just in case."
       ],
       "tags": {
         "included_in_manifests": [
           "lite",
           "full"
         ]
-      },
-      "validation": {
-        "max_selected": 6
       }
     },
-    "q45": {
-      "id": "q45",
+    "q44": {
+      "id": "q44",
       "section_id": "s5",
-      "order": 45,
+      "order": 44,
       "title": "Professional Support",
       "prompt": "Are you getting support from a professional right now? If yes, what kind? If no, that is okay too.",
       "type": "compound",
@@ -3356,10 +3383,10 @@
         ]
       }
     },
-    "q46": {
-      "id": "q46",
+    "q45": {
+      "id": "q45",
       "section_id": "s5",
-      "order": 46,
+      "order": 45,
       "title": "Medication Changes",
       "prompt": "Only if relevant: have there been any recent changes in mental health medication (starting, stopping, dosage changes)?",
       "type": "single_select",
@@ -3413,10 +3440,10 @@
         ]
       }
     },
-    "q47": {
-      "id": "q47",
+    "q46": {
+      "id": "q46",
       "section_id": "s5",
-      "order": 47,
+      "order": 46,
       "title": "What Helps and What Tools You Use",
       "prompt": "What tools or actions actually give you even a little relief? (We are looking for what works, not what you think you should do.)",
       "type": "compound",
@@ -3600,10 +3627,10 @@
         ]
       }
     },
-    "q48": {
-      "id": "q48",
+    "q47": {
+      "id": "q47",
       "section_id": "s5",
-      "order": 48,
+      "order": 47,
       "title": "Your Information Diet",
       "prompt": "What are you feeding your brain right now? (Select all that apply. This helps us filter the noise.)",
       "type": "multi_select",
@@ -3674,10 +3701,10 @@
         "max_selected": 7
       }
     },
-    "q49": {
-      "id": "q49",
+    "q48": {
+      "id": "q48",
       "section_id": "s5",
-      "order": 49,
+      "order": 48,
       "title": "Social Media and Checking Behaviors",
       "prompt": "How often are you checking on them (social media, mutual friends, old photos, messages)?",
       "type": "single_select",
@@ -3731,10 +3758,10 @@
         ]
       }
     },
-    "q50": {
-      "id": "q50",
+    "q49": {
+      "id": "q49",
       "section_id": "s5",
-      "order": 50,
+      "order": 49,
       "title": "Boundaries You Are Willing to Try",
       "prompt": "Which boundaries feel doable for you right now? (Select any. Even one is progress.)",
       "type": "multi_select",
@@ -3801,10 +3828,10 @@
         "max_selected": 6
       }
     },
-    "q51": {
-      "id": "q51",
+    "q50": {
+      "id": "q50",
       "section_id": "s5",
-      "order": 51,
+      "order": 50,
       "title": "Daily Life Impact",
       "prompt": "Which daily-life areas are taking a hit right now? (Select any.)",
       "type": "multi_select",
@@ -3878,10 +3905,10 @@
         "max_selected": 7
       }
     },
-    "q52": {
-      "id": "q52",
+    "q51": {
+      "id": "q51",
       "section_id": "s5",
-      "order": 52,
+      "order": 51,
       "title": "Anything You Need to Say Out Loud",
       "prompt": "If you want a place to unload: what do you most need to say about this right now?",
       "type": "free_text",
@@ -3902,10 +3929,10 @@
         ]
       }
     },
-    "q53": {
-      "id": "q53",
+    "q52": {
+      "id": "q52",
       "section_id": "s6",
-      "order": 53,
+      "order": 52,
       "title": "Reality Check",
       "prompt": "When your mind idealizes them, this helps balance the picture. You can keep it simple.",
       "type": "compound",
@@ -3946,10 +3973,10 @@
         ]
       }
     },
-    "q54": {
-      "id": "q54",
+    "q53": {
+      "id": "q53",
       "section_id": "s6",
-      "order": 54,
+      "order": 53,
       "title": "Red Flags You May Have Minimized",
       "prompt": "Looking back gently, which red flags did you minimize or excuse?",
       "type": "multi_select",
@@ -4023,10 +4050,10 @@
         "max_selected": 7
       }
     },
-    "q55": {
-      "id": "q55",
+    "q54": {
+      "id": "q54",
       "section_id": "s6",
-      "order": 55,
+      "order": 54,
       "title": "Ownership vs Release",
       "prompt": "This is one of the most healing distinctions. No self-attack. Just clarity.",
       "type": "compound",
@@ -4066,10 +4093,10 @@
         ]
       }
     },
-    "q56": {
-      "id": "q56",
+    "q55": {
+      "id": "q55",
       "section_id": "s6",
-      "order": 56,
+      "order": 55,
       "title": "If They Came Back Tomorrow",
       "prompt": "If they came back tomorrow wanting you again, what would be true for you?",
       "type": "compound",
@@ -4178,10 +4205,10 @@
         ]
       }
     },
-    "q57": {
-      "id": "q57",
+    "q56": {
+      "id": "q56",
       "section_id": "s6",
-      "order": 57,
+      "order": 56,
       "title": "Spiritual and Faith Impact",
       "prompt": "Some people are supported by faith, and others are triggered by it right now. Either is okay. What fits you?",
       "type": "compound",
@@ -4284,10 +4311,10 @@
         ]
       }
     },
-    "q58": {
-      "id": "q58",
+    "q57": {
+      "id": "q57",
       "section_id": "s6",
-      "order": 58,
+      "order": 57,
       "title": "Closure Actions",
       "prompt": "What closure actions feel realistic this week? (Small is fine. We are building traction.)",
       "type": "compound",
@@ -4380,10 +4407,10 @@
         ]
       }
     },
-    "q59": {
-      "id": "q59",
+    "q58": {
+      "id": "q58",
       "section_id": "s6",
-      "order": 59,
+      "order": 58,
       "title": "A Note to Future You",
       "prompt": "Write a short note to your future self for the next wave. What do you want to remember?",
       "type": "free_text",
@@ -4403,10 +4430,10 @@
         ]
       }
     },
-    "q60": {
-      "id": "q60",
+    "q59": {
+      "id": "q59",
       "section_id": "s6",
-      "order": 60,
+      "order": 59,
       "title": "Thirty-Day Target",
       "prompt": "If you could fast-forward 30 days and feel meaningfully better, what would be different?",
       "type": "compound",
