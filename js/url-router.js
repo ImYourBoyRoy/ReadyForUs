@@ -182,8 +182,22 @@ const URLRouter = {
                 DataLoader.setCurrentPhase(route.phase);
                 StorageManager.setPhase(route.phase);
                 await DataLoader.load();
+            }
+
+            // Always refresh phase-dependent UI metadata (title, nav branding, etc.)
+            // even when the phase didn't change, because users can deep-link from
+            // standalone pages that set a different document title.
+            if (typeof App.updatePhaseDisplay === 'function') {
+                App.updatePhaseDisplay();
+            }
+            if (typeof App.updateModeOptions === 'function') {
                 App.updateModeOptions();
+            }
+            if (typeof App.updateModeDisplay === 'function') {
                 App.updateModeDisplay();
+            }
+            if (typeof App.populatePhaseSwitcher === 'function') {
+                App.populatePhaseSwitcher();
             }
         }
 
@@ -244,12 +258,16 @@ const URLRouter = {
 
             case 'ai-prompts':
                 App.showView('ai-prompts');
+                if (typeof App.renderAIPrompts === 'function') {
+                    App.renderAIPrompts();
+                }
                 App.initAIPromptsPage();
                 App.setupAIPromptsListeners();
                 break;
 
             case 'ai-analysis':
                 App.showView('ai-analysis');
+                document.title = 'AI Analysis | Ready for Us';
                 if (typeof App.initAIAnalysisPage === 'function') {
                     App.initAIAnalysisPage();
                 }

@@ -297,15 +297,8 @@ const AppNavMenu = {
      * @returns {string} Status: 'completed', 'in-progress', or 'not-started'
      */
     getPhaseProgress(phaseId) {
-        // Temporarily switch to the phase's storage context
-        const originalPhase = StorageManager.currentPhaseId;
-        StorageManager.currentPhaseId = phaseId;
-
-        const hasProgress = StorageManager.hasResumableProgress();
-        const completedModes = StorageManager.loadCompletedModes();
-
-        // Restore original phase
-        StorageManager.currentPhaseId = originalPhase;
+        const hasProgress = StorageManager.hasResumableProgress(phaseId);
+        const completedModes = StorageManager.loadCompletedModes(phaseId);
 
         // Determine status
         if (completedModes.includes('full')) return 'completed';
@@ -363,9 +356,15 @@ const AppNavMenu = {
 
             // Load phase data
             await DataLoader.load();
+        }
 
-            // Update UI
+        // Always refresh phase-dependent UI metadata (title, branding, counts).
+        // This matters when selecting a phase from Home where the phase may
+        // already be current but document title was changed by standalone views.
+        if (typeof this.updatePhaseDisplay === 'function') {
             this.updatePhaseDisplay();
+        }
+        if (typeof this.updateModeOptions === 'function') {
             this.updateModeOptions();
         }
 

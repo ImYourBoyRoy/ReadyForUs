@@ -28,10 +28,17 @@ const AppToast = {
 
         const toast = document.createElement('div');
         toast.className = `toast toast-${type}`;
-        toast.innerHTML = `
-            <span class="toast-icon">${icons[type] || icons.info}</span>
-            <span class="toast-message">${message}</span>
-        `;
+
+        const iconEl = document.createElement('span');
+        iconEl.className = 'toast-icon';
+        iconEl.textContent = icons[type] || icons.info;
+
+        const messageEl = document.createElement('span');
+        messageEl.className = 'toast-message';
+        messageEl.textContent = String(message ?? '');
+
+        toast.appendChild(iconEl);
+        toast.appendChild(messageEl);
 
         container.appendChild(toast);
 

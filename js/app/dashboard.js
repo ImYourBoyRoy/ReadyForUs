@@ -42,25 +42,6 @@ const AppDashboard = {
             card.style.setProperty('--card-index', index + 1);
         });
 
-        // Add click handlers to cards (works even before metadata loads)
-        grid.addEventListener('click', (e) => {
-            const card = e.target.closest('.questionnaire-card');
-            if (card) {
-                const phaseId = card.dataset.phaseId;
-                if (phaseId) {
-                    // Check if they clicked the Continue button (resume progress)
-                    const isContinueBtn = e.target.closest('.card-cta-continue');
-                    if (isContinueBtn) {
-                        // Resume existing progress
-                        this.selectQuestionnaire(phaseId, null, true);
-                    } else {
-                        // Navigate to welcome page where user can choose mode
-                        this.selectQuestionnaire(phaseId, null);
-                    }
-                }
-            }
-        });
-
         // Hide global resume banner since cards now show per-phase progress
         const resumeBanner = document.getElementById('dashboard-resume-banner');
         if (resumeBanner) {
@@ -92,6 +73,23 @@ const AppDashboard = {
      * Called once to avoid duplicate handlers.
      */
     setupDashboardListeners() {
+        // Questionnaire grid card actions (single delegated listener)
+        document.getElementById('questionnaire-grid')?.addEventListener('click', (e) => {
+            const card = e.target.closest('.questionnaire-card');
+            if (!card) return;
+
+            const phaseId = card.dataset.phaseId;
+            if (!phaseId) return;
+
+            const isContinueBtn = e.target.closest('.card-cta-continue');
+            const cardHasResumeState = !!card.querySelector('.card-cta-continue');
+            if (isContinueBtn || cardHasResumeState) {
+                this.selectQuestionnaire(phaseId, null, true);
+            } else {
+                this.selectQuestionnaire(phaseId, null);
+            }
+        });
+
         // Dashboard button in nav
         document.getElementById('btn-dashboard')?.addEventListener('click', () => {
             this.showView('dashboard');
@@ -186,12 +184,9 @@ const AppDashboard = {
      * @returns {Object} Progress info or null if no progress
      */
     getPhaseProgressDetails(phaseId, metadata) {
-        const originalPhase = StorageManager.currentPhaseId;
-        StorageManager.currentPhaseId = phaseId;
-
-        const responses = StorageManager.loadResponses();
+        const responses = StorageManager.loadResponses(phaseId);
         const responseCount = Object.keys(responses).length;
-        const mode = StorageManager.loadMode();
+        const mode = StorageManager.loadMode(phaseId);
         const hasProgress = responseCount > 0;
 
         // Debug logging
@@ -201,8 +196,6 @@ const AppDashboard = {
         const totalQuestions = mode === 'lite' ? (metadata.liteCount || 0) : (metadata.fullCount || 0);
 
         const percentage = totalQuestions > 0 ? Math.round((responseCount / totalQuestions) * 100) : 0;
-
-        StorageManager.currentPhaseId = originalPhase;
 
         if (hasProgress) {
             console.log(`[Progress Detected] ${phaseId}: ${percentage}% (${responseCount}/${totalQuestions})`);
@@ -403,7 +396,7 @@ const AppDashboard = {
     async getPhaseMetadata(phase) {
         try {
             // Fetch manifest.json and questions.json for this phase
-            const v = DataLoader.CACHE_VERSION || '2.5.0';
+            const v = DataLoader.CACHE_VERSION || '2.5.5';
             const [manifestRes, questionsRes] = await Promise.all([
                 fetch(`${phase.data_path}/manifest.json?v=${v}`),
                 fetch(`${phase.data_path}/questions.json?v=${v}`)
@@ -476,16 +469,10 @@ const AppDashboard = {
         let progressPhase = null;
 
         for (const phase of phases) {
-            // Temporarily switch to each phase to check progress
-            const originalPhase = StorageManager.currentPhaseId;
-            StorageManager.currentPhaseId = phase.id;
-
-            if (StorageManager.hasResumableProgress()) {
+            if (StorageManager.hasResumableProgress(phase.id)) {
                 hasProgress = true;
                 progressPhase = phase;
             }
-
-            StorageManager.currentPhaseId = originalPhase;
 
             if (hasProgress) break;
         }
@@ -528,21 +515,18 @@ const AppDashboard = {
                 // Load saved progress
                 const savedMode = StorageManager.loadMode();
                 await QuestionnaireEngine.init(savedMode);
+                this.participantName = StorageManager.loadParticipantName();
+                this.updateModeToggle(savedMode);
 
-                const progress = StorageManager.loadProgress();
-                if (progress) {
-                    QuestionnaireEngine.responses = progress.responses || {};
-                    QuestionnaireEngine.currentIndex = progress.currentIndex || 0;
-                    QuestionnaireEngine.skipped = StorageManager.loadSkipped() || [];
+                const stats = QuestionnaireEngine.getStats();
+                if (stats.total > 0 && stats.unanswered === 0) {
+                    // Completed sessions should resume at review, not question 1.
+                    this.showView('review');
+                } else {
+                    this.showView('questionnaire');
+                    this.renderCurrentQuestion();
+                    this.updateProgress();
                 }
-
-                // Update mode switcher
-                const modeSwitcher = document.getElementById('mode-switcher');
-                if (modeSwitcher) modeSwitcher.value = savedMode;
-
-                this.showView('questionnaire');
-                this.renderCurrentQuestion();
-                this.updateProgress();
 
                 this.showToast('Welcome back! Continuing where you left off.', 'success');
             } else {
@@ -554,9 +538,6 @@ const AppDashboard = {
                     document.querySelectorAll('.mode-option').forEach(opt => {
                         opt.classList.toggle('selected', opt.dataset.mode === mode);
                     });
-
-                    const modeSwitcher = document.getElementById('mode-switcher');
-                    if (modeSwitcher) modeSwitcher.value = mode;
                 }
 
                 this.showView('welcome');

@@ -106,11 +106,27 @@ const AppProgress = {
         this.participantName = StorageManager.loadParticipantName();
 
         await QuestionnaireEngine.init(savedMode);
+        this.updateModeToggle(savedMode);
 
-        document.getElementById('resume-prompt').style.display = 'none';
-        this.showView('questionnaire');
-        this.renderCurrentQuestion();
-        this.updateProgress();
+        const nameInput = document.getElementById('participant-name');
+        if (nameInput) {
+            nameInput.value = this.participantName;
+        }
+
+        const resumePrompt = document.getElementById('resume-prompt');
+        if (resumePrompt) {
+            resumePrompt.style.display = 'none';
+        }
+
+        const stats = QuestionnaireEngine.getStats();
+        if (stats.total > 0 && stats.unanswered === 0) {
+            // If everything has been addressed (answered or skipped), resume to review.
+            this.showView('review');
+        } else {
+            this.showView('questionnaire');
+            this.renderCurrentQuestion();
+            this.updateProgress();
+        }
 
         // Refresh menu indicators
         if (typeof this.refreshMenuIndicators === 'function') {

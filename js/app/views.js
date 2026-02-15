@@ -63,10 +63,8 @@ const AppViews = {
         const stats = QuestionnaireEngine.getStats();
         const questions = QuestionnaireEngine.getQuestionsWithStatus();
 
-        // Load needsReview metadata from localStorage (from import)
-        const phaseId = DataLoader.getCurrentPhaseId();
-        const storageKey = `slowbuild_${phaseId}_needsReview`;
-        const needsReview = JSON.parse(localStorage.getItem(storageKey) || '[]');
+        // Load needsReview metadata from storage (from import)
+        const needsReview = StorageManager.loadNeedsReview();
 
         // Update stats
         document.getElementById('review-total').textContent = stats.total;
@@ -78,15 +76,6 @@ const AppViews = {
             const needsReviewFlag = needsReview.includes(question.id);
             return QuestionRenderer.renderReviewCard(question, response, status, { needsReview: needsReviewFlag });
         }).join('');
-
-        // Add click handlers for editing
-        grid.querySelectorAll('.review-card').forEach((card, idx) => {
-            card.addEventListener('click', () => {
-                QuestionnaireEngine.jumpToIndex(idx);
-                this.showView('questionnaire');
-                this.renderCurrentQuestion();
-            });
-        });
     },
 
     /**
@@ -116,7 +105,6 @@ const AppViews = {
 
         // Handle upgrade prompt visibility
         const upgradeSection = document.getElementById('upgrade-section');
-        const upgradeBtn = document.getElementById('btn-upgrade-full');
         const countSpan = document.getElementById('additional-count');
 
         if (upgradeSection) {
@@ -124,16 +112,7 @@ const AppViews = {
                 upgradeSection.style.display = 'block';
 
                 if (countSpan) {
-                    countSpan.textContent = QuestionnaireEngine.getAdditionalQuestionCount();
-                }
-
-                // Remove old listeners to prevent duplicates (cloning is a simple way)
-                if (upgradeBtn) {
-                    const newBtn = upgradeBtn.cloneNode(true);
-                    upgradeBtn.parentNode.replaceChild(newBtn, upgradeBtn);
-                    newBtn.addEventListener('click', () => {
-                        this.upgradeToFullMode();
-                    });
+                    countSpan.textContent = QuestionnaireEngine.getAdditionalFullQuestionCount();
                 }
             } else {
                 upgradeSection.style.display = 'none';
@@ -146,9 +125,7 @@ const AppViews = {
         const reviewFlaggedBtn = document.getElementById('btn-review-flagged');
 
         if (reviewWarning) {
-            const phaseId = DataLoader.getCurrentPhaseId();
-            const storageKey = `slowbuild_${phaseId}_needsReview`;
-            const needsReview = JSON.parse(localStorage.getItem(storageKey) || '[]');
+            const needsReview = StorageManager.loadNeedsReview();
 
             if (needsReview.length > 0) {
                 reviewWarning.style.display = 'block';

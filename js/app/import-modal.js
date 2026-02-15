@@ -228,6 +228,9 @@ const AppImportModal = {
                 const coupleRadio = document.querySelector('input[name="import-type"][value="couple"]');
                 if (coupleRadio) coupleRadio.checked = true;
             } else if (hasA) {
+                // Single-file import should default to individual prompt.
+                const individualRadio = document.querySelector('input[name="import-type"][value="individual"]');
+                if (individualRadio) individualRadio.checked = true;
                 this.showImportValidation(
                     `Ready to generate individual prompt for ${this.importedFiles.a.name}`,
                     'success'
@@ -287,6 +290,10 @@ const AppImportModal = {
         // Clear files
         this.clearImportFile('a');
         this.clearImportFile('b');
+        this.clearImportFile('continue');
+
+        // Reset to default tab for predictable reopen state
+        this.switchImportMode('continue');
 
         // Hide output section
         const outputEl = document.getElementById('import-output');
@@ -300,6 +307,10 @@ const AppImportModal = {
         // Reset validation
         const validationEl = document.getElementById('import-validation');
         if (validationEl) validationEl.style.display = 'none';
+
+        // Reset prompt type selection to default.
+        const individualRadio = document.querySelector('input[name="import-type"][value="individual"]');
+        if (individualRadio) individualRadio.checked = true;
     },
 
     /**
@@ -518,12 +529,6 @@ const AppImportModal = {
             this.importNeedsReview = needsReview;
             this.importWarnings = fieldWarnings;
 
-            // Update mode switcher and display
-            const modeSwitcher = document.getElementById('mode-switcher');
-            if (modeSwitcher) {
-                modeSwitcher.value = mode;
-            }
-
             // Update the visual mode toggle buttons to match imported mode
             if (typeof this.updateModeToggle === 'function') {
                 this.updateModeToggle(mode);
@@ -537,16 +542,10 @@ const AppImportModal = {
             StorageManager.saveMode(mode);
             StorageManager.saveParticipantName(this.participantName);
 
-            // Persist import metadata for review indicators
-            if (needsReview.length > 0) {
-                const phaseId = DataLoader.getCurrentPhaseId();
-                const storageKey = `slowbuild_${phaseId}_needsReview`;
-                localStorage.setItem(storageKey, JSON.stringify(needsReview));
-
-                // Also store field warnings for debugging
-                const warningsKey = `slowbuild_${phaseId}_importWarnings`;
-                localStorage.setItem(warningsKey, JSON.stringify(fieldWarnings));
-            }
+            // Persist import metadata for review indicators.
+            // Always write canonical values so stale keys from older imports are cleared.
+            StorageManager.saveNeedsReview(needsReview || []);
+            StorageManager.saveImportWarnings(fieldWarnings || {});
 
             // Close modal
             this.hideImportModal();

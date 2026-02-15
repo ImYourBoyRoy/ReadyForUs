@@ -131,8 +131,8 @@ const AppQuestionnaire = {
         const skippedBadge = document.getElementById('skipped-badge');
 
         const stats = QuestionnaireEngine.getStats();
-        const answeredPercent = (stats.answered / stats.total) * 100;
-        const skippedPercent = (stats.skipped / stats.total) * 100;
+        const answeredPercent = stats.total > 0 ? (stats.answered / stats.total) * 100 : 0;
+        const skippedPercent = stats.total > 0 ? (stats.skipped / stats.total) * 100 : 0;
 
         if (progressFill) {
             progressFill.style.width = `${answeredPercent}%`;
@@ -160,9 +160,7 @@ const AppQuestionnaire = {
         // Show review badge if questions need review (from import)
         const reviewBadge = document.getElementById('review-badge');
         if (reviewBadge) {
-            const phaseId = DataLoader.getCurrentPhaseId();
-            const storageKey = `slowbuild_${phaseId}_needsReview`;
-            const needsReview = JSON.parse(localStorage.getItem(storageKey) || '[]');
+            const needsReview = StorageManager.loadNeedsReview();
 
             if (needsReview.length > 0) {
                 reviewBadge.textContent = `${needsReview.length} need review`;
@@ -174,11 +172,38 @@ const AppQuestionnaire = {
     },
 
     /**
+     * Resolve max selection limit for checkbox-based fields.
+     * Supports both top-level questions and compound fields.
+     * @param {Object} question - Question definition.
+     * @param {string|null} fieldKey - Compound field key (if applicable).
+     * @returns {number|null} Max allowed selections, or null if unlimited.
+     */
+    getSelectionLimit(question, fieldKey = null) {
+        if (!question) return null;
+
+        if (fieldKey && question.type === 'compound') {
+            const field = (question.fields || []).find(f => f.key === fieldKey);
+            if (!field) return null;
+            return field.max ?? field.validation?.max_selected ?? null;
+        }
+
+        if (question.type === 'multi_select' || question.type === 'ranked_select') {
+            return question.max ?? question.validation?.max_selected ?? null;
+        }
+
+        return null;
+    },
+
+    /**
      * Handle input changes in questions.
      * @param {Event} e - Input event.
      */
     handleInputChange(e) {
         const target = e.target;
+        // Ranked-select checkboxes are managed by AppRankedSelect handlers.
+        // Skipping them here avoids duplicate saves and render churn.
+        if (target?.classList?.contains('ranked-checkbox')) return;
+
         const questionId = target.dataset.questionId;
         const field = target.dataset.field;
 
@@ -213,6 +238,15 @@ const AppQuestionnaire = {
             }
 
             if (target.checked) {
+                const limit = this.getSelectionLimit(question, field || null);
+                const hasLimit = Number.isInteger(limit) && limit > 0;
+                const alreadySelected = response[fieldKey].includes(target.value);
+                if (hasLimit && !alreadySelected && response[fieldKey].length >= limit) {
+                    target.checked = false;
+                    this.showToast?.(`Select up to ${limit}.`, 'info', 2200);
+                    return;
+                }
+
                 if (!response[fieldKey].includes(target.value)) {
                     response[fieldKey].push(target.value);
                 }
@@ -236,7 +270,16 @@ const AppQuestionnaire = {
         }
         else if (target.classList.contains('textarea') || target.type === 'text' || target.type === 'number') {
             if (field) {
-                response[field] = target.type === 'number' ? Number(target.value) : target.value;
+                response[field] = target.type === 'number'
+                    ? (target.value === '' ? null : Number(target.value))
+                    : target.value;
+            } else {
+                response.text = target.value;
+            }
+        }
+        else if (target.tagName === 'SELECT') {
+            if (field) {
+                response[field] = target.value;
             } else {
                 response.text = target.value;
             }
@@ -245,7 +288,7 @@ const AppQuestionnaire = {
         QuestionnaireEngine.saveResponse(questionId, response);
 
         // Update conditional field visibility for compound questions
-        if (question.type === 'compound' && (target.type === 'radio' || target.type === 'checkbox')) {
+        if (question.type === 'compound' && (target.type === 'radio' || target.type === 'checkbox' || target.tagName === 'SELECT')) {
             this.updateConditionalFields(questionId, question, response);
         }
 

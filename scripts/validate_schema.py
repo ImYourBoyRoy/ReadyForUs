@@ -277,11 +277,17 @@ class SchemaValidator:
         warnings = []
         
         for qid, q in data.get('questions', {}).items():
-            # Warn if multi_select has no max limit (can cause analysis paralysis)
-            if q.get('type') == 'multi_select':
-                if 'max' not in q:
+            # Warn if top-level multi/ranked select has no max limit (can cause analysis paralysis)
+            if q.get('type') in ['multi_select', 'ranked_select']:
+                top_level_max = q.get('max')
+                validation_max = q.get('validation', {}).get('max_selected')
+                has_limit = top_level_max is not None or validation_max is not None
+                if not has_limit:
                     num_options = len(q.get('options', []))
-                    warnings.append(f"{qid}: multi_select has no max limit ({num_options} options). Consider adding max to prevent analysis paralysis.")
+                    warnings.append(
+                        f"{qid}: {q.get('type')} has no max limit ({num_options} options). "
+                        f"Consider adding 'max' or 'validation.max_selected' to prevent analysis paralysis."
+                    )
         
         return warnings
     

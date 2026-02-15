@@ -1880,15 +1880,6 @@
           ]
         },
         {
-          "key": "selected_value_other",
-          "label": "If 'Other', describe",
-          "type": "short_text",
-          "showWhen": {
-            "field": "selected_value",
-            "includes": "other"
-          }
-        },
-        {
           "key": "varies_text",
           "label": "Describe your schedule",
           "type": "short_text",
@@ -1905,15 +1896,14 @@
           "placeholder": "Describe your ideal cadence",
           "showWhen": {
             "field": "selected_value",
-            "equals": "other"
+            "includes": "other"
           }
         }
       ],
       "answer_schema": {
         "selected_value": "",
         "varies_text": "",
-        "other_text": "",
-        "selected_value_other": ""
+        "other_text": ""
       },
       "validation": {
         "required_if": [
@@ -1982,15 +1972,6 @@
           ]
         },
         {
-          "key": "selected_value_other",
-          "label": "If 'Other', describe",
-          "type": "short_text",
-          "showWhen": {
-            "field": "selected_value",
-            "includes": "other"
-          }
-        },
-        {
           "key": "mix_template",
           "label": "Pick a starting template (optional)",
           "type": "single_select",
@@ -2038,7 +2019,7 @@
           "placeholder": "Describe your preferred communication style",
           "showWhen": {
             "field": "selected_value",
-            "equals": "other"
+            "includes": "other"
           }
         },
         {
@@ -2052,8 +2033,7 @@
         "mix_template": "",
         "mix_details": "",
         "other_text": "",
-        "notes": "",
-        "selected_value_other": ""
+        "notes": ""
       },
       "examples": [
         "Text for logistics, call for feelings: quick texts, then a phone talk for depth.",
@@ -2124,15 +2104,6 @@
           ]
         },
         {
-          "key": "selected_value_other",
-          "label": "If 'Other', describe",
-          "type": "short_text",
-          "showWhen": {
-            "field": "selected_value",
-            "includes": "other"
-          }
-        },
-        {
           "key": "depends_text",
           "label": "Explain the context",
           "type": "short_text",
@@ -2149,15 +2120,14 @@
           "placeholder": "Describe your preference",
           "showWhen": {
             "field": "selected_value",
-            "equals": "other"
+            "includes": "other"
           }
         }
       ],
       "answer_schema": {
         "selected_value": "",
         "depends_text": "",
-        "other_text": "",
-        "selected_value_other": ""
+        "other_text": ""
       },
       "validation": {
         "required_if": [
@@ -2479,6 +2449,21 @@
     }
   },
   "ui_hints": {
+    "controls": {
+      "mode_switcher": {
+        "default": "lite",
+        "options": [
+          {
+            "id": "lite",
+            "label": "Lite (18)"
+          },
+          {
+            "id": "full",
+            "label": "Full (38)"
+          }
+        ]
+      }
+    },
     "rendering": {
       "default_layout": "sections",
       "question_numbering": "order",

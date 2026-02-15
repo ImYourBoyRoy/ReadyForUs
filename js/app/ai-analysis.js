@@ -236,7 +236,10 @@ const AppAIAnalysis = {
 
             // Add to navigator
             if (typeof ResultsNavigator !== 'undefined') {
-                ResultsNavigator.addResult(parsed);
+                const addedResultId = ResultsNavigator.addResult(parsed);
+                if (addedResultId && typeof ResultsNavigator.setActive === 'function') {
+                    ResultsNavigator.setActive(addedResultId);
+                }
 
                 // Visual feedback: scroll to navigator
                 const navContainer = document.getElementById('results-navigator-container');
@@ -270,12 +273,20 @@ const AppAIAnalysis = {
             const answered = parsed.stats?.answered || Object.keys(parsed.responses).length || 0;
             const total = parsed.stats?.total || parsed.questionCount || 0;
             const modeLabel = (parsed.mode || 'lite') === 'full' ? 'Full' : 'Lite';
+            const safeName = typeof this.escapeHtml === 'function'
+                ? this.escapeHtml(parsed.name || 'Unknown')
+                : String(parsed.name || 'Unknown')
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#39;');
 
             if (nameEl) {
                 nameEl.innerHTML = `
                     <div style="display: flex; flex-direction: column; gap: 4px;">
                         <span style="color: var(--accent-green); font-weight: 700;">✓ Successfully Loaded</span>
-                        <span>${parsed.name} • ${answered}/${total} ${modeLabel} • Slow Build Check-In</span>
+                        <span>${safeName} • ${answered}/${total} ${modeLabel} • Slow Build Check-In</span>
                     </div>
                 `;
             }

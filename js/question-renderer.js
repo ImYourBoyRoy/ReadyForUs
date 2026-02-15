@@ -18,16 +18,20 @@ const QuestionRenderer = {
    */
   render(question, response = {}, options = {}) {
     const { showExamples = true, questionNumber = 1, totalQuestions = 18, sectionTitle = '' } = options;
+    const safeQuestionId = this.escapeHtml(question.id);
+    const safeSectionTitle = this.escapeHtml(sectionTitle);
+    const safeTitle = this.escapeHtml(question.title);
+    const safePrompt = this.escapeHtml(question.prompt);
 
     return `
-      <div class="question-card active" data-question-id="${question.id}">
+      <div class="question-card active" data-question-id="${safeQuestionId}">
         <div class="question-header">
           <div class="question-meta">
             <span class="question-number">Question ${questionNumber} of ${totalQuestions}</span>
-            ${sectionTitle ? `<span class="question-section">${sectionTitle}</span>` : ''}
+            ${sectionTitle ? `<span class="question-section">${safeSectionTitle}</span>` : ''}
           </div>
-          <h2 class="question-title">${question.title}</h2>
-          <p class="question-prompt">${question.prompt}</p>
+          <h2 class="question-title">${safeTitle}</h2>
+          <p class="question-prompt">${safePrompt}</p>
         </div>
         
         <div class="question-body">
@@ -62,27 +66,44 @@ const QuestionRenderer = {
   },
 
   /**
+   * Escape text content for safe HTML rendering.
+   * @param {*} value - Value to escape.
+   * @returns {string}
+   */
+  escapeHtml(value) {
+    if (value === null || value === undefined) return '';
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  },
+
+  /**
    * Render single select (radio buttons).
    */
   renderSingleSelect(question, response) {
     const selectedValue = response.selected_value || '';
     const otherText = response.other_text || '';
+    const safeQuestionId = this.escapeHtml(question.id);
+    const safeOtherText = this.escapeHtml(otherText);
 
     return `
-      <div class="question-options" role="radiogroup" aria-labelledby="q-${question.id}-label">
+      <div class="question-options" role="radiogroup" aria-labelledby="q-${safeQuestionId}-label">
         ${question.options.map((option, index) => `
           <label class="radio-wrapper" style="animation-delay: ${index * 0.05}s">
             <input 
               type="radio" 
               class="radio-input" 
-              id="q-${question.id}-${option.value}"
-              name="q-${question.id}" 
-              value="${option.value}"
+              id="q-${safeQuestionId}-${this.escapeHtml(option.value)}"
+              name="q-${safeQuestionId}" 
+              value="${this.escapeHtml(option.value)}"
               ${selectedValue === option.value ? 'checked' : ''}
-              data-question-id="${question.id}"
+              data-question-id="${safeQuestionId}"
             >
             <span class="radio-custom"></span>
-            <span class="radio-label">${option.label}</span>
+            <span class="radio-label">${this.escapeHtml(option.label)}</span>
           </label>
         `).join('')}
         
@@ -91,11 +112,11 @@ const QuestionRenderer = {
             <input 
               type="text" 
               class="input other-input" 
-              id="q-${question.id}-other-text"
-              name="q-${question.id}-other"
+              id="q-${safeQuestionId}-other-text"
+              name="q-${safeQuestionId}-other"
               placeholder="Please specify..."
-              value="${otherText}"
-              data-question-id="${question.id}"
+              value="${safeOtherText}"
+              data-question-id="${safeQuestionId}"
               data-field="other_text"
             >
           </div>
@@ -110,22 +131,24 @@ const QuestionRenderer = {
   renderMultiSelect(question, response) {
     const selectedValues = response.selected_values || [];
     const otherText = response.other_text || '';
+    const safeQuestionId = this.escapeHtml(question.id);
+    const safeOtherText = this.escapeHtml(otherText);
 
     return `
-      <div class="question-options" role="group" aria-labelledby="q-${question.id}-label">
+      <div class="question-options" role="group" aria-labelledby="q-${safeQuestionId}-label">
         ${question.options.map((option, index) => `
           <label class="checkbox-wrapper" style="animation-delay: ${index * 0.05}s">
             <input 
               type="checkbox" 
               class="checkbox-input" 
-              id="q-${question.id}-${option.value}"
-              name="q-${question.id}" 
-              value="${option.value}"
+              id="q-${safeQuestionId}-${this.escapeHtml(option.value)}"
+              name="q-${safeQuestionId}" 
+              value="${this.escapeHtml(option.value)}"
               ${selectedValues.includes(option.value) ? 'checked' : ''}
-              data-question-id="${question.id}"
+              data-question-id="${safeQuestionId}"
             >
             <span class="checkbox-custom"></span>
-            <span class="checkbox-label">${option.label}</span>
+            <span class="checkbox-label">${this.escapeHtml(option.label)}</span>
           </label>
         `).join('')}
         
@@ -134,11 +157,11 @@ const QuestionRenderer = {
             <input 
               type="text" 
               class="input other-input" 
-              id="q-${question.id}-other-text"
-              name="q-${question.id}-other"
+              id="q-${safeQuestionId}-other-text"
+              name="q-${safeQuestionId}-other"
               placeholder="Please specify..."
-              value="${otherText}"
-              data-question-id="${question.id}"
+              value="${safeOtherText}"
+              data-question-id="${safeQuestionId}"
               data-field="other_text"
             >
           </div>
@@ -156,18 +179,19 @@ const QuestionRenderer = {
    */
   renderFreeText(question, response) {
     const text = response.text || '';
+    const safeQuestionId = this.escapeHtml(question.id);
 
     return `
       <div class="free-text-wrapper">
         <textarea 
           class="input textarea" 
-          id="q-${question.id}-text"
-          name="q-${question.id}"
+          id="q-${safeQuestionId}-text"
+          name="q-${safeQuestionId}"
           placeholder="Share your thoughts..."
-          data-question-id="${question.id}"
+          data-question-id="${safeQuestionId}"
           data-field="text"
           rows="4"
-        >${text}</textarea>
+        >${this.escapeHtml(text)}</textarea>
         <div class="char-hint">Take your time. There's no wrong answer.</div>
       </div>
     `;
@@ -188,7 +212,10 @@ const QuestionRenderer = {
    * Render a single field within a compound question.
    */
   renderCompoundField(field, questionId, response) {
-    const value = response[field.key] || '';
+    const value = response[field.key] ?? '';
+    const safeQuestionId = this.escapeHtml(questionId);
+    const safeFieldKey = this.escapeHtml(field.key);
+    const safeFieldLabel = this.escapeHtml(field.label);
 
     // Check showWhen conditions for conditional field visibility
     const isVisible = this.evaluateShowWhen(field, response);
@@ -197,22 +224,22 @@ const QuestionRenderer = {
     switch (field.type) {
       case 'single_select':
         return `
-          <div class="compound-field ${hiddenClass}" data-field-key="${field.key}">
-            <label class="input-label">${field.label}</label>
+          <div class="compound-field ${hiddenClass}" data-field-key="${safeFieldKey}">
+            <label class="input-label">${safeFieldLabel}</label>
             <div class="question-options compact">
               ${field.options.map(option => `
                 <label class="radio-wrapper">
                   <input 
                     type="radio" 
                     class="radio-input" 
-                    name="q-${questionId}-${field.key}" 
-                    value="${option.value}"
+                    name="q-${safeQuestionId}-${safeFieldKey}" 
+                    value="${this.escapeHtml(option.value)}"
                     ${value === option.value ? 'checked' : ''}
-                    data-question-id="${questionId}"
-                    data-field="${field.key}"
+                    data-question-id="${safeQuestionId}"
+                    data-field="${safeFieldKey}"
                   >
                   <span class="radio-custom"></span>
-                  <span class="radio-label">${option.label}</span>
+                  <span class="radio-label">${this.escapeHtml(option.label)}</span>
                 </label>
               `).join('')}
             </div>
@@ -222,22 +249,22 @@ const QuestionRenderer = {
       case 'multi_select':
         const selectedValues = Array.isArray(value) ? value : [];
         return `
-          <div class="compound-field ${hiddenClass}" data-field-key="${field.key}">
-            <label class="input-label">${field.label}</label>
+          <div class="compound-field ${hiddenClass}" data-field-key="${safeFieldKey}">
+            <label class="input-label">${safeFieldLabel}</label>
             <div class="question-options compact">
               ${field.options.map(option => `
                 <label class="checkbox-wrapper">
                   <input 
                     type="checkbox" 
                     class="checkbox-input" 
-                    name="q-${questionId}-${field.key}" 
-                    value="${option.value}"
+                    name="q-${safeQuestionId}-${safeFieldKey}" 
+                    value="${this.escapeHtml(option.value)}"
                     ${selectedValues.includes(option.value) ? 'checked' : ''}
-                    data-question-id="${questionId}"
-                    data-field="${field.key}"
+                    data-question-id="${safeQuestionId}"
+                    data-field="${safeFieldKey}"
                   >
                   <span class="checkbox-custom"></span>
-                  <span class="checkbox-label">${option.label}</span>
+                  <span class="checkbox-label">${this.escapeHtml(option.label)}</span>
                 </label>
               `).join('')}
             </div>
@@ -247,17 +274,17 @@ const QuestionRenderer = {
       case 'number':
         const isInlineNumber = field.layout === 'inline';
         return `
-          <div class="compound-field ${isInlineNumber ? 'inline-field' : ''} ${hiddenClass}" data-field-key="${field.key}">
-            <label class="input-label">${field.label}</label>
+          <div class="compound-field ${isInlineNumber ? 'inline-field' : ''} ${hiddenClass}" data-field-key="${safeFieldKey}">
+            <label class="input-label">${safeFieldLabel}</label>
             <input 
               type="number" 
               class="input number-input" 
-              value="${value || ''}"
+              value="${this.escapeHtml(value || '')}"
               min="${field.min || 0}"
               ${field.max ? `max="${field.max}"` : ''}
-              placeholder="${field.placeholder || ''}"
-              data-question-id="${questionId}"
-              data-field="${field.key}"
+              placeholder="${this.escapeHtml(field.placeholder || '')}"
+              data-question-id="${safeQuestionId}"
+              data-field="${safeFieldKey}"
             >
           </div>
         `;
@@ -265,17 +292,17 @@ const QuestionRenderer = {
       case 'dropdown':
         const isInlineDropdown = field.layout === 'inline';
         return `
-          <div class="compound-field ${isInlineDropdown ? 'inline-field' : ''} ${hiddenClass}" data-field-key="${field.key}">
-            <label class="input-label">${field.label}</label>
+          <div class="compound-field ${isInlineDropdown ? 'inline-field' : ''} ${hiddenClass}" data-field-key="${safeFieldKey}">
+            <label class="input-label">${safeFieldLabel}</label>
             <select 
               class="input dropdown-input" 
-              data-question-id="${questionId}"
-              data-field="${field.key}"
+              data-question-id="${safeQuestionId}"
+              data-field="${safeFieldKey}"
             >
               <option value="">Select...</option>
               ${field.options.map(option => `
-                <option value="${option.value}" ${value === option.value ? 'selected' : ''}>
-                  ${option.label}
+                <option value="${this.escapeHtml(option.value)}" ${value === option.value ? 'selected' : ''}>
+                  ${this.escapeHtml(option.label)}
                 </option>
               `).join('')}
             </select>
@@ -284,30 +311,30 @@ const QuestionRenderer = {
 
       case 'short_text':
         return `
-          <div class="compound-field ${hiddenClass}" data-field-key="${field.key}">
-            <label class="input-label">${field.label}</label>
+          <div class="compound-field ${hiddenClass}" data-field-key="${safeFieldKey}">
+            <label class="input-label">${safeFieldLabel}</label>
             <input 
               type="text" 
               class="input" 
-              value="${value}"
-              placeholder="${field.placeholder || 'Type here...'}"
-              data-question-id="${questionId}"
-              data-field="${field.key}"
+              value="${this.escapeHtml(value)}"
+              placeholder="${this.escapeHtml(field.placeholder || 'Type here...')}"
+              data-question-id="${safeQuestionId}"
+              data-field="${safeFieldKey}"
             >
           </div>
         `;
 
       case 'free_text':
         return `
-          <div class="compound-field ${hiddenClass}" data-field-key="${field.key}">
-            <label class="input-label">${field.label}</label>
+          <div class="compound-field ${hiddenClass}" data-field-key="${safeFieldKey}">
+            <label class="input-label">${safeFieldLabel}</label>
             <textarea 
               class="input textarea" 
-              placeholder="${field.placeholder || 'Share your thoughts...'}"
-              data-question-id="${questionId}"
-              data-field="${field.key}"
+              placeholder="${this.escapeHtml(field.placeholder || 'Share your thoughts...')}"
+              data-question-id="${safeQuestionId}"
+              data-field="${safeFieldKey}"
               rows="3"
-            >${value}</textarea>
+            >${this.escapeHtml(value)}</textarea>
           </div>
         `;
 
@@ -323,30 +350,30 @@ const QuestionRenderer = {
         const sortedOptions = [...selectedOptions, ...unselectedOptions];
 
         return `
-          <div class="compound-field ${hiddenClass}" data-field-key="${field.key}">
-            <label class="input-label">${field.label}</label>
+          <div class="compound-field ${hiddenClass}" data-field-key="${safeFieldKey}">
+            <label class="input-label">${safeFieldLabel}</label>
             <p class="ranked-instructions">Check to select, then drag (or long-press on mobile) to reorder your priorities. Top = most important.</p>
-            <div class="ranked-cards-list" data-question-id="${questionId}" data-field="${field.key}">
+            <div class="ranked-cards-list" data-question-id="${safeQuestionId}" data-field="${safeFieldKey}">
               ${sortedOptions.map(option => {
           const isSelected = rankedValues.includes(option.value);
           const rank = isSelected ? rankedValues.indexOf(option.value) + 1 : null;
           return `
                   <div class="ranked-card ${isSelected ? 'ranked-card--selected' : ''}" 
-                       data-value="${option.value}" 
+                       data-value="${this.escapeHtml(option.value)}" 
                        draggable="${isSelected}">
                     <label class="ranked-card-checkbox">
                       <input 
                         type="checkbox" 
                         class="checkbox-input ranked-checkbox" 
-                        value="${option.value}"
+                        value="${this.escapeHtml(option.value)}"
                         ${isSelected ? 'checked' : ''}
-                        data-question-id="${questionId}"
-                        data-field="${field.key}"
+                        data-question-id="${safeQuestionId}"
+                        data-field="${safeFieldKey}"
                       >
                       <span class="checkbox-custom"></span>
                     </label>
                     ${isSelected ? `<span class="ranked-card-rank">${rank}</span>` : ''}
-                    <span class="ranked-card-label">${option.label}</span>
+                    <span class="ranked-card-label">${this.escapeHtml(option.label)}</span>
                     ${isSelected ? `<span class="ranked-card-handle" title="Drag to reorder">⠿</span>` : ''}
                   </div>
                 `;
@@ -384,8 +411,15 @@ const QuestionRenderer = {
     }
 
     // Handle "includes" condition (for multi-select, check if array includes value)
-    if (condition.includes !== undefined && Array.isArray(targetFieldValue)) {
-      return targetFieldValue.includes(condition.includes);
+    if (condition.includes !== undefined) {
+      if (Array.isArray(targetFieldValue)) {
+        return targetFieldValue.includes(condition.includes);
+      }
+      // Support single-select fields that use includes for parity with multi-select.
+      if (typeof targetFieldValue === 'string') {
+        return targetFieldValue === condition.includes;
+      }
+      return false;
     }
 
     // Default to visible if condition format is unknown
@@ -400,7 +434,7 @@ const QuestionRenderer = {
       <div class="examples-block">
         <div class="examples-title">💡 Example responses:</div>
         <ul class="examples-list">
-          ${examples.map(ex => `<li>${ex}</li>`).join('')}
+          ${examples.map(ex => `<li>${this.escapeHtml(ex)}</li>`).join('')}
         </ul>
       </div>
     `;
@@ -415,6 +449,9 @@ const QuestionRenderer = {
    */
   renderReviewCard(question, response, status = 'unanswered', options = {}) {
     const needsReview = options.needsReview || false;
+    const safeQuestionId = this.escapeHtml(question.id);
+    const safeTitle = this.escapeHtml(question.title);
+    const safeAnswer = this.escapeHtml(this.formatAnswer(question, response));
 
     // Override icon and class if question needs import review
     let statusIcon, statusClass;
@@ -437,14 +474,14 @@ const QuestionRenderer = {
     }
 
     return `
-      <div class="review-card ${statusClass}" data-question-id="${question.id}">
+      <div class="review-card ${statusClass}" data-question-id="${safeQuestionId}">
         <div class="review-card-header">
           <span class="review-card-number">Q${question.order}</span>
           <span class="review-card-status" aria-label="${needsReview ? 'needs review' : status}">${statusIcon}</span>
         </div>
-        <div class="review-card-title">${question.title}</div>
+        <div class="review-card-title">${safeTitle}</div>
         ${status === 'answered' ? `
-          <div class="review-card-answer">${this.formatAnswer(question, response)}</div>
+          <div class="review-card-answer">${safeAnswer}</div>
         ` : ''}
         ${needsReview ? '<div class="review-card-warning">Import may need verification</div>' : ''}
       </div>
@@ -459,12 +496,12 @@ const QuestionRenderer = {
 
     switch (question.type) {
       case 'single_select':
-        const option = question.options.find(o => o.value === response.selected_value);
+        const option = (question.options || []).find(o => o.value === response.selected_value);
         return option ? option.label : response.selected_value || '';
 
       case 'multi_select':
         const labels = (response.selected_values || []).map(v => {
-          const opt = question.options.find(o => o.value === v);
+          const opt = (question.options || []).find(o => o.value === v);
           return opt ? opt.label : v;
         });
         return labels.join(', ');

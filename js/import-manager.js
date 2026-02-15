@@ -16,6 +16,13 @@ const ImportManager = {
      * @returns {Promise<Object>} Parsed data with name, mode, questionCount, responses.
      */
     async parseFile(file) {
+        // Guard against malformed/oversized inputs from edited files.
+        // Exported files from this app are much smaller than this ceiling.
+        const MAX_IMPORT_SIZE_BYTES = 5 * 1024 * 1024;
+        if (file.size > MAX_IMPORT_SIZE_BYTES) {
+            throw new Error('File is too large. Please import a file under 5MB.');
+        }
+
         const text = await file.text();
         const fileName = file.name.toLowerCase();
 
@@ -81,6 +88,7 @@ const ImportManager = {
                 name,
                 mode,
                 questionCount,
+                meta: data.meta || {},
                 artifactId,
                 stats: data.stats || {},
                 responses: data.responses,
@@ -453,11 +461,21 @@ const ImportManager = {
             case 'compound':
                 // Format all non-empty fields
                 const parts = [];
+                const processedFields = new Set();
                 Object.entries(response).forEach(([key, val]) => {
                     if (val && key !== 'notes') {
                         // Find the field definition to get the label and options
                         // Robust lookup: match by key OR label (in case import uses labels as keys)
                         const fieldDef = question.fields ? question.fields.find(f => f.key === key || f.label === key) : null;
+                        const canonicalKey = fieldDef ? fieldDef.key : key;
+
+                        // If both canonical key and label key exist in payload, prefer canonical key once.
+                        if (fieldDef && key !== canonicalKey && Object.prototype.hasOwnProperty.call(response, canonicalKey)) {
+                            return;
+                        }
+                        if (processedFields.has(canonicalKey)) {
+                            return;
+                        }
 
                         // Use field label if available, otherwise capitalize key
                         // Cleaning the key for display if no label: frequency -> Frequency
@@ -489,6 +507,7 @@ const ImportManager = {
                         // Only add if we have a value
                         if (displayVal !== null && displayVal !== undefined && displayVal !== '') {
                             parts.push(`${displayKey}: ${displayVal}`);
+                            processedFields.add(canonicalKey);
                         }
                     }
                 });

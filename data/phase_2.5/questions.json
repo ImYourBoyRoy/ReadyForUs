@@ -837,7 +837,10 @@
         "Communication is generally good + We handle conflict better than before + We support each other under stress - We can bring up issues without spiraling and we recover faster.",
         "Affection and warmth + Shared values feel strong + Spiritual connection (if relevant) - The day-to-day feels warm and aligned, not forced.",
         "Other (write in) - What is working is very specific to us (for example, we are great when we are in person but struggle over text)."
-      ]
+      ],
+      "validation": {
+        "max_selected": 10
+      }
     },
     "q07": {
       "id": "q07",
@@ -966,43 +969,9 @@
       "order": 8,
       "title": "Fun and Friendship",
       "prompt": "Rank these from most important to least important for keeping your relationship fun and connected. This helps you focus on what actually matters.",
-      "type": "ranked_select",
-      "options": [
-        {
-          "value": "spontaneous_time",
-          "label": "Spontaneous hangout time"
-        },
-        {
-          "value": "planned_dates",
-          "label": "Planned dates and outings"
-        },
-        {
-          "value": "shared_hobbies",
-          "label": "Shared hobbies or activities"
-        },
-        {
-          "value": "adventures",
-          "label": "New adventures or experiences"
-        },
-        {
-          "value": "just_talking",
-          "label": "Just talking and laughing"
-        },
-        {
-          "value": "low_key_time",
-          "label": "Low-key time at home together"
-        },
-        {
-          "value": "physical_activity",
-          "label": "Physical activity together"
-        },
-        {
-          "value": "creative_projects",
-          "label": "Creative or building projects"
-        }
-      ],
+      "type": "compound",
       "answer_schema": {
-        "ranked_values": [],
+        "fun_friendship_ranked": [],
         "notes": ""
       },
       "tags": {
@@ -1010,6 +979,55 @@
           "full"
         ]
       },
+      "fields": [
+        {
+          "key": "fun_friendship_ranked",
+          "label": "Select and rank from most to least important",
+          "type": "ranked_select",
+          "options": [
+            {
+              "value": "spontaneous_time",
+              "label": "Spontaneous hangout time"
+            },
+            {
+              "value": "planned_dates",
+              "label": "Planned dates and outings"
+            },
+            {
+              "value": "shared_hobbies",
+              "label": "Shared hobbies or activities"
+            },
+            {
+              "value": "adventures",
+              "label": "New adventures or experiences"
+            },
+            {
+              "value": "just_talking",
+              "label": "Just talking and laughing"
+            },
+            {
+              "value": "low_key_time",
+              "label": "Low-key time at home together"
+            },
+            {
+              "value": "physical_activity",
+              "label": "Physical activity together"
+            },
+            {
+              "value": "creative_projects",
+              "label": "Creative or building projects"
+            }
+          ],
+          "validation": {
+            "max_selected": 8
+          }
+        },
+        {
+          "key": "notes",
+          "label": "Notes (optional)",
+          "type": "free_text"
+        }
+      ],
       "examples": [
         "Ranked: Just talking and laughing, Low-key time at home together, Planned dates and outings, Shared hobbies or activities, New adventures or experiences, Spontaneous hangout time, Physical activity together, Creative or building projects.",
         "Ranked: Planned dates and outings, New adventures or experiences, Shared hobbies or activities, Physical activity together, Spontaneous hangout time, Just talking and laughing, Low-key time at home together, Creative or building projects.",
@@ -1687,7 +1705,10 @@
         "I get curious and ask questions - Even if it stings, I try to understand what they experienced and what they need next.",
         "Other - My pattern is specific (for example, I use humor or I leave the room)."
       ],
-      "max": 5
+      "max": 5,
+      "validation": {
+        "max_selected": 9
+      }
     },
     "q19": {
       "id": "q19",
@@ -1990,7 +2011,10 @@
         "None of these are happening - We have disagreements, but we keep it respectful.",
         "Prefer not to say - I am not ready to answer this honestly yet."
       ],
-      "max": 7
+      "max": 7,
+      "validation": {
+        "max_selected": 11
+      }
     },
     "q23": {
       "id": "q23",
@@ -3246,7 +3270,10 @@
         "Feels balanced - We both carry the load and we talk about it when it starts drifting.",
         "Not sure - The load shifts week to week, and I cannot tell if it is fair or just life."
       ],
-      "max": 7
+      "max": 7,
+      "validation": {
+        "max_selected": 10
+      }
     },
     "q38": {
       "id": "q38",
@@ -3798,7 +3825,10 @@
         "Threats, intimidation, or breaking things + Any physical aggression - This is beyond normal conflict and needs outside support immediately.",
         "Prefer not to say - I do not want to answer this, but I want the tool to proceed gently."
       ],
-      "max": 5
+      "max": 5,
+      "validation": {
+        "max_selected": 11
+      }
     },
     "q45": {
       "id": "q45",

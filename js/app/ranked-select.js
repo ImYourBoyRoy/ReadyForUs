@@ -11,6 +11,16 @@
 
 const AppRankedSelect = {
     /**
+     * Get max selections allowed for a ranked_select field.
+     * @param {Object} field - Ranked field definition.
+     * @returns {number|null} Max allowed selections, or null if unlimited.
+     */
+    getRankedSelectionLimit(field) {
+        if (!field) return null;
+        return field.max ?? field.validation?.max_selected ?? null;
+    },
+
+    /**
      * Set up ranked-select drag-and-drop handlers for a question.
      * @param {Object} question - Question definition.
      */
@@ -38,8 +48,17 @@ const AppRankedSelect = {
                     const value = e.target.value;
                     let response = QuestionnaireEngine.getResponse(questionId);
                     if (!response[fieldKey]) response[fieldKey] = [];
+                    const selectionLimit = this.getRankedSelectionLimit(field);
 
                     if (e.target.checked) {
+                        const hasLimit = Number.isInteger(selectionLimit) && selectionLimit > 0;
+                        const alreadySelected = response[fieldKey].includes(value);
+                        if (hasLimit && !alreadySelected && response[fieldKey].length >= selectionLimit) {
+                            e.target.checked = false;
+                            this.showToast?.(`Select up to ${selectionLimit} items to rank.`, 'info', 2200);
+                            return;
+                        }
+
                         // Add to ranking (at end)
                         if (!response[fieldKey].includes(value)) {
                             response[fieldKey].push(value);
@@ -57,6 +76,9 @@ const AppRankedSelect = {
                     this.updateProgress();
                 });
             });
+
+            // Support card-body tap-to-toggle on first render as well.
+            this.attachRankedCardClickHandlers(cardsList);
 
             // Set up unified handlers
             this.setupUnifiedRankedHandlers(cardsList, questionId, fieldKey, field);
@@ -106,8 +128,17 @@ const AppRankedSelect = {
                 const value = e.target.value;
                 let response = QuestionnaireEngine.getResponse(questionId);
                 if (!response[fieldKey]) response[fieldKey] = [];
+                const selectionLimit = this.getRankedSelectionLimit(field);
 
                 if (e.target.checked) {
+                    const hasLimit = Number.isInteger(selectionLimit) && selectionLimit > 0;
+                    const alreadySelected = response[fieldKey].includes(value);
+                    if (hasLimit && !alreadySelected && response[fieldKey].length >= selectionLimit) {
+                        e.target.checked = false;
+                        this.showToast?.(`Select up to ${selectionLimit} items to rank.`, 'info', 2200);
+                        return;
+                    }
+
                     if (!response[fieldKey].includes(value)) {
                         response[fieldKey].push(value);
                     }
@@ -122,7 +153,16 @@ const AppRankedSelect = {
             });
         });
 
-        // Click anywhere on card to toggle selection (except on checkbox itself)
+        this.attachRankedCardClickHandlers(cardsList);
+
+        this.setupUnifiedRankedHandlers(cardsList, questionId, fieldKey, field);
+    },
+
+    /**
+     * Attach card-level click handlers so tapping card bodies toggles checkboxes.
+     * @param {HTMLElement} cardsList - Ranked cards list element.
+     */
+    attachRankedCardClickHandlers(cardsList) {
         cardsList.querySelectorAll('.ranked-card').forEach(card => {
             card.addEventListener('click', (e) => {
                 // Ignore if this click was part of a drag operation
@@ -144,8 +184,6 @@ const AppRankedSelect = {
                 }
             });
         });
-
-        this.setupUnifiedRankedHandlers(cardsList, questionId, fieldKey, field);
     },
 
     /**

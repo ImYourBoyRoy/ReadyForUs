@@ -35,6 +35,30 @@ python scripts/validate_prompts.py --phase phase_X
 
 ---
 
+## ✅ One-Command Quality Gate (Pre-Push)
+
+Run the consolidated checker when you want a full confidence sweep:
+
+```bash
+# Standard full sweep
+python scripts/quality_gate.py
+
+# Reset exports first, then regenerate + validate
+python scripts/quality_gate.py --clean-exports
+```
+
+What it runs:
+- Questions export regeneration
+- Schema/manifest/prompts validation
+- Manifest ID integrity checks
+- Other-field/schema audits
+- Per-phase compliance checks
+- Lite/full audit
+- Deep integrity scan
+- Prompt formatting smoke test (if Node is installed)
+
+---
+
 ## 🚀 Agentic Tools (AI-Optimized)
 
 ### section_manager.py - Section CRUD Operations

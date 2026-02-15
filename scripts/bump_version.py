@@ -15,7 +15,7 @@ Example:
 Files Updated:
     - js/html-loader.js (CACHE_VERSION)
     - js/data-loader.js (CACHE_VERSION)
-    - js/sw.js (CACHE_NAME, STATIC_ASSETS)
+    - js/sw.js (APP_VERSION used by cache name and precache URLs)
     - index.html (CSS/JS links)
 """
 
@@ -49,15 +49,9 @@ def bump_version(new_version):
         },
         {
             'path': 'js/sw.js',
-            'pattern': r"(const CACHE_NAME = 'readyforus-v)([\d\.]+)(['\"];)",
+            'pattern': r"(const APP_VERSION = ['\"])([\d\.]+)(['\"])",
             'replacement': f"\\g<1>{new_version}\\g<3>",
-            'desc': 'Service Worker CACHE_NAME'
-        },
-        {
-            'path': 'js/sw.js',
-            'pattern': r"(\?v=)([\d\.]+)(['\"])",  # Matches ?v=x.y.z in asset list
-            'replacement': f"\\g<1>{new_version}\\g<3>",
-            'desc': 'Service Worker Assets'
+            'desc': 'Service Worker APP_VERSION'
         },
         {
             'path': 'index.html',

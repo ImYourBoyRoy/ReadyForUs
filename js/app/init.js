@@ -133,6 +133,9 @@ const AppInit = {
         document.getElementById('btn-view-ai-prompt')?.addEventListener('click', () => {
             ExportManager.showIndividualPromptRaw({ participantName: this.getParticipantName() });
         });
+        document.getElementById('btn-view-raw-prompt')?.addEventListener('click', () => {
+            ExportManager.showIndividualPromptRaw({ participantName: this.getParticipantName() });
+        });
         document.getElementById('btn-view-results')?.addEventListener('click', () => {
             ExportManager.showResultsRaw({ participantName: this.getParticipantName() });
         });
@@ -187,8 +190,22 @@ const AppInit = {
         });
 
         // Question input delegation
-        document.getElementById('question-container')?.addEventListener('change', (e) => this.handleInputChange(e));
-        document.getElementById('question-container')?.addEventListener('input', (e) => this.handleInputChange(e));
+        const questionContainer = document.getElementById('question-container');
+        questionContainer?.addEventListener('change', (e) => this.handleInputChange(e));
+        questionContainer?.addEventListener('input', (e) => {
+            const target = e.target;
+            if (!(target instanceof HTMLElement)) return;
+
+            // Avoid duplicate processing: input events for checkboxes/radios are
+            // already handled by change handlers.
+            if (
+                target.matches('textarea') ||
+                target.matches('input[type="text"]') ||
+                target.matches('input[type="number"]')
+            ) {
+                this.handleInputChange(e);
+            }
+        });
 
         // Review card clicks
         document.getElementById('review-grid')?.addEventListener('click', (e) => {
@@ -215,12 +232,6 @@ const AppInit = {
                     this.updateModeToggle(mode);
                 }
             });
-        });
-
-        // Dashboard button
-        document.getElementById('btn-dashboard')?.addEventListener('click', () => {
-            this.showView('dashboard');
-            this.renderDashboard();
         });
 
         // About page - Back to Dashboard

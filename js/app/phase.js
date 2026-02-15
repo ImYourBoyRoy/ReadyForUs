@@ -91,8 +91,8 @@ const AppPhase = {
             return `<option value="${phase.id}" ${phase.id === currentPhase?.id ? 'selected' : ''}>${label}</option>`;
         }).join('');
 
-        // Add change event listener
-        phaseSwitcher.addEventListener('change', (e) => this.changePhase(e.target.value));
+        // Bind a single handler (avoids duplicate listeners after repopulation)
+        phaseSwitcher.onchange = (e) => this.changePhase(e.target.value);
     },
 
     /**
@@ -137,7 +137,7 @@ const AppPhase = {
 
             // Reset the questionnaire engine for new phase  
             const savedMode = StorageManager.loadMode();
-            QuestionnaireEngine.init(savedMode);
+            await QuestionnaireEngine.init(savedMode);
             this.updateModeDisplay();
 
             // Check for resumable progress in this phase

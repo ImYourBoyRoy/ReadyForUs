@@ -20,6 +20,8 @@ import json
 import glob
 import os
 import sys
+import argparse
+import shutil
 
 # ANSI Colors
 GREEN = "\033[92m"
@@ -56,15 +58,81 @@ def format_fields(fields, indent_level=2):
              lines.append(format_options(f['options'], indent_level + 1))
     return "\n".join(lines)
 
+def format_manifests(manifests):
+    lines = []
+    lines.append("### MANIFESTS")
+    lines.append("-" * 40)
+    for key, data in manifests.items():
+        title = data.get('title', key)
+        q_ids = data.get('question_ids', [])
+        lines.append(f"MANIFEST: {title} ({key})")
+        lines.append(f"  Count: {len(q_ids)}")
+        # nice to print them, but might be too long? user asked for it.
+        # Let's print them in a compact way
+        lines.append(f"  IDs: {', '.join(q_ids)}")
+        lines.append("")
+    return "\n".join(lines)
+
+def format_sections_meta(sections, questions):
+    lines = []
+    lines.append("### SECTIONS METADATA")
+    lines.append("-" * 40)
+    
+    # Sort questions for consistent display
+    sorted_qs = sorted(questions.values(), key=lambda x: x.get('order', 999))
+    
+    for s in sections:
+        sid = s.get('id')
+        title = s.get('title')
+        order = s.get('order')
+        lines.append(f"- [{sid}] {title} (Order: {order})")
+        
+        # List questions in this section
+        sec_qs = [q for q in sorted_qs if q.get('section_id') == sid]
+        for q in sec_qs:
+            qid = q.get('id')
+            qtitle = q.get('title', 'Untitled')
+            lines.append(f"    - {qid}: {qtitle}")
+            
+    lines.append("")
+    return "\n".join(lines)
+
+def format_ui_hints(hints):
+    if not hints: return ""
+    lines = []
+    lines.append("### UI HINTS")
+    lines.append("-" * 40)
+    lines.append(json.dumps(hints, indent=2))
+    lines.append("")
+    return "\n".join(lines)
+
 def convert_to_text(data, phase_name):
     lines = []
     lines.append("=" * 80)
     lines.append(f"PHASE: {phase_name.upper()}")
     lines.append("=" * 80)
     lines.append("")
+    
+    questions = data.get("questions", {}) # Move up for access
+
+    # 1. Manifests
+    manifests = data.get("manifests", {})
+    lines.append(format_manifests(manifests))
+    
+    # 2. Sections Metadata
+    sections = data.get("sections", [])
+    lines.append(format_sections_meta(sections, questions))
+    
+    # 3. UI Hints
+    ui_hints = data.get("ui_hints", {})
+    lines.append(format_ui_hints(ui_hints))
+
+    lines.append("=" * 80)
+    lines.append("QUESTIONS LIST")
+    lines.append("=" * 80)
 
     questions = data.get("questions", {})
-    sections = data.get("sections", [])
+    lite_ids = set(manifests.get("lite", {}).get("question_ids", []))
     
     # Map section IDs to titles for clearer grouping
     section_map = {s['id']: s.get('title', 'Unknown Section') for s in sections}
@@ -80,7 +148,7 @@ def convert_to_text(data, phase_name):
             current_section = sec_id
             sec_title = section_map.get(sec_id, sec_id)
             lines.append("")
-            lines.append(f"### SECTION: {sec_title}")
+            lines.append(f"### SECTION: {sec_title} ({sec_id})")
             lines.append("-" * 40)
             lines.append("")
             
@@ -89,7 +157,13 @@ def convert_to_text(data, phase_name):
         prompt = q.get('prompt', '')
         qtype = q.get('type', 'unknown')
         
-        lines.append(f"Q{q.get('order', 0)} ({qid}) [{qtype}]: {title}")
+        # Determine Mode Availability
+        modes = ["FULL"]
+        if qid in lite_ids:
+            modes.append("LITE")
+        mode_str = "/".join(sorted(modes, reverse=True)) # LITE/FULL or just FULL
+        
+        lines.append(f"Q{q.get('order', 0)} ({qid}) [{mode_str}] [{qtype}]: {title}")
         lines.append(f"PROMPT: {prompt}")
         
         if 'options' in q:
@@ -105,12 +179,23 @@ def convert_to_text(data, phase_name):
     return "\n".join(lines)
 
 def main():
+    parser = argparse.ArgumentParser(description="Export all phase questions to human-readable text files.")
+    parser.add_argument(
+        "--clean",
+        action="store_true",
+        help="Delete existing exports/questions output before regenerating."
+    )
+    args = parser.parse_args()
+
     print(f"{BOLD}Starting Formatted Questions Export...{RESET}\n")
     
     base_dir = os.path.join(os.path.dirname(__file__), "..")
     data_dir = os.path.join(base_dir, "data")
     export_dir = os.path.join(base_dir, "exports", "questions")
-    
+
+    if args.clean and os.path.isdir(export_dir):
+        shutil.rmtree(export_dir)
+
     os.makedirs(export_dir, exist_ok=True)
     
     pattern = os.path.join(data_dir, "phase_*", "questions.json")

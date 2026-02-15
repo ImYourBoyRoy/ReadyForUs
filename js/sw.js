@@ -1,192 +1,248 @@
 // ./js/sw.js
 /**
  * Service Worker for Ready for Us PWA
- * 
- * Provides aggressive caching for all static assets to enable:
- * - Instant subsequent page loads (cache-first strategy)
- * - Offline functionality
- * - Reduced mobile network latency impact
- * 
- * Cache Strategy: Cache-first with network fallback
- * - Static assets served from cache immediately
- * - Network requests made in background to update cache
+ *
+ * Strategy:
+ * - Install quickly with a core app shell cache.
+ * - Warm additional assets (including all phase data) in the background.
+ * - Network-first for navigations, cache-first stale-while-revalidate for static/data requests.
  */
 
-const CACHE_NAME = 'readyforus-v2.5.0';
+const APP_VERSION = '2.5.5';
+const CACHE_NAME = `readyforus-v${APP_VERSION}`;
 
-// Assets to cache on install (paths relative to site root)
-const STATIC_ASSETS = [
+// Keep install lightweight so first-run UX is not delayed.
+const CORE_ASSETS = [
     '../',
-    '../index.html?v=2.5.0',
-    '../manifest.json?v=2.5.0',
+    `../index.html?v=${APP_VERSION}`,
+    `../manifest.json?v=${APP_VERSION}`,
+
     // CSS
-    '../css/variables.css?v=2.5.0',
-    '../css/base.css?v=2.5.0',
-    '../css/components.css?v=2.5.0',
-    '../css/animations.css?v=2.5.0',
-    '../css/responsive.css?v=2.5.0',
-    '../css/app.css?v=2.5.0',
-    '../css/dashboard.css?v=2.5.0',
-    '../css/toast.css?v=2.5.0',
-    '../css/comparison.css?v=2.5.0',
-    '../css/about.css?v=2.5.0',
-    '../css/themes/light.css?v=2.5.0',
-    '../css/themes/dark.css?v=2.5.0',
-    '../css/themes/warm.css?v=2.5.0',
-    '../css/themes/nature.css?v=2.5.0',
+    `../css/variables.css?v=${APP_VERSION}`,
+    `../css/base.css?v=${APP_VERSION}`,
+    `../css/components.css?v=${APP_VERSION}`,
+    `../css/animations.css?v=${APP_VERSION}`,
+    `../css/responsive.css?v=${APP_VERSION}`,
+    `../css/app.css?v=${APP_VERSION}`,
+    `../css/dashboard.css?v=${APP_VERSION}`,
+    `../css/toast.css?v=${APP_VERSION}`,
+    `../css/comparison.css?v=${APP_VERSION}`,
+    `../css/about.css?v=${APP_VERSION}`,
+    `../css/complete.css?v=${APP_VERSION}`,
+    `../css/ai-analysis.css?v=${APP_VERSION}`,
+    `../css/ai-analysis-transparency.css?v=${APP_VERSION}`,
+    `../css/themes/light.css?v=${APP_VERSION}`,
+    `../css/themes/dark.css?v=${APP_VERSION}`,
+    `../css/themes/warm.css?v=${APP_VERSION}`,
+    `../css/themes/nature.css?v=${APP_VERSION}`,
+
     // JS - Core modules
-    './html-loader.js?v=2.5.0',
-    './storage-manager.js?v=2.5.0',
-    './data-loader.js?v=2.5.0',
-    './theme-manager.js?v=2.5.0',
-    './question-renderer.js?v=2.5.0',
-    './questionnaire-engine.js?v=2.5.0',
-    './export-manager.js?v=2.5.0',
-    './import-manager.js?v=2.5.0',
-    './url-router.js?v=2.5.0',
-    './pwa-install.js?v=2.5.0',
+    `./html-loader.js?v=${APP_VERSION}`,
+    `./storage-manager.js?v=${APP_VERSION}`,
+    `./data-loader.js?v=${APP_VERSION}`,
+    `./theme-manager.js?v=${APP_VERSION}`,
+    `./question-renderer.js?v=${APP_VERSION}`,
+    `./questionnaire-engine.js?v=${APP_VERSION}`,
+    `./export-manager.js?v=${APP_VERSION}`,
+    `./import-manager.js?v=${APP_VERSION}`,
+    `./url-router.js?v=${APP_VERSION}`,
+    `./pwa-install.js?v=${APP_VERSION}`,
+
     // JS - App modules
-    './app/core.js?v=2.5.0',
-    './app/utilities.js?v=2.5.0',
-    './app/accessibility.js?v=2.5.0',
-    './app/toast.js?v=2.5.0',
-    './app/bookmarks.js?v=2.5.0',
-    './app/views.js?v=2.5.0',
-    './app/questionnaire.js?v=2.5.0',
-    './app/navigation.js?v=2.5.0',
-    './app/export.js?v=2.5.0',
-    './app/phase.js?v=2.5.0',
-    './app/progress.js?v=2.5.0',
-    './app/ranked-select.js?v=2.5.0',
-    './app/dashboard.js?v=2.5.0',
-    './app/nav-menu.js?v=2.5.0',
-    './app/import-modal.js?v=2.5.0',
-    './app/init.js?v=2.5.0',
-    './debug-overlay.js?v=2.5.0',
+    `./app/core.js?v=${APP_VERSION}`,
+    `./app/utilities.js?v=${APP_VERSION}`,
+    `./app/accessibility.js?v=${APP_VERSION}`,
+    `./app/toast.js?v=${APP_VERSION}`,
+    `./app/bookmarks.js?v=${APP_VERSION}`,
+    `./app/views.js?v=${APP_VERSION}`,
+    `./app/questionnaire.js?v=${APP_VERSION}`,
+    `./app/navigation.js?v=${APP_VERSION}`,
+    `./app/export.js?v=${APP_VERSION}`,
+    `./app/phase.js?v=${APP_VERSION}`,
+    `./app/progress.js?v=${APP_VERSION}`,
+    `./app/ranked-select.js?v=${APP_VERSION}`,
+    `./app/dashboard.js?v=${APP_VERSION}`,
+    `./app/nav-menu.js?v=${APP_VERSION}`,
+    `./app/import-modal.js?v=${APP_VERSION}`,
+    `./app/ai-prompts.js?v=${APP_VERSION}`,
+    `./app/results-navigator.js?v=${APP_VERSION}`,
+    `./app/ai-analysis-transparency.js?v=${APP_VERSION}`,
+    `./app/ai-analysis.js?v=${APP_VERSION}`,
+    `./app/init.js?v=${APP_VERSION}`,
+    `./debug-overlay.js?v=${APP_VERSION}`,
+
     // HTML partials
-    '../html/components/navigation.html?v=2.5.0',
-    '../html/components/footer.html?v=2.5.0',
-    '../html/components/toasts.html?v=2.5.0',
-    '../html/views/dashboard.html?v=2.5.0',
-    '../html/views/welcome.html?v=2.5.0',
-    '../html/views/questionnaire.html?v=2.5.0',
-    '../html/views/review.html?v=2.5.0',
-    '../html/views/complete.html?v=2.5.0',
-    '../html/views/comparison.html?v=2.5.0',
-    '../html/views/about.html?v=2.5.0',
-    '../html/modals/import.html?v=2.5.0',
-    '../html/modals/save.html?v=2.5.0',
-    // Data files - phase manifests are discovered dynamically
-    '../data/config.json?v=2.5.0',
-    '../data/phase_0/manifest.json?v=2.5.0',
-    '../data/phase_0/questions.json?v=2.5.0',
-    '../data/phase_0/prompts.json?v=2.5.0',
-    '../data/phase_1/manifest.json?v=2.5.0',
-    '../data/phase_1/questions.json?v=2.5.0',
-    '../data/phase_1/prompts.json?v=2.5.0',
-    '../data/phase_1.5/manifest.json?v=2.5.0',
-    '../data/phase_1.5/questions.json?v=2.5.0',
-    '../data/phase_1.5/prompts.json?v=2.5.0',
-    // Icons
-    '../assets/icons/icon-192.png?v=2.5.0',
-    '../assets/icons/icon-512.png?v=2.5.0',
-    '../assets/icons/apple-touch-icon.png?v=2.5.0',
-    '../assets/icons/favicon.ico?v=2.5.0'
+    `../html/components/navigation.html?v=${APP_VERSION}`,
+    `../html/components/footer.html?v=${APP_VERSION}`,
+    `../html/components/toasts.html?v=${APP_VERSION}`,
+    `../html/views/dashboard.html?v=${APP_VERSION}`,
+    `../html/views/welcome.html?v=${APP_VERSION}`,
+    `../html/views/questionnaire.html?v=${APP_VERSION}`,
+    `../html/views/review.html?v=${APP_VERSION}`,
+    `../html/views/complete.html?v=${APP_VERSION}`,
+    `../html/views/comparison.html?v=${APP_VERSION}`,
+    `../html/views/about.html?v=${APP_VERSION}`,
+    `../html/views/howto.html?v=${APP_VERSION}`,
+    `../html/views/ai-prompts.html?v=${APP_VERSION}`,
+    `../html/views/ai-analysis.html?v=${APP_VERSION}`,
+    `../html/modals/import.html?v=${APP_VERSION}`,
+    `../html/modals/save.html?v=${APP_VERSION}`,
+
+    // Data bootstrap
+    `../data/config.json?v=${APP_VERSION}`,
+    `../data/phase-registry.json?v=${APP_VERSION}`,
+
+    // Icons used by the shell
+    `../assets/icons/icon-192.png?v=${APP_VERSION}`,
+    `../assets/icons/icon-512.png?v=${APP_VERSION}`,
+    `../assets/icons/apple-touch-icon.png?v=${APP_VERSION}`,
+    `../assets/icons/favicon.ico?v=${APP_VERSION}`
 ];
 
-// Install event - cache static assets
-self.addEventListener('install', (event) => {
-    console.log('[SW] Installing service worker...');
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then((cache) => {
-                console.log('[SW] Caching static assets');
-                return cache.addAll(STATIC_ASSETS);
-            })
-            .then(() => {
-                console.log('[SW] Install complete');
-                return self.skipWaiting(); // Activate immediately
-            })
-            .catch((error) => {
-                console.error('[SW] Install failed:', error);
-            })
-    );
-});
+const BACKGROUND_STATIC_ASSETS = [
+    `../assets/icons/favicon-16x16.png?v=${APP_VERSION}`,
+    `../assets/icons/favicon-32x32.png?v=${APP_VERSION}`,
+    `../assets/images/og-preview.jpg?v=${APP_VERSION}`,
+    `../assets/images/og-preview.png?v=${APP_VERSION}`
+];
 
-// Activate event - clean old caches
-self.addEventListener('activate', (event) => {
-    console.log('[SW] Activating service worker...');
-    event.waitUntil(
-        caches.keys()
-            .then((cacheNames) => {
-                return Promise.all(
-                    cacheNames
-                        .filter((name) => name !== CACHE_NAME)
-                        .map((name) => {
-                            console.log('[SW] Deleting old cache:', name);
-                            return caches.delete(name);
-                        })
-                );
-            })
-            .then(() => {
-                console.log('[SW] Activate complete');
-                return self.clients.claim(); // Take control immediately
-            })
-    );
-});
-
-// Fetch event - cache-first strategy
-self.addEventListener('fetch', (event) => {
-    // Skip non-GET requests
-    if (event.request.method !== 'GET') {
-        return;
-    }
-
-    // Skip chrome-extension and other non-http(s) requests
-    if (!event.request.url.startsWith('http')) {
-        return;
-    }
-
-    event.respondWith(
-        caches.match(event.request)
-            .then((cachedResponse) => {
-                if (cachedResponse) {
-                    // Return cached version immediately
-                    // Update cache in background (stale-while-revalidate)
-                    fetchAndCache(event.request);
-                    return cachedResponse;
-                }
-
-                // Not in cache - fetch from network
-                return fetchAndCache(event.request);
-            })
-            .catch(() => {
-                // Offline fallback - return cached index for navigation
-                if (event.request.mode === 'navigate') {
-                    return caches.match('../index.html');
-                }
-                return new Response('Offline', { status: 503 });
-            })
-    );
-});
-
-// Helper: Fetch and update cache
-function fetchAndCache(request) {
-    return fetch(request)
-        .then((response) => {
-            // Don't cache non-ok responses or opaque responses
-            if (!response || response.status !== 200) {
-                return response;
+async function cacheAssets(cache, assets) {
+    const uniqueAssets = [...new Set(assets)];
+    const settled = await Promise.allSettled(
+        uniqueAssets.map(async (asset) => {
+            try {
+                await cache.add(asset);
+            } catch (error) {
+                console.warn('[SW] Failed to precache asset:', asset, error);
             }
+        })
+    );
 
-            // Clone response before caching (response can only be consumed once)
-            const responseClone = response.clone();
+    return settled.filter((result) => result.status === 'fulfilled').length;
+}
 
-            caches.open(CACHE_NAME)
-                .then((cache) => {
-                    cache.put(request, responseClone);
-                });
+async function getPhaseAssets() {
+    let phaseFolders = ['phase_closure', 'phase_0', 'phase_1', 'phase_1.5', 'phase_2', 'phase_2.5'];
 
-            return response;
-        });
+    try {
+        const res = await fetch(`../data/phase-registry.json?v=${APP_VERSION}`, { cache: 'no-store' });
+        if (res.ok) {
+            const registry = await res.json();
+            if (Array.isArray(registry.phases) && registry.phases.length > 0) {
+                phaseFolders = registry.phases;
+            }
+        }
+    } catch (error) {
+        console.warn('[SW] Could not load phase registry for background precache:', error);
+    }
+
+    return phaseFolders.flatMap((folder) => ([
+        `../data/${folder}/manifest.json?v=${APP_VERSION}`,
+        `../data/${folder}/questions.json?v=${APP_VERSION}`,
+        `../data/${folder}/prompts.json?v=${APP_VERSION}`
+    ]));
+}
+
+async function warmBackgroundCache() {
+    try {
+        const cache = await caches.open(CACHE_NAME);
+        const phaseAssets = await getPhaseAssets();
+        await cacheAssets(cache, [...BACKGROUND_STATIC_ASSETS, ...phaseAssets]);
+        console.log('[SW] Background precache complete');
+    } catch (error) {
+        console.warn('[SW] Background precache failed:', error);
+    }
+}
+
+self.addEventListener('install', (event) => {
+    event.waitUntil((async () => {
+        console.log('[SW] Installing:', CACHE_NAME);
+        const cache = await caches.open(CACHE_NAME);
+        await cacheAssets(cache, CORE_ASSETS);
+        await self.skipWaiting();
+    })());
+});
+
+self.addEventListener('activate', (event) => {
+    event.waitUntil((async () => {
+        const keys = await caches.keys();
+        await Promise.all(
+            keys
+                .filter((key) => key !== CACHE_NAME)
+                .map((key) => caches.delete(key))
+        );
+
+        await self.clients.claim();
+        console.log('[SW] Activated:', CACHE_NAME);
+    })());
+
+    // Do not block activation UX on full warmup.
+    warmBackgroundCache();
+});
+
+self.addEventListener('fetch', (event) => {
+    const { request } = event;
+
+    if (request.method !== 'GET') return;
+
+    let requestUrl;
+    try {
+        requestUrl = new URL(request.url);
+    } catch {
+        return;
+    }
+
+    if (!requestUrl.protocol.startsWith('http')) return;
+
+    // Leave cross-origin requests to the browser network stack.
+    if (requestUrl.origin !== self.location.origin) {
+        return;
+    }
+
+    if (request.mode === 'navigate') {
+        event.respondWith((async () => {
+            try {
+                const networkResponse = await fetch(request);
+                if (networkResponse && networkResponse.ok) {
+                    const cache = await caches.open(CACHE_NAME);
+                    cache.put(request, networkResponse.clone());
+                }
+                return networkResponse;
+            } catch {
+                return (
+                    await caches.match(request) ||
+                    await caches.match(`../index.html?v=${APP_VERSION}`) ||
+                    await caches.match('../') ||
+                    new Response('Offline', { status: 503 })
+                );
+            }
+        })());
+        return;
+    }
+
+    event.respondWith((async () => {
+        const cached = await caches.match(request);
+
+        if (cached) {
+            event.waitUntil(fetchAndCache(request));
+            return cached;
+        }
+
+        return fetchAndCache(request);
+    })());
+});
+
+async function fetchAndCache(request) {
+    try {
+        const response = await fetch(request);
+
+        if (response && response.ok) {
+            const cache = await caches.open(CACHE_NAME);
+            cache.put(request, response.clone());
+        }
+
+        return response;
+    } catch (error) {
+        return caches.match(request).then((cached) => cached || new Response('Offline', { status: 503 }));
+    }
 }

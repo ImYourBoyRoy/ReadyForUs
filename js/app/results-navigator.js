@@ -22,6 +22,20 @@ const ResultsNavigator = {
     onSelectionChange: null,
 
     /**
+     * Escape text for safe HTML interpolation.
+     * @param {string} value
+     * @returns {string}
+     */
+    escapeHtml(value) {
+        return String(value ?? '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    },
+
+    /**
      * Initialize the navigator.
      * @param {string} containerId - DOM ID of container element
      * @param {Function} onSelectionChangeFn - Callback when active result ends
@@ -166,6 +180,7 @@ const ResultsNavigator = {
             const activeClass = isActive ? 'active' : '';
             const dateStr = data.importedAt instanceof Date ?
                 data.importedAt.toLocaleDateString() : 'Just now';
+            const safeName = this.escapeHtml(data.name || 'Unknown');
 
             // Format completion %
             const percent = data.stats?.percent ||
@@ -177,7 +192,7 @@ const ResultsNavigator = {
                         ${isActive ? '👉' : '📄'}
                     </div>
                     <div class="result-card-info">
-                        <div class="result-card-name">${data.name || 'Unknown'}</div>
+                        <div class="result-card-name">${safeName}</div>
                         <div class="result-card-meta">
                             ${data.mode === 'full' ? 'Full Mode' : 'Lite Mode'} • ${percent}%
                         </div>

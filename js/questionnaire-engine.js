@@ -85,11 +85,29 @@ const QuestionnaireEngine = {
     },
 
     /**
+     * Determine whether a response field has a meaningful value.
+     * Handles arrays, strings, numbers, booleans, and objects safely.
+     * @param {*} value - Field value.
+     * @returns {boolean}
+     */
+    hasMeaningfulValue(value) {
+        if (Array.isArray(value)) return value.length > 0;
+        if (typeof value === 'string') return value.trim().length > 0;
+        if (typeof value === 'number') return !Number.isNaN(value);
+        if (value && typeof value === 'object') return Object.keys(value).length > 0;
+        return value !== null && value !== undefined;
+    },
+
+    /**
      * Check if current session can be upgraded to full mode.
      * @returns {boolean} True if currently lite and full mode is available.
      */
     canUpgradeToFull() {
-        return this.mode === 'lite';
+        if (this.mode !== 'lite') return false;
+
+        const fullQuestions = DataLoader.getQuestions('full');
+        const liteQuestions = DataLoader.getQuestions('lite');
+        return fullQuestions.length > liteQuestions.length;
     },
 
     /**
@@ -97,11 +115,7 @@ const QuestionnaireEngine = {
      * @returns {number} Count of extra questions.
      */
     getAdditionalQuestionCount() {
-        // Estimate based on currently known total vs hypothetical full total
-        // This is an estimate since we don't load the full set until upgrade
-        // But we can approximate based on loaded metadata if available, 
-        // or just return a generic "more" if not.
-        return "additional"; // Simplified for now, or calculate if data available
+        return this.getAdditionalFullQuestionCount();
     },
 
     /**
@@ -118,17 +132,7 @@ const QuestionnaireEngine = {
         StorageManager.saveSkipped(this.skipped);
 
         // Remove from needsReview if it was flagged (user has now edited it)
-        const phaseId = DataLoader.getCurrentPhaseId();
-        if (phaseId) {
-            const storageKey = `slowbuild_${phaseId}_needsReview`;
-            const needsReview = JSON.parse(localStorage.getItem(storageKey) || '[]');
-            const updatedReview = needsReview.filter(id => id !== questionId);
-
-            if (updatedReview.length !== needsReview.length) {
-                // Question was in the review list - update it
-                localStorage.setItem(storageKey, JSON.stringify(updatedReview));
-            }
-        }
+        StorageManager.clearImportWarningForQuestion(questionId);
     },
 
     /**
@@ -277,11 +281,7 @@ const QuestionnaireEngine = {
                 return !!response.text?.trim();
             case 'compound':
                 // Check if at least one field has a value
-                return Object.keys(response).some(key => {
-                    const val = response[key];
-                    if (Array.isArray(val)) return val.length > 0;
-                    return !!val;
-                });
+                return Object.keys(response).some(key => this.hasMeaningfulValue(response[key]));
             default:
                 return false;
         }
@@ -321,11 +321,7 @@ const QuestionnaireEngine = {
                     answered = !!response.text?.trim();
                     break;
                 case 'compound':
-                    answered = Object.keys(response).some(key => {
-                        const val = response[key];
-                        if (Array.isArray(val)) return val.length > 0;
-                        return !!val;
-                    });
+                    answered = Object.keys(response).some(key => this.hasMeaningfulValue(response[key]));
                     break;
             }
         }
@@ -472,20 +468,6 @@ const QuestionnaireEngine = {
      */
     getAnsweredQuestionIds() {
         return Object.keys(this.responses);
-    },
-
-    /**
-     * Check if user can upgrade from Lite to Full.
-     * @returns {boolean} True if in Lite mode and Full has more questions.
-     */
-    canUpgradeToFull() {
-        if (this.mode !== 'lite') return false;
-
-        const fullQuestions = DataLoader.getQuestions('full');
-        const liteQuestions = DataLoader.getQuestions('lite');
-
-        // Always allow upgrade if Full has more questions
-        return fullQuestions.length > liteQuestions.length;
     },
 
     /**
